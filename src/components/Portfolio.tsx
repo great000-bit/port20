@@ -1,20 +1,23 @@
-import React, { useState } from "react";
-import { ExternalLink } from "lucide-react";
+"use client"
 
-type ProjectCategory = "all" | "design" | "wordpress";
+import { useState } from "react"
+import { ExternalLink } from "lucide-react"
+
+type ProjectCategory = "all" | "design" | "wordpress"
 
 interface Project {
-  id: number;
-  title: string;
-  category: ProjectCategory[];
-  image: string;
-  description: string;
-  tools: string[];
-  link: string;
+  id: number
+  title: string
+  category: ProjectCategory[]
+  image: string
+  description: string
+  tools: string[]
+  link: string
 }
 
 const Portfolio = () => {
-  const [filter, setFilter] = useState<ProjectCategory>("all");
+  const [filter, setFilter] = useState<ProjectCategory>("all")
+  const [showAll, setShowAll] = useState(false)
 
   // Projects array - replace with actual projects
   const projects: Project[] = [
@@ -35,13 +38,7 @@ const Portfolio = () => {
       image: "/bof.jpg",
       description:
         "A nonprofit site focused on education and empowerment. Designed for clarity, credibility, and smooth donor experience.",
-      tools: [
-        "WordPress",
-        "UI/UX",
-        "Nonprofit",
-        "Figma",
-        "Responsive performance",
-      ],
+      tools: ["WordPress", "UI/UX", "Nonprofit", "Figma", "Responsive performance"],
       link: "https://www.bourdillonomijehfoundation.com/",
     },
     {
@@ -84,30 +81,26 @@ const Portfolio = () => {
       tools: ["Figma", "Responsive Design", "UI/UX"],
       link: "https://hairbrosh-ui-kit.vercel.app/",
     },
-  ];
+  ]
 
   // Filter projects based on selected category
-  const filteredProjects = projects.filter((project) =>
-    filter === "all" ? true : project.category.includes(filter)
-  );
+  const filteredProjects = projects.filter((project) => (filter === "all" ? true : project.category.includes(filter)))
+
+  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 3)
 
   // Filter tabs
   const filterOptions: { label: string; value: ProjectCategory }[] = [
     { label: "All", value: "all" },
     { label: "Design", value: "design" },
     { label: "WordPress", value: "wordpress" },
-  ];
+  ]
 
   return (
-    <section
-      id="portfolio"
-      className="py-20 bg-gray-900"
-    >
+    <section id="portfolio" className="py-20 ">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-4 text-white">My Projects</h2>
         <p className="text-gray-400 mt-4 mb-8 max-w-2xl mx-auto text-center">
-          Here are some of my recent projects showcasing my work in WordPress
-          development and product design.
+          Here are some of my recent projects showcasing my work in WordPress development and product design.
         </p>
 
         {/* Filter tabs */}
@@ -115,11 +108,12 @@ const Portfolio = () => {
           {filterOptions.map((option) => (
             <button
               key={option.value}
-              onClick={() => setFilter(option.value)}
+              onClick={() => {
+                setFilter(option.value)
+                setShowAll(false)
+              }}
               className={`py-2 px-6 rounded-full font-medium transition-all duration-300 ${
-                filter === option.value
-                  ? "bg-amber-500 text-black"
-                  : "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                filter === option.value ? "bg-amber-500 text-black" : "bg-gray-800 text-gray-300 hover:bg-gray-700"
               }`}
             >
               {option.label}
@@ -129,21 +123,22 @@ const Portfolio = () => {
 
         {/* Projects grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-          {filteredProjects.map((project) => (
+          {displayedProjects.map((project) => (
             <div
               key={project.id}
-              className="bg-gray-800 rounded-lg overflow-hidden group transition-all duration-300 hover:-translate-y-2"
+              style={{ backgroundColor: "#2B2B2B" }}
+              className="rounded-lg overflow-hidden group transition-all duration-300 hover:-translate-y-2"
             >
               {/* Project image */}
               <div className="relative aspect-video overflow-hidden bg-gray-700">
                 <img
-                  src={project.image}
+                  src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    target.nextElementSibling?.classList.remove('hidden');
+                    const target = e.target as HTMLImageElement
+                    target.style.display = "none"
+                    target.nextElementSibling?.classList.remove("hidden")
                   }}
                 />
                 {/* Fallback placeholder */}
@@ -155,7 +150,8 @@ const Portfolio = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gray-900 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-gray-800"
+                    style={{ backgroundColor: "#2B2B2B" }}
+                    className="text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:opacity-80"
                   >
                     <ExternalLink size={20} />
                   </a>
@@ -165,16 +161,15 @@ const Portfolio = () => {
               {/* Project info */}
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 text-white">{project.title}</h3>
-                <p className="text-gray-400 mb-4 line-clamp-3">
-                  {project.description}
-                </p>
+                <p className="text-gray-400 mb-4 line-clamp-3">{project.description}</p>
 
                 {/* Tools used */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tools.map((tool, index) => (
                     <span
                       key={index}
-                      className="bg-gray-900 text-xs px-3 py-1 rounded-full text-gray-300"
+                      style={{ backgroundColor: "#1F1F1F" }}
+                      className="text-xs px-3 py-1 rounded-full text-gray-300"
                     >
                       {tool}
                     </span>
@@ -193,9 +188,21 @@ const Portfolio = () => {
             </div>
           ))}
         </div>
+
+        {/* View More/View Less button */}
+        {filteredProjects.length > 3 && (
+          <div className="text-center mt-12">
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="bg-amber-500 hover:bg-amber-600 text-black font-medium py-3 px-8 rounded-full transition-all duration-300 hover:scale-105"
+            >
+              {showAll ? "View Less" : "View More"}
+            </button>
+          </div>
+        )}
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Portfolio;
+export default Portfolio
