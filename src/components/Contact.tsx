@@ -25,11 +25,10 @@ const Contact = () => {
     >
       <div className="container mx-auto px-4">
         <h2 className="section-title">
-          Let's Build Something Amazing Together
+          LET'S BUILD SOMETHING EXTRAORDINARY
         </h2>
         <p className="text-portfolioTheme-textAccent mt-4 mb-12 max-w-2xl">
-          Have a project in mind or want to discuss a potential collaboration?
-          Reach out to me through any of the channels below.
+           Ready to transform your vision into a digital reality? Whether you have a specific project in mind or wish to explore a potential collaboration, I invite you to connect with me through any of the channels listed below.
         </p>
 
         <div className="grid md:grid-cols-2 gap-10">

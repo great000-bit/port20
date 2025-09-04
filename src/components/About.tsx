@@ -27,9 +27,7 @@ const About = () => {
           {/* Left column - Bio text */}
           <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <p className="text-lg mb-6 text-portfolioTheme-textAccent">
-              {designer.name} is a 19-year-old Nigerian WordPress Developer and
-              Junior Product Designer with over two years of practical
-              experience in the digital space.
+              {designer.name} is a WordPress Developer, UI/UX Designer, and Digital Product Designer based in Port Harcourt, Nigeria. With a passion for turning concepts into functional, user-centric solutions, I design and develop websites that merge creativity, strategy, and technology. My approach goes beyond visuals. I focus on building experiences that are intuitive, scalable, and future-ready.
             </p>
 
             <p className="text-lg mb-6 text-portfolioTheme-textAccent">

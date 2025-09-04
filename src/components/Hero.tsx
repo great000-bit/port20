@@ -25,7 +25,7 @@ const Hero = () => {
           </h2>
 
           <p className="text-portfolioTheme-textAccent text-lg max-w-xl">
-            I’m Great Emman-wori, a WordPress Developer & UI/UX Designer blending creativity and code to build lovable websites that work beautifully. Whether it’s Elementor, Divi, or Figma, I turn ideas into digital magic. Let's{" "}
+            I’m Great Emman-wori. A creative technologist who blends design and development into seamless digital experiences. From WordPress frameworks like Elementor and Divi to design systems in Figma, I transform ideas into high-impact products that don’t just look good,they work beautifully. Let’s collaborate and bring something exceptional to life. Let's{" "}
             <span className="text-portfolioTheme-accent">collaborate</span> to
             bring something truly exceptional to life.
           </p>
@@ -44,7 +44,7 @@ const Hero = () => {
               Hire Me
             </a>
             <a
-              href="/assets/My Resume.pdf"
+              href="/assets/Great Emman-wori_Resume.latest.pdf"
               download="Great-Emman-Wori-Resume.pdf"
               className="bg-portfolioTheme-accent hover:bg-amber-600 text-portfolioTheme-secondary px-6 py-3 rounded-md font-bold uppercase transition-colors duration-300 flex items-center gap-2"
             >

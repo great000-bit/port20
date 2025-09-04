@@ -39,8 +39,7 @@ const Testimonials = () => {
       <div className="container mx-auto px-4">
         <h2 className="section-title">Listen to my Clients</h2>
         <p className="text-portfolioTheme-textAccent mt-4 mb-12 max-w-2xl">
-          Here's what some of my amazing clients have to say about working
-          together
+          Hear what leading professionals have to say about our collaborations and the results we've achieved.
         </p>
 
         <div className="grid md:grid-cols-2 gap-8">
