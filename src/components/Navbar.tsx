@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -33,13 +32,11 @@ const Navbar = () => {
     <nav className={`fixed top-0 left-0 w-full z-50 py-4 transition-all duration-300 ${scrolled ? 'bg-portfolioTheme-secondary bg-opacity-95 shadow-md' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo with styled period */}
-        <a href="#home" className="text-2xl font-heading font-bold text-portfolioTheme-textMain">
-  <span className="text-portfolioTheme-primary">Creative</span>
-  <span> Emman</span>
-  <span className="text-portfolioTheme-primary">.</span>
-</a>
-
-    
+        <a href="#home" className="text-2xl font-heading font-bold text-portfolioTheme-textMain" aria-label="Home page">
+          <span className="text-portfolioTheme-primary">Creative</span>
+          <span> Emman</span>
+          <span className="text-portfolioTheme-primary">.</span>
+        </a>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8">
@@ -48,6 +45,7 @@ const Navbar = () => {
               <a 
                 href={item.href}
                 className="text-portfolioTheme-textMain hover:text-portfolioTheme-accent transition-colors duration-300 font-medium"
+                aria-label={`${item.name} section`} // Accessibility improvement
               >
                 {item.name}
               </a>
@@ -74,7 +72,8 @@ const Navbar = () => {
                 <a 
                   href={item.href}
                   className="block py-2 text-portfolioTheme-textMain hover:text-portfolioTheme-accent transition-colors duration-300"
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setIsOpen(false)} // Close the menu after click
+                  aria-label={`${item.name} section`} // Accessibility improvement
                 >
                   {item.name}
                 </a>

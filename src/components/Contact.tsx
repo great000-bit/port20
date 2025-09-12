@@ -2,6 +2,7 @@ import { Phone, Mail, Linkedin } from "lucide-react";
 import { useState, FormEvent, useEffect } from "react";
 import { toast } from "sonner";
 import { useForm, ValidationError } from "@formspree/react";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   const id = import.meta.env.VITE_FORMSPREE_ID;
@@ -23,12 +24,17 @@ const Contact = () => {
       id="contact"
       className="section-padding bg-portfolioTheme-secondary"
     >
+      <Helmet>
+        <title>Contact Great Emman-wori | Let's Build Something Extraordinary</title>
+        <meta name="description" content="Ready to transform your vision into a digital reality? Get in touch with Great Emman-wori for WordPress development, UI/UX design, and product design services. Let's collaborate on your next project." />
+      </Helmet>
+
       <div className="container mx-auto px-4">
         <h2 className="section-title">
           LET'S BUILD SOMETHING EXTRAORDINARY
         </h2>
         <p className="text-portfolioTheme-textAccent mt-4 mb-12 max-w-2xl">
-           Ready to transform your vision into a digital reality? Whether you have a specific project in mind or wish to explore a potential collaboration, I invite you to connect with me through any of the channels listed below.
+          Ready to transform your vision into a digital reality? Whether you have a specific project in mind or wish to explore a potential collaboration, I invite you to connect with me through any of the channels listed below.
         </p>
 
         <div className="grid md:grid-cols-2 gap-10">

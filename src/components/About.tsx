@@ -1,4 +1,5 @@
 import { Figma, Framer, Code, Palette } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 const About = () => {
   // Designer data object
@@ -20,6 +21,11 @@ const About = () => {
 
   return (
     <section id="about" className="section-padding bg-portfolioTheme-secondary">
+      <Helmet>
+        <title>About Emmanuel Yusuf | WordPress Developer & Product Designer</title>
+        <meta name="description" content="Learn about Emmanuel Yusuf, a skilled WordPress developer, UI/UX designer, and product designer based in Port Harcourt, Nigeria, with a passion for creating user-centric digital solutions." />
+      </Helmet>
+
       <div className="container mx-auto px-4">
         <h2 className="section-title">About Me</h2>
 

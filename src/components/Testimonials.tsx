@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet";
+
 const Testimonials = () => {
   // Testimonials array
   const testimonials = [
@@ -5,37 +7,62 @@ const Testimonials = () => {
       id: 1,
       name: "YOUTHUP GLOBAL UK",
       position: "CEO AND FOUNDER - YOUTHUP GLOBAL",
-      avatar: "/youth.jpg",
+      avatar: "/youth.webp",
       text: "Creative Emman brought our vision for YouthUp Global Pathways to life with clarity, creativity, and care. His ability to turn complex ideas into a clean, intuitive web experience made the entire process seamless. We now have a platform that truly reflects our mission — empowering youth worldwide.",
     },
     {
       id: 2,
       name: "PROFESSOR BOURDILLION OMIJEH",
       position: "CEO AND FOUNDER - THE BOURDILLION OMIJEH FOUNDATION",
-      avatar: "/bourdillion omijeh.jpg",
+      avatar: "/bourdillion omijeh.webp",
       text: "Great was able to capture the essence of our foundation and transform it into a design that is dependable, contemporary, and cosy. His focus on user experience made the website very user-friendly for our wide range of users.",
     },
     {
       id: 3,
       name: "TRUST-GOD EWUZIEM.",
       position: "Founder, CEO - NEXATRUX",
-      avatar: "/trustgod.jpg",
+      avatar: "/trustgod.webp",
       text: "Great has been instrumental in transforming our digital experiences. His ability to streamline complexities, create aesthetically striking designs, and maintain usability across platforms has enhanced our value delivery, His creative precision and problem-solving approach are unparalleled.",
     },
     {
       id: 4,
       name: "BELLO STYLEZ",
       position: "CEO - BELLOSTYLEZ UNISEX SALOON",
-      avatar: "/bellostylez.png",
+      avatar: "/bellostylez.webp",
       text: "Working with Creative Emman was the best decision for my brand. He captured my vision perfectly, delivered ahead of schedule, and made everything feel effortless. My site now feels like me  stylish, fast, and functional",
     },
   ];
 
   return (
-    <section
-      id="testimonials"
-      className="section-padding bg-portfolioTheme-cardBg"
-    >
+    <section id="testimonials" className="section-padding bg-portfolioTheme-cardBg">
+      <Helmet>
+        <title>What Clients Say | Testimonials from Satisfied Clients</title>
+        <meta
+          name="description"
+          content="Read what clients have to say about their experiences working with Creative Emman. See how his web solutions have made a difference for businesses."
+        />
+        {/* Structured Data for Testimonials */}
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "http://schema.org",
+              "@type": "Review",
+              "author": {
+                "@type": "Person",
+                "name": "YOUTHUP GLOBAL UK"
+              },
+              "reviewBody": "Creative Emman brought our vision for YouthUp Global Pathways to life with clarity, creativity, and care. His ability to turn complex ideas into a clean, intuitive web experience made the entire process seamless.",
+              "reviewRating": {
+                "@type": "Rating",
+                "bestRating": "5",
+                "worstRating": "1",
+                "ratingValue": "5"
+              }
+            }
+          `}
+        </script>
+      </Helmet>
+
       <div className="container mx-auto px-4">
         <h2 className="section-title">Listen to my Clients</h2>
         <p className="text-portfolioTheme-textAccent mt-4 mb-12 max-w-2xl">
@@ -50,13 +77,18 @@ const Testimonials = () => {
               style={{ animationDelay: `${0.15 * index}s` }}
             >
               <div className="flex items-start gap-4">
-                {/* Avatar */}
+                {/* Avatar with WebP support and lazy loading */}
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-portfolioTheme-primary shrink-0">
-                  <img
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    className="w-full h-full object-cover"
-                  />
+                  <picture>
+                    {/* WebP for supported browsers */}
+                    <source srcSet={testimonial.avatar.replace(".webp", ".webp")} type="image/webp" />
+                    <img
+                      src={testimonial.avatar}
+                      alt={`Avatar of ${testimonial.name}`}
+                      className="w-full h-full object-cover"
+                      loading="lazy" // Lazy load for performance
+                    />
+                  </picture>
                 </div>
 
                 {/* Content */}

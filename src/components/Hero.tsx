@@ -1,4 +1,5 @@
 import { Download } from "lucide-react";
+import { Helmet } from "react-helmet";
 
 const Hero = () => {
   return (
@@ -6,6 +7,14 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex items-center pt-16 bg-gradient-to-br from-portfolioTheme-secondary to-portfolioTheme-cardBg"
     >
+      <Helmet>
+        <title>Great Emman-Wori | WordPress Developer & Product Designer</title>
+        <meta
+          name="description"
+          content="I’m Great Emman-Wori, a creative technologist blending design and development into seamless digital experiences. Explore my portfolio and hire me to bring your ideas to life!"
+        />
+      </Helmet>
+
       <div className="container mx-auto px-4 py-16 flex md:flex-row flex-col gap-10 items-center">
         {/* Left Column - Text Content */}
         <div
@@ -13,7 +22,7 @@ const Hero = () => {
           style={{ animationDelay: "0.2s" }}
         >
           <h1 className="text-4xl lg:text-[70px] font-bold capitalize">
-            I'm Creative E<span className="text-portfolioTheme-primary">.</span>
+            I'm Great E<span className="text-portfolioTheme-primary">.</span>
           </h1>
 
           <h2 className="text-md md:text-lg font-medium flex gap-x-4 font-heading flex-wrap">
@@ -25,7 +34,7 @@ const Hero = () => {
           </h2>
 
           <p className="text-portfolioTheme-textAccent text-lg max-w-xl">
-            I’m Great Emman-wori. A creative technologist who blends design and development into seamless digital experiences. From WordPress frameworks like Elementor and Divi to design systems in Figma, I transform ideas into high-impact products that don’t just look good,they work beautifully. Let’s collaborate and bring something exceptional to life. Let's{" "}
+            I’m Great Emman-wori. A creative technologist who blends design and development into seamless digital experiences. From WordPress frameworks like Elementor and Divi to design systems in Figma, I transform ideas into high-impact products that don’t just look good, they work beautifully. Let’s collaborate and bring something exceptional to life. Let's{" "}
             <span className="text-portfolioTheme-accent">collaborate</span> to
             bring something truly exceptional to life.
           </p>
@@ -44,7 +53,7 @@ const Hero = () => {
               Hire Me
             </a>
             <a
-              href="/assets/Great Emman-wori_Resume.latest.pdf"
+              href="/public/Great Emman-wori_Resume.latest.pdf"
               download="Great-Emman-Wori-Resume.pdf"
               className="bg-portfolioTheme-accent hover:bg-amber-600 text-portfolioTheme-secondary px-6 py-3 rounded-md font-bold uppercase transition-colors duration-300 flex items-center gap-2"
             >
@@ -59,13 +68,19 @@ const Hero = () => {
           style={{ animationDelay: "0.4s" }}
         >
           <div className="relative">
-            {/* Placeholder for actual avatar - replace with real image */}
+            {/* Avatar with WebP support and lazy loading */}
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-portfolioTheme-cardBg border-4 border-portfolioTheme-primary overflow-hidden">
-              <img
-                src="/creative-emman-pic.png"
-                alt="Great Emman-Wori"
-                className="w-full h-full object-cover"
-              />
+              <picture>
+                {/* WebP for browsers that support it */}
+                <source srcSet="/creative-emman-pic.webp" type="image/webp" />
+                {/* Fallback PNG image */}
+                <img
+                  src="/creative-emman-pic.png"
+                  alt="Great Emman-Wori"
+                  className="w-full h-full object-cover"
+                  loading="lazy" // Lazy loading to optimize performance
+                />
+              </picture>
             </div>
 
             {/* Decorative circle */}
