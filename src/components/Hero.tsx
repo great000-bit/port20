@@ -34,7 +34,7 @@ const Hero = () => {
           </h2>
 
           <p className="text-portfolioTheme-textAccent text-lg max-w-xl">
-            I’m Great Emman-wori. A creative technologist who blends design and development into seamless digital experiences. From WordPress frameworks like Elementor and Divi to design systems in Figma, I transform ideas into high-impact products that don’t just look good, they work beautifully. Let’s collaborate and bring something exceptional to life. Let's{" "}
+            I’m Great Emman-wori. A creative technologist who blends design and development into seamless digital experiences. From WordPress frameworks like Elementor and Divi to design systems in Figma, I transform ideas into high-impact products that don’t just look good, they work beautifully. Let's{" "}
             <span className="text-portfolioTheme-accent">collaborate</span> to
             bring something truly exceptional to life.
           </p>
