@@ -53,8 +53,8 @@ const Hero = () => {
               Hire Me
             </a>
             <a
-              href="/public/Great Emman-wori_Resume.latest.pdf"
-              download="Great-Emman-Wori-Resume.pdf"
+              href="/My cv.pdf"
+              download="My cv.pdf"
               className="bg-portfolioTheme-accent hover:bg-amber-600 text-portfolioTheme-secondary px-6 py-3 rounded-md font-bold uppercase transition-colors duration-300 flex items-center gap-2"
             >
               Resume <Download size={18} />
