@@ -62,7 +62,7 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // Custom colors based on PRD
+        // Custom palette
         portfolioTheme: {
           primary: "#FF9F0D",
           accent: "#fea908",
@@ -75,7 +75,7 @@ export default {
       fontFamily: {
         sans: ["Rubik", "sans-serif"],
         heading: ["Montserrat", "Rubik"],
-        logo: ["Rubik", "sans-serif"], // ✅ Added for logo text
+        logo: ["Rubik", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -84,40 +84,30 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
         "fade-in": {
-          "0%": {
-            opacity: "0",
-            transform: "translateY(10px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateY(0)",
-          },
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "fade-in-right": {
-          "0%": {
-            opacity: "0",
-            transform: "translateX(20px)",
-          },
-          "100%": {
-            opacity: "1",
-            transform: "translateX(0)",
-          },
+          "0%": { opacity: "0", transform: "translateX(20px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        // ⭐ Orbital rotation
+        "rotate-full": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        // ⭐ Particle sparkle / glow pulse
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.3", transform: "scale(0.9)" },
+          "50%": { opacity: "1", transform: "scale(1.1)" },
         },
       },
       animation: {
@@ -125,7 +115,13 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.5s ease-out forwards",
         "fade-in-right": "fade-in-right 0.5s ease-out forwards",
+        // ⭐ Orbital animations
+        "rotate-full": "rotate-full 45s linear infinite",
+        "rotate-full-fast": "rotate-full 20s linear infinite",
+        "rotate-full-reverse": "rotate-full 45s linear infinite reverse",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
       },
+      
     },
   },
   plugins: [require("tailwindcss-animate")],

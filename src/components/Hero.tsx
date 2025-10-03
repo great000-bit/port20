@@ -26,7 +26,7 @@ const Hero = () => {
           </h1>
 
           <h2 className="text-md md:text-lg font-medium flex gap-x-4 font-heading flex-wrap">
-            <span>WordPress Developer</span>
+            <span>Web Developer</span>
             <span>|</span>
             <span> Product Designer</span>
             <span>|</span>

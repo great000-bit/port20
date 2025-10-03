@@ -24,7 +24,7 @@ const Portfolio = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Bellostylez Blog",
+      title: "Bellostylez Blog (Canada)",
       category: ["wordpress"],
       image: "/bellow-stylus.webp",
       description:
