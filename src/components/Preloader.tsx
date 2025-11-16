@@ -8,7 +8,7 @@ const Preloader = () => {
     const timer = setTimeout(() => {
       setFadeOut(true);
       setTimeout(() => setLoading(false), 1000); // wait for fade-out
-    }, 4000); // 3s duration
+    }, 4000); // 2s duration
 
     return () => clearTimeout(timer);
   }, []);

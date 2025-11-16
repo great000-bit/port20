@@ -1,6 +1,6 @@
 // src/components/Contact.tsx
 import React, { useEffect, useState, useRef } from "react";
-import { Phone, Mail, Linkedin, CheckCircle } from "lucide-react";
+import { Phone, Mail, Linkedin, CheckCircle, Instagram } from "lucide-react";
 import { useForm } from "@formspree/react";
 import { Helmet } from "react-helmet";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -13,6 +13,13 @@ const PURPOSE_OPTIONS = [
   "Volunteer Role",
   "Collaboration",
 ];
+
+// TikTok icon as SVG component
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+  </svg>
+);
 
 export default function Contact() {
   const formspreeId = String(import.meta.env.VITE_FORMSPREE_ID || "");
@@ -91,7 +98,7 @@ export default function Contact() {
               <CheckCircle className="w-12 h-12 text-portfolioTheme-primary" />
               <h3 className="text-lg font-semibold text-white">Message Sent Successfully</h3>
               <p className="text-portfolioTheme-textAccent">
-                I’ll get back to you soon — expect a response within{" "}
+                I'll get back to you soon — expect a response within{" "}
                 <span className="text-portfolioTheme-accent font-medium">20 minutes</span>.
               </p>
             </div>
@@ -108,59 +115,123 @@ export default function Contact() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-10">
-          {/* Left: contact info (unchanged but kept polished) */}
+          {/* Left: contact info - enhanced dynamic UI */}
           <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
 
-            <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-portfolioTheme-cardBg rounded-full flex items-center justify-center text-portfolioTheme-primary">
+            <div className="space-y-4">
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/2347037845433"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                   <Phone className="w-5 h-5" />
                 </div>
-                <div>
-                  <h4 className="font-small">WhatsApp</h4>
-                  <a
-                    href="https://wa.me/2347037845433"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-portfolioTheme-textAccent hover:text-portfolioTheme-primary transition-colors"
-                  >
+                <div className="flex-1">
+                  <h4 className="font-medium text-white">WhatsApp</h4>
+                  <p className="text-sm text-portfolioTheme-textAccent group-hover:text-portfolioTheme-primary transition-colors">
                     +234 703 784 5433
-                  </a>
+                  </p>
                 </div>
-              </div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg className="w-5 h-5 text-portfolioTheme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-portfolioTheme-cardBg rounded-full flex items-center justify-center text-portfolioTheme-primary">
+              {/* Email */}
+              <a
+                href="mailto:greatemmanwori@gmail.com"
+                className="group relative flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                   <Mail className="w-5 h-5" />
                 </div>
-                <div>
-                  <h4 className="font-medium">Email</h4>
-                  <a
-                    href="mailto:greatemmanwori@gmail.com"
-                    className="text-portfolioTheme-textAccent hover:text-portfolioTheme-primary transition-colors"
-                  >
+                <div className="flex-1">
+                  <h4 className="font-medium text-white">Email</h4>
+                  <p className="text-sm text-portfolioTheme-textAccent group-hover:text-portfolioTheme-primary transition-colors break-all">
                     greatemmanwori@gmail.com
-                  </a>
+                  </p>
                 </div>
-              </div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg className="w-5 h-5 text-portfolioTheme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-portfolioTheme-cardBg rounded-full flex items-center justify-center text-portfolioTheme-primary">
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/great-emman-wori"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
                   <Linkedin className="w-5 h-5" />
                 </div>
-                <div>
-                  <h4 className="font-medium">LinkedIn</h4>
-                  <a
-                    href="https://www.linkedin.com/in/great-emman-wori"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-portfolioTheme-textAccent hover:text-portfolioTheme-primary transition-colors"
-                  >
-                    www.linkedin.com/in/great-emman-wori
-                  </a>
+                <div className="flex-1">
+                  <h4 className="font-medium text-white">LinkedIn</h4>
+                  <p className="text-sm text-portfolioTheme-textAccent group-hover:text-portfolioTheme-primary transition-colors break-all">
+                    great-emman-wori
+                  </p>
                 </div>
-              </div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg className="w-5 h-5 text-portfolioTheme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+
+              {/* Instagram */}
+              <a
+                href="https://msng.link/o?creative_emman=ig"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                  <Instagram className="w-5 h-5" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-medium text-white">Instagram</h4>
+                  <p className="text-sm text-portfolioTheme-textAccent group-hover:text-portfolioTheme-primary transition-colors">
+                    @creative_emman
+                  </p>
+                </div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg className="w-5 h-5 text-portfolioTheme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
+
+              {/* TikTok */}
+              <a
+                href="https://www.tiktok.com/@great_emman_wori?_r=1&_t=ZS-91RhdZgg6um"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1"
+              >
+                <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
+                  <TikTokIcon className="w-5 h-5" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-medium text-white">TikTok</h4>
+                  <p className="text-sm text-portfolioTheme-textAccent group-hover:text-portfolioTheme-primary transition-colors">
+                    @great_emman_wori
+                  </p>
+                </div>
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg className="w-5 h-5 text-portfolioTheme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </a>
             </div>
           </div>
 
