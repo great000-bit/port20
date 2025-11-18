@@ -72,13 +72,72 @@ export default function Contact() {
     Array.isArray(state.errors) && state.errors.length > 0 ? state.errors[0] : null;
 
   return (
-    <section id="contact" className="section-padding bg-portfolioTheme-secondary relative">
+    <section 
+      id="contact" 
+      className="section-padding bg-portfolioTheme-secondary relative"
+      itemScope 
+      itemType="https://schema.org/ContactPage"
+    >
       <Helmet>
-        <title>Contact Great Emman-wori | Let's Build Something Extraordinary</title>
+        <title>Contact Great Emman-Wori | WordPress Developer & UI/UX Designer in Nigeria</title>
         <meta
           name="description"
-          content="Ready to transform your vision into a digital reality? Get in touch with Great Emman-wori for WordPress development, UI/UX design, and product design services. Let's collaborate on your next project."
+          content="Get in touch with Great Emman-Wori for WordPress development, UI/UX design, and product design services. Contact via WhatsApp (+234 703 784 5433), email (greatemmanwori@gmail.com), or social media. Fast response within 20 minutes."
         />
+        <meta 
+          name="keywords" 
+          content="contact Great Emman-Wori, WordPress developer Nigeria, UI/UX designer Lagos, hire product designer, web developer contact, freelance developer Nigeria" 
+        />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Contact Great Emman-Wori | WordPress Developer & UI/UX Designer" />
+        <meta 
+          property="og:description" 
+          content="Hire Great Emman-Wori for WordPress development, UI/UX design, and product design. Fast response within 20 minutes. Available on WhatsApp, Email, LinkedIn, Instagram, and TikTok." 
+        />
+        <meta property="og:url" content="https://yourdomain.com/#contact" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Great Emman-Wori | WordPress Developer & Designer" />
+        <meta 
+          name="twitter:description" 
+          content="Get in touch for WordPress development, UI/UX design, and product design services. Fast response guaranteed." 
+        />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://creative-emman.vercel.app/#contact" />
+        
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Great Emman-Wori",
+            "jobTitle": "WordPress Developer & UI/UX Designer",
+            "url": "https://yourdomain.com",
+            "sameAs": [
+              "https://www.linkedin.com/in/great-emman-wori",
+              "https://www.instagram.com/creative_emman",
+              "https://www.tiktok.com/@great_emman_wori",
+              "https://wa.me/2347037845433"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+234-703-784-5433",
+              "contactType": "Customer Service",
+              "email": "greatemmanwori@gmail.com",
+              "availableLanguage": ["English"],
+              "areaServed": "NG"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "NG",
+              "addressLocality": "Lagos"
+            }
+          })}
+        </script>
       </Helmet>
 
       {/* Center-screen success card */}
@@ -86,6 +145,7 @@ export default function Contact() {
         <div
           className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
           aria-hidden={false}
+          role="alert"
         >
           <div
             role="status"
@@ -95,7 +155,7 @@ export default function Contact() {
             }`}
           >
             <div className="flex flex-col items-center gap-3">
-              <CheckCircle className="w-12 h-12 text-portfolioTheme-primary" />
+              <CheckCircle className="w-12 h-12 text-portfolioTheme-primary" aria-hidden="true" />
               <h3 className="text-lg font-semibold text-white">Message Sent Successfully</h3>
               <p className="text-portfolioTheme-textAccent">
                 I'll get back to you soon — expect a response within{" "}
@@ -107,8 +167,8 @@ export default function Contact() {
       )}
 
       <div className="container mx-auto px-4">
-        <h2 className="section-title">LET'S BUILD SOMETHING EXTRAORDINARY</h2>
-        <p className="text-portfolioTheme-textAccent mt-4 mb-12 max-w-2xl">
+        <h2 className="section-title" itemProp="headline">LET'S BUILD SOMETHING EXTRAORDINARY</h2>
+        <p className="text-portfolioTheme-textAccent mt-4 mb-12 max-w-2xl" itemProp="description">
           Ready to transform your vision into a digital reality? Whether you have a specific project in mind
           or wish to explore a potential collaboration, I invite you to connect with me through any of the
           channels listed below.
@@ -119,16 +179,19 @@ export default function Contact() {
           <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <h3 className="text-2xl font-bold mb-6">Get in Touch</h3>
 
-            <div className="space-y-4">
+            <div className="space-y-4" itemProp="contactPoint" itemScope itemType="https://schema.org/ContactPoint">
               {/* WhatsApp */}
               <a
                 href="https://wa.me/2347037845433"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow"
                 className="group relative flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1"
+                aria-label="Contact Great Emman-Wori on WhatsApp at +234 703 784 5433"
+                itemProp="telephone"
+                content="+2347037845433"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                  <Phone className="w-5 h-5" />
+                  <Phone className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-medium text-white">WhatsApp</h4>
@@ -136,7 +199,7 @@ export default function Contact() {
                     +234 703 784 5433
                   </p>
                 </div>
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
                   <svg className="w-5 h-5 text-portfolioTheme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -147,9 +210,12 @@ export default function Contact() {
               <a
                 href="mailto:greatemmanwori@gmail.com"
                 className="group relative flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1"
+                aria-label="Email Great Emman-Wori at greatemmanwori@gmail.com"
+                itemProp="email"
+                content="greatemmanwori@gmail.com"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-medium text-white">Email</h4>
@@ -157,7 +223,7 @@ export default function Contact() {
                     greatemmanwori@gmail.com
                   </p>
                 </div>
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
                   <svg className="w-5 h-5 text-portfolioTheme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -168,11 +234,13 @@ export default function Contact() {
               <a
                 href="https://www.linkedin.com/in/great-emman-wori"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer me"
                 className="group relative flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1"
+                aria-label="Connect with Great Emman-Wori on LinkedIn"
+                itemProp="sameAs"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                  <Linkedin className="w-5 h-5" />
+                  <Linkedin className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-medium text-white">LinkedIn</h4>
@@ -180,7 +248,7 @@ export default function Contact() {
                     great-emman-wori
                   </p>
                 </div>
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
                   <svg className="w-5 h-5 text-portfolioTheme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -191,11 +259,13 @@ export default function Contact() {
               <a
                 href="https://msng.link/o?creative_emman=ig"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer me"
                 className="group relative flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1"
+                aria-label="Follow Great Emman-Wori on Instagram @creative_emman"
+                itemProp="sameAs"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                  <Instagram className="w-5 h-5" />
+                  <Instagram className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-medium text-white">Instagram</h4>
@@ -203,7 +273,7 @@ export default function Contact() {
                     @creative_emman
                   </p>
                 </div>
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
                   <svg className="w-5 h-5 text-portfolioTheme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -214,11 +284,13 @@ export default function Contact() {
               <a
                 href="https://www.tiktok.com/@great_emman_wori?_r=1&_t=ZS-91RhdZgg6um"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer me"
                 className="group relative flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1"
+                aria-label="Follow Great Emman-Wori on TikTok @great_emman_wori"
+                itemProp="sameAs"
               >
                 <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300">
-                  <TikTokIcon className="w-5 h-5" />
+                  <TikTokIcon className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <div className="flex-1">
                   <h4 className="font-medium text-white">TikTok</h4>
@@ -226,7 +298,7 @@ export default function Contact() {
                     @great_emman_wori
                   </p>
                 </div>
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity" aria-hidden="true">
                   <svg className="w-5 h-5 text-portfolioTheme-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -237,16 +309,24 @@ export default function Contact() {
 
           {/* Right: contact form */}
           <div className="animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <form onSubmit={handleSubmit} className="bg-portfolioTheme-cardBg p-6 rounded-lg shadow-lg space-y-4">
+            <form 
+              onSubmit={handleSubmit} 
+              className="bg-portfolioTheme-cardBg p-6 rounded-lg shadow-lg space-y-4"
+              itemScope
+              itemType="https://schema.org/ContactForm"
+              aria-label="Contact form for Great Emman-Wori"
+            >
               {/* Name */}
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Your Name
+                  Your Name <span className="text-red-500" aria-label="required">*</span>
                 </label>
                 <input
                   id="name"
                   name="name"
                   required
+                  aria-required="true"
+                  autoComplete="name"
                   className="w-full p-3 bg-portfolioTheme-secondary text-portfolioTheme-textMain border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolioTheme-primary"
                   placeholder="Enter your name"
                 />
@@ -255,13 +335,15 @@ export default function Contact() {
               {/* Email */}
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Your Email
+                  Your Email <span className="text-red-500" aria-label="required">*</span>
                 </label>
                 <input
                   id="email"
                   name="email"
                   type="email"
                   required
+                  aria-required="true"
+                  autoComplete="email"
                   className="w-full p-3 bg-portfolioTheme-secondary text-portfolioTheme-textMain border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolioTheme-primary"
                   placeholder="Enter your email"
                 />
@@ -269,14 +351,17 @@ export default function Contact() {
 
               {/* Purpose selector (Radix dialog) */}
               <div>
-                <label className="block text-sm font-medium mb-2">Purpose</label>
+                <label className="block text-sm font-medium mb-2">
+                  Purpose <span className="text-gray-500">(Optional)</span>
+                </label>
 
                 <Dialog.Root>
                   <Dialog.Trigger asChild>
                     <button
                       type="button"
                       aria-haspopup="dialog"
-                      className="w-full p-3 bg-portfolioTheme-secondary border border-gray-700 rounded-md text-left hover:border-portfolioTheme-primary"
+                      aria-label="Select purpose of contact"
+                      className="w-full p-3 bg-portfolioTheme-secondary border border-gray-700 rounded-md text-left hover:border-portfolioTheme-primary transition-colors"
                     >
                       {purpose || "Select purpose"}
                     </button>
@@ -293,13 +378,14 @@ export default function Contact() {
                         Tap an option to select it and continue writing your message.
                       </p>
 
-                      <div className="grid grid-cols-1 gap-2">
+                      <div className="grid grid-cols-1 gap-2" role="list">
                         {PURPOSE_OPTIONS.map((opt) => (
                           <Dialog.Close asChild key={opt}>
                             <button
                               type="button"
                               onClick={() => setPurpose(opt)}
                               className="w-full text-left px-3 py-2 rounded-md bg-portfolioTheme-secondary hover:bg-portfolioTheme-primary hover:text-white transition"
+                              role="listitem"
                             >
                               {opt}
                             </button>
@@ -316,12 +402,13 @@ export default function Contact() {
               {/* Message */}
               <div>
                 <label htmlFor="message" className="block text-sm font-medium mb-2">
-                  Message
+                  Message <span className="text-red-500" aria-label="required">*</span>
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   required
+                  aria-required="true"
                   rows={5}
                   className="w-full p-3 bg-portfolioTheme-secondary text-portfolioTheme-textMain border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-portfolioTheme-primary resize-none"
                   placeholder="Describe your project or idea..."
@@ -330,24 +417,34 @@ export default function Contact() {
 
               {/* Inline error (if any) */}
               {firstError && (
-                <div className="text-sm text-rose-400">
+                <div className="text-sm text-rose-400" role="alert" aria-live="assertive">
                   {firstError.message || "There was an error, please try again."}
                 </div>
               )}
 
-              {/* Submit */}
+              {/* Submit Button with Gradient Hover */}
               <button
                 type="submit"
                 disabled={state.submitting}
-                className="w-full inline-flex justify-center items-center gap-3 bg-portfolioTheme-accent hover:bg-amber-600 text-portfolioTheme-secondary px-4 py-3 rounded-md font-semibold transition"
+                className="relative w-full inline-flex justify-center items-center gap-3 bg-portfolioTheme-accent text-white px-4 py-3 rounded-md font-semibold transition-all duration-300 overflow-hidden group disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label={state.submitting ? "Sending message" : "Send message to Great Emman-Wori"}
               >
-                {state.submitting ? (
-                  <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                  </svg>
-                ) : null}
-                {state.submitting ? "Sending..." : "Send Message"}
+                <span className="relative z-10 flex items-center gap-3">
+                  {state.submitting ? (
+                    <svg 
+                      className="animate-spin h-5 w-5 text-white" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      fill="none" 
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                  ) : null}
+                  {state.submitting ? "Sending..." : "Send Message"}
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
               </button>
             </form>
           </div>

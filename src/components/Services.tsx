@@ -61,7 +61,7 @@ const Services = () => {
       delay: 0.6,
     },
     {
-      title: "Social Media Manager",
+      title: "Social Media Management",
       description:
         "Strategic social media management that builds your brand presence, drives engagement, and converts followers into loyal customers across all platforms.",
       icon: <Share2 className="w-10 h-10" aria-label="Social Media Manager" />,
@@ -69,7 +69,7 @@ const Services = () => {
       delay: 0.7,
     },
     {
-      title: "Community Manager",
+      title: "Community Management",
       description:
         "Build and nurture thriving online communities. Foster meaningful connections, moderate discussions, and create engaging spaces where your audience feels valued.",
       icon: <Users className="w-10 h-10" aria-label="Community Manager" />,

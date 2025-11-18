@@ -7,16 +7,28 @@ import {
   SiCanva,
   SiFramer,
   SiGithub,
+  SiReact,
+  SiTypescript,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
 } from "react-icons/si";
 
-// Orbiting items
+// Orbiting items with enhanced tech stack
 export const orbitingItems = [
-  <SiGithub key="github" className="h-6 w-6 text-white" />,
-  <FiCode key="code" className="h-6 w-6 text-green-400" />,
-  <SiWordpress key="wordpress" className="h-6 w-6 text-blue-500" />,
-  <SiFramer key="framer" className="h-6 w-6 text-pink-400" />,
-  <SiFigma key="figma" className="h-6 w-6 text-[#F24E1E]" />,
-  <SiCanva key="canva" className="h-6 w-6 text-[#00C4CC]" />,
+  <SiReact key="react" className="h-6 w-6 text-[#61DAFB]" />, // React
+  <SiWordpress key="wordpress" className="h-6 w-6 text-[#21759B]" />, // WordPress
+  <SiFigma key="figma" className="h-6 w-6 text-[#F24E1E]" />, // Figma
+  <SiTypescript key="typescript" className="h-6 w-6 text-[#3178C6]" />, // TypeScript
+  <SiFramer key="framer" className="h-6 w-6 text-[#0055FF]" />, // Framer
+  <SiCanva key="canva" className="h-6 w-6 text-[#00C4CC]" />, // Canva
+  <SiJavascript key="javascript" className="h-6 w-6 text-[#F7DF1E]" />, // JavaScript
+  <SiTailwindcss key="tailwind" className="h-6 w-6 text-[#06B6D4]" />, // Tailwind CSS
+  <SiHtml5 key="html" className="h-6 w-6 text-[#E34F26]" />, // HTML5
+  <SiCss3 key="css" className="h-6 w-6 text-[#1572B6]" />, // CSS3
+  <SiGithub key="github" className="h-6 w-6 text-white" />, // GitHub
+  <FiCode key="code" className="h-6 w-6 text-green-400" />, // Full-stack
 ];
 
 interface OrbitingItemsProps {
@@ -61,16 +73,24 @@ export default function OrbitingItems({
   const innerReverseClass =
     "animate-[rotate-full_45s_linear_infinite_reverse]";
 
-  // Define the icon connection pairs for arcs
+  // Define the icon connection pairs for arcs - updated for 12 items
   const connectPairs: [number, number][] = [
-    [1, 2], // Code ↔ WordPress
-    [1, 0], // Code ↔ GitHub
-    [3, 2], // Framer ↔ WordPress
-    [4, 5], // Figma ↔ Canva
-    [2, 1],
-    [0, 1],
-    [2, 3],
-    [5, 4],
+    [0, 1], // React ↔ WordPress
+    [1, 2], // WordPress ↔ Figma
+    [2, 3], // Figma ↔ TypeScript
+    [3, 4], // TypeScript ↔ Framer
+    [4, 5], // Framer ↔ Canva
+    [5, 6], // Canva ↔ JavaScript
+    [6, 7], // JavaScript ↔ Tailwind
+    [7, 8], // Tailwind ↔ HTML5
+    [8, 9], // HTML5 ↔ CSS3
+    [9, 10], // CSS3 ↔ GitHub
+    [10, 11], // GitHub ↔ Code
+    [11, 0], // Code ↔ React (complete the circle)
+    [0, 3], // React ↔ TypeScript (cross connections)
+    [2, 5], // Figma ↔ Canva
+    [1, 4], // WordPress ↔ Framer
+    [6, 9], // JavaScript ↔ CSS3
   ];
 
   return (
@@ -147,7 +167,7 @@ export default function OrbitingItems({
           return (
             <div
               key={i}
-              className="absolute flex h-12 w-12 items-center justify-center rounded-full bg-gray-900 shadow-xl ring-1 ring-white/5"
+              className="absolute flex h-12 w-12 items-center justify-center rounded-full bg-gray-900 shadow-xl ring-1 ring-white/5 hover:scale-110 transition-transform duration-300"
               style={{
                 left: `${50 + pos.x}%`,
                 top: `${50 + pos.y}%`,
