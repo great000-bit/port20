@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import { Figma, Framer, Code, Palette } from "lucide-react";
+import { Helmet } from "react-helmet";
 import OrbitingItems, { orbitingItems } from "./OrbitingIcons";
 
 // ===== DOTGRID COMPONENT (INLINE) =====
@@ -225,7 +226,7 @@ const DotGridBackground = ({
           height: "100%",
           pointerEvents: "auto",
         }}
-        aria-label="Interactive dot grid background"
+        aria-label="Interactive dot grid background animation"
       />
     </div>
   );
@@ -233,111 +234,267 @@ const DotGridBackground = ({
 
 // ===== ABOUT COMPONENT =====
 const About = () => {
+  // SEO: Professional Profile Schema
+  const personalSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Great Emman-Wori",
+    "jobTitle": "WordPress Developer & Product Designer",
+    "description": "Web Developer, UI/UX Designer, and Digital Product Designer based in Port Harcourt, Nigeria with expertise in WordPress, Figma, and product design",
+    "url": "https://creative-emman.vercel.app",
+    "image": "https://creative-emman.vercel.app/creative-emman-pic.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Port Harcourt",
+      "addressRegion": "Rivers State",
+      "addressCountry": "Nigeria"
+    },
+    "knowsAbout": [
+      "Web Development",
+      "WordPress Development",
+      "Elementor",
+      "Divi",
+      "UI/UX Design",
+      "Product Design",
+      "Figma",
+      "Framer",
+      "User Experience Strategy",
+      "Responsive Web Design",
+      "Frontend Development",
+      "Digital Strategy",
+      "Canva"
+    ]
+  };
+
+  // SEO: Skills/Competency Schema
+  const skillsSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Professional Skills and Expertise",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Web Development",
+        "description": "Custom website development with focus on user experience and performance"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Figma Design",
+        "description": "User interface and product design using industry-standard Figma tools"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Framer Prototyping",
+        "description": "Interactive prototyping and design system development"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "UX Strategy",
+        "description": "User experience strategy and user-centered design approach"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "WordPress Development",
+        "description": "Expert WordPress development with Elementor and Divi builders"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "Design Tools",
+        "description": "Proficiency in Canva and other design and branding tools"
+      }
+    ]
+  };
+
   const designer = {
     name: "Great Emman-Wori",
+    title: "WordPress Developer & Product Designer",
+    location: "Port Harcourt, Nigeria",
     skills: ["WordPress", "UI/UX", "Product Design"],
-    passion: "Creating amazing digital experiences",
+    passion: "Creating amazing digital experiences that drive engagement and conversions",
   };
 
   const skillsWithIcons = [
-    { name: "Web Developer", icon: <Code className="w-5 h-5" />, ariaLabel: "Web Development expertise" },
-    { name: "Figma", icon: <Figma className="w-5 h-5" />, ariaLabel: "Figma design tool proficiency" },
-    { name: "Framer", icon: <Framer className="w-5 h-5" />, ariaLabel: "Framer prototyping skills" },
-    { name: "UX Strategy", icon: <Palette className="w-5 h-5" />, ariaLabel: "User Experience Strategy" },
-    { name: "WordPress Developer", icon: <Code className="w-5 h-5" />, ariaLabel: "WordPress development expertise" },
-    { name: "Canva", icon: <Palette className="w-5 h-5" />, ariaLabel: "Canva design skills" },
+    { 
+      name: "Web Developer", 
+      icon: <Code className="w-5 h-5" aria-hidden="true" />, 
+      ariaLabel: "Web Development expertise including HTML, CSS, JavaScript, and responsive design" 
+    },
+    { 
+      name: "Figma", 
+      icon: <Figma className="w-5 h-5" aria-hidden="true" />, 
+      ariaLabel: "Figma design tool proficiency for UI/UX and product design" 
+    },
+    { 
+      name: "Framer", 
+      icon: <Framer className="w-5 h-5" aria-hidden="true" />, 
+      ariaLabel: "Framer prototyping and interactive design skills" 
+    },
+    { 
+      name: "UX Strategy", 
+      icon: <Palette className="w-5 h-5" aria-hidden="true" />, 
+      ariaLabel: "User Experience Strategy and user-centered design methodology" 
+    },
+    { 
+      name: "WordPress Developer", 
+      icon: <Code className="w-5 h-5" aria-hidden="true" />, 
+      ariaLabel: "WordPress development expertise with Elementor and Divi builders" 
+    },
+    { 
+      name: "Canva", 
+      icon: <Palette className="w-5 h-5" aria-hidden="true" />, 
+      ariaLabel: "Canva design skills for quick visual content creation" 
+    },
   ];
 
   return (
-    <section
-      id="about"
-      className="section-padding bg-portfolioTheme-secondary"
-      style={{ position: "relative", overflow: "hidden" }}
-      aria-labelledby="about-heading"
-      itemScope
-      itemType="https://schema.org/AboutPage"
-    >
-      {/* DotGrid Background */}
-      <DotGridBackground
-        dotSize={3}
-        gap={25}
-        baseColor="#2a2a2a"
-        activeColor="#8F0075"
-        proximity={80}
-        shockRadius={150}
-        shockStrength={1.5}
-      />
+    <>
+      <Helmet>
+        {/* Structured Data for About Section */}
+        <script type="application/ld+json">
+          {JSON.stringify(personalSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(skillsSchema)}
+        </script>
+      </Helmet>
 
-      <div className="container mx-auto px-4" style={{ position: "relative", zIndex: 1 }}>
-        <h2 id="about-heading" className="section-title" itemProp="name">About Me</h2>
+      <section
+        id="about"
+        className="section-padding bg-portfolioTheme-secondary"
+        style={{ position: "relative", overflow: "hidden" }}
+        aria-labelledby="about-heading"
+        role="region"
+      >
+        {/* DotGrid Background */}
+        <DotGridBackground
+          dotSize={3}
+          gap={25}
+          baseColor="#2a2a2a"
+          activeColor="#8F0075"
+          proximity={80}
+          shockRadius={150}
+          shockStrength={1.5}
+        />
 
-        <div className="grid md:grid-cols-2 gap-10 mt-10">
-          {/* Left column */}
-          <article 
-            className="animate-fade-in" 
-            style={{ animationDelay: "0.2s" }}
-            itemProp="description"
+        <div className="container mx-auto px-4" style={{ position: "relative", zIndex: 1 }}>
+          {/* Primary Heading - SEO Critical */}
+          <h2 
+            id="about-heading" 
+            className="section-title text-4xl md:text-5xl font-bold mb-2 text-white"
           >
-            <p className="text-lg mb-6 text-portfolioTheme-textAccent">
-              <span itemProp="author" itemScope itemType="https://schema.org/Person">
-                <span itemProp="name">{designer.name}</span>
-              </span> is a <strong>Web Developer</strong>, <strong>UI/UX Designer</strong>, and <strong>Digital Product Designer</strong> based in <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress"><span itemProp="addressLocality">Port Harcourt</span>, <span itemProp="addressCountry">Nigeria</span></span>. With a passion for turning concepts into functional, user-centric solutions, I design and develop websites that merge creativity, strategy, and technology. My approach goes beyond visuals. I focus on building experiences that are intuitive, scalable, and future-ready.
-            </p>
-            <p className="text-lg mb-6 text-portfolioTheme-textAccent">
-              Combining technical knowledge with creative design skills,{" "}
-              {designer.name.split(" ")[0]} helps businesses establish strong
-              online presences through custom <strong>WordPress solutions</strong> and intuitive
-              user interfaces.
-            </p>
-            <p className="text-lg mb-6 text-portfolioTheme-textAccent">
-              His approach focuses on creating websites that not only look
-              professional but also deliver seamless user experiences that drive
-              engagement and conversions.
-            </p>
-            <p className="text-lg mb-6 text-portfolioTheme-textAccent">
-              <span className="font-bold text-portfolioTheme-accent">Passion:</span>{" "}
-              <span itemProp="knowsAbout">{designer.passion}</span>
-            </p>
+            About Me
+          </h2>
+          
+          {/* Subheading for better context */}
+          <p className="text-portfolioTheme-textAccent mb-12 text-lg max-w-2xl">
+            Professional background, expertise, and approach to web development and design
+          </p>
 
-            {/* Skills */}
-            <div className="mt-8">
-              <h3 className="text-xl font-bold mb-4 text-white">My Skills</h3>
-              <nav 
-                className="flex flex-wrap gap-3" 
-                aria-label="Professional skills and technologies"
-                itemProp="knowsAbout"
-              >
-                {skillsWithIcons.map((skill, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 bg-portfolioTheme-cardBg py-2 px-4 rounded-full"
-                    itemProp="knowsAbout"
-                    role="listitem"
-                  >
-                    <span 
-                      className="text-portfolioTheme-primary"
-                      aria-label={skill.ariaLabel}
+          <div className="grid md:grid-cols-2 gap-10 mt-10">
+            {/* Left column - About Content */}
+            <article 
+              className="animate-fade-in space-y-6" 
+              style={{ animationDelay: "0.2s" }}
+            >
+              {/* First paragraph - Introduction */}
+              <p className="text-lg leading-relaxed text-portfolioTheme-textAccent">
+                I'm <strong className="text-white">{designer.name}</strong>, a creative technologist based in <strong className="text-white">{designer.location}</strong>. 
+                As a <strong className="text-white">Web Developer</strong>, <strong className="text-white">UI/UX Designer</strong>, and <strong className="text-white">Digital Product Designer</strong>, 
+                I specialize in transforming complex concepts into functional, user-centric digital solutions that drive real business results.
+              </p>
+
+              {/* Second paragraph - Philosophy */}
+              <p className="text-lg leading-relaxed text-portfolioTheme-textAccent">
+                My approach transcends visual aesthetics. I'm committed to building digital experiences that are intuitive, scalable, and future-ready. 
+                By combining technical expertise with creative design thinking, I help businesses establish powerful online presences through custom 
+                <strong className="text-white"> WordPress solutions</strong> and meticulously crafted user interfaces that engage and convert.
+              </p>
+
+              {/* Third paragraph - Specialization */}
+              <p className="text-lg leading-relaxed text-portfolioTheme-textAccent">
+                Whether architecting complex WordPress implementations with Elementor and Divi, designing comprehensive design systems in Figma, 
+                or developing interactive prototypes with Framer, my focus remains consistent: delivering websites and digital products that are 
+                professionally polished, technically optimized, and genuinely user-friendly.
+              </p>
+
+              {/* Passion statement */}
+              <div className="bg-portfolioTheme-cardBg/50 border border-portfolioTheme-primary/30 rounded-lg p-6 mt-8">
+                <p className="text-lg">
+                  <span className="font-bold text-portfolioTheme-accent">My Passion:</span>{" "}
+                  <span className="text-portfolioTheme-textAccent">{designer.passion}</span>
+                </p>
+              </div>
+
+              {/* Skills Section */}
+              <div className="mt-10 pt-8 border-t border-gray-700/50">
+                <h3 className="text-2xl font-bold mb-6 text-white">Professional Skills & Tools</h3>
+                <p className="text-portfolioTheme-textAccent mb-6">
+                  A comprehensive toolkit combining design, development, and strategy expertise:
+                </p>
+                
+                {/* Skills Grid */}
+                <div 
+                  className="flex flex-wrap gap-4" 
+                  role="list"
+                  aria-label="Professional skills and technologies"
+                >
+                  {skillsWithIcons.map((skill, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center gap-3 bg-portfolioTheme-cardBg hover:bg-portfolioTheme-cardBg/80 transition-colors duration-300 py-3 px-5 rounded-full border border-gray-700/50 hover:border-portfolioTheme-primary/50"
+                      role="listitem"
+                      title={skill.ariaLabel}
                     >
-                      {skill.icon}
-                    </span>
-                    <span className="text-white">{skill.name}</span>
-                  </div>
-                ))}
-              </nav>
-            </div>
-          </article>
+                      <span 
+                        className="text-portfolioTheme-accent flex-shrink-0"
+                        aria-hidden="true"
+                      >
+                        {skill.icon}
+                      </span>
+                      <span className="text-white font-medium">{skill.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </article>
 
-          {/* Right column */}
-          <aside
-            className="animate-fade-in-right flex items-center justify-center"
-            style={{ animationDelay: "0.4s" }}
-            aria-label="Interactive skill visualization"
-          >
-            <OrbitingItems items={orbitingItems} radius={40} pauseOnHover />
-          </aside>
+            {/* Right column - Visual Element */}
+            <aside
+              className="animate-fade-in-right flex items-center justify-center"
+              style={{ animationDelay: "0.4s" }}
+              aria-label="Interactive skill visualization showing technologies and tools"
+              role="complementary"
+            >
+              <div className="w-full h-full flex items-center justify-center">
+                <OrbitingItems items={orbitingItems} radius={40} pauseOnHover />
+              </div>
+            </aside>
+          </div>
+
+          {/* Expertise Highlights - SEO Keywords */}
+          <div className="grid md:grid-cols-3 gap-6 mt-16 pt-12 border-t border-gray-700/50">
+            <div className="text-center">
+              <h4 className="text-xl font-bold text-portfolioTheme-accent mb-3">2+ Years</h4>
+              <p className="text-portfolioTheme-textAccent">Professional web development and design experience</p>
+            </div>
+            <div className="text-center">
+              <h4 className="text-xl font-bold text-portfolioTheme-accent mb-3">13+ Projects</h4>
+              <p className="text-portfolioTheme-textAccent">Successfully completed web and design projects</p>
+            </div>
+            <div className="text-center">
+              <h4 className="text-xl font-bold text-portfolioTheme-accent mb-3">Global Reach</h4>
+              <p className="text-portfolioTheme-textAccent">Serving clients worldwide with remote expertise</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

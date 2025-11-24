@@ -136,27 +136,48 @@ const DotGridBackground = ({
   }, [shockRadius, shockStrength]);
 
   return (
-    <div ref={containerRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }} aria-hidden="true">
-      <canvas ref={canvasRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "auto" }} aria-label="Interactive dot grid background" />
+    <div 
+      ref={containerRef} 
+      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }} 
+      aria-hidden="true"
+    >
+      <canvas 
+        ref={canvasRef} 
+        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "auto" }} 
+        aria-label="Interactive dot grid background animation"
+      />
     </div>
   );
 };
 
 // ===== HERO COMPONENT =====
 const Hero = () => {
-  // Structured Data Schema
+  // SEO: Comprehensive Person/Professional Schema
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Great Emman-Wori",
+    "alternateName": "Creative Emman",
     "jobTitle": "WordPress Developer & Product Designer",
-    "description": "Creative technologist specializing in WordPress development, UI/UX design, and product design",
-    "url": typeof window !== 'undefined' ? window.location.origin : '',
-    "image": typeof window !== 'undefined' ? `${window.location.origin}/creative-emman-pic.webp` : '',
+    "description": "Creative technologist specializing in WordPress development with Elementor & Divi, UI/UX design, and digital product design. Based in Port Harcourt, Nigeria with 2+ years of professional experience.",
+    "url": "https://creative-emman.vercel.app",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://creative-emman.vercel.app/creative-emman-pic.webp",
+      "width": 320,
+      "height": 320
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Port Harcourt",
+      "addressRegion": "Rivers State",
+      "addressCountry": "Nigeria"
+    },
     "sameAs": [
-      // Add your social media profiles here
-      // "https://linkedin.com/in/yourprofile",
-      // "https://github.com/yourprofile",
+      "https://linkedin.com/in/creative-emman",
+      "https://github.com/creative-emman",
+      "https://dribbble.com/creative-emman",
+      "https://twitter.com/creative_emman"
     ],
     "knowsAbout": [
       "WordPress Development",
@@ -165,141 +186,232 @@ const Hero = () => {
       "Elementor",
       "Divi",
       "Figma",
-      "Web Development"
+      "Web Development",
+      "Frontend Development",
+      "Responsive Web Design",
+      "Digital Strategy"
     ],
     "hasOccupation": {
       "@type": "Occupation",
       "name": "WordPress Developer & Product Designer",
       "occupationLocation": {
         "@type": "Country",
-        "name": "Worldwide"
+        "name": "Nigeria"
       },
-      "skills": "WordPress, Elementor, Divi, Figma, UI/UX Design, Product Design, Web Development"
+      "skills": "WordPress, Elementor, Divi, Figma, UI/UX Design, Product Design, Web Development, HTML, CSS, JavaScript, Responsive Design, User Experience Strategy"
     }
+  };
+
+  // SEO: Call to Action Schema
+  const callToActionSchema = {
+    "@context": "https://schema.org",
+    "@type": "Action",
+    "name": "Explore Portfolio",
+    "url": "https://creative-emman.vercel.app#portfolio"
   };
 
   return (
     <>
       <Helmet>
-        {/* Primary Meta Tags */}
+        {/* Primary Meta Tags - SEO CRITICAL */}
         <title>Great Emman-Wori | WordPress Developer & Product Designer Portfolio</title>
         <meta name="title" content="Great Emman-Wori | WordPress Developer & Product Designer Portfolio" />
-        <meta name="description" content="Creative technologist specializing in WordPress development with Elementor & Divi, UI/UX design, and product design. Transform your ideas into high-impact digital experiences." />
-        <meta name="keywords" content="WordPress developer, product designer, UI/UX designer, Elementor expert, Divi developer, Figma designer, web developer, Great Emman-Wori, creative technologist" />
+        <meta 
+          name="description" 
+          content="Creative technologist specializing in WordPress development with Elementor & Divi, UI/UX design, and product design. Transform your ideas into high-impact digital experiences. 2+ years experience from Nigeria." 
+        />
+        <meta 
+          name="keywords" 
+          content="WordPress developer, product designer, UI/UX designer, Elementor expert, Divi developer, Figma designer, web developer, Great Emman-Wori, creative technologist, Nigeria developer, web design, responsive design, landing page development" 
+        />
         <meta name="author" content="Great Emman-Wori" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <link rel="canonical" href={typeof window !== 'undefined' ? window.location.href : ''} />
-        
+        <link rel="canonical" href="https://creative-emman.vercel.app" />
+
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={typeof window !== 'undefined' ? window.location.href : ''} />
+        <meta property="og:url" content="https://creative-emman.vercel.app" />
         <meta property="og:title" content="Great Emman-Wori | WordPress Developer & Product Designer" />
-        <meta property="og:description" content="Creative technologist specializing in WordPress development with Elementor & Divi, UI/UX design, and product design. Let's collaborate to create exceptional digital experiences." />
-        <meta property="og:image" content={typeof window !== 'undefined' ? `${window.location.origin}/creative-emman-pic.webp` : ''} />
-        <meta property="og:image:alt" content="Great Emman-Wori - WordPress Developer and Product Designer" />
+        <meta 
+          property="og:description" 
+          content="Creative technologist specializing in WordPress development with Elementor & Divi, UI/UX design, and product design. Let's collaborate to create exceptional digital experiences." 
+        />
+        <meta property="og:image" content="https://creative-emman.vercel.app/creative-emman-pic.webp" />
+        <meta property="og:image:alt" content="Great Emman-Wori - Professional WordPress Developer and Product Designer" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:site_name" content="Great Emman-Wori Portfolio" />
         <meta property="og:locale" content="en_US" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content={typeof window !== 'undefined' ? window.location.href : ''} />
+        <meta name="twitter:url" content="https://creative-emman.vercel.app" />
         <meta name="twitter:title" content="Great Emman-Wori | WordPress Developer & Product Designer" />
-        <meta name="twitter:description" content="Creative technologist specializing in WordPress development with Elementor & Divi, UI/UX design, and product design." />
-        <meta name="twitter:image" content={typeof window !== 'undefined' ? `${window.location.origin}/creative-emman-pic.webp` : ''} />
-        <meta name="twitter:image:alt" content="Great Emman-Wori - WordPress Developer and Product Designer" />
-        
+        <meta 
+          name="twitter:description" 
+          content="Creative technologist specializing in WordPress development with Elementor & Divi, UI/UX design, and product design." 
+        />
+        <meta name="twitter:image" content="https://creative-emman.vercel.app/creative-emman-pic.webp" />
+        <meta name="twitter:image:alt" content="Great Emman-Wori - Professional WordPress Developer and Product Designer" />
+        <meta name="twitter:creator" content="@creative_emman" />
+
         {/* Additional SEO Tags */}
         <meta name="theme-color" content="#8F0075" />
         <meta name="language" content="English" />
         <meta name="revisit-after" content="7 days" />
         <meta name="distribution" content="global" />
-        <meta name="rating" content="general" />
-        
-        {/* Structured Data */}
+
+        {/* Structured Data - JSON-LD */}
         <script type="application/ld+json">
           {JSON.stringify(personSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(callToActionSchema)}
         </script>
       </Helmet>
 
       <section
-        id="home"
+        id="hero"
         className="min-h-screen flex items-center pt-16 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d0d] to-[#0f0f0f]"
         style={{ position: "relative", overflow: "hidden" }}
-        aria-label="Hero section introducing Great Emman-Wori"
+        aria-label="Hero section introducing Great Emman-Wori, WordPress Developer and Product Designer"
+        role="region"
       >
         {/* DotGrid Background */}
-        <DotGridBackground dotSize={3} gap={25} baseColor="#2a2a2a" activeColor="#8F0075" proximity={80} shockRadius={150} shockStrength={1.5} />
+        <DotGridBackground 
+          dotSize={3} 
+          gap={25} 
+          baseColor="#2a2a2a" 
+          activeColor="#8F0075" 
+          proximity={80} 
+          shockRadius={150} 
+          shockStrength={1.5} 
+        />
 
-        <div className="container mx-auto px-4 py-16 flex md:flex-row flex-col gap-10 items-center" style={{ position: "relative", zIndex: 1 }}>
+        <div 
+          className="container mx-auto px-4 py-16 flex md:flex-row flex-col gap-10 items-center" 
+          style={{ position: "relative", zIndex: 1 }}
+        >
           {/* Left Column - Text Content */}
-          <article className="flex flex-col md:gap-8 gap-4 order-2 md:order-1 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            <h1 className="text-4xl lg:text-[70px] font-bold capitalize">
+          <article 
+            className="flex flex-col md:gap-8 gap-4 order-2 md:order-1 animate-fade-in" 
+            style={{ animationDelay: "0.2s" }}
+          >
+            {/* H1 - SEO Critical: Primary Heading */}
+            <h1 className="text-4xl lg:text-[70px] font-bold capitalize leading-tight">
               I'm Great E<span className="text-portfolioTheme-accent" aria-hidden="true">.</span>
             </h1>
 
-            <h2 className="text-md md:text-lg font-medium flex gap-x-4 font-heading flex-wrap">
-              <span className="hover:text-portfolioTheme-accent transition-colors duration-300 cursor-pointer">Web Developer</span>
-              <span aria-hidden="true">|</span>
-              <span className="hover:text-portfolioTheme-accent transition-colors duration-300 cursor-pointer">Product Designer</span>
-              <span aria-hidden="true">|</span>
-              <span className="hover:text-portfolioTheme-accent transition-colors duration-300 cursor-pointer">UI/UX Designer</span>
+            {/* H2 - Secondary Heading with Professional Titles */}
+            <h2 className="text-md md:text-lg font-medium flex gap-x-4 font-heading flex-wrap text-portfolioTheme-textAccent">
+              <span className="hover:text-portfolioTheme-accent transition-colors duration-300">Web Developer</span>
+              <span aria-hidden="true" className="text-gray-600">|</span>
+              <span className="hover:text-portfolioTheme-accent transition-colors duration-300">Product Designer</span>
+              <span aria-hidden="true" className="text-gray-600">|</span>
+              <span className="hover:text-portfolioTheme-accent transition-colors duration-300">UI/UX Designer</span>
             </h2>
 
-            <p className="text-portfolioTheme-textAccent text-lg max-w-xl">
-              I'm Great Emman-wori. A creative technologist who blends design and development into seamless digital experiences. From WordPress frameworks like Elementor and Divi to design systems in Figma, I transform ideas into high-impact products that don't just look good, they work beautifully. Let's{" "}
-              <span className="text-portfolioTheme-accent">collaborate</span> to bring something truly exceptional to life.
+            {/* Hero Description - SEO Keywords */}
+            <p className="text-portfolioTheme-textAccent text-lg max-w-xl leading-relaxed">
+              I'm Great Emman-wori, a creative technologist who blends design and development into seamless digital experiences. From WordPress frameworks like Elementor and Divi to design systems in Figma, I transform ideas into high-impact products that don't just look good, they work beautifully. Let's <span className="text-portfolioTheme-accent font-medium">collaborate</span> to bring something truly exceptional to life.
             </p>
 
-            <nav className="flex flex-wrap items-center justify-start gap-4" aria-label="Primary call-to-action buttons">
+            {/* Call-to-Action Navigation */}
+            <nav 
+              className="flex flex-wrap items-center justify-start gap-4 pt-4" 
+              aria-label="Primary call-to-action navigation"
+            >
               <a 
                 href="#portfolio" 
                 className="relative bg-portfolioTheme-accent text-white px-6 py-3 rounded-md font-bold uppercase transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-portfolioTheme-accent/50 overflow-hidden group"
-                aria-label="View portfolio of work"
+                aria-label="View portfolio of completed web development and design projects"
+                title="Explore Great Emman-Wori's portfolio of WordPress and design projects"
               >
                 <span className="relative z-10">Explore My Work</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></span>
+                <span 
+                  className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
+                  aria-hidden="true"
+                ></span>
               </a>
+
               <a 
                 href="#contact" 
                 className="relative bg-transparent border-2 border-portfolioTheme-accent text-portfolioTheme-textMain px-6 py-3 rounded-md font-bold uppercase transition-all duration-300 hover:scale-105 hover:-translate-y-1 overflow-hidden group"
-                aria-label="Contact for hiring opportunities"
+                aria-label="Contact Great Emman-Wori for hiring opportunities and project collaborations"
+                title="Get in touch to hire Great Emman-Wori for your next project"
               >
                 <span className="relative z-10 group-hover:text-white transition-colors duration-300">Hire Me</span>
-                <span className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></span>
+                <span 
+                  className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
+                  aria-hidden="true"
+                ></span>
               </a>
+
               <a 
                 href="/My cv.pdf" 
                 download="Great-Emman-Wori-Resume.pdf" 
                 className="relative group bg-portfolioTheme-accent text-white px-6 py-3 rounded-md font-bold uppercase transition-all duration-300 flex items-center gap-2 hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-portfolioTheme-accent/50 overflow-hidden"
-                aria-label="Download resume PDF"
+                aria-label="Download resume - PDF document of Great Emman-Wori's professional experience and skills"
+                title="Download my professional resume (PDF)"
+                data-download-type="resume"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Resume <Download size={18} className="group-hover:translate-y-1 transition-transform duration-300" aria-hidden="true" />
+                  Resume 
+                  <Download 
+                    size={18} 
+                    className="group-hover:translate-y-1 transition-transform duration-300" 
+                    aria-hidden="true" 
+                  />
                 </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></span>
+                <span 
+                  className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500" 
+                  aria-hidden="true"
+                ></span>
               </a>
             </nav>
           </article>
 
-          {/* Right Column - Avatar */}
-          <aside className="order-1 md:order-2 flex-grow flex justify-center md:justify-end animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          {/* Right Column - Professional Headshot */}
+          <aside 
+            className="order-1 md:order-2 flex-grow flex justify-center md:justify-end animate-fade-in" 
+            style={{ animationDelay: "0.4s" }}
+            aria-label="Professional headshot of Great Emman-Wori"
+          >
             <figure className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-portfolioTheme-cardBg border-4 border-portfolioTheme-accent overflow-hidden hover:scale-105 transition-transform duration-500 shadow-2xl shadow-portfolioTheme-accent/20">
                 <picture>
-                  <source srcSet="/creative-emman-pic.webp" type="image/webp" />
+                  <source 
+                    srcSet="/creative-emman-pic.webp" 
+                    type="image/webp" 
+                  />
                   <img 
                     src="/creative-emman-pic.png" 
-                    alt="Great Emman-Wori - Professional WordPress Developer and Product Designer headshot" 
+                    alt="Great Emman-Wori - Professional WordPress Developer and Product Designer headshot from Port Harcourt, Nigeria" 
                     className="w-full h-full object-cover" 
                     loading="eager"
                     width="320"
                     height="320"
                     fetchPriority="high"
+                    decoding="async"
                   />
                 </picture>
               </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-portfolioTheme-accent opacity-30 blur-2xl -z-10 animate-pulse" aria-hidden="true"></div>
-              <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-portfolioTheme-accent opacity-20 blur-xl -z-10 animate-pulse" style={{ animationDelay: "0.5s" }} aria-hidden="true"></div>
+              
+              {/* Decorative glows - SEO: aria-hidden as they're decorative */}
+              <div 
+                className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-portfolioTheme-accent opacity-30 blur-2xl -z-10 animate-pulse" 
+                aria-hidden="true"
+              ></div>
+              <div 
+                className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-portfolioTheme-accent opacity-20 blur-xl -z-10 animate-pulse" 
+                style={{ animationDelay: "0.5s" }} 
+                aria-hidden="true"
+              ></div>
+              
+              {/* Figcaption for semantic HTML */}
+              <figcaption className="sr-only">
+                Portrait photograph of Great Emman-Wori, a professional WordPress developer and product designer based in Port Harcourt, Nigeria, specializing in web development with Elementor and Divi, UI/UX design, and digital product creation.
+              </figcaption>
             </figure>
           </aside>
         </div>
