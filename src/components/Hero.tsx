@@ -136,81 +136,175 @@ const DotGridBackground = ({
   }, [shockRadius, shockStrength]);
 
   return (
-    <div ref={containerRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
-      <canvas ref={canvasRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "auto" }} />
+    <div ref={containerRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }} aria-hidden="true">
+      <canvas ref={canvasRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "auto" }} aria-label="Interactive dot grid background" />
     </div>
   );
 };
 
 // ===== HERO COMPONENT =====
 const Hero = () => {
-  return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center pt-16 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d0d] to-[#0f0f0f]"
-      style={{ position: "relative", overflow: "hidden" }}
-    >
-      {/* DotGrid Background */}
-      <DotGridBackground dotSize={3} gap={25} baseColor="#2a2a2a" activeColor="#8F0075" proximity={80} shockRadius={150} shockStrength={1.5} />
+  // Structured Data Schema
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Great Emman-Wori",
+    "jobTitle": "WordPress Developer & Product Designer",
+    "description": "Creative technologist specializing in WordPress development, UI/UX design, and product design",
+    "url": typeof window !== 'undefined' ? window.location.origin : '',
+    "image": typeof window !== 'undefined' ? `${window.location.origin}/creative-emman-pic.webp` : '',
+    "sameAs": [
+      // Add your social media profiles here
+      // "https://linkedin.com/in/yourprofile",
+      // "https://github.com/yourprofile",
+    ],
+    "knowsAbout": [
+      "WordPress Development",
+      "Product Design",
+      "UI/UX Design",
+      "Elementor",
+      "Divi",
+      "Figma",
+      "Web Development"
+    ],
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "WordPress Developer & Product Designer",
+      "occupationLocation": {
+        "@type": "Country",
+        "name": "Worldwide"
+      },
+      "skills": "WordPress, Elementor, Divi, Figma, UI/UX Design, Product Design, Web Development"
+    }
+  };
 
+  return (
+    <>
       <Helmet>
-        <title>Great Emman-Wori | WordPress Developer & Product Designer</title>
-        <meta name="description" content="I'm Great Emman-Wori, a creative technologist blending design and development into seamless digital experiences." />
+        {/* Primary Meta Tags */}
+        <title>Great Emman-Wori | WordPress Developer & Product Designer Portfolio</title>
+        <meta name="title" content="Great Emman-Wori | WordPress Developer & Product Designer Portfolio" />
+        <meta name="description" content="Creative technologist specializing in WordPress development with Elementor & Divi, UI/UX design, and product design. Transform your ideas into high-impact digital experiences." />
+        <meta name="keywords" content="WordPress developer, product designer, UI/UX designer, Elementor expert, Divi developer, Figma designer, web developer, Great Emman-Wori, creative technologist" />
+        <meta name="author" content="Great Emman-Wori" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <link rel="canonical" href={typeof window !== 'undefined' ? window.location.href : ''} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={typeof window !== 'undefined' ? window.location.href : ''} />
+        <meta property="og:title" content="Great Emman-Wori | WordPress Developer & Product Designer" />
+        <meta property="og:description" content="Creative technologist specializing in WordPress development with Elementor & Divi, UI/UX design, and product design. Let's collaborate to create exceptional digital experiences." />
+        <meta property="og:image" content={typeof window !== 'undefined' ? `${window.location.origin}/creative-emman-pic.webp` : ''} />
+        <meta property="og:image:alt" content="Great Emman-Wori - WordPress Developer and Product Designer" />
+        <meta property="og:site_name" content="Great Emman-Wori Portfolio" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={typeof window !== 'undefined' ? window.location.href : ''} />
+        <meta name="twitter:title" content="Great Emman-Wori | WordPress Developer & Product Designer" />
+        <meta name="twitter:description" content="Creative technologist specializing in WordPress development with Elementor & Divi, UI/UX design, and product design." />
+        <meta name="twitter:image" content={typeof window !== 'undefined' ? `${window.location.origin}/creative-emman-pic.webp` : ''} />
+        <meta name="twitter:image:alt" content="Great Emman-Wori - WordPress Developer and Product Designer" />
+        
+        {/* Additional SEO Tags */}
+        <meta name="theme-color" content="#8F0075" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(personSchema)}
+        </script>
       </Helmet>
 
-      <div className="container mx-auto px-4 py-16 flex md:flex-row flex-col gap-10 items-center" style={{ position: "relative", zIndex: 1 }}>
-        {/* Left Column - Text Content */}
-        <div className="flex flex-col md:gap-8 gap-4 order-2 md:order-1 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          <h1 className="text-4xl lg:text-[70px] font-bold capitalize">
-            I'm Great E<span className="text-portfolioTheme-accent">.</span>
-          </h1>
+      <section
+        id="home"
+        className="min-h-screen flex items-center pt-16 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d0d] to-[#0f0f0f]"
+        style={{ position: "relative", overflow: "hidden" }}
+        aria-label="Hero section introducing Great Emman-Wori"
+      >
+        {/* DotGrid Background */}
+        <DotGridBackground dotSize={3} gap={25} baseColor="#2a2a2a" activeColor="#8F0075" proximity={80} shockRadius={150} shockStrength={1.5} />
 
-          <h2 className="text-md md:text-lg font-medium flex gap-x-4 font-heading flex-wrap">
-            <span className="hover:text-portfolioTheme-accent transition-colors duration-300 cursor-pointer">Web Developer</span>
-            <span>|</span>
-            <span className="hover:text-portfolioTheme-accent transition-colors duration-300 cursor-pointer">Product Designer</span>
-            <span>|</span>
-            <span className="hover:text-portfolioTheme-accent transition-colors duration-300 cursor-pointer">UI/UX Designer</span>
-          </h2>
+        <div className="container mx-auto px-4 py-16 flex md:flex-row flex-col gap-10 items-center" style={{ position: "relative", zIndex: 1 }}>
+          {/* Left Column - Text Content */}
+          <article className="flex flex-col md:gap-8 gap-4 order-2 md:order-1 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+            <h1 className="text-4xl lg:text-[70px] font-bold capitalize">
+              I'm Great E<span className="text-portfolioTheme-accent" aria-hidden="true">.</span>
+            </h1>
 
-          <p className="text-portfolioTheme-textAccent text-lg max-w-xl">
-            I'm Great Emman-wori. A creative technologist who blends design and development into seamless digital experiences. From WordPress frameworks like Elementor and Divi to design systems in Figma, I transform ideas into high-impact products that don't just look good, they work beautifully. Let's{" "}
-            <span className="text-portfolioTheme-accent">collaborate</span> to bring something truly exceptional to life.
-          </p>
+            <h2 className="text-md md:text-lg font-medium flex gap-x-4 font-heading flex-wrap">
+              <span className="hover:text-portfolioTheme-accent transition-colors duration-300 cursor-pointer">Web Developer</span>
+              <span aria-hidden="true">|</span>
+              <span className="hover:text-portfolioTheme-accent transition-colors duration-300 cursor-pointer">Product Designer</span>
+              <span aria-hidden="true">|</span>
+              <span className="hover:text-portfolioTheme-accent transition-colors duration-300 cursor-pointer">UI/UX Designer</span>
+            </h2>
 
-          <div className="flex flex-wrap items-center justify-start gap-4">
-            <a href="#portfolio" className="relative bg-portfolioTheme-accent text-white px-6 py-3 rounded-md font-bold uppercase transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-portfolioTheme-accent/50 overflow-hidden group">
-              <span className="relative z-10">Explore My Work</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-            </a>
-            <a href="#contact" className="relative bg-transparent border-2 border-portfolioTheme-accent text-portfolioTheme-textMain px-6 py-3 rounded-md font-bold uppercase transition-all duration-300 hover:scale-105 hover:-translate-y-1 overflow-hidden group">
-              <span className="relative z-10 group-hover:text-white transition-colors duration-300">Hire Me</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-            </a>
-            <a href="/My cv.pdf" download="My cv.pdf" className="relative group bg-portfolioTheme-accent text-white px-6 py-3 rounded-md font-bold uppercase transition-all duration-300 flex items-center gap-2 hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-portfolioTheme-accent/50 overflow-hidden">
-              <span className="relative z-10 flex items-center gap-2">
-                Resume <Download size={18} className="group-hover:translate-y-1 transition-transform duration-300" />
-              </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-            </a>
-          </div>
+            <p className="text-portfolioTheme-textAccent text-lg max-w-xl">
+              I'm Great Emman-wori. A creative technologist who blends design and development into seamless digital experiences. From WordPress frameworks like Elementor and Divi to design systems in Figma, I transform ideas into high-impact products that don't just look good, they work beautifully. Let's{" "}
+              <span className="text-portfolioTheme-accent">collaborate</span> to bring something truly exceptional to life.
+            </p>
+
+            <nav className="flex flex-wrap items-center justify-start gap-4" aria-label="Primary call-to-action buttons">
+              <a 
+                href="#portfolio" 
+                className="relative bg-portfolioTheme-accent text-white px-6 py-3 rounded-md font-bold uppercase transition-all duration-300 hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-portfolioTheme-accent/50 overflow-hidden group"
+                aria-label="View portfolio of work"
+              >
+                <span className="relative z-10">Explore My Work</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></span>
+              </a>
+              <a 
+                href="#contact" 
+                className="relative bg-transparent border-2 border-portfolioTheme-accent text-portfolioTheme-textMain px-6 py-3 rounded-md font-bold uppercase transition-all duration-300 hover:scale-105 hover:-translate-y-1 overflow-hidden group"
+                aria-label="Contact for hiring opportunities"
+              >
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">Hire Me</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></span>
+              </a>
+              <a 
+                href="/My cv.pdf" 
+                download="Great-Emman-Wori-Resume.pdf" 
+                className="relative group bg-portfolioTheme-accent text-white px-6 py-3 rounded-md font-bold uppercase transition-all duration-300 flex items-center gap-2 hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-portfolioTheme-accent/50 overflow-hidden"
+                aria-label="Download resume PDF"
+              >
+                <span className="relative z-10 flex items-center gap-2">
+                  Resume <Download size={18} className="group-hover:translate-y-1 transition-transform duration-300" aria-hidden="true" />
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#8F0075] to-[#f59e0b] opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></span>
+              </a>
+            </nav>
+          </article>
+
+          {/* Right Column - Avatar */}
+          <aside className="order-1 md:order-2 flex-grow flex justify-center md:justify-end animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <figure className="relative">
+              <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-portfolioTheme-cardBg border-4 border-portfolioTheme-accent overflow-hidden hover:scale-105 transition-transform duration-500 shadow-2xl shadow-portfolioTheme-accent/20">
+                <picture>
+                  <source srcSet="/creative-emman-pic.webp" type="image/webp" />
+                  <img 
+                    src="/creative-emman-pic.png" 
+                    alt="Great Emman-Wori - Professional WordPress Developer and Product Designer headshot" 
+                    className="w-full h-full object-cover" 
+                    loading="eager"
+                    width="320"
+                    height="320"
+                    fetchPriority="high"
+                  />
+                </picture>
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-portfolioTheme-accent opacity-30 blur-2xl -z-10 animate-pulse" aria-hidden="true"></div>
+              <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-portfolioTheme-accent opacity-20 blur-xl -z-10 animate-pulse" style={{ animationDelay: "0.5s" }} aria-hidden="true"></div>
+            </figure>
+          </aside>
         </div>
-
-        {/* Right Column - Avatar */}
-        <div className="order-1 md:order-2 flex-grow flex justify-center md:justify-end animate-fade-in" style={{ animationDelay: "0.4s" }}>
-          <div className="relative">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-portfolioTheme-cardBg border-4 border-portfolioTheme-accent overflow-hidden hover:scale-105 transition-transform duration-500 shadow-2xl shadow-portfolioTheme-accent/20">
-              <picture>
-                <source srcSet="/creative-emman-pic.webp" type="image/webp" />
-                <img src="/creative-emman-pic.png" alt="Great Emman-Wori" className="w-full h-full object-cover" loading="lazy" />
-              </picture>
-            </div>
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full bg-portfolioTheme-accent opacity-30 blur-2xl -z-10 animate-pulse"></div>
-            <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-portfolioTheme-accent opacity-20 blur-xl -z-10 animate-pulse" style={{ animationDelay: "0.5s" }}></div>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

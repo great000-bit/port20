@@ -139,7 +139,7 @@ const DotGridBackground = ({
 
   return (
     <div ref={containerRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
-      <canvas ref={canvasRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "auto" }} />
+      <canvas ref={canvasRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "auto" }} aria-hidden="true" />
     </div>
   );
 };
@@ -189,95 +189,154 @@ const Portfolio = () => {
     { label: "Web Development", value: "webdev" as ProjectCategory, icon: <Globe className="w-4 h-4" />, count: projects.filter(p => p.category.includes("webdev")).length },
   ];
 
+  // SEO: Generate structured data for portfolio
+  const portfolioStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Great Emman-Wori Portfolio - Web Development & Design Projects",
+    "description": "Professional portfolio showcasing 13+ completed projects in WordPress development, UI/UX design, and web development by Great Emman-Wori",
+    "url": "https://creative-emman.vercel.app/#portfolio",
+    "creator": {
+      "@type": "Person",
+      "name": "Great Emman-Wori",
+      "jobTitle": "WordPress Developer & Product Designer",
+      "url": "https://creative-emman.vercel.app"
+    },
+    "hasPart": projects.map((project, index) => ({
+      "@type": "CreativeWork",
+      "position": index + 1,
+      "name": project.title,
+      "description": project.description,
+      "url": project.link,
+      "keywords": project.tools.join(", "),
+      "image": `https://creative-emman.vercel.app${project.image}`,
+      "creator": {
+        "@type": "Person",
+        "name": "Great Emman-Wori"
+      },
+      "workExample": {
+        "@type": "WebSite",
+        "url": project.link
+      }
+    }))
+  };
+
   return (
-    <section id="portfolio" className="section-padding bg-gradient-to-b from-[#0f0f0f] via-[#121212] to-[#0a0a0a] relative overflow-hidden" style={{ position: "relative" }}>
+    <section id="portfolio" className="section-padding bg-gradient-to-b from-[#0f0f0f] via-[#121212] to-[#0a0a0a] relative overflow-hidden" style={{ position: "relative" }} itemScope itemType="https://schema.org/CollectionPage">
       
+      {/* SEO: Enhanced Helmet with proper meta tags */}
+      <Helmet>
+        <title>Portfolio | 13+ WordPress & Web Design Projects by Great Emman-Wori</title>
+        <meta name="title" content="Portfolio | 13+ WordPress & Web Design Projects by Great Emman-Wori" />
+        <meta name="description" content="Explore my portfolio of 13+ completed projects including WordPress development, UI/UX design, and responsive web design. View projects for YouthUp Global, Bourdillon Foundation, and more." />
+        <meta name="keywords" content="portfolio, web design projects, WordPress projects, UI/UX design portfolio, web development portfolio, Great Emman-Wori projects, Nigeria web developer portfolio" />
+        <link rel="canonical" href="https://creative-emman.vercel.app/#portfolio" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Portfolio | 13+ WordPress & Web Design Projects by Great Emman-Wori" />
+        <meta property="og:description" content="Explore my portfolio of 13+ completed projects including WordPress development, UI/UX design, and responsive web design." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://creative-emman.vercel.app/#portfolio" />
+        <meta property="og:image" content="https://creative-emman.vercel.app/creative-emman-pic.webp" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Portfolio | 13+ WordPress & Web Design Projects by Great Emman-Wori" />
+        <meta name="twitter:description" content="Explore my portfolio of 13+ completed projects including WordPress development, UI/UX design, and responsive web design." />
+        <meta name="twitter:image" content="https://creative-emman.vercel.app/creative-emman-pic.webp" />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(portfolioStructuredData)}
+        </script>
+      </Helmet>
+
       {/* DotGrid Background */}
       <DotGridBackground dotSize={3} gap={25} baseColor="#2a2a2a" activeColor="#8F0075" proximity={80} shockRadius={150} shockStrength={1.5} />
 
-      <Helmet>
-        <title>My Portfolio | Web Design, WordPress Development & More</title>
-        <meta name="description" content="Explore my portfolio showcasing my work in WordPress development, UI/UX design, and responsive web design." />
-      </Helmet>
-
-      <div className="absolute top-0 right-0 w-96 h-96 bg-portfolioTheme-accent/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-72 h-72 bg-portfolioTheme-accent/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-portfolioTheme-accent/5 rounded-full blur-3xl" aria-hidden="true"></div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-portfolioTheme-accent/5 rounded-full blur-3xl" aria-hidden="true"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="section-title">My Projects</h2>
-          <p className="text-portfolioTheme-textAccent mt-4 mb-8 max-w-2xl mx-auto text-lg">Here are some of my recent projects showcasing my work in WordPress development and product design.</p>
+        <header className="text-center mb-16">
+          <h1 className="section-title" itemProp="name">My Projects</h1>
+          <p className="text-portfolioTheme-textAccent mt-4 mb-8 max-w-2xl mx-auto text-lg" itemProp="description">Here are some of my recent projects showcasing my work in WordPress development and product design.</p>
 
-          <div className="flex flex-wrap justify-center gap-3 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-2xl p-2 max-w-2xl mx-auto border border-gray-700/30">
+          <nav className="flex flex-wrap justify-center gap-3 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-2xl p-2 max-w-2xl mx-auto border border-gray-700/30" role="navigation" aria-label="Project filter navigation">
             {filterOptions.map((option) => (
               <button key={option.value} onClick={() => { setFilter(option.value); setShowAll(false); }}
-                className={`group relative flex items-center gap-2 py-3 px-6 rounded-xl font-medium transition-all duration-300 ${filter === option.value ? "bg-gradient-to-r from-portfolioTheme-accent to-amber-600 text-white shadow-lg scale-105" : "bg-transparent text-portfolioTheme-textAccent hover:bg-portfolioTheme-cardBg hover:text-white"}`}>
-                <span className={`transition-transform duration-300 ${filter === option.value ? 'scale-110' : 'group-hover:scale-110'}`}>{option.icon}</span>
+                className={`group relative flex items-center gap-2 py-3 px-6 rounded-xl font-medium transition-all duration-300 ${filter === option.value ? "bg-gradient-to-r from-portfolioTheme-accent to-amber-600 text-white shadow-lg scale-105" : "bg-transparent text-portfolioTheme-textAccent hover:bg-portfolioTheme-cardBg hover:text-white"}`}
+                aria-label={`Filter by ${option.label}`}
+                aria-pressed={filter === option.value}>
+                <span className={`transition-transform duration-300 ${filter === option.value ? 'scale-110' : 'group-hover:scale-110'}`} aria-hidden="true">{option.icon}</span>
                 <span>{option.label}</span>
-                <span className={`text-xs px-2 py-0.5 rounded-full transition-colors duration-300 ${filter === option.value ? 'bg-white/20' : 'bg-portfolioTheme-cardBg text-portfolioTheme-textAccent group-hover:bg-portfolioTheme-accent/20'}`}>{option.count}</span>
-                {filter === option.value && <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-white rounded-full animate-pulse"></span>}
+                <span className={`text-xs px-2 py-0.5 rounded-full transition-colors duration-300 ${filter === option.value ? 'bg-white/20' : 'bg-portfolioTheme-cardBg text-portfolioTheme-textAccent group-hover:bg-portfolioTheme-accent/20'}`} aria-label={`${option.count} projects`}>{option.count}</span>
+                {filter === option.value && <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-white rounded-full animate-pulse" aria-hidden="true"></span>}
               </button>
             ))}
-          </div>
-        </div>
+          </nav>
+        </header>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" role="list" aria-label="Portfolio projects">
           {displayedProjects.map((project, index) => (
-            <div key={project.id} className="group relative bg-[#0f0f0f] rounded-2xl overflow-hidden border border-gray-700/50 hover:border-portfolioTheme-accent/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-portfolioTheme-accent/20 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }} onMouseEnter={() => setHoveredProject(project.id)} onMouseLeave={() => setHoveredProject(null)}>
-              <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-accent via-amber-600 to-portfolioTheme-accent opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10"></div>
-              <div className="relative aspect-video overflow-hidden bg-portfolioTheme-cardBg">
+            <article key={project.id} className="group relative bg-[#0f0f0f] rounded-2xl overflow-hidden border border-gray-700/50 hover:border-portfolioTheme-accent/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-portfolioTheme-accent/20 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }} onMouseEnter={() => setHoveredProject(project.id)} onMouseLeave={() => setHoveredProject(null)} role="listitem" itemScope itemType="https://schema.org/CreativeWork">
+              <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-accent via-amber-600 to-portfolioTheme-accent opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500 -z-10" aria-hidden="true"></div>
+              <figure className="relative aspect-video overflow-hidden bg-portfolioTheme-cardBg">
                 <picture>
                   <source srcSet={project.image.replace(".jpg", ".webp")} type="image/webp" />
-                  <img src={project.image || "/placeholder.svg"} alt={`Preview of ${project.title}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                  <img src={project.image || "/placeholder.svg"} alt={`${project.title} - ${project.description}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" width="400" height="225" itemProp="image" />
                 </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" aria-hidden="true"></div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="relative bg-gradient-to-r from-portfolioTheme-accent to-amber-600 text-white p-4 rounded-full shadow-lg hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group/btn">
-                    <ExternalLink size={24} className="group-hover/btn:rotate-12 transition-transform duration-300" />
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="relative bg-gradient-to-r from-portfolioTheme-accent to-amber-600 text-white p-4 rounded-full shadow-lg hover:shadow-2xl transform hover:scale-110 transition-all duration-300 group/btn" aria-label={`View ${project.title} project`} itemProp="url">
+                    <ExternalLink size={24} className="group-hover/btn:rotate-12 transition-transform duration-300" aria-hidden="true" />
+                    <span className="sr-only">View project</span>
                   </a>
                 </div>
                 <div className="absolute top-4 right-4 flex gap-2">
                   {project.category.map((cat) => (
-                    <span key={cat} className="bg-portfolioTheme-cardBg/90 backdrop-blur-sm text-portfolioTheme-accent px-3 py-1 rounded-full text-xs font-semibold border border-portfolioTheme-accent/30 shadow-lg">
+                    <span key={cat} className="bg-portfolioTheme-cardBg/90 backdrop-blur-sm text-portfolioTheme-accent px-3 py-1 rounded-full text-xs font-semibold border border-portfolioTheme-accent/30 shadow-lg" aria-label={`Category: ${cat}`}>
                       {cat === "uiux" ? "UI/UX" : cat === "wordpress" ? "WordPress" : cat === "webdev" ? "Web Dev" : cat}
                     </span>
                   ))}
                 </div>
-              </div>
+              </figure>
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-portfolioTheme-accent transition-colors duration-300">{project.title}</h3>
-                <p className="text-portfolioTheme-textAccent mb-4 line-clamp-3 leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {project.tools.map((tool, i) => (<span key={i} className="text-xs px-3 py-1.5 rounded-full bg-portfolioTheme-cardBg text-portfolioTheme-textAccent border border-gray-700/50 hover:border-portfolioTheme-accent/50 hover:text-portfolioTheme-accent transition-all duration-300">{tool}</span>))}
+                <h2 className="text-xl font-bold mb-3 text-white group-hover:text-portfolioTheme-accent transition-colors duration-300" itemProp="name">{project.title}</h2>
+                <p className="text-portfolioTheme-textAccent mb-4 line-clamp-3 leading-relaxed" itemProp="description">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-5" role="list" aria-label="Technologies used">
+                  {project.tools.map((tool, i) => (<span key={i} className="text-xs px-3 py-1.5 rounded-full bg-portfolioTheme-cardBg text-portfolioTheme-textAccent border border-gray-700/50 hover:border-portfolioTheme-accent/50 hover:text-portfolioTheme-accent transition-all duration-300" role="listitem" itemProp="keywords">{tool}</span>))}
                 </div>
-                <a href={project.link} target="_blank" rel="noopener noreferrer" className="group/link inline-flex items-center gap-2 text-portfolioTheme-accent hover:text-amber-600 font-semibold transition-all duration-300">
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="group/link inline-flex items-center gap-2 text-portfolioTheme-accent hover:text-amber-600 font-semibold transition-all duration-300" aria-label={`View ${project.title} live website`}>
                   <span className="relative">View Project<span className="absolute bottom-0 left-0 w-0 h-0.5 bg-portfolioTheme-accent group-hover/link:w-full transition-all duration-300"></span></span>
-                  <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" />
+                  <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform duration-300" aria-hidden="true" />
                 </a>
+                <meta itemProp="url" content={project.link} />
+                <meta itemProp="author" content="Great Emman-Wori" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-portfolioTheme-accent via-amber-600 to-portfolioTheme-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-portfolioTheme-accent via-amber-600 to-portfolioTheme-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+            </article>
           ))}
         </div>
 
         {filteredProjects.length > 3 && (
           <div className="text-center mt-16">
-            <button onClick={() => setShowAll(!showAll)} className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-portfolioTheme-accent to-amber-600 hover:from-amber-600 hover:to-portfolioTheme-accent text-white font-semibold py-4 px-10 rounded-full shadow-lg hover:shadow-2xl hover:shadow-portfolioTheme-accent/50 transition-all duration-300 hover:scale-105 overflow-hidden">
+            <button onClick={() => setShowAll(!showAll)} className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-portfolioTheme-accent to-amber-600 hover:from-amber-600 hover:to-portfolioTheme-accent text-white font-semibold py-4 px-10 rounded-full shadow-lg hover:shadow-2xl hover:shadow-portfolioTheme-accent/50 transition-all duration-300 hover:scale-105 overflow-hidden" aria-expanded={showAll} aria-label={showAll ? "View less projects" : "View more projects"}>
               <span className="relative z-10">{showAll ? "View Less" : "View More Projects"}</span>
-              <svg className={`relative z-10 w-5 h-5 transition-transform duration-300 ${showAll ? 'rotate-180' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"></span>
+              <svg className={`relative z-10 w-5 h-5 transition-transform duration-300 ${showAll ? 'rotate-180' : 'rotate-0'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" aria-hidden="true"></span>
             </button>
           </div>
         )}
 
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <aside className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6" aria-label="Portfolio statistics">
           {[{ label: "Projects Completed", value: "13", suffix: "+" }, { label: "Happy Clients", value: "100", suffix: "%" }, { label: "Design Tools", value: "10", suffix: "+" }, { label: "Years Experience", value: "3", suffix: "+" }].map((stat, index) => (
             <div key={index} className="text-center p-6 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-2xl border border-gray-700/30 hover:border-portfolioTheme-accent/50 transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-portfolioTheme-accent to-amber-600 bg-clip-text text-transparent mb-2">{stat.value}{stat.suffix}</div>
+              <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-portfolioTheme-accent to-amber-600 bg-clip-text text-transparent mb-2" aria-label={`${stat.value}${stat.suffix} ${stat.label}`}>{stat.value}{stat.suffix}</div>
               <div className="text-portfolioTheme-textAccent text-sm font-medium">{stat.label}</div>
             </div>
           ))}
-        </div>
+        </aside>
       </div>
     </section>
   );

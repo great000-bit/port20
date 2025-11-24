@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useCallback, useMemo } from "react";
 import { Figma, Framer, Code, Palette } from "lucide-react";
-import { Helmet } from "react-helmet";
 import OrbitingItems, { orbitingItems } from "./OrbitingIcons";
 
 // ===== DOTGRID COMPONENT (INLINE) =====
@@ -214,6 +213,7 @@ const DotGridBackground = ({
         zIndex: 0,
         pointerEvents: "none",
       }}
+      aria-hidden="true"
     >
       <canvas
         ref={canvasRef}
@@ -225,6 +225,7 @@ const DotGridBackground = ({
           height: "100%",
           pointerEvents: "auto",
         }}
+        aria-label="Interactive dot grid background"
       />
     </div>
   );
@@ -239,12 +240,12 @@ const About = () => {
   };
 
   const skillsWithIcons = [
-    { name: "Web Developer", icon: <Code className="w-5 h-5" /> },
-    { name: "Figma", icon: <Figma className="w-5 h-5" /> },
-    { name: "Framer", icon: <Framer className="w-5 h-5" /> },
-    { name: "UX Strategy", icon: <Palette className="w-5 h-5" /> },
-    { name: "WordPress Developer", icon: <Code className="w-5 h-5" /> },
-    { name: "Canva", icon: <Palette className="w-5 h-5" /> },
+    { name: "Web Developer", icon: <Code className="w-5 h-5" />, ariaLabel: "Web Development expertise" },
+    { name: "Figma", icon: <Figma className="w-5 h-5" />, ariaLabel: "Figma design tool proficiency" },
+    { name: "Framer", icon: <Framer className="w-5 h-5" />, ariaLabel: "Framer prototyping skills" },
+    { name: "UX Strategy", icon: <Palette className="w-5 h-5" />, ariaLabel: "User Experience Strategy" },
+    { name: "WordPress Developer", icon: <Code className="w-5 h-5" />, ariaLabel: "WordPress development expertise" },
+    { name: "Canva", icon: <Palette className="w-5 h-5" />, ariaLabel: "Canva design skills" },
   ];
 
   return (
@@ -252,6 +253,9 @@ const About = () => {
       id="about"
       className="section-padding bg-portfolioTheme-secondary"
       style={{ position: "relative", overflow: "hidden" }}
+      aria-labelledby="about-heading"
+      itemScope
+      itemType="https://schema.org/AboutPage"
     >
       {/* DotGrid Background */}
       <DotGridBackground
@@ -264,27 +268,25 @@ const About = () => {
         shockStrength={1.5}
       />
 
-      <Helmet>
-        <title>About Great Emman | Web Developer & Product Designer</title>
-        <meta
-          name="description"
-          content="Learn about Great Emman, a skilled Web Developer, UI/UX designer, and product designer based in Port Harcourt, Nigeria, with a passion for creating user-centric digital solutions."
-        />
-      </Helmet>
-
       <div className="container mx-auto px-4" style={{ position: "relative", zIndex: 1 }}>
-        <h2 className="section-title">About Me</h2>
+        <h2 id="about-heading" className="section-title" itemProp="name">About Me</h2>
 
         <div className="grid md:grid-cols-2 gap-10 mt-10">
           {/* Left column */}
-          <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <article 
+            className="animate-fade-in" 
+            style={{ animationDelay: "0.2s" }}
+            itemProp="description"
+          >
             <p className="text-lg mb-6 text-portfolioTheme-textAccent">
-              {designer.name} is a Web Developer, UI/UX Designer, and Digital Product Designer based in Port Harcourt, Nigeria. With a passion for turning concepts into functional, user-centric solutions, I design and develop websites that merge creativity, strategy, and technology. My approach goes beyond visuals. I focus on building experiences that are intuitive, scalable, and future-ready.
+              <span itemProp="author" itemScope itemType="https://schema.org/Person">
+                <span itemProp="name">{designer.name}</span>
+              </span> is a <strong>Web Developer</strong>, <strong>UI/UX Designer</strong>, and <strong>Digital Product Designer</strong> based in <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress"><span itemProp="addressLocality">Port Harcourt</span>, <span itemProp="addressCountry">Nigeria</span></span>. With a passion for turning concepts into functional, user-centric solutions, I design and develop websites that merge creativity, strategy, and technology. My approach goes beyond visuals. I focus on building experiences that are intuitive, scalable, and future-ready.
             </p>
             <p className="text-lg mb-6 text-portfolioTheme-textAccent">
               Combining technical knowledge with creative design skills,{" "}
               {designer.name.split(" ")[0]} helps businesses establish strong
-              online presences through custom WordPress solutions and intuitive
+              online presences through custom <strong>WordPress solutions</strong> and intuitive
               user interfaces.
             </p>
             <p className="text-lg mb-6 text-portfolioTheme-textAccent">
@@ -294,35 +296,45 @@ const About = () => {
             </p>
             <p className="text-lg mb-6 text-portfolioTheme-textAccent">
               <span className="font-bold text-portfolioTheme-accent">Passion:</span>{" "}
-              {designer.passion}
+              <span itemProp="knowsAbout">{designer.passion}</span>
             </p>
 
             {/* Skills */}
             <div className="mt-8">
               <h3 className="text-xl font-bold mb-4 text-white">My Skills</h3>
-              <div className="flex flex-wrap gap-3">
+              <nav 
+                className="flex flex-wrap gap-3" 
+                aria-label="Professional skills and technologies"
+                itemProp="knowsAbout"
+              >
                 {skillsWithIcons.map((skill, index) => (
                   <div
                     key={index}
                     className="flex items-center gap-2 bg-portfolioTheme-cardBg py-2 px-4 rounded-full"
+                    itemProp="knowsAbout"
+                    role="listitem"
                   >
-                    <span className="text-portfolioTheme-primary">
+                    <span 
+                      className="text-portfolioTheme-primary"
+                      aria-label={skill.ariaLabel}
+                    >
                       {skill.icon}
                     </span>
                     <span className="text-white">{skill.name}</span>
                   </div>
                 ))}
-              </div>
+              </nav>
             </div>
-          </div>
+          </article>
 
           {/* Right column */}
-          <div
+          <aside
             className="animate-fade-in-right flex items-center justify-center"
             style={{ animationDelay: "0.4s" }}
+            aria-label="Interactive skill visualization"
           >
             <OrbitingItems items={orbitingItems} radius={40} pauseOnHover />
-          </div>
+          </aside>
         </div>
       </div>
     </section>
