@@ -3,7 +3,6 @@ import { Figma, Framer, Code, Palette } from "lucide-react";
 import { Helmet } from "react-helmet";
 import OrbitingItems, { orbitingItems } from "./OrbitingIcons";
 
-// ===== DOTGRID COMPONENT (INLINE) =====
 function hexToRgb(hex: string) {
   const m = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
   if (!m) return { r: 0, g: 0, b: 0 };
@@ -253,7 +252,6 @@ const About = () => {
       className="section-padding bg-portfolioTheme-secondary"
       style={{ position: "relative", overflow: "hidden" }}
     >
-      {/* DotGrid Background */}
       <DotGridBackground
         dotSize={3}
         gap={25}
@@ -265,50 +263,47 @@ const About = () => {
       />
 
       <Helmet>
-        <title>About Great Emman | Web Developer & Product Designer</title>
+        <title>About Great Emman-Wori | Web Developer, UI/UX Designer & Digital Creator</title>
         <meta
           name="description"
-          content="Learn about Great Emman, a skilled Web Developer, UI/UX designer, and product designer based in Port Harcourt, Nigeria, with a passion for creating user-centric digital solutions."
+          content="Get to know Great Emman-Wori — a Web Developer, UI/UX Designer, Product Designer, and Visual Creator based in Nigeria. Discover his passion for building intuitive digital experiences."
         />
+        <link rel="canonical" href="https://creative-emman.vercel.app/#about" />
+        <meta property="og:title" content="About Great Emman-Wori | Developer & Designer" />
+        <meta property="og:description" content="Meet Great Emman-Wori: blending development, design, and digital strategy. Based in Nigeria." />
+        <meta property="og:image" content="file:///mnt/data/09dedf66-490c-4a89-8231-4ca929b61d0b.png" />
+        <meta property="og:url" content="https://creative-emman.vercel.app/#about" />
+        <meta property="og:type" content="profile" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Great Emman-Wori | Web & Product Designer" />
+        <meta name="twitter:description" content="Explore the background and expertise of Great Emman-Wori. Expert in WordPress, UI/UX, product strategy." />
+        <meta name="twitter:image" content="file:///mnt/data/09dedf66-490c-4a89-8231-4ca929b61d0b.png" />
       </Helmet>
 
       <div className="container mx-auto px-4" style={{ position: "relative", zIndex: 1 }}>
         <h2 className="section-title">About Me</h2>
 
         <div className="grid md:grid-cols-2 gap-10 mt-10">
-          {/* Left column */}
           <div className="animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <p className="text-lg mb-6 text-portfolioTheme-textAccent">
-              {designer.name} is a Web Developer, UI/UX Designer, and Digital Product Designer based in Port Harcourt, Nigeria. With a passion for turning concepts into functional, user-centric solutions, I design and develop websites that merge creativity, strategy, and technology. My approach goes beyond visuals. I focus on building experiences that are intuitive, scalable, and future-ready.
+              {designer.name} is a Web Developer, UI/UX Designer, and Digital Product Designer based in Port Harcourt, Nigeria. With a passion for turning concepts into functional, user-centric solutions, I design and develop websites that merge creativity, strategy, and technology.
             </p>
             <p className="text-lg mb-6 text-portfolioTheme-textAccent">
-              Combining technical knowledge with creative design skills,{" "}
-              {designer.name.split(" ")[0]} helps businesses establish strong
-              online presences through custom WordPress solutions and intuitive
-              user interfaces.
+              Combining technical knowledge with creative design skills, {designer.name.split(" ")[0]} helps businesses establish strong online presences through custom WordPress solutions and intuitive user interfaces.
             </p>
             <p className="text-lg mb-6 text-portfolioTheme-textAccent">
-              His approach focuses on creating websites that not only look
-              professional but also deliver seamless user experiences that drive
-              engagement and conversions.
+              His approach focuses on creating websites that not only look professional but also deliver seamless user experiences that drive engagement and conversions.
             </p>
             <p className="text-lg mb-6 text-portfolioTheme-textAccent">
-              <span className="font-bold text-portfolioTheme-accent">Passion:</span>{" "}
-              {designer.passion}
+              <span className="font-bold text-portfolioTheme-accent">Passion:</span> {designer.passion}
             </p>
 
-            {/* Skills */}
             <div className="mt-8">
               <h3 className="text-xl font-bold mb-4 text-white">My Skills</h3>
               <div className="flex flex-wrap gap-3">
                 {skillsWithIcons.map((skill, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 bg-portfolioTheme-cardBg py-2 px-4 rounded-full"
-                  >
-                    <span className="text-portfolioTheme-primary">
-                      {skill.icon}
-                    </span>
+                  <div key={index} className="flex items-center gap-2 bg-portfolioTheme-cardBg py-2 px-4 rounded-full">
+                    <span className="text-portfolioTheme-primary">{skill.icon}</span>
                     <span className="text-white">{skill.name}</span>
                   </div>
                 ))}
@@ -316,11 +311,7 @@ const About = () => {
             </div>
           </div>
 
-          {/* Right column */}
-          <div
-            className="animate-fade-in-right flex items-center justify-center"
-            style={{ animationDelay: "0.4s" }}
-          >
+          <div className="animate-fade-in-right flex items-center justify-center" style={{ animationDelay: "0.4s" }}>
             <OrbitingItems items={orbitingItems} radius={40} pauseOnHover />
           </div>
         </div>
