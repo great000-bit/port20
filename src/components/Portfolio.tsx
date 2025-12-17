@@ -177,6 +177,7 @@ const Portfolio = () => {
     { id: 11, title: "Ego Nwosu - Cinematic Portfolio", category: ["webdev"], image: "/ego.png", description: "Digital showcase for Ego Nwosu, the golden muse of modern Nollywood.", tools: ["React", "Web Development", "Portfolio", "Cinematic Design"], link: "https://ego-cinematic-muse.vercel.app/" },
     { id: 12, title: "Omoni Oboli - Director's Portfolio", category: ["webdev"], image: "/omoni.png", description: "Portfolio website for Omoni Oboli, Nigeria's celebrated actress and director.", tools: ["React", "Web Development", "Director Portfolio", "Elegant Design"], link: "https://omoni-oboli.vercel.app/" },
     { id: 13, title: "The Light Mission - NGO Website", category: ["webdev"], image: "/thelightmission.png", description: "A mission-driven website for The Light Mission NGO, focused on empowering African youth.", tools: ["React", "Web Development", "NGO", "Mission-Driven Design"], link: "https://www.thelightmission.com/" },
+    { id: 14, title: "Wizor Progress Website", category: ["webdev"], image: "/wizor.png", description: "Professional portfolio website for Wizor, a real estate manager and owner of Sommy Properties. Showcasing expertise in property management with modern design.", tools: ["React", "Web Development", "Real Estate Portfolio", "Business Website"], link: "https://wizor-progress-hub.vercel.app/" },
   ];
 
   const filteredProjects = projects.filter((project) => filter === "all" || project.category.includes(filter));
@@ -194,7 +195,7 @@ const Portfolio = () => {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Great Emman-Wori Portfolio - Web Development & Design Projects",
-    "description": "Professional portfolio showcasing 13+ completed projects in WordPress development, UI/UX design, and web development by Great Emman-Wori",
+    "description": "Professional portfolio showcasing 14+ completed projects in WordPress development, UI/UX design, and web development by Great Emman-Wori",
     "url": "https://creative-emman.vercel.app/#portfolio",
     "creator": {
       "@type": "Person",
@@ -226,23 +227,23 @@ const Portfolio = () => {
       
       {/* SEO: Enhanced Helmet with proper meta tags */}
       <Helmet>
-        <title>Portfolio | 13+ WordPress & Web Design Projects by Great Emman-Wori</title>
-        <meta name="title" content="Portfolio | 13+ WordPress & Web Design Projects by Great Emman-Wori" />
-        <meta name="description" content="Explore my portfolio of 13+ completed projects including WordPress development, UI/UX design, and responsive web design. View projects for YouthUp Global, Bourdillon Foundation, and more." />
+        <title>Portfolio | 14+ WordPress & Web Design Projects by Great Emman-Wori</title>
+        <meta name="title" content="Portfolio | 14+ WordPress & Web Design Projects by Great Emman-Wori" />
+        <meta name="description" content="Explore my portfolio of 14+ completed projects including WordPress development, UI/UX design, and responsive web design. View projects for YouthUp Global, Bourdillon Foundation, and more." />
         <meta name="keywords" content="portfolio, web design projects, WordPress projects, UI/UX design portfolio, web development portfolio, Great Emman-Wori projects, Nigeria web developer portfolio" />
         <link rel="canonical" href="https://creative-emman.vercel.app/#portfolio" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Portfolio | 13+ WordPress & Web Design Projects by Great Emman-Wori" />
-        <meta property="og:description" content="Explore my portfolio of 13+ completed projects including WordPress development, UI/UX design, and responsive web design." />
+        <meta property="og:title" content="Portfolio | 14+ WordPress & Web Design Projects by Great Emman-Wori" />
+        <meta property="og:description" content="Explore my portfolio of 14+ completed projects including WordPress development, UI/UX design, and responsive web design." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://creative-emman.vercel.app/#portfolio" />
         <meta property="og:image" content="https://creative-emman.vercel.app/creative-emman-pic.webp" />
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Portfolio | 13+ WordPress & Web Design Projects by Great Emman-Wori" />
-        <meta name="twitter:description" content="Explore my portfolio of 13+ completed projects including WordPress development, UI/UX design, and responsive web design." />
+        <meta name="twitter:title" content="Portfolio | 14+ WordPress & Web Design Projects by Great Emman-Wori" />
+        <meta name="twitter:description" content="Explore my portfolio of 14+ completed projects including WordPress development, UI/UX design, and responsive web design." />
         <meta name="twitter:image" content="https://creative-emman.vercel.app/creative-emman-pic.webp" />
         
         {/* Structured Data */}
@@ -330,7 +331,7 @@ const Portfolio = () => {
         )}
 
         <aside className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6" aria-label="Portfolio statistics">
-          {[{ label: "Projects Completed", value: "13", suffix: "+" }, { label: "Happy Clients", value: "100", suffix: "%" }, { label: "Design Tools", value: "10", suffix: "+" }, { label: "Years Experience", value: "3", suffix: "+" }].map((stat, index) => (
+          {[{ label: "Projects Completed", value: "14", suffix: "+" }, { label: "Happy Clients", value: "100", suffix: "%" }, { label: "Design Tools", value: "10", suffix: "+" }, { label: "Years Experience", value: "3", suffix: "+" }].map((stat, index) => (
             <div key={index} className="text-center p-6 bg-[#0a0a0a]/50 backdrop-blur-sm rounded-2xl border border-gray-700/30 hover:border-portfolioTheme-accent/50 transition-all duration-300 hover:scale-105 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-portfolioTheme-accent to-amber-600 bg-clip-text text-transparent mb-2" aria-label={`${stat.value}${stat.suffix} ${stat.label}`}>{stat.value}{stat.suffix}</div>
               <div className="text-portfolioTheme-textAccent text-sm font-medium">{stat.label}</div>
