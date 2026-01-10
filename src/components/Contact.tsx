@@ -183,14 +183,14 @@ export default function Contact() {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact Great Emman-Wori",
-    "description": "Get in touch with Great Emman-Wori for WordPress development, UI/UX design, product design, and web development services. Based in Port Harcourt, Nigeria, serving clients globally.",
+    "description": "Get in touch with Great Emman-Wori for Website development, UI/UX design, product design, and web development services. Based in Port Harcourt, Nigeria, serving clients globally.",
     "url": "https://creative-emman.vercel.app/#contact",
     "mainEntity": {
       "@type": "Person",
       "name": "Great Emman-Wori",
-      "jobTitle": "WordPress Developer & Product Designer",
+      "jobTitle": "Website Developer & Product Designer",
       "email": "greatemmanwori@gmail.com",
-      "telephone": "+234-905-138-0648",
+      "telephone": "+234-810-388-7554",
       "url": "https://creative-emman.vercel.app",
       "address": {
         "@type": "PostalAddress",
@@ -202,7 +202,7 @@ export default function Contact() {
         "https://www.linkedin.com/in/great-emman-wori",
         "https://msng.link/o?creative_emman=ig",
         "https://www.tiktok.com/@great_emman_wori",
-        "https://wa.me/2349051380648"
+        "https://wa.me/+234-810-388-7554"
       ]
     }
   };
@@ -212,7 +212,7 @@ export default function Contact() {
     "@type": "ProfessionalService",
     "name": "Great Emman-Wori - Web Development Services",
     "description": "Professional WordPress development, UI/UX design, and web development services",
-    "telephone": "+234-905-138-0648",
+    "telephone": "+234-810-388-7554",
     "email": "greatemmanwori@gmail.com",
     "address": {
       "@type": "PostalAddress",
@@ -223,7 +223,7 @@ export default function Contact() {
     "areaServed": "Global",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+234-905-138-0648",
+      "telephone": "+234-8103887554",
       "contactType": "Customer Service",
       "email": "greatemmanwori@gmail.com",
       "availableLanguage": ["English"],
@@ -292,9 +292,9 @@ export default function Contact() {
             <h2 className="text-2xl font-bold mb-6">Get in Touch</h2>
             <nav className="space-y-4" role="list" aria-label="Contact methods">
               {/* WhatsApp */}
-              <a href="https://wa.me/2349051380648" target="_blank" rel="noopener noreferrer nofollow" className="group flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1" itemProp="telephone" aria-label="Contact via WhatsApp">
+              <a href="https://wa.me/2348103887554" target="_blank" rel="noopener noreferrer nofollow" className="group flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1" itemProp="telephone" aria-label="Contact via WhatsApp">
                 <div className="w-12 h-12 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform" aria-hidden="true"><Phone className="w-5 h-5" /></div>
-                <div className="flex-1"><h3 className="font-medium text-white">WhatsApp</h3><p className="text-sm text-portfolioTheme-textAccent group-hover:text-portfolioTheme-primary transition-colors">+234 905 138 0648</p></div>
+                <div className="flex-1"><h3 className="font-medium text-white">WhatsApp</h3><p className="text-sm text-portfolioTheme-textAccent group-hover:text-portfolioTheme-primary transition-colors">+234 810 388 7554</p></div>
               </a>
               {/* Email */}
               <a href="mailto:greatemmanwori@gmail.com" className="group flex items-center gap-4 p-4 bg-portfolioTheme-cardBg rounded-xl border border-gray-700 hover:border-portfolioTheme-primary transition-all duration-300 hover:shadow-lg hover:shadow-portfolioTheme-primary/20 hover:-translate-y-1" itemProp="email" aria-label="Send email to Great Emman-Wori">
