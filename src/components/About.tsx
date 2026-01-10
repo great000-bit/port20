@@ -417,7 +417,7 @@ const About = () => {
 
                   <p className="text-base md:text-lg leading-relaxed text-portfolioTheme-textAccent mb-4">
                     I'm <span className="text-white font-semibold">{designer.name}</span>, a creative technologist based in <span className="text-white font-semibold">{designer.location}</span>.
-                    As a <span className="text-portfolioTheme-primary font-medium">Website Der</span>, <span className="text-portfolioTheme-primary font-medium">UI/UX Designer</span>, and <span className="text-portfolioTheme-primary font-medium">Digital Product Designer</span>,
+                    As a <span className="text-portfolioTheme-primary font-medium">Website Developer</span>, <span className="text-portfolioTheme-primary font-medium">UI/UX Designer</span>, and <span className="text-portfolioTheme-primary font-medium">Digital Product Designer</span>,
                     I transform complex ideas into elegant, user-centric digital solutions.
                   </p>
                 </div>
