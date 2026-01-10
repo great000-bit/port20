@@ -1,5 +1,5 @@
-import { useRef, useEffect, useCallback, useMemo } from "react";
-import { Quote } from "lucide-react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 // ===== DOTGRID BACKGROUND =====
 function hexToRgb(hex: string) {
@@ -141,7 +141,7 @@ const DotGridBackground = ({
   );
 };
 
-// ===== TESTIMONIALS COMPONENT =====
+// ===== TESTIMONIALS CAROUSEL COMPONENT =====
 const Testimonials = () => {
   const testimonials = [
     { id: 1, name: "YOUTHUP GLOBAL UK", position: "CEO AND FOUNDER - YOUTHUP GLOBAL", avatar: "/youth.webp", text: "Creative Emman brought our vision for YouthUp Global Pathways to life with clarity, creativity, and care. His ability to turn complex ideas into a clean, intuitive web experience made the entire process seamless. We now have a platform that truly reflects our mission — empowering youth worldwide.", rating: 5 },
@@ -150,15 +150,74 @@ const Testimonials = () => {
     { id: 4, name: "BELLO STYLEZ", position: "CEO - BELLOSTYLEZ UNISEX SALOON", avatar: "/bellostylez.webp", text: "Working with Creative Emman was the best decision for my brand. He captured my vision perfectly, delivered ahead of schedule, and made everything feel effortless. My site now feels like me — stylish, fast, and functional.", rating: 5 },
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+
+  const startAutoPlay = useCallback(() => {
+    if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+    autoPlayRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 4000);
+  }, [testimonials.length]);
+
+  const stopAutoPlay = useCallback(() => {
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current);
+      autoPlayRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    startAutoPlay();
+    return () => stopAutoPlay();
+  }, [startAutoPlay, stopAutoPlay]);
+
+  const goToNext = useCallback(() => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setTimeout(() => setIsAnimating(false), 700);
+  }, [isAnimating, testimonials.length]);
+
+  const goToPrevious = useCallback(() => {
+    if (isAnimating) return;
+    setIsAnimating(true);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setTimeout(() => setIsAnimating(false), 700);
+  }, [isAnimating, testimonials.length]);
+
+  const goToSlide = useCallback((index: number) => {
+    if (isAnimating || index === currentIndex) return;
+    setIsAnimating(true);
+    setCurrentIndex(index);
+    setTimeout(() => setIsAnimating(false), 700);
+    stopAutoPlay();
+    startAutoPlay();
+  }, [isAnimating, currentIndex, stopAutoPlay, startAutoPlay]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') goToPrevious();
+      else if (e.key === 'ArrowRight') goToNext();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [goToNext, goToPrevious]);
+
+  const currentTestimonial = testimonials[currentIndex];
+
   return (
-    <section 
-      id="testimonials" 
+    <section
+      id="testimonials"
       className="section-padding bg-portfolioTheme-secondary relative overflow-hidden"
       aria-labelledby="testimonials-heading"
       itemScope
       itemType="https://schema.org/ReviewPage"
+      onMouseEnter={stopAutoPlay}
+      onMouseLeave={startAutoPlay}
     >
-      
+
       {/* DotGrid Background */}
       <DotGridBackground dotSize={3} gap={25} baseColor="#2a2a2a" activeColor="#8F0075" proximity={80} shockRadius={150} shockStrength={1.5} />
 
@@ -173,36 +232,39 @@ const Testimonials = () => {
           </p>
         </header>
 
-        <div 
-          className="grid md:grid-cols-2 gap-6 lg:gap-8"
-          role="list"
-          aria-label="Client testimonials and reviews"
-        >
-          {testimonials.map((testimonial, index) => (
-            <article 
-              key={testimonial.id} 
-              className="group relative bg-portfolioTheme-cardBg p-8 rounded-2xl border border-gray-700/50 hover:border-portfolioTheme-primary/50 shadow-lg hover:shadow-2xl hover:shadow-portfolioTheme-primary/10 transition-all duration-500 animate-fade-in hover:-translate-y-2" 
-              style={{ animationDelay: `${0.15 * index}s` }}
+        {/* Carousel Container */}
+        <div className="relative max-w-4xl mx-auto">
+
+          {/* Carousel Card */}
+          <div
+            className="relative"
+            role="list"
+            aria-label="Client testimonials and reviews"
+            aria-live="polite"
+          >
+            <article
+              key={currentTestimonial.id}
+              className="group relative bg-portfolioTheme-cardBg p-8 md:p-10 lg:p-12 rounded-2xl border border-gray-700/50 hover:border-portfolioTheme-primary/50 shadow-lg hover:shadow-2xl hover:shadow-portfolioTheme-primary/10 transition-all duration-700 hover:-translate-y-2 animate-fade-in min-h-[380px] md:min-h-[350px]"
               itemScope
               itemType="https://schema.org/Review"
               role="listitem"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-primary/5 to-portfolioTheme-accent/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500" aria-hidden="true"></div>
-              <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300" aria-hidden="true">
+              <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-primary/5 to-portfolioTheme-accent/5 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-700" aria-hidden="true"></div>
+              <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-500" aria-hidden="true">
                 <Quote className="w-16 h-16 text-portfolioTheme-primary" />
               </div>
 
               <div className="relative z-10">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-300" aria-hidden="true"></div>
-                    <figure className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-portfolioTheme-primary group-hover:border-portfolioTheme-accent shrink-0 transition-all duration-300 group-hover:scale-110">
+                    <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-primary to-portfolioTheme-accent rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity duration-500" aria-hidden="true"></div>
+                    <figure className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-portfolioTheme-primary group-hover:border-portfolioTheme-accent shrink-0 transition-all duration-500 group-hover:scale-110">
                       <picture>
-                        <source srcSet={testimonial.avatar} type="image/webp" />
-                        <img 
-                          src={testimonial.avatar} 
-                          alt={`${testimonial.name} - ${testimonial.position}`}
-                          className="w-full h-full object-cover" 
+                        <source srcSet={currentTestimonial.avatar} type="image/webp" />
+                        <img
+                          src={currentTestimonial.avatar}
+                          alt={`${currentTestimonial.name} - ${currentTestimonial.position}`}
+                          className="w-full h-full object-cover"
                           loading="lazy"
                           width="64"
                           height="64"
@@ -211,36 +273,36 @@ const Testimonials = () => {
                       </picture>
                     </figure>
                   </div>
-                  
+
                   <div className="flex-1" itemProp="author" itemScope itemType="https://schema.org/Person">
-                    <h3 className="font-bold text-white text-lg mb-1 group-hover:text-portfolioTheme-primary transition-colors duration-300" itemProp="name">
-                      {testimonial.name}
+                    <h3 className="font-bold text-white text-lg md:text-xl mb-1 group-hover:text-portfolioTheme-primary transition-colors duration-500" itemProp="name">
+                      {currentTestimonial.name}
                     </h3>
                     <p className="text-sm text-portfolioTheme-textAccent font-medium" itemProp="jobTitle">
-                      {testimonial.position}
+                      {currentTestimonial.position}
                     </p>
                   </div>
                 </div>
 
-                <div 
-                  className="flex gap-1 mb-4" 
-                  itemProp="reviewRating" 
-                  itemScope 
+                <div
+                  className="flex gap-1 mb-6"
+                  itemProp="reviewRating"
+                  itemScope
                   itemType="https://schema.org/Rating"
                   role="img"
-                  aria-label={`${testimonial.rating} out of 5 stars rating`}
+                  aria-label={`${currentTestimonial.rating} out of 5 stars rating`}
                 >
-                  <meta itemProp="ratingValue" content={testimonial.rating.toString()} />
+                  <meta itemProp="ratingValue" content={currentTestimonial.rating.toString()} />
                   <meta itemProp="bestRating" content="5" />
                   <meta itemProp="worstRating" content="1" />
                   {[...Array(5)].map((_, i) => (
-                    <svg 
-                      key={i} 
-                      xmlns="http://www.w3.org/2000/svg" 
-                      viewBox="0 0 24 24" 
-                      fill="currentColor" 
-                      className="w-5 h-5 text-portfolioTheme-accent group-hover:scale-110 transition-transform duration-300" 
-                      style={{ transitionDelay: `${i * 50}ms` }}
+                    <svg
+                      key={i}
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      className="w-5 h-5 text-portfolioTheme-accent group-hover:scale-110 transition-transform duration-500"
+                      style={{ transitionDelay: `${i * 60}ms` }}
                       aria-hidden="true"
                     >
                       <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
@@ -248,21 +310,76 @@ const Testimonials = () => {
                   ))}
                 </div>
 
-                <blockquote 
-                  className="text-portfolioTheme-textAccent leading-relaxed text-base"
+                <blockquote
+                  className="text-portfolioTheme-textAccent leading-relaxed text-base md:text-lg"
                   itemProp="reviewBody"
                 >
-                  <span className="text-portfolioTheme-primary text-2xl font-serif leading-none" aria-hidden="true">"</span>
-                  {testimonial.text}
-                  <span className="text-portfolioTheme-primary text-2xl font-serif leading-none" aria-hidden="true">"</span>
+                  <span className="text-portfolioTheme-primary text-3xl font-serif leading-none" aria-hidden="true">"</span>
+                  {currentTestimonial.text}
+                  <span className="text-portfolioTheme-primary text-3xl font-serif leading-none" aria-hidden="true">"</span>
                 </blockquote>
 
                 <meta itemProp="itemReviewed" itemScope itemType="https://schema.org/Service" content="Web Development & Design Services" />
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-portfolioTheme-primary via-portfolioTheme-accent to-portfolioTheme-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-2xl" aria-hidden="true"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-portfolioTheme-primary via-portfolioTheme-accent to-portfolioTheme-primary opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-b-2xl" aria-hidden="true"></div>
             </article>
-          ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={goToPrevious}
+            disabled={isAnimating}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 lg:-translate-x-20 bg-portfolioTheme-cardBg hover:bg-portfolioTheme-primary border border-gray-700/50 hover:border-portfolioTheme-primary text-white rounded-full p-3 md:p-4 transition-all duration-500 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl hover:shadow-portfolioTheme-primary/40 focus:outline-none focus:ring-2 focus:ring-portfolioTheme-primary focus:ring-offset-2 focus:ring-offset-portfolioTheme-secondary z-20"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-6 h-6 md:w-7 md:h-7" />
+          </button>
+
+          <button
+            onClick={goToNext}
+            disabled={isAnimating}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 lg:translate-x-20 bg-portfolioTheme-cardBg hover:bg-portfolioTheme-primary border border-gray-700/50 hover:border-portfolioTheme-primary text-white rounded-full p-3 md:p-4 transition-all duration-500 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-2xl hover:shadow-portfolioTheme-primary/40 focus:outline-none focus:ring-2 focus:ring-portfolioTheme-primary focus:ring-offset-2 focus:ring-offset-portfolioTheme-secondary z-20"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-6 h-6 md:w-7 md:h-7" />
+          </button>
+
+          {/* Dot Indicators */}
+          <div
+            className="flex justify-center gap-3 mt-8"
+            role="tablist"
+            aria-label="Testimonial navigation"
+          >
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                disabled={isAnimating}
+                className={`transition-all duration-500 rounded-full focus:outline-none focus:ring-2 focus:ring-portfolioTheme-primary focus:ring-offset-2 focus:ring-offset-portfolioTheme-secondary ${
+                  index === currentIndex
+                    ? 'w-12 h-3 bg-portfolioTheme-primary shadow-lg shadow-portfolioTheme-primary/50'
+                    : 'w-3 h-3 bg-gray-600 hover:bg-portfolioTheme-primary/60 hover:scale-125'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+                aria-current={index === currentIndex ? 'true' : 'false'}
+                role="tab"
+                aria-selected={index === currentIndex}
+              />
+            ))}
+          </div>
+
+          {/* Progress Bar */}
+          <div className="mt-6 max-w-md mx-auto">
+            <div className="h-1 bg-gray-800/50 rounded-full overflow-hidden backdrop-blur-sm">
+              <div
+                className="h-full bg-gradient-to-r from-portfolioTheme-primary via-portfolioTheme-accent to-portfolioTheme-primary transition-all duration-500 ease-linear shadow-lg shadow-portfolioTheme-primary/30"
+                style={{
+                  width: `${((currentIndex + 1) / testimonials.length) * 100}%`,
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </section>

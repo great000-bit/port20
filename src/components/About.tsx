@@ -239,7 +239,7 @@ const About = () => {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Great Emman-Wori",
-    "jobTitle": "WordPress Developer & Product Designer",
+    "jobTitle": "Website Developer & Product Designer",
     "description": "Web Developer, UI/UX Designer, and Digital Product Designer based in Port Harcourt, Nigeria with expertise in WordPress, Figma, and product design",
     "url": "https://creative-emman.vercel.app",
     "image": "https://creative-emman.vercel.app/creative-emman-pic.webp",
@@ -366,8 +366,7 @@ const About = () => {
 
       <section
         id="about"
-        className="section-padding bg-portfolioTheme-secondary"
-        style={{ position: "relative", overflow: "hidden" }}
+        className="section-padding bg-portfolioTheme-secondary relative overflow-hidden"
         aria-labelledby="about-heading"
         role="region"
       >
@@ -382,114 +381,157 @@ const About = () => {
           shockStrength={1.5}
         />
 
-        <div className="container mx-auto px-4" style={{ position: "relative", zIndex: 1 }}>
-          {/* Primary Heading - SEO Critical */}
-          <h2 
-            id="about-heading" 
-            className="section-title text-4xl md:text-5xl font-bold mb-2 text-white"
-          >
-            About Me
-          </h2>
-          
-          {/* Subheading for better context */}
-          <p className="text-portfolioTheme-textAccent mb-12 text-lg max-w-2xl">
-            Professional background, expertise, and approach to web development and design
-          </p>
+        {/* Gradient Decorations */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-portfolioTheme-primary/5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" aria-hidden="true"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-portfolioTheme-accent/5 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" aria-hidden="true"></div>
 
-          <div className="grid md:grid-cols-2 gap-10 mt-10">
-            {/* Left column - About Content */}
-            <article 
-              className="animate-fade-in space-y-6" 
-              style={{ animationDelay: "0.2s" }}
+        <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+          {/* Header Section */}
+          <div className="text-center mb-16">
+            <h2
+              id="about-heading"
+              className="section-title inline-block text-4xl md:text-5xl font-bold text-white mb-4"
             >
-              {/* First paragraph - Introduction */}
-              <p className="text-lg leading-relaxed text-portfolioTheme-textAccent">
-                I'm <strong className="text-white">{designer.name}</strong>, a creative technologist based in <strong className="text-white">{designer.location}</strong>. 
-                As a <strong className="text-white">Web Developer</strong>, <strong className="text-white">UI/UX Designer</strong>, and <strong className="text-white">Digital Product Designer</strong>, 
-                I specialize in transforming complex concepts into functional, user-centric digital solutions that drive real business results.
-              </p>
+              About Me
+            </h2>
+            <p className="text-portfolioTheme-textAccent text-base md:text-lg max-w-2xl mx-auto mt-4">
+              Crafting digital excellence through strategic design and technical precision
+            </p>
+          </div>
 
-              {/* Second paragraph - Philosophy */}
-              <p className="text-lg leading-relaxed text-portfolioTheme-textAccent">
-                My approach transcends visual aesthetics. I'm committed to building digital experiences that are intuitive, scalable, and future-ready. 
-                By combining technical expertise with creative design thinking, I help businesses establish powerful online presences through custom 
-                <strong className="text-white"> WordPress solutions</strong> and meticulously crafted user interfaces that engage and convert.
-              </p>
+          {/* Main Content Grid */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-7xl mx-auto">
 
-              {/* Third paragraph - Specialization */}
-              <p className="text-lg leading-relaxed text-portfolioTheme-textAccent">
-                Whether architecting complex WordPress implementations with Elementor and Divi, designing comprehensive design systems in Figma, 
-                or developing interactive prototypes with Framer, my focus remains consistent: delivering websites and digital products that are 
-                professionally polished, technically optimized, and genuinely user-friendly.
-              </p>
+            {/* Left Column - Content */}
+            <article className="space-y-8">
 
-              {/* Passion statement */}
-              <div className="bg-portfolioTheme-cardBg/50 border border-portfolioTheme-primary/30 rounded-lg p-6 mt-8">
-                <p className="text-lg">
-                  <span className="font-bold text-portfolioTheme-accent">My Passion:</span>{" "}
-                  <span className="text-portfolioTheme-textAccent">{designer.passion}</span>
-                </p>
+              {/* Introduction Card */}
+              <div className="group bg-portfolioTheme-cardBg p-8 rounded-2xl border border-gray-700/50 hover:border-portfolioTheme-primary/50 shadow-lg hover:shadow-2xl hover:shadow-portfolioTheme-primary/10 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-primary/5 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500" aria-hidden="true"></div>
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-1 h-8 bg-portfolioTheme-primary rounded-full"></div>
+                    <h3 className="text-2xl font-bold text-white">Who I Am</h3>
+                  </div>
+
+                  <p className="text-base md:text-lg leading-relaxed text-portfolioTheme-textAccent mb-4">
+                    I'm <span className="text-white font-semibold">{designer.name}</span>, a creative technologist based in <span className="text-white font-semibold">{designer.location}</span>.
+                    As a <span className="text-portfolioTheme-primary font-medium">Website Der</span>, <span className="text-portfolioTheme-primary font-medium">UI/UX Designer</span>, and <span className="text-portfolioTheme-primary font-medium">Digital Product Designer</span>,
+                    I transform complex ideas into elegant, user-centric digital solutions.
+                  </p>
+                </div>
+              </div>
+
+              {/* Philosophy Card */}
+              <div className="group bg-portfolioTheme-cardBg p-8 rounded-2xl border border-gray-700/50 hover:border-portfolioTheme-primary/50 shadow-lg hover:shadow-2xl hover:shadow-portfolioTheme-primary/10 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-primary/5 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500" aria-hidden="true"></div>
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-1 h-8 bg-portfolioTheme-primary rounded-full"></div>
+                    <h3 className="text-2xl font-bold text-white">My Approach</h3>
+                  </div>
+
+                  <p className="text-base md:text-lg leading-relaxed text-portfolioTheme-textAccent mb-4">
+                    Every project is an opportunity to create meaningful impact. I blend technical excellence with creative vision to deliver experiences that are
+                    <span className="text-white font-medium"> intuitive</span>, <span className="text-white font-medium">scalable</span>, and
+                    <span className="text-white font-medium"> future-ready</span>. From WordPress implementations to comprehensive design systems, quality is non-negotiable.
+                  </p>
+                </div>
+              </div>
+
+              {/* Passion Statement Card */}
+              <div className="bg-gradient-to-br from-portfolioTheme-primary/10 via-portfolioTheme-cardBg to-portfolioTheme-cardBg p-8 rounded-2xl border border-portfolioTheme-primary/30 shadow-xl">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 mt-1">
+                    <div className="w-2 h-2 bg-portfolioTheme-primary rounded-full animate-pulse"></div>
+                  </div>
+                  <div>
+                    <p className="text-sm uppercase tracking-wider text-portfolioTheme-primary font-bold mb-2">My Mission</p>
+                    <p className="text-base md:text-lg text-white leading-relaxed">
+                      {designer.passion}
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Skills Section */}
-              <div className="mt-10 pt-8 border-t border-gray-700/50">
-                <h3 className="text-2xl font-bold mb-6 text-white">Professional Skills & Tools</h3>
-                <p className="text-portfolioTheme-textAccent mb-6">
-                  A comprehensive toolkit combining design, development, and strategy expertise:
-                </p>
-                
-                {/* Skills Grid */}
-                <div 
-                  className="flex flex-wrap gap-4" 
+              <div className="pt-6">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-1 h-8 bg-portfolioTheme-primary rounded-full"></div>
+                  <h3 className="text-2xl font-bold text-white">Core Expertise</h3>
+                </div>
+
+                <div
+                  className="grid grid-cols-2 gap-3"
                   role="list"
                   aria-label="Professional skills and technologies"
                 >
                   {skillsWithIcons.map((skill, index) => (
                     <div
                       key={index}
-                      className="flex items-center gap-3 bg-portfolioTheme-cardBg hover:bg-portfolioTheme-cardBg/80 transition-colors duration-300 py-3 px-5 rounded-full border border-gray-700/50 hover:border-portfolioTheme-primary/50"
+                      className="group flex items-center gap-3 bg-portfolioTheme-cardBg hover:bg-portfolioTheme-primary/10 border border-gray-700/50 hover:border-portfolioTheme-primary transition-all duration-300 py-4 px-4 rounded-xl"
                       role="listitem"
                       title={skill.ariaLabel}
                     >
-                      <span 
-                        className="text-portfolioTheme-accent flex-shrink-0"
+                      <span
+                        className="text-portfolioTheme-accent group-hover:text-portfolioTheme-primary transition-colors duration-300 flex-shrink-0"
                         aria-hidden="true"
                       >
                         {skill.icon}
                       </span>
-                      <span className="text-white font-medium">{skill.name}</span>
+                      <span className="text-white text-sm md:text-base font-medium">{skill.name}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </article>
 
-            {/* Right column - Visual Element */}
+            {/* Right Column - Visual Element */}
             <aside
-              className="animate-fade-in-right flex items-center justify-center"
-              style={{ animationDelay: "0.4s" }}
-              aria-label="Interactive skill visualization showing technologies and tools"
+              className="lg:sticky lg:top-24 flex items-center justify-center"
+              aria-label="Interactive skill visualization"
               role="complementary"
             >
-              <div className="w-full h-full flex items-center justify-center">
-                <OrbitingItems items={orbitingItems} radius={40} pauseOnHover />
+              <div className="w-full max-w-lg mx-auto">
+                <div className="relative">
+                  {/* Orbiting Icons Container */}
+                  <div className="bg-portfolioTheme-cardBg/30 backdrop-blur-sm rounded-3xl border border-gray-700/30 p-8 md:p-12 shadow-2xl">
+                    <OrbitingItems items={orbitingItems} radius={40} pauseOnHover />
+                  </div>
+
+                  {/* Decorative Glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-primary/20 to-transparent rounded-3xl blur-3xl -z-10" aria-hidden="true"></div>
+                </div>
               </div>
             </aside>
           </div>
 
-          {/* Expertise Highlights - SEO Keywords */}
-          <div className="grid md:grid-cols-3 gap-6 mt-16 pt-12 border-t border-gray-700/50">
-            <div className="text-center">
-              <h4 className="text-xl font-bold text-portfolioTheme-accent mb-3">2+ Years</h4>
-              <p className="text-portfolioTheme-textAccent">Professional web development and design experience</p>
+          {/* Stats Section */}
+          <div className="grid md:grid-cols-3 gap-8 mt-20 pt-12 border-t border-gray-700/30">
+            <div className="group text-center p-6 rounded-2xl bg-portfolioTheme-cardBg/50 border border-gray-700/30 hover:border-portfolioTheme-primary/50 transition-all duration-500 hover:scale-105">
+              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-portfolioTheme-primary to-portfolioTheme-accent bg-clip-text text-transparent mb-3">
+                3+
+              </div>
+              <p className="text-white font-semibold mb-2">Years Experience</p>
+              <p className="text-sm text-portfolioTheme-textAccent">Professional web development & design</p>
             </div>
-            <div className="text-center">
-              <h4 className="text-xl font-bold text-portfolioTheme-accent mb-3">13+ Projects</h4>
-              <p className="text-portfolioTheme-textAccent">Successfully completed web and design projects</p>
+
+            <div className="group text-center p-6 rounded-2xl bg-portfolioTheme-cardBg/50 border border-gray-700/30 hover:border-portfolioTheme-primary/50 transition-all duration-500 hover:scale-105">
+              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-portfolioTheme-primary to-portfolioTheme-accent bg-clip-text text-transparent mb-3">
+                16
+              </div>
+              <p className="text-white font-semibold mb-2">Projects Delivered</p>
+              <p className="text-sm text-portfolioTheme-textAccent">Successfully completed & launched</p>
             </div>
-            <div className="text-center">
-              <h4 className="text-xl font-bold text-portfolioTheme-accent mb-3">Global Reach</h4>
-              <p className="text-portfolioTheme-textAccent">Serving clients worldwide with remote expertise</p>
+
+            <div className="group text-center p-6 rounded-2xl bg-portfolioTheme-cardBg/50 border border-gray-700/30 hover:border-portfolioTheme-primary/50 transition-all duration-500 hover:scale-105">
+              <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-portfolioTheme-primary to-portfolioTheme-accent bg-clip-text text-transparent mb-3">
+                100%
+              </div>
+              <p className="text-white font-semibold mb-2">Client Satisfaction</p>
+              <p className="text-sm text-portfolioTheme-textAccent">Global reach, remote excellence</p>
             </div>
           </div>
         </div>

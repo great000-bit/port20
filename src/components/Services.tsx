@@ -1,5 +1,5 @@
 import { useRef, useEffect, useCallback, useMemo } from "react";
-import { Code, LayoutDashboard, Smartphone, Globe, Figma, ArrowUpRight, Sparkles, PenTool, Share2, Users } from "lucide-react";
+import { Code, LayoutDashboard, Smartphone, Globe, Figma, ArrowUpRight, Sparkles, PenTool, Share2, Users, Palette, Video, Film, Wand2, Layers } from "lucide-react";
 
 // ===== DOTGRID BACKGROUND =====
 function hexToRgb(hex: string) {
@@ -144,101 +144,120 @@ const DotGridBackground = ({
 // ===== SERVICES COMPONENT =====
 const Services = () => {
   const services = [
-    { title: "Website Development", description: "Custom websites tailored to your business needs with responsive design and optimized performance.", icon: <Code className="w-10 h-10" />, gradient: "from-blue-500 to-cyan-500", delay: 0, category: "Web Development" },
-    { title: "UI/UX Design", description: "User-centered design solutions that create intuitive, engaging interfaces with seamless user experiences.", icon: <LayoutDashboard className="w-10 h-10" />, gradient: "from-purple-500 to-pink-500", delay: 0.1, category: "Design" },
-    { title: "Responsive Web Design", description: "Mobile-first designs that provide optimal viewing across all devices and screen sizes.", icon: <Smartphone className="w-10 h-10" />, gradient: "from-green-500 to-emerald-500", delay: 0.2, category: "Web Design" },
-    { title: "Landing Page Development", description: "High-converting landing pages designed to capture leads and drive customer action.", icon: <Globe className="w-10 h-10" />, gradient: "from-orange-500 to-red-500", delay: 0.3, category: "Web Development" },
-    { title: "Product Design", description: "Comprehensive product design from wireframes to interactive prototypes that solve real user problems.", icon: <Figma className="w-10 h-10" />, gradient: "from-violet-500 to-purple-500", delay: 0.4, category: "Design" },
-    { title: "Prompt Engineering", description: "Expert AI prompt crafting for optimal ChatGPT, Claude, and other LLM outputs.", icon: <Sparkles className="w-10 h-10" />, gradient: "from-yellow-500 to-amber-500", delay: 0.5, category: "AI Services" },
-    { title: "Ghost Writing", description: "Professional content creation that captures your voice and vision with compelling storytelling.", icon: <PenTool className="w-10 h-10" />, gradient: "from-indigo-500 to-blue-500", delay: 0.6, category: "Content Creation" },
-    { title: "Social Media Management", description: "Strategic social media management that builds your brand presence and drives engagement.", icon: <Share2 className="w-10 h-10" />, gradient: "from-pink-500 to-rose-500", delay: 0.7, category: "Digital Marketing" },
-    { title: "Community Management", description: "Build and nurture thriving online communities with meaningful connections.", icon: <Users className="w-10 h-10" />, gradient: "from-teal-500 to-cyan-500", delay: 0.8, category: "Community Building" },
+    { title: "Website Development", description: "Custom websites tailored to your business needs with responsive design and optimized performance.", icon: <Code className="w-8 h-8" />, delay: 0, category: "Web Development" },
+    { title: "UI/UX Design", description: "User-centered design solutions that create intuitive, engaging interfaces with seamless user experiences.", icon: <Layers className="w-8 h-8" />, delay: 0.1, category: "Design" },
+    { title: "Responsive Web Design", description: "Mobile-first designs that provide optimal viewing across all devices and screen sizes.", icon: <Smartphone className="w-8 h-8" />, delay: 0.15, category: "Web Design" },
+    { title: "Landing Page Development", description: "High-converting landing pages designed to capture leads and drive customer action.", icon: <Globe className="w-8 h-8" />, delay: 0.2, category: "Web Development" },
+    { title: "Product Design", description: "Comprehensive product design from wireframes to interactive prototypes that solve real user problems.", icon: <Figma className="w-8 h-8" />, delay: 0.25, category: "Design" },
+    { title: "Graphic Design", description: "Visual brand identity design including logos, marketing materials, and creative assets that captivate.", icon: <Palette className="w-8 h-8" />, delay: 0.3, category: "Design" },
+    { title: "Mobile Videography", description: "Professional mobile video production capturing dynamic content with creative storytelling and technical precision.", icon: <Video className="w-8 h-8" />, delay: 0.35, category: "Media Production" },
+    { title: "Video Editing", description: "Expert video editing and post-production creating polished, engaging content that resonates with your audience.", icon: <Film className="w-8 h-8" />, delay: 0.4, category: "Media Production" },
+    { title: "Prompt Engineering", description: "Expert AI prompt crafting for optimal ChatGPT, Claude, and other LLM outputs.", icon: <Wand2 className="w-8 h-8" />, delay: 0.45, category: "AI Services" },
+    { title: "Ghost Writing", description: "Professional content creation that captures your voice and vision with compelling storytelling.", icon: <PenTool className="w-8 h-8" />, delay: 0.5, category: "Content Creation" },
+    { title: "Social Media Management", description: "Strategic social media management that builds your brand presence and drives engagement.", icon: <Share2 className="w-8 h-8" />, delay: 0.55, category: "Digital Marketing" },
+    { title: "Community Management", description: "Build and nurture thriving online communities with meaningful connections.", icon: <Users className="w-8 h-8" />, delay: 0.6, category: "Community Building" },
   ];
 
   return (
-    <section 
-      id="services" 
+    <section
+      id="services"
       className="section-padding bg-portfolioTheme-secondary relative overflow-hidden"
       aria-labelledby="services-heading"
       itemScope
       itemType="https://schema.org/Service"
     >
-      
+
       {/* DotGrid Background */}
       <DotGridBackground dotSize={3} gap={25} baseColor="#2a2a2a" activeColor="#8F0075" proximity={80} shockRadius={150} shockStrength={1.5} />
 
-      <div className="absolute top-1/4 left-0 w-72 h-72 bg-portfolioTheme-primary/10 rounded-full blur-3xl animate-pulse" aria-hidden="true"></div>
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-portfolioTheme-accent/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} aria-hidden="true"></div>
+      {/* Gradient Decorations */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-portfolioTheme-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" aria-hidden="true"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-portfolioTheme-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" aria-hidden="true"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        {/* Header Section */}
         <header className="text-center mb-16">
-          <h2 id="services-heading" className="section-title" itemProp="name">What I Do</h2>
-          <p className="text-portfolioTheme-textAccent mt-4 max-w-2xl mx-auto text-lg" itemProp="description">
-            Offering <strong>9+ professional services</strong> including <strong>WordPress development</strong>, <strong>UI/UX design</strong>, <strong>responsive web design</strong>, and <strong>digital marketing</strong> to help businesses establish a strong online presence.
+          <h2 id="services-heading" className="section-title inline-block text-4xl md:text-5xl font-bold text-white mb-4" itemProp="name">
+            What I Do
+          </h2>
+          <p className="text-portfolioTheme-textAccent text-base md:text-lg max-w-3xl mx-auto mt-4" itemProp="description">
+            Comprehensive digital solutions combining <span className="text-white font-medium">development excellence</span>, <span className="text-white font-medium">design precision</span>, and <span className="text-white font-medium">strategic thinking</span> to elevate your brand
           </p>
         </header>
 
-        <div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto"
+        {/* Services Grid */}
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
           role="list"
           aria-label="Professional services offered"
         >
           {services.map((service, index) => (
-            <article 
-              key={index} 
-              className="group relative bg-portfolioTheme-cardBg rounded-2xl p-8 border border-gray-700/50 hover:border-transparent transition-all duration-500 animate-fade-in hover:-translate-y-3 hover:shadow-2xl" 
+            <article
+              key={index}
+              className="group relative bg-portfolioTheme-cardBg rounded-2xl p-6 md:p-8 border border-gray-700/50 hover:border-portfolioTheme-primary/50 shadow-lg hover:shadow-2xl hover:shadow-portfolioTheme-primary/20 transition-all duration-500 hover:-translate-y-2"
               style={{ animationDelay: `${service.delay}s` }}
               itemScope
               itemType="https://schema.org/Service"
               role="listitem"
             >
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-xl`} aria-hidden="true"></div>
-              <div className="absolute inset-[1px] bg-portfolioTheme-cardBg rounded-2xl -z-10" aria-hidden="true"></div>
-              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl`} aria-hidden="true"></div>
-              
-              <div className="relative mb-6">
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-2xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity duration-500`} aria-hidden="true"></div>
-                <div 
-                  className={`relative w-20 h-20 bg-gradient-to-br ${service.gradient} rounded-2xl flex items-center justify-center text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg`}
-                  aria-label={`${service.title} service icon`}
-                >
+              {/* Hover Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-primary/5 to-transparent opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-500" aria-hidden="true"></div>
+
+              {/* Top Accent Line */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-portfolioTheme-primary via-portfolioTheme-accent to-portfolioTheme-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl" aria-hidden="true"></div>
+
+              {/* Icon Container */}
+              <div className="relative mb-6 flex items-center justify-between">
+                <div className="w-16 h-16 bg-portfolioTheme-primary/10 group-hover:bg-portfolioTheme-primary/20 rounded-xl flex items-center justify-center text-portfolioTheme-primary group-hover:scale-110 transition-all duration-500 border border-portfolioTheme-primary/20 group-hover:border-portfolioTheme-primary/40">
                   {service.icon}
                 </div>
+
+                {/* Category Badge */}
+                <span className="text-xs uppercase tracking-wider text-portfolioTheme-textAccent/60 font-semibold">
+                  {service.category}
+                </span>
               </div>
 
-              <div className="relative">
-                <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-xl font-bold text-white group-hover:text-portfolioTheme-primary transition-colors duration-300 flex-1" itemProp="name">
+              {/* Content */}
+              <div className="relative space-y-3">
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-portfolioTheme-primary transition-colors duration-500" itemProp="name">
                     {service.title}
                   </h3>
-                  <ArrowUpRight className="w-5 h-5 text-portfolioTheme-textAccent group-hover:text-portfolioTheme-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 opacity-0 group-hover:opacity-100" aria-hidden="true" />
+                  <ArrowUpRight className="w-5 h-5 flex-shrink-0 text-portfolioTheme-textAccent/40 group-hover:text-portfolioTheme-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-500" aria-hidden="true" />
                 </div>
+
                 <meta itemProp="serviceType" content={service.category} />
-                <p className="text-portfolioTheme-textAccent leading-relaxed group-hover:text-white/90 transition-colors duration-300" itemProp="description">
+
+                <p className="text-sm md:text-base text-portfolioTheme-textAccent leading-relaxed group-hover:text-white/80 transition-colors duration-500" itemProp="description">
                   {service.description}
                 </p>
               </div>
 
-              <div className="absolute bottom-0 right-0 w-24 h-24 opacity-5 group-hover:opacity-10 transition-opacity duration-500" aria-hidden="true">
-                <div className={`w-full h-full bg-gradient-to-br ${service.gradient} rounded-tl-full`}></div>
-              </div>
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none overflow-hidden" aria-hidden="true">
-                <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"></div>
-              </div>
+              {/* Bottom Decorative Element */}
+              <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-portfolioTheme-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
             </article>
           ))}
         </div>
 
-        <footer className="mt-16 text-center">
-          <p className="text-portfolioTheme-textAccent mb-6 text-lg">Ready to bring your vision to life?</p>
-          <a 
-            href="#contact" 
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-portfolioTheme-primary to-portfolioTheme-accent hover:from-portfolioTheme-accent hover:to-portfolioTheme-primary text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-2xl hover:shadow-portfolioTheme-primary/50 transition-all duration-300 hover:scale-105"
-            aria-label="Navigate to contact section to start a project"
-          >
-            Let's Work Together
-            <ArrowUpRight className="w-5 h-5" aria-hidden="true" />
-          </a>
+        {/* Call-to-Action Section */}
+        <footer className="mt-20 pt-12 border-t border-gray-700/30">
+          <div className="text-center max-w-3xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Ready to Transform Your Vision?
+            </h3>
+            <p className="text-portfolioTheme-textAccent text-base md:text-lg mb-8">
+              Let's collaborate to create something exceptional that drives real results
+            </p>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-portfolioTheme-primary to-portfolioTheme-accent hover:from-portfolioTheme-accent hover:to-portfolioTheme-primary text-white px-8 py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl hover:shadow-portfolioTheme-primary/50 transition-all duration-500 hover:scale-105 border border-portfolioTheme-primary/20"
+              aria-label="Navigate to contact section to start a project"
+            >
+              Start Your Project
+              <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" aria-hidden="true" />
+            </a>
+          </div>
         </footer>
       </div>
     </section>
