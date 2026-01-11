@@ -455,9 +455,28 @@ const About = () => {
                   </div>
                 </div>
               </div>
+            </article>
 
-              {/* Skills Section */}
-              <div className="pt-6">
+            {/* Right Column - Visual Element */}
+            <aside
+              className="lg:sticky lg:top-24 space-y-8"
+              aria-label="Interactive skill visualization"
+              role="complementary"
+            >
+              <div className="w-full max-w-lg mx-auto">
+                <div className="relative">
+                  {/* Orbiting Icons Container */}
+                  <div className="bg-portfolioTheme-cardBg/30 backdrop-blur-sm rounded-3xl border border-gray-700/30 p-8 md:p-12 shadow-2xl">
+                    <OrbitingItems items={orbitingItems} radius={40} pauseOnHover />
+                  </div>
+
+                  {/* Decorative Glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-primary/20 to-transparent rounded-3xl blur-3xl -z-10" aria-hidden="true"></div>
+                </div>
+              </div>
+
+              {/* Core Expertise Section - Now under orbit */}
+              <div className="w-full max-w-lg mx-auto">
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-1 h-8 bg-portfolioTheme-primary rounded-full"></div>
                   <h3 className="text-2xl font-bold text-white">Core Expertise</h3>
@@ -484,25 +503,6 @@ const About = () => {
                       <span className="text-white text-sm md:text-base font-medium">{skill.name}</span>
                     </div>
                   ))}
-                </div>
-              </div>
-            </article>
-
-            {/* Right Column - Visual Element */}
-            <aside
-              className="lg:sticky lg:top-24 flex items-center justify-center"
-              aria-label="Interactive skill visualization"
-              role="complementary"
-            >
-              <div className="w-full max-w-lg mx-auto">
-                <div className="relative">
-                  {/* Orbiting Icons Container */}
-                  <div className="bg-portfolioTheme-cardBg/30 backdrop-blur-sm rounded-3xl border border-gray-700/30 p-8 md:p-12 shadow-2xl">
-                    <OrbitingItems items={orbitingItems} radius={40} pauseOnHover />
-                  </div>
-
-                  {/* Decorative Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-portfolioTheme-primary/20 to-transparent rounded-3xl blur-3xl -z-10" aria-hidden="true"></div>
                 </div>
               </div>
             </aside>
