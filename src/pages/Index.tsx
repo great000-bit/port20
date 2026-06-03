@@ -3,8 +3,10 @@ import { Helmet } from 'react-helmet';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
+import TechStack from '../components/TechStack';
 import Services from '../components/Services';
 import Portfolio from '../components/Portfolio';
+import Experience from '../components/Experience';
 import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -130,11 +132,15 @@ const Index = () => {
         <section id="about" aria-label="About Great Emman-Wori">
           <About />
         </section>
+        <TechStack />
         <section id="services" aria-label="Services offered">
           <Services />
         </section>
         <section id="portfolio" aria-label="Portfolio projects">
           <Portfolio />
+        </section>
+        <section id="experience" aria-label="Work Experience">
+          <Experience />
         </section>
         <section id="testimonials" aria-label="Client testimonials">
           <Testimonials />
