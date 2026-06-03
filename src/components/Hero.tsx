@@ -124,7 +124,7 @@ const Hero = () => {
               <img
                 src="/great-emman-profile.png"
                 alt="Great Emman-Wori — Web Developer & Product Designer"
-                className="w-full h-full object-cover object-top scale-90"
+                className="w-full h-full object-cover object-top"
                 loading="eager"
                 fetchPriority="high"
               />
