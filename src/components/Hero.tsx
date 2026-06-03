@@ -68,7 +68,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center bg-[#080b12] relative overflow-hidden pt-20"
+      className="min-h-screen flex items-center bg-[#080b12] relative overflow-hidden pt-32 pb-20"
     >
       <StarBackground />
 
@@ -84,11 +84,9 @@ const Hero = () => {
             </div>
 
             {/* Heading */}
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-snug mb-6 normal-case tracking-tight">
-              I'm Great Emman-Wori<br />
-              <span className="text-white">I build </span>
-              <span className="text-portfolioTheme-primary">impactful</span>
-              <span className="text-white"> websites, apps<br />and digital products.</span>
+            <h1 className="text-[2.6rem] md:text-[3.2rem] font-bold text-white leading-[1.15] mb-6 normal-case tracking-normal">
+              I'm Great Emman-Wori{" "}
+              I build <span className="font-extrabold">impactful</span> websites, apps and digital products.
             </h1>
 
             {/* Bio */}
