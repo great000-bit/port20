@@ -84,11 +84,11 @@ const Hero = () => {
             </div>
 
             {/* Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 normal-case tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-white leading-snug mb-6 normal-case tracking-tight">
               I'm Great Emman-Wori<br />
               <span className="text-white">I build </span>
               <span className="text-portfolioTheme-primary">impactful</span>
-              <span className="text-white"> websites,<br />designs & digital products.</span>
+              <span className="text-white"> websites, apps<br />and digital products.</span>
             </h1>
 
             {/* Bio */}
