@@ -129,10 +129,10 @@ const Index = () => {
         <section id="hero" aria-label="Hero section showcasing portfolio">
           <Hero />
         </section>
+        <TechStack />
         <section id="about" aria-label="About Great Emman-Wori">
           <About />
         </section>
-        <TechStack />
         <section id="services" aria-label="Services offered">
           <Services />
         </section>
