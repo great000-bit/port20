@@ -84,9 +84,9 @@ const Hero = () => {
             </div>
 
             {/* Heading */}
-            <h1 className="text-[2.6rem] md:text-[3.2rem] font-bold text-white leading-[1.15] mb-6 normal-case tracking-normal">
+            <h1 className="text-[2.6rem] md:text-[3.2rem] font-normal text-white leading-[1.15] mb-6 normal-case tracking-normal">
               I'm Great Emman-Wori{" "}
-              I build <span className="font-extrabold">impactful</span> websites, apps and digital products.
+              I build <span className="font-bold">impactful</span> websites, and digital products.
             </h1>
 
             {/* Bio */}
