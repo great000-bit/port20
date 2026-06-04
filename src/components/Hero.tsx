@@ -1,102 +1,107 @@
-import { ArrowRight, Download } from "lucide-react";
 import { useEffect, useRef } from "react";
+import { ArrowRight, Download } from "lucide-react";
 
-const StarBackground = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+/* lightweight star canvas */
+const Stars = () => {
+  const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    let animId: number;
-    const stars: { x: number; y: number; r: number; opacity: number; speed: number }[] = [];
-    const resize = () => { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; };
-    const init = () => {
-      stars.length = 0;
-      for (let i = 0; i < 120; i++) stars.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * 1.4 + 0.3, opacity: Math.random() * 0.6 + 0.15, speed: Math.random() * 0.25 + 0.04 });
-    };
+    const c = ref.current; if (!c) return;
+    const ctx = c.getContext("2d")!;
+    let raf: number;
+    type Star = { x:number; y:number; r:number; o:number; s:number };
+    let stars: Star[] = [];
+    const resize = () => { c.width = c.offsetWidth; c.height = c.offsetHeight; };
+    const init = () => { stars = Array.from({length:130},()=>({ x:Math.random()*c.width, y:Math.random()*c.height, r:Math.random()*1.3+0.2, o:Math.random()*0.55+0.15, s:Math.random()*0.25+0.04 })); };
     const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const s of stars) { ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(255,255,255,${s.opacity})`; ctx.fill(); s.y -= s.speed; if (s.y < -2) { s.y = canvas.height + 2; s.x = Math.random() * canvas.width; } }
-      animId = requestAnimationFrame(draw);
+      ctx.clearRect(0,0,c.width,c.height);
+      for (const s of stars) { ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2); ctx.fillStyle=`rgba(255,255,255,${s.o})`; ctx.fill(); s.y-=s.s; if(s.y<-2){s.y=c.height+2;s.x=Math.random()*c.width;} }
+      raf = requestAnimationFrame(draw);
     };
-    resize(); init(); draw();
-    const ro = new ResizeObserver(() => { resize(); init(); }); ro.observe(canvas);
-    return () => { cancelAnimationFrame(animId); ro.disconnect(); };
-  }, []);
-  return <canvas ref={canvasRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} aria-hidden="true" />;
+    const ro = new ResizeObserver(()=>{resize();init();});
+    ro.observe(c); resize(); init(); draw();
+    return ()=>{ cancelAnimationFrame(raf); ro.disconnect(); };
+  },[]);
+  return <canvas ref={ref} aria-hidden="true" style={{position:"absolute",inset:0,width:"100%",height:"100%",pointerEvents:"none"}} />;
 };
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <section id="hero" className="min-h-screen bg-[#080b12] relative overflow-hidden flex items-center">
-      <StarBackground />
+    <section id="hero" className="relative min-h-screen flex items-center bg-black overflow-hidden">
+      <Stars />
 
-      <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10 w-full">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16">
+      {/* soft red glow blob */}
+      <div aria-hidden="true" style={{
+        position:"absolute", bottom:"-10%", right:"5%",
+        width:"40vw", height:"40vw", maxWidth:520, maxHeight:520,
+        background:"radial-gradient(circle, rgba(111,4,20,0.22) 0%, transparent 70%)",
+        borderRadius:"50%", pointerEvents:"none",
+      }} />
 
-          {/* LEFT — text */}
-          <div className="flex-1 w-full text-center md:text-left">
-            {/* Available badge */}
-            <div className="flex items-center gap-2 mb-5 justify-center md:justify-start">
-              <span className="w-2.5 h-2.5 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
-              <span className="text-green-400 text-sm font-medium">Available for work</span>
-            </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-5 w-full py-28 md:py-0">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-8">
 
-            {/* Heading — Geist-style, natural wrap */}
-            <h1
-              className="text-[2.4rem] sm:text-[2.8rem] md:text-[3rem] lg:text-[3.5rem] text-white leading-[1.15] mb-5 tracking-tight"
-              style={{ fontWeight: 400 }}
-            >
-              I'm Great Emman-Wori{" "}
-              I build{" "}
-              <span style={{ fontWeight: 700 }}>impactful</span>{" "}
-              websites, and digital products.
+          {/* ── LEFT ── */}
+          <div className="flex-1 max-w-2xl text-center md:text-left anim-fade-up">
+            {/* badge */}
+            <span className="section-label mb-6">● Available for work</span>
+
+            {/* H1 */}
+            <h1 className="font-heading text-[2.4rem] sm:text-[2.9rem] md:text-[3.3rem] lg:text-[3.8rem] text-white leading-[1.12] tracking-tight mb-5">
+              I'm Great Emman-Wori.<br />
+              I design and build{" "}
+              <span style={{
+                background:"linear-gradient(90deg,#fff 0%,rgba(255,255,255,0.75) 100%)",
+                WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent"
+              }}>
+                premium websites,
+              </span>{" "}
+              product experiences,<br className="hidden sm:block" /> and digital brands.
             </h1>
 
-            {/* Bio */}
-            <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
-              Web developer, product designer, and creative technologist — passionate about crafting
-              accessible, human-centered digital experiences. From WordPress builds to full-stack
-              apps and UI/UX design systems.
+            {/* subheadline */}
+            <p className="font-body text-white/60 text-base md:text-lg leading-relaxed mb-8 max-w-xl mx-auto md:mx-0">
+              WordPress Development · UI/UX Design · Product Design · Responsive websites ·
+              Conversion-focused interfaces · Scalable digital experiences.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <a
-                href="#portfolio"
-                className="px-6 py-3 bg-white text-black rounded-lg font-semibold text-sm hover:bg-gray-100 transition-all duration-300"
-              >
-                View Projects
-              </a>
-              <a
-                href="#contact"
-                className="flex items-center gap-2 px-6 py-3 border border-gray-600 text-white rounded-lg font-semibold text-sm hover:border-portfolioTheme-primary hover:text-portfolioTheme-primary transition-all duration-300"
-              >
-                Contact Me <ArrowRight className="w-4 h-4" />
-              </a>
-              <a
-                href="/My cv.pdf"
-                download="Great-Emman-Wori-CV.pdf"
-                className="flex items-center gap-2 px-6 py-3 bg-portfolioTheme-primary text-white rounded-lg font-semibold text-sm hover:opacity-90 transition-all duration-300"
-              >
-                Resume <Download className="w-4 h-4" />
+              <a href="#portfolio" className="btn-red">View Projects <ArrowRight size={16}/></a>
+              <a href="#contact"   className="btn-outline">Contact Me</a>
+              <a href="/My cv.pdf" download className="btn-outline" style={{borderColor:"rgba(111,4,20,0.5)",color:"rgba(255,255,255,0.7)"}}>
+                Resume <Download size={15}/>
               </a>
             </div>
           </div>
 
-          {/* RIGHT — profile image */}
-          <div className="flex-shrink-0 flex justify-center md:justify-end w-full md:w-auto">
-            <div
-              className="rounded-full overflow-hidden border-2 border-gray-700"
-              style={{ width: "clamp(200px, 30vw, 360px)", height: "clamp(200px, 30vw, 360px)" }}
-            >
-              <img
-                src="/great-emman-profile.png"
-                alt="Great Emman-Wori"
-                className="w-full h-full object-cover object-center"
-                loading="eager"
-              />
+          {/* ── RIGHT — hero image ── */}
+          <div className="flex-shrink-0 flex justify-center anim-fade-in" style={{animationDelay:"0.25s"}}>
+            <div className="anim-float relative" style={{
+              width:"clamp(220px,28vw,360px)",
+              height:"clamp(220px,28vw,360px)",
+            }}>
+              {/* glow ring */}
+              <div aria-hidden="true" style={{
+                position:"absolute", inset:"-6px",
+                borderRadius:"50%",
+                background:"linear-gradient(135deg, rgba(111,4,20,0.7) 0%, transparent 60%)",
+                filter:"blur(12px)",
+              }}/>
+              {/* image frame */}
+              <div style={{
+                position:"relative", width:"100%", height:"100%",
+                borderRadius:"50%", overflow:"hidden",
+                border:"2px solid rgba(111,4,20,0.55)",
+                boxShadow:"0 0 40px rgba(111,4,20,0.30), 0 0 0 1px rgba(255,255,255,0.06)",
+              }}>
+                <img
+                  src="/great-emman-profile.png"
+                  alt="Great Emman-Wori — WordPress Developer, Product Designer & UI/UX Designer"
+                  style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center top"}}
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
             </div>
           </div>
 
@@ -104,6 +109,4 @@ const Hero = () => {
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
