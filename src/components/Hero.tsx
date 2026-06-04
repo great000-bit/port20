@@ -1,80 +1,59 @@
-import { useEffect, useRef } from "react";
-import { ArrowRight } from "lucide-react";
-
-/* Stars — pauses when off-screen, disabled on desktop if lagging */
-const Stars = () => {
-  const ref = useRef<HTMLCanvasElement>(null);
-  useEffect(() => {
-    const c = ref.current; if (!c) return;
-    const ctx = c.getContext("2d")!;
-    let raf: number;
-    type S = { x: number; y: number; r: number; o: number; s: number };
-    let stars: S[] = [];
-    const resize = () => { c.width = c.offsetWidth; c.height = c.offsetHeight; };
-    const init   = () => { stars = Array.from({ length: 70 }, () => ({ x: Math.random() * c.width, y: Math.random() * c.height, r: Math.random() * 0.9 + 0.2, o: Math.random() * 0.3 + 0.07, s: Math.random() * 0.12 + 0.03 })); };
-    const draw   = () => { ctx.clearRect(0, 0, c.width, c.height); for (const s of stars) { ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fillStyle = `rgba(255,255,255,${s.o})`; ctx.fill(); s.y -= s.s; if (s.y < -2) { s.y = c.height + 2; s.x = Math.random() * c.width; } } raf = requestAnimationFrame(draw); };
-    const ro  = new ResizeObserver(() => { resize(); init(); });
-    const obs = new IntersectionObserver(([e]) => { e.isIntersecting ? (raf = requestAnimationFrame(draw)) : cancelAnimationFrame(raf); }, { threshold: 0 });
-    ro.observe(c); obs.observe(c); resize(); init(); draw();
-    return () => { cancelAnimationFrame(raf); ro.disconnect(); obs.disconnect(); };
-  }, []);
-  return <canvas ref={ref} aria-hidden="true" className="hero-stars" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", opacity: 0.45 }} />;
-};
+import { ArrowRight, Download } from "lucide-react";
 
 export default function Hero() {
   return (
     <>
       <style>{`
         .hero-section {
-          min-height: calc(100vh - 88px);
-          padding: 120px 0 80px;
+          min-height: 100vh;
+          padding-top: 220px;
+          padding-bottom: 120px;
           background: #000;
           position: relative;
           overflow: hidden;
-          display: flex;
-          align-items: center;
         }
         .hero-container {
-          width: min(calc(100% - 64px), 1320px);
+          width: min(calc(100% - 48px), 1280px);
           margin-inline: auto;
           display: grid;
-          grid-template-columns: 720px 1fr;
+          grid-template-columns: 821px 1fr;
           align-items: center;
-          gap: 80px;
+          gap: 48px;
         }
         .hero-content {
-          width: 720px;
-          max-width: 720px;
+          width: 821px;
+          max-width: 821px;
         }
         .hero-badge {
           display: inline-flex;
           align-items: center;
           gap: 10px;
-          margin-bottom: 28px;
+          margin-bottom: 32px;
           font-family: Arial, Helvetica, sans-serif;
           font-size: 16px;
+          line-height: 24px;
           font-weight: 400;
-          color: #21e37b;
+          color: #00ff7f;
           background: transparent;
           border: none;
           padding: 0;
-          letter-spacing: 0;
         }
         .hero-badge-dot {
-          width: 9px; height: 9px;
-          border-radius: 50%;
-          background: #21e37b;
+          width: 12px;
+          height: 12px;
+          border-radius: 999px;
+          background: #00b86b;
           flex-shrink: 0;
         }
         .hero-title {
           font-family: Geist, Arial, sans-serif;
-          font-size: 64px;
-          line-height: 1.06;
+          font-size: 60px;
+          line-height: 60px;
           font-weight: 400;
-          letter-spacing: -0.055em;
-          color: #fff;
-          max-width: 720px;
-          margin: 0 0 24px 0;
+          letter-spacing: -1.5px;
+          color: #ffffff;
+          max-width: 821px;
+          margin: 0;
           overflow-wrap: normal;
           word-break: normal;
           hyphens: none;
@@ -87,109 +66,136 @@ export default function Hero() {
         .hero-title strong { font-weight: 700; }
         .hero-subtitle {
           font-family: Arial, Helvetica, sans-serif;
-          font-size: 18px;
-          line-height: 1.65;
+          font-size: 16px;
+          line-height: 26px;
           font-weight: 400;
-          color: rgba(255,255,255,0.68);
-          max-width: 640px;
-          margin: 0;
+          color: #D0D5DB;
+          max-width: 672px;
+          margin-top: 32px;
+          margin-bottom: 0;
         }
         .hero-actions {
           display: flex;
-          gap: 14px;
-          margin-top: 34px;
+          align-items: center;
+          gap: 12px;
+          margin-top: 48px;
           flex-wrap: wrap;
         }
-        .hero-btn-primary {
-          display: inline-flex; align-items: center; gap: 8px;
-          height: 52px; padding: 0 24px; border-radius: 10px;
-          font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 600;
-          background: #6f0414; color: #fff; border: 1px solid #6f0414;
-          text-decoration: none; cursor: pointer;
-          transition: background 0.2s, color 0.2s; white-space: nowrap;
+        .hero-button {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          height: 48px;
+          padding: 0 24px;
+          border-radius: 8px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 16px;
+          line-height: 24px;
+          font-weight: 400;
+          text-decoration: none;
+          cursor: pointer;
+          white-space: nowrap;
+          transition: background 0.2s, border-color 0.2s, color 0.2s;
         }
-        .hero-btn-primary:hover { background: transparent; color: #6f0414; }
-        .hero-btn-secondary {
-          display: inline-flex; align-items: center; gap: 8px;
-          height: 52px; padding: 0 24px; border-radius: 10px;
-          font-family: Arial, Helvetica, sans-serif; font-size: 15px; font-weight: 600;
-          background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.22);
-          text-decoration: none; cursor: pointer;
-          transition: border-color 0.2s, color 0.2s; white-space: nowrap;
+        .hero-button-primary {
+          background: #6f0414;
+          color: #ffffff;
+          border: 1px solid #6f0414;
         }
-        .hero-btn-secondary:hover { border-color: #6f0414; color: #6f0414; }
+        .hero-button-primary:hover {
+          background: #8a0519;
+          border-color: #8a0519;
+        }
+        .hero-button-secondary {
+          background: rgba(255,255,255,0.03);
+          color: #EDEDED;
+          border: 1px solid rgba(255,255,255,0.14);
+        }
+        .hero-button-secondary:hover {
+          border-color: rgba(255,255,255,0.28);
+        }
         .hero-image-wrap {
           display: flex;
           align-items: center;
           justify-content: center;
         }
         .hero-image {
-          width: 390px; height: 390px;
+          width: 441px;
+          height: 441px;
           border-radius: 999px;
-          object-fit: cover; object-position: center top;
+          object-fit: cover;
+          object-position: center top;
           display: block;
-          border: 2px solid rgba(111,4,20,0.50);
-          box-shadow: 0 0 0 1px rgba(255,255,255,0.05);
+          border: 2px solid rgba(111,4,20,0.45);
+          box-shadow: 0 0 0 1px rgba(255,255,255,0.04);
           flex-shrink: 0;
-          animation: heroImgFade 0.7s ease both 0.25s;
+          animation: heroImgIn 0.5s ease both 0.2s;
         }
-        .hero-text-anim { animation: heroTextUp 0.6s ease both; }
+        .hero-text-in { animation: heroTextIn 0.55s ease both; }
 
-        @keyframes heroImgFade {
+        @keyframes heroImgIn {
           from { opacity: 0; transform: scale(0.96); }
           to   { opacity: 1; transform: scale(1); }
         }
-        @keyframes heroTextUp {
+        @keyframes heroTextIn {
           from { opacity: 0; transform: translateY(16px); }
           to   { opacity: 1; transform: translateY(0); }
         }
         @media (prefers-reduced-motion: reduce) {
-          .hero-image, .hero-text-anim { animation: none !important; opacity: 1 !important; transform: none !important; }
+          .hero-image, .hero-text-in {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+          }
         }
 
         /* Laptop */
         @media (max-width: 1200px) {
-          .hero-container { grid-template-columns: 640px 1fr; gap: 56px; }
-          .hero-content   { width: 640px; max-width: 640px; }
-          .hero-title     { font-size: 58px; max-width: 640px; }
-          .hero-image     { width: 350px; height: 350px; }
+          .hero-container {
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 40px;
+          }
+          .hero-content { width: 100%; max-width: 760px; }
+          .hero-title   { font-size: 56px; line-height: 58px; max-width: 760px; }
+          .hero-subtitle { max-width: 640px; }
+          .hero-image   { width: 360px; height: 360px; }
         }
 
         /* Tablet */
         @media (max-width: 980px) {
+          .hero-section { padding-top: 150px; padding-bottom: 90px; }
           .hero-container { grid-template-columns: 1fr; gap: 56px; }
-          .hero-content   { width: 100%; max-width: 720px; }
-          .hero-title     { font-size: clamp(44px, 7vw, 58px); max-width: 720px; }
-          .hero-image     { width: min(70vw, 340px); height: min(70vw, 340px); }
+          .hero-content { width: 100%; max-width: 760px; }
+          .hero-title   { font-size: 48px; line-height: 52px; letter-spacing: -1.2px; max-width: 760px; }
+          .hero-image   { width: min(70vw, 340px); height: min(70vw, 340px); }
           .hero-image-wrap { order: -1; }
         }
 
         /* Mobile */
         @media (max-width: 640px) {
-          .hero-section   { min-height: auto; padding: 105px 0 70px; }
-          .hero-container { width: min(calc(100% - 32px), 1320px); grid-template-columns: 1fr; gap: 40px; }
-          .hero-title     { font-size: clamp(38px, 10vw, 46px); line-height: 1.08; letter-spacing: -0.04em; }
-          .hero-subtitle  { font-size: 16px; line-height: 1.6; max-width: 100%; }
+          .hero-section   { min-height: auto; padding-top: 120px; padding-bottom: 70px; }
+          .hero-container { width: min(calc(100% - 32px), 1280px); grid-template-columns: 1fr; gap: 42px; }
+          .hero-title     { font-size: 40px; line-height: 44px; letter-spacing: -1px; max-width: 100%; }
+          .hero-subtitle  { font-size: 16px; line-height: 26px; max-width: 100%; margin-top: 24px; }
+          .hero-actions   { gap: 10px; margin-top: 34px; }
+          .hero-button    { height: 46px; padding: 0 18px; font-size: 15px; }
           .hero-image     { width: min(76vw, 300px); height: min(76vw, 300px); }
-          .hero-badge     { font-size: 14px; }
-        }
-
-        /* Disable stars on desktop for perf */
-        @media (min-width: 769px) {
-          .hero-stars { display: none; }
         }
       `}</style>
 
       <section id="hero" className="hero-section">
-        <Stars />
-
-        {/* Subtle red glow blob */}
-        <div aria-hidden="true" style={{ position: "absolute", top: "15%", right: "-2%", width: "38vw", height: "55vh", background: "radial-gradient(ellipse, rgba(111,4,20,0.11) 0%, transparent 65%)", pointerEvents: "none" }} />
+        {/* Static red glow — no JS, no animation */}
+        <div aria-hidden="true" style={{
+          position: "absolute", top: "10%", right: "-4%",
+          width: "45vw", height: "65vh",
+          background: "radial-gradient(ellipse, rgba(111,4,20,0.10) 0%, transparent 65%)",
+          pointerEvents: "none",
+        }} />
 
         <div className="hero-container">
 
           {/* LEFT */}
-          <div className="hero-content hero-text-anim">
+          <div className="hero-content hero-text-in">
             <div className="hero-badge">
               <span className="hero-badge-dot" />
               Available for work
@@ -197,7 +203,7 @@ export default function Hero() {
 
             <h1 className="hero-title">
               I'm Great Emman-Wori<br />
-              I build <strong>impactful websites</strong>, apps,<br />
+              I build <strong>impactful websites</strong>,<br />
               and digital experiences.
             </h1>
 
@@ -207,22 +213,31 @@ export default function Hero() {
             </p>
 
             <div className="hero-actions">
-              <a href="#portfolio" className="hero-btn-primary" aria-label="View projects by Great Emman-Wori">
+              <a href="#portfolio" className="hero-button hero-button-primary" aria-label="View projects by Great Emman-Wori">
                 View Projects <ArrowRight size={15} />
               </a>
-              <a href="#contact" className="hero-btn-secondary" aria-label="Contact Great Emman-Wori">
+              <a href="#contact" className="hero-button hero-button-secondary" aria-label="Contact Great Emman-Wori">
                 Contact Me
+              </a>
+              <a
+                href="/Great Emman-wori_Resume.latest.pdf"
+                download="Great-Emman-Wori-CV.pdf"
+                className="hero-button hero-button-secondary"
+                aria-label="Download Great Emman-Wori's CV"
+              >
+                <Download size={14} /> Download CV
               </a>
             </div>
           </div>
 
-          {/* RIGHT — static image */}
+          {/* RIGHT — static image, one entrance animation only */}
           <div className="hero-image-wrap">
             <img
               className="hero-image"
               src="/great-emman-wori-fullstack-developer.png"
               alt="Great Emman-Wori, Fullstack Website Developer and Product Designer"
-              width={390} height={390}
+              width={441}
+              height={441}
               loading="eager"
               fetchPriority="high"
             />
