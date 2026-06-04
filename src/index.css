@@ -21,7 +21,15 @@
 /* ── Base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  scroll-padding-top: 80px;
+}
+
+section[id] {
+  scroll-margin-top: 80px;
+}
 
 body {
   background: var(--bg);
@@ -42,15 +50,25 @@ h1, h2, h3, h4, h5, h6 {
 .glass {
   background: var(--card);
   border: 1px solid var(--card-border);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* backdrop-filter only on actual cards, not large section backgrounds */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .glass-red {
   background: var(--card);
   border: 1px solid var(--red-border);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* GPU hint for animated elements */
+.anim-float,
+.anim-fade-up,
+.anim-fade-in,
+.marquee-left,
+.marquee-right {
+  will-change: transform;
 }
 
 /* ── Section spacing ── */

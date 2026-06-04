@@ -18,7 +18,13 @@ const Stars = () => {
     };
     const ro=new ResizeObserver(()=>{resize();init();});
     ro.observe(c);resize();init();draw();
-    return()=>{cancelAnimationFrame(raf);ro.disconnect();};
+    // Pause when off-screen
+    const obs = new IntersectionObserver(([e])=>{
+      if (!e.isIntersecting) cancelAnimationFrame(raf);
+      else { raf = requestAnimationFrame(draw); }
+    },{threshold:0});
+    obs.observe(c);
+    return()=>{cancelAnimationFrame(raf);ro.disconnect();obs.disconnect();};
   },[]);
   return <canvas ref={ref} aria-hidden="true" style={{position:"absolute",inset:0,width:"100%",height:"100%",pointerEvents:"none"}}/>;
 };
