@@ -37,7 +37,7 @@ export default function TechStack() {
     <section className="section-sm bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 text-center mb-10">
         <span className="section-label">Tech Stack</span>
-        <h2 className="font-heading text-3xl md:text-4xl text-white mt-3">My Programming Languages &amp; Frameworks</h2>
+        <h2 className="font-heading text-3xl md:text-4xl text-white mt-3">Skills &amp; Technologies</h2>
       </div>
 
       {/* Row 1 — left */}

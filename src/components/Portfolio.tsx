@@ -1,30 +1,30 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-type Cat = "all"|"wordpress"|"uiux"|"webdev";
+type Cat = "all"|"fullstack"|"uiux"|"landing";
 
 const PROJECTS = [
-  { title:"Bellostylez Blog (Canada)",      cat:"wordpress", img:"/bellow-stylus.webp", desc:"A stylish beauty & lifestyle blog for a Canadian brand — built with WordPress and optimised for SEO and readability.",        tags:["WordPress","Divi","Blog","SEO"],             link:"https://bellostylez.ca/blog/",                           badge:"WordPress" },
-  { title:"Bourdillon Omijeh Foundation",   cat:"uiux",      img:"/bof.webp",          desc:"Nonprofit site built for clarity and credibility — designed in Figma, developed for accessibility and brand trust.",           tags:["WordPress","Figma","UI/UX","Nonprofit"],    link:"https://www.bourdillonomijehfoundation.com/",            badge:"UI/UX" },
-  { title:"YouthUp Global – EmpowerAfrika", cat:"wordpress", img:"/youthup.webp",       desc:"International youth initiative website — responsive, accessible, and SEO-optimised WordPress build.",                          tags:["WordPress","Elementor","Accessibility","SEO"],link:"https://youthupglobal.com/empowerafrika/",               badge:"WordPress" },
-  { title:"SuiBiz — Web3 Marketplace UI",  cat:"uiux",      img:"/suibiz.webp",        desc:"UI/UX design for a decentralised Web3 marketplace targeting professionals on the Sui blockchain.",                             tags:["Web3","Marketplace","UI/UX","Figma"],       link:"https://suibiz.vercel.app/",                             badge:"UI/UX" },
-  { title:"Hair Brosh Saloon",             cat:"uiux",      img:"/webbb.webp",         desc:"Pixel-perfect, responsive salon website — designed in Figma and developed with modern CSS and clean component architecture.",  tags:["Figma","Responsive","UI/UX","CSS"],          link:"https://hairbrosh-ui-kit.vercel.app/",                   badge:"UI/UX" },
-  { title:"WaContacts — WhatsApp Business",cat:"uiux",      img:"/wacontacts.png",     desc:"Comprehensive WhatsApp business directory platform connecting Nigerian SMEs with real customers.",                              tags:["UI/UX","Business Platform","WhatsApp"],      link:"https://wacontacts.com/",                                badge:"Product" },
-  { title:"AdsFirr — Meta Ads Platform",   cat:"uiux",      img:"/adsfirr.png",        desc:"Strategic ad management platform UI for Meta and Instagram campaigns — dashboard design, analytics, and ad management.",       tags:["UI/UX","Meta Ads","Dashboard","Analytics"],  link:"https://adsfirr.vercel.app/",                            badge:"UI/UX" },
-  { title:"Timini Egbuson — Actor Portfolio",cat:"webdev",  img:"/timini.png",         desc:"Stunning digital portfolio for Nollywood rising star Timini Egbuson — React, modern animations, mobile-first.",               tags:["React","Web Dev","Portfolio","Responsive"],  link:"https://timini-egbuson-website-star.vercel.app/",        badge:"Web Dev" },
-  { title:"Funke Akindele — Official Site", cat:"webdev",   img:"/funke.png",          desc:"Official website for iconic actress and director Funke Akindele — premium design, React, and performant build.",               tags:["React","Web Dev","Celebrity","Design"],       link:"https://funke-akindele-unveiled.vercel.app/",            badge:"Web Dev" },
-  { title:"Ego Nwosu — Cinematic Portfolio",cat:"webdev",   img:"/ego.png",            desc:"Cinematic digital showcase for Nollywood actress Ego Nwosu — dark aesthetic, smooth interactions, React.",                    tags:["React","Web Dev","Portfolio","Cinema"],       link:"https://ego-cinematic-muse.vercel.app/",                 badge:"Web Dev" },
-  { title:"The Light Mission — NGO",        cat:"webdev",   img:"/thelightmission.png",desc:"Full-stack Laravel + React website for The Light Mission NGO — enrollment system, admin dashboard, Facebook Pixel tracking.",   tags:["Laravel","React","NGO","Full-Stack"],         link:"https://www.thelightmission.com/",                       badge:"Full-Stack" },
-  { title:"Wizor Progress — Real Estate",  cat:"webdev",   img:"/wizor.png",          desc:"Professional portfolio website for a real estate manager — responsive, elegant, business-focused React build.",                 tags:["React","Web Dev","Real Estate","Responsive"], link:"https://wizor-progress-hub.vercel.app/",                 badge:"Web Dev" },
+  { title:"The Light Mission NGO Website",   cat:"fullstack", img:"/thelightmission.png",  alt:"Fullstack NGO website built with Laravel and React by Great Emman-Wori", desc:"Full-stack Laravel 12 + React/TypeScript registration system for an NGO bootcamp — admin dashboard, enrollment form, CSV export, and Facebook Pixel conversion tracking.", tags:["Laravel","React","TypeScript","Full-Stack","NGO"],          link:"https://www.thelightmission.com/",                            badge:"Fullstack" },
+  { title:"Timini Egbuson Actor Portfolio",   cat:"fullstack", img:"/timini.png",           alt:"React portfolio website for Nollywood actor Timini Egbuson by Great Emman-Wori", desc:"Premium React portfolio website for Nollywood rising star Timini Egbuson — dark cinematic design, smooth animations, mobile-first, performance-optimised.", tags:["React","TypeScript","Vite","Portfolio","Frontend"],           link:"https://timini-egbuson-website-star.vercel.app/",             badge:"Web Dev" },
+  { title:"Funke Akindele Official Website",  cat:"fullstack", img:"/funke.png",            alt:"Official website for actress and director Funke Akindele, built with React by Great Emman-Wori", desc:"Official website for iconic Nigerian actress and director Funke Akindele — premium dark design, React, fully responsive, optimised for Core Web Vitals.", tags:["React","Frontend","Celebrity","Responsive"],                 link:"https://funke-akindele-unveiled.vercel.app/",                 badge:"Web Dev" },
+  { title:"Ego Nwosu Cinematic Portfolio",    cat:"fullstack", img:"/ego.png",              alt:"Cinematic portfolio website for Nollywood actress Ego Nwosu by Great Emman-Wori", desc:"Cinematic portfolio website for Nollywood actress Ego Nwosu — dark aesthetic, smooth scroll interactions, React, performance-first build.", tags:["React","Vite","Frontend","Portfolio","Cinematic"],            link:"https://ego-cinematic-muse.vercel.app/",                     badge:"Web Dev" },
+  { title:"Wizor Progress Real Estate Site",  cat:"fullstack", img:"/wizor.png",            alt:"Real estate professional website built with React by Great Emman-Wori", desc:"Professional business website for a real estate manager and property developer — responsive, elegant, conversion-focused React build.", tags:["React","Frontend","Real Estate","Business Website"],         link:"https://wizor-progress-hub.vercel.app/",                     badge:"Web Dev" },
+  { title:"SuiBiz Web3 Marketplace UI",       cat:"uiux",      img:"/suibiz.webp",          alt:"Web3 marketplace UI/UX design by Great Emman-Wori", desc:"UI/UX design for a decentralised Web3 marketplace targeting professionals on the Sui blockchain — user flows, component system, and interactive prototype in Figma.", tags:["UI/UX","Figma","Web3","Marketplace","Product Design"],       link:"https://suibiz.vercel.app/",                                  badge:"UI/UX" },
+  { title:"Bourdillon Omijeh Foundation",     cat:"uiux",      img:"/bof.webp",             alt:"Nonprofit website UI/UX design and development by Great Emman-Wori", desc:"Nonprofit website designed for clarity and credibility — accessibility-first, brand-aligned, built to inspire donor and community trust.", tags:["WordPress","UI/UX","Figma","Nonprofit","Accessibility"],     link:"https://www.bourdillonomijehfoundation.com/",                badge:"UI/UX" },
+  { title:"Hair Brosh Saloon Website",        cat:"uiux",      img:"/webbb.webp",           alt:"Responsive salon website designed and developed by Great Emman-Wori", desc:"Pixel-perfect responsive salon website — designed in Figma, developed with modern CSS, clean layout, and mobile-first approach.", tags:["Figma","UI/UX","Responsive","CSS","Modern Design"],          link:"https://hairbrosh-ui-kit.vercel.app/",                       badge:"UI/UX" },
+  { title:"AdsFirr Meta Ads Platform UI",     cat:"uiux",      img:"/adsfirr.png",          alt:"Meta Ads management platform UI designed by Great Emman-Wori", desc:"Dashboard UI design for a Meta and Instagram ads management platform — analytics layout, ad performance views, and campaign management interface.", tags:["UI/UX","Dashboard","Meta Ads","Analytics","Figma"],          link:"https://adsfirr.vercel.app/",                                badge:"UI/UX" },
+  { title:"WaContacts WhatsApp Directory",    cat:"uiux",      img:"/wacontacts.png",       alt:"WhatsApp business directory platform designed by Great Emman-Wori", desc:"Product design for a WhatsApp business directory connecting Nigerian SMEs with real customers — user research, information architecture, and interface design.", tags:["Product Design","UI/UX","Business Platform","WhatsApp"],    link:"https://wacontacts.com/",                                    badge:"Product" },
+  { title:"YouthUp Global — EmpowerAfrika",  cat:"landing",   img:"/youthup.webp",         alt:"International youth initiative website built with WordPress by Great Emman-Wori", desc:"Responsive, accessible international youth initiative website — SEO-optimised WordPress build, fast load times, designed for global audience.", tags:["WordPress","Elementor","Responsive","SEO","International"],  link:"https://youthupglobal.com/empowerafrika/",                   badge:"WordPress" },
+  { title:"Bellostylez Blog — Canada",        cat:"landing",   img:"/bellow-stylus.webp",   alt:"Canadian beauty and lifestyle blog built with WordPress by Great Emman-Wori", desc:"Beauty and lifestyle blog for a Canadian brand — WordPress build with Divi, SEO-optimised structure, responsive layout, and clean editorial design.", tags:["WordPress","Divi","Blog","SEO","Responsive"],                link:"https://bellostylez.ca/blog/",                               badge:"WordPress" },
 ];
 
-const FILTERS: {label:string; value:Cat}[] = [
-  {label:"All",value:"all"},{label:"WordPress",value:"wordpress"},{label:"UI/UX & Design",value:"uiux"},{label:"Web Development",value:"webdev"},
+const FILTERS: {label:string;value:Cat}[] = [
+  {label:"All Projects",value:"all"},{label:"Fullstack & Web Dev",value:"fullstack"},{label:"UI/UX & Product",value:"uiux"},{label:"Landing & WordPress",value:"landing"},
 ];
 
-const BADGE_COLORS: Record<string,string> = {
-  "WordPress":"rgba(59,130,246,0.85)","UI/UX":"rgba(111,4,20,0.85)","Product":"rgba(139,92,246,0.85)",
-  "Web Dev":"rgba(16,185,129,0.85)","Full-Stack":"rgba(245,158,11,0.85)","Cinema":"rgba(111,4,20,0.85)",
+const BADGE: Record<string,string> = {
+  "Fullstack":"rgba(111,4,20,0.85)","Web Dev":"rgba(16,185,129,0.80)","UI/UX":"rgba(111,4,20,0.75)",
+  "Product":"rgba(139,92,246,0.80)","WordPress":"rgba(59,130,246,0.80)",
 };
 
 export default function Portfolio() {
@@ -34,23 +34,26 @@ export default function Portfolio() {
   const displayed = showAll ? shown : shown.slice(0,6);
 
   return (
-    <section id="portfolio" className="section bg-black">
+    <section id="portfolio" className="section bg-black" aria-label="Selected projects by Great Emman-Wori">
       <div className="max-w-7xl mx-auto px-5">
         <div className="text-center mb-10">
           <span className="section-label">My Work</span>
-          <h2 className="font-heading text-4xl md:text-5xl text-white mt-3">Featured Projects</h2>
+          <h2 className="font-heading text-4xl md:text-5xl text-white mt-3">Selected Projects</h2>
           <div style={{width:48,height:3,background:"var(--accent)",borderRadius:2,margin:"16px auto 0"}}/>
-          <p className="font-body text-white/50 mt-4 max-w-lg mx-auto">A collection of projects built with passion and attention to detail</p>
+          <p className="font-body text-white/45 mt-4 max-w-xl mx-auto">
+            Fullstack websites, product designs, and web applications — built with attention to performance, usability, and conversion.
+          </p>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        {/* Filter tabs */}
+        <div className="flex flex-wrap justify-center gap-3 mb-10" role="group" aria-label="Filter projects by category">
           {FILTERS.map(f=>(
             <button key={f.value} onClick={()=>{setFilter(f.value);setShowAll(false);}}
+              aria-pressed={filter===f.value}
               className="px-5 py-2 rounded-full text-sm font-medium transition-all duration-200"
               style={filter===f.value
-                ? {background:"var(--accent)",color:"#fff",border:"1px solid var(--accent)"}
-                : {background:"transparent",color:"rgba(255,255,255,0.5)",border:"1px solid rgba(255,255,255,0.12)"}}>
+                ?{background:"var(--accent)",color:"#fff",border:"1px solid var(--accent)"}
+                :{background:"transparent",color:"rgba(255,255,255,0.45)",border:"1px solid rgba(255,255,255,0.10)"}}>
               {f.label}
             </button>
           ))}
@@ -61,37 +64,37 @@ export default function Portfolio() {
           {displayed.map((p,i)=>(
             <article key={i} className="glass rounded-2xl overflow-hidden group hover:-translate-y-1.5 transition-all duration-300"
               style={{borderColor:"rgba(255,255,255,0.07)"}}
-              onMouseEnter={e=>(e.currentTarget.style.borderColor="rgba(111,4,20,0.50)")}
-              onMouseLeave={e=>(e.currentTarget.style.borderColor="rgba(255,255,255,0.07)")}>
-              {/* thumbnail */}
+              onMouseEnter={e=>e.currentTarget.style.borderColor="rgba(111,4,20,0.48)"}
+              onMouseLeave={e=>e.currentTarget.style.borderColor="rgba(255,255,255,0.07)"}>
               <div className="relative overflow-hidden" style={{aspectRatio:"16/9",background:"#0a0a0a"}}>
-                <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
+                <img src={p.img} alt={p.alt} width={480} height={270}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{background:"rgba(0,0,0,0.35)"}}/>
+                  style={{background:"rgba(0,0,0,0.3)"}}/>
                 <span className="absolute top-3 left-3 text-xs font-bold px-3 py-1 rounded-full text-white"
-                  style={{background:BADGE_COLORS[p.badge]||"rgba(111,4,20,0.85)"}}>
+                  style={{background:BADGE[p.badge]||"rgba(111,4,20,0.85)"}}>
                   {p.badge}
                 </span>
               </div>
-              {/* content */}
               <div className="p-5">
                 <h3 className="font-heading font-semibold text-white mb-2 group-hover:text-red-300 transition-colors line-clamp-1">{p.title}</h3>
-                <p className="font-body text-sm text-white/50 leading-relaxed mb-4 line-clamp-2">{p.desc}</p>
+                <p className="font-body text-sm text-white/48 leading-relaxed mb-4 line-clamp-2">{p.desc}</p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {p.tags.slice(0,3).map(t=>(
                     <span key={t} className="text-xs px-2 py-0.5 rounded"
-                      style={{background:"rgba(255,255,255,0.05)",color:"rgba(255,255,255,0.45)",border:"1px solid rgba(255,255,255,0.08)"}}>
+                      style={{background:"rgba(255,255,255,0.04)",color:"rgba(255,255,255,0.40)",border:"1px solid rgba(255,255,255,0.07)"}}>
                       {t}
                     </span>
                   ))}
-                  {p.tags.length>3&&<span className="text-xs px-2 py-0.5 rounded" style={{color:"rgba(255,255,255,0.3)"}}>+{p.tags.length-3}</span>}
+                  {p.tags.length>3&&<span className="text-xs px-2 py-0.5 rounded" style={{color:"rgba(255,255,255,0.28)"}}>+{p.tags.length-3}</span>}
                 </div>
                 <a href={p.link} target="_blank" rel="noopener noreferrer"
+                  aria-label={`View project: ${p.title}`}
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-medium transition-all duration-200"
-                  style={{border:"1px solid rgba(255,255,255,0.10)",color:"rgba(255,255,255,0.55)"}}
+                  style={{border:"1px solid rgba(255,255,255,0.09)",color:"rgba(255,255,255,0.50)"}}
                   onMouseEnter={e=>{const el=e.currentTarget;el.style.borderColor="var(--accent)";el.style.color="var(--accent)";}}
-                  onMouseLeave={e=>{const el=e.currentTarget;el.style.borderColor="rgba(255,255,255,0.10)";el.style.color="rgba(255,255,255,0.55)";}}>
-                  View Project <ArrowUpRight size={14}/>
+                  onMouseLeave={e=>{const el=e.currentTarget;el.style.borderColor="rgba(255,255,255,0.09)";el.style.color="rgba(255,255,255,0.50)";}}>
+                  View Project <ArrowUpRight size={13}/>
                 </a>
               </div>
             </article>
@@ -101,7 +104,7 @@ export default function Portfolio() {
         {shown.length>6&&(
           <div className="text-center">
             <button onClick={()=>setShowAll(v=>!v)} className="btn-outline">
-              {showAll?`Show Less`:`View All ${shown.length} Projects`}
+              {showAll?`Show Less`:`View All ${shown.length} Fullstack Projects`}
             </button>
           </div>
         )}
