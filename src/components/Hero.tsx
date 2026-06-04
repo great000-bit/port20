@@ -33,8 +33,8 @@ export default function Hero() {
         minHeight:"calc(100vh - 0px)",
         display:"flex",
         alignItems:"center",
-        paddingTop:"100px",
-        paddingBottom:"60px",
+        paddingTop:"clamp(120px,13vh,150px)",
+        paddingBottom:"clamp(70px,9vh,100px)",
         background:"#000",
         position:"relative",
         overflow:"hidden",
@@ -50,16 +50,16 @@ export default function Hero() {
         pointerEvents:"none",
       }}/>
 
-      <div style={{maxWidth:1280,margin:"0 auto",padding:"0 24px",width:"100%",position:"relative",zIndex:1}}>
+      <div style={{maxWidth:1280,margin:"0 auto",padding:"0 clamp(24px,5vw,72px)",width:"100%",position:"relative",zIndex:1}}>
         <div style={{
           display:"grid",
-          gridTemplateColumns:"1.15fr 0.85fr",
+          gridTemplateColumns:"minmax(620px,1.05fr) minmax(360px,0.95fr)",
           alignItems:"center",
-          gap:"4rem",
+          gap:"clamp(56px,7vw,100px)",
         }} className="hero-grid">
 
           {/* ── LEFT ── */}
-          <div style={{maxWidth:680}} className="hero-text anim-fade-up">
+          <div style={{maxWidth:760}} className="hero-text">
 
             {/* Badge */}
             <div style={{
@@ -70,36 +70,38 @@ export default function Hero() {
               marginBottom:28,
             }}>
               <span style={{width:7,height:7,borderRadius:"50%",background:"#4ade80",flexShrink:0}}/>
-              <span style={{fontSize:"0.75rem",color:"rgba(255,255,255,0.65)",fontFamily:"Geist,Arial,sans-serif",fontWeight:500,letterSpacing:"0.03em"}}>
+              <span style={{fontFamily:"Arial,Helvetica,sans-serif",fontSize:13,fontWeight:600,color:"rgba(255,255,255,0.65)",letterSpacing:0}}>
                 Available for freelance &amp; remote projects
               </span>
             </div>
 
             {/* H1 */}
-            <h1 style={{
+            <h1 className="hero-title" style={{
               fontFamily:"Geist,Arial,sans-serif",
-              fontSize:"clamp(2.6rem, 5.5vw, 4.8rem)",
+              fontSize:"clamp(48px,4.4vw,68px)",
               fontWeight:400,
-              lineHeight:1.08,
+              lineHeight:1.05,
               color:"#fff",
-              letterSpacing:"-0.025em",
-              marginBottom:24,
+              letterSpacing:"-0.045em",
+              marginBottom:22,
+              maxWidth:760,
             }}>
               I'm Great Emman-Wori.<br/>
               I build{" "}
-              <span style={{fontWeight:700}}>impactful websites,</span>
-              <br/>
+              <span className="hero-emphasis">impactful websites,</span>{" "}
               web apps, and digital experiences.
             </h1>
 
             {/* Single short subtext */}
             <p style={{
               fontFamily:"Arial,Helvetica,sans-serif",
-              fontSize:"clamp(0.95rem, 1.6vw, 1.1rem)",
-              color:"rgba(255,255,255,0.55)",
-              lineHeight:1.7,
-              maxWidth:520,
-              marginBottom:36,
+              fontSize:17,
+              fontWeight:400,
+              color:"rgba(255,255,255,0.62)",
+              lineHeight:1.65,
+              maxWidth:560,
+              marginBottom:32,
+              marginTop:0,
             }}>
               Fullstack Website Developer and Product Designer creating responsive,
               conversion-focused websites and interfaces for brands and businesses.
@@ -112,11 +114,11 @@ export default function Hero() {
                   display:"inline-flex", alignItems:"center", gap:7,
                   background:"var(--accent)", color:"#fff",
                   padding:"0.7rem 1.5rem", borderRadius:"0.75rem",
-                  fontFamily:"Geist,Arial,sans-serif", fontWeight:600, fontSize:"0.9rem",
+                  fontFamily:"Arial,Helvetica,sans-serif", fontWeight:700, fontSize:15,
                   border:"1px solid var(--accent)", textDecoration:"none",
                   transition:"background 0.2s, color 0.2s, box-shadow 0.2s",
                 }}
-                onMouseEnter={e=>{const el=e.currentTarget;el.style.background="transparent";el.style.color="var(--accent)";el.style.boxShadow="0 0 14px rgba(111,4,20,0.30)";}}
+                onMouseEnter={e=>{const el=e.currentTarget;el.style.background="transparent";el.style.color="var(--accent)";el.style.boxShadow="0 0 14px rgba(111,4,20,0.25)";}}
                 onMouseLeave={e=>{const el=e.currentTarget;el.style.background="var(--accent)";el.style.color="#fff";el.style.boxShadow="";}}
                 aria-label="View Great Emman-Wori's projects">
                 View Projects <ArrowRight size={15}/>
@@ -126,7 +128,7 @@ export default function Hero() {
                   display:"inline-flex", alignItems:"center", gap:7,
                   background:"transparent", color:"#fff",
                   padding:"0.7rem 1.5rem", borderRadius:"0.75rem",
-                  fontFamily:"Geist,Arial,sans-serif", fontWeight:600, fontSize:"0.9rem",
+                  fontFamily:"Arial,Helvetica,sans-serif", fontWeight:700, fontSize:15,
                   border:"1px solid rgba(255,255,255,0.18)", textDecoration:"none",
                   transition:"border-color 0.2s, color 0.2s",
                 }}
@@ -141,8 +143,8 @@ export default function Hero() {
           {/* ── RIGHT — hero image, no float ── */}
           <div style={{display:"flex",justifyContent:"center",alignItems:"center"}} className="hero-image-wrap">
             <div className="hero-img-enter" style={{
-              width:"clamp(220px, 28vw, 360px)",
-              height:"clamp(220px, 28vw, 360px)",
+              width:"clamp(340px,28vw,430px)",
+              height:"clamp(340px,28vw,430px)",
               position:"relative",
             }}>
               {/* Soft red glow behind */}
@@ -175,43 +177,59 @@ export default function Hero() {
 
       {/* ── Responsive styles ── */}
       <style>{`
+        .hero-emphasis { font-weight: 700; }
+
         .hero-img-enter {
           animation: heroImgIn 0.65s ease both;
           animation-delay: 0.2s;
         }
         @keyframes heroImgIn {
-          from { opacity:0; transform: scale(0.94); }
-          to   { opacity:1; transform: scale(1); }
+          from { opacity:0; transform:scale(0.95); }
+          to   { opacity:1; transform:scale(1); }
         }
         .hero-text {
           animation: heroTextIn 0.6s ease both;
         }
         @keyframes heroTextIn {
-          from { opacity:0; transform: translateY(20px); }
-          to   { opacity:1; transform: translateY(0); }
+          from { opacity:0; transform:translateY(18px); }
+          to   { opacity:1; transform:translateY(0); }
         }
         @media (prefers-reduced-motion: reduce) {
-          .hero-img-enter, .hero-text { animation: none !important; opacity: 1 !important; transform: none !important; }
+          .hero-img-enter, .hero-text { animation:none !important; opacity:1 !important; transform:none !important; }
         }
-        @media (max-width: 768px) {
-          .hero-grid {
-            grid-template-columns: 1fr !important;
-            gap: 2.5rem !important;
-          }
+
+        /* Laptop */
+        @media (max-width: 1100px) {
+          .hero-title { font-size: clamp(44px,4vw,60px) !important; }
+          .hero-grid  { grid-template-columns: 1fr 1fr !important; gap: 3rem !important; }
+        }
+
+        /* Tablet */
+        @media (max-width: 900px) {
+          .hero-title { font-size: clamp(38px,6vw,50px) !important; line-height: 1.08 !important; }
+          .hero-grid  { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
           .hero-image-wrap { order: -1; }
           .hero-image-wrap > div {
-            width: clamp(160px, 55vw, 240px) !important;
-            height: clamp(160px, 55vw, 240px) !important;
+            width: min(70vw, 300px) !important;
+            height: min(70vw, 300px) !important;
           }
           .hero-text { text-align: center; }
-          .hero-text > div:first-child { justify-content: center; }
-          .hero-text > div:last-child { justify-content: center; }
+          .hero-text > div:first-child { justify-content: center !important; display: flex; }
+          .hero-text > div:last-child  { justify-content: center !important; }
         }
-        @media (max-width: 480px) {
+
+        /* Mobile */
+        @media (max-width: 600px) {
+          .hero-title { font-size: clamp(34px,9vw,44px) !important; line-height: 1.1 !important; letter-spacing: -0.035em !important; }
           .hero-image-wrap > div {
-            width: 180px !important;
-            height: 180px !important;
+            width: min(76vw, 240px) !important;
+            height: min(76vw, 240px) !important;
           }
+        }
+
+        /* Small mobile */
+        @media (max-width: 380px) {
+          .hero-title { font-size: 32px !important; line-height: 1.12 !important; }
         }
       `}</style>
     </section>
