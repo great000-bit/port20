@@ -61,8 +61,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Rubik', 'sans-serif'],
-        heading: ['Rubik', 'sans-serif'],
+        sans: ['Geist', 'Rubik', 'sans-serif'],
+        heading: ['Geist', 'Rubik', 'sans-serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',
