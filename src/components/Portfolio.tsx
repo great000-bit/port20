@@ -91,7 +91,7 @@ export default function Portfolio() {
                 <a href={p.link} target="_blank" rel="noopener noreferrer"
                   aria-label={`View project: ${p.title}`}
                   className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-medium card-link"
-                  style={{border:"1px solid rgba(255,255,255,0.09)",color:"rgba(255,255,255,0.50)"}}
+                  style={{border:"1px solid rgba(255,255,255,0.09)",color:"rgba(255,255,255,0.50)"}}>
                   View Project <ArrowUpRight size={13}/>
                 </a>
               </div>

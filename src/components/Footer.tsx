@@ -55,7 +55,7 @@ export default function Footer() {
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                   aria-label={s.label}
                   className="w-9 h-9 rounded-full flex items-center justify-center social-link"
-                  style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.07)",color:"rgba(255,255,255,0.50)"}}
+                  style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.07)",color:"rgba(255,255,255,0.50)"}}>
                   {s.icon}
                 </a>
               ))}

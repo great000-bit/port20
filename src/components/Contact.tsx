@@ -48,7 +48,7 @@ export default function Contact() {
               {SOCIALS.map(s=>(
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                   className="glass flex items-center gap-4 rounded-xl p-4 group card-hover"
-                  style={{borderColor:"rgba(255,255,255,0.07)"}}
+                  style={{borderColor:"rgba(255,255,255,0.07)"}}>
                   <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-[#6f0414]"
                     style={{background:"rgba(111,4,20,0.15)",color:"var(--accent)"}}>
                     {s.icon}

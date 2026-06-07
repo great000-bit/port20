@@ -36,7 +36,7 @@ function StatCard({ end, suffix, label, isSpecial = false }: { end: number; suff
 
   return (
     <div ref={ref} className="glass rounded-2xl p-6 text-center group hover:-translate-y-1 transition-transform duration-300"
-      style={{borderColor:"rgba(255,255,255,0.06)"}}
+      style={{borderColor:"rgba(255,255,255,0.06)"}}>
       {isSpecial ? (
         <div className="font-heading text-4xl font-bold mb-1 transition-colors group-hover:text-[#c0392b]"
           style={{color:"var(--accent)", opacity: visible ? 1 : 0, transform: visible ? "scale(1)" : "scale(0.7)", transition:"opacity 0.5s ease, transform 0.5s ease"}}>
