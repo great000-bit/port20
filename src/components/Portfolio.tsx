@@ -62,7 +62,7 @@ export default function Portfolio() {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
           {displayed.map((p,i)=>(
-            <article key={i} className="glass rounded-2xl overflow-hidden group hover:-translate-y-1.5 transition-all duration-300"
+            <article key={i} className="glass rounded-2xl overflow-hidden group card-hover"
               style={{borderColor:"rgba(255,255,255,0.07)"}}
               onMouseEnter={e=>e.currentTarget.style.borderColor="rgba(111,4,20,0.48)"}
               onMouseLeave={e=>e.currentTarget.style.borderColor="rgba(255,255,255,0.07)"}>
@@ -90,10 +90,8 @@ export default function Portfolio() {
                 </div>
                 <a href={p.link} target="_blank" rel="noopener noreferrer"
                   aria-label={`View project: ${p.title}`}
-                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-medium transition-all duration-200"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-medium card-link"
                   style={{border:"1px solid rgba(255,255,255,0.09)",color:"rgba(255,255,255,0.50)"}}
-                  onMouseEnter={e=>{const el=e.currentTarget;el.style.borderColor="var(--accent)";el.style.color="var(--accent)";}}
-                  onMouseLeave={e=>{const el=e.currentTarget;el.style.borderColor="rgba(255,255,255,0.09)";el.style.color="rgba(255,255,255,0.50)";}}>
                   View Project <ArrowUpRight size={13}/>
                 </a>
               </div>

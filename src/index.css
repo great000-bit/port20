@@ -10,11 +10,11 @@
   --fg:           #ffffff;
   --muted:        rgba(255,255,255,0.60);
   --accent:       #6f0414;
-  --accent-soft:  rgba(111,4,20,0.20);
-  --accent-glow:  rgba(111,4,20,0.45);
-  --card:         rgba(255,255,255,0.04);
-  --card-border:  rgba(255,255,255,0.09);
-  --red-border:   rgba(111,4,20,0.60);
+  --accent-soft:  rgba(111,4,20,0.15);
+  --accent-glow:  rgba(111,4,20,0.35);
+  --card:         rgba(255,255,255,0.03);
+  --card-border:  rgba(255,255,255,0.08);
+  --red-border:   rgba(111,4,20,0.50);
   --radius:       0.75rem;
 }
 
@@ -23,13 +23,11 @@
 
 html {
   scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
   scroll-padding-top: 80px;
+  -webkit-font-smoothing: antialiased;
 }
 
-section[id] {
-  scroll-margin-top: 80px;
-}
+section[id] { scroll-margin-top: 80px; }
 
 body {
   background: var(--bg);
@@ -38,6 +36,7 @@ body {
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
+  /* No scroll hijacking — native scroll only */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,48 +45,29 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* ── Glass card ── */
+/* ── Glass — only on small cards, NOT large sections ── */
 .glass {
   background: var(--card);
   border: 1px solid var(--card-border);
-  /* backdrop-filter only on actual cards, not large section backgrounds */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.glass-red {
-  background: var(--card);
-  border: 1px solid var(--red-border);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* GPU hint for animated elements */
-.anim-float,
-.anim-fade-up,
-.anim-fade-in,
-.marquee-left,
-.marquee-right {
-  will-change: transform;
+  /* backdrop-filter only on genuinely small card surfaces */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 /* ── Section spacing ── */
-.section { padding: 6rem 0; }
+.section    { padding: 6rem 0; }
 .section-sm { padding: 4rem 0; }
 
-/* ── Animations ── */
+/* ── Performant CSS-only animations — transform + opacity only ── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-10px); }
-}
+/* Marquee — CSS only, GPU composited via transform */
 @keyframes marqueeLeft {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
@@ -96,91 +76,134 @@ h1, h2, h3, h4, h5, h6 {
   from { transform: translateX(-50%); }
   to   { transform: translateX(0); }
 }
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
-  50%       { box-shadow: 0 0 24px 6px var(--accent-glow); }
+
+.anim-fade-up { animation: fadeUp 0.6s ease both; }
+.anim-fade-in { animation: fadeIn 0.5s ease both; }
+
+.marquee-left  {
+  animation: marqueeLeft  30s linear infinite;
+  will-change: transform; /* only on the moving strip */
 }
-@keyframes shimmer {
-  from { background-position: -200% center; }
-  to   { background-position: 200% center; }
-}
-@keyframes starDrift {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-100vh); }
+.marquee-right {
+  animation: marqueeRight 30s linear infinite;
+  will-change: transform;
 }
 
-.anim-fade-up   { animation: fadeUp 0.7s ease both; }
-.anim-fade-in   { animation: fadeIn 0.6s ease both; }
-.anim-float     { animation: float 5s ease-in-out infinite; }
-.anim-pulse-glow{ animation: pulseGlow 3s ease-in-out infinite; }
-
-.marquee-left  { animation: marqueeLeft  28s linear infinite; }
-.marquee-right { animation: marqueeRight 28s linear infinite; }
-
+/* ── Full reduced-motion support ── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+  .marquee-left, .marquee-right { animation: none !important; }
 }
 
 /* ── Focus visible ── */
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
 
 /* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #000; }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
 
-/* ── Section title ── */
+/* ── Section label ── */
 .section-label {
   display: inline-block;
   font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--accent);
-  padding: 4px 14px;
+  padding: 4px 12px;
   border: 1px solid var(--red-border);
   border-radius: 999px;
   background: var(--accent-soft);
   margin-bottom: 1rem;
 }
 
-/* ── Btn ── */
+/* ── Buttons ── */
 .btn-red {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--accent);
-  color: #fff;
-  padding: 0.7rem 1.6rem;
-  border-radius: var(--radius);
-  font-family: 'Geist', Arial, sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  border: 1px solid var(--accent);
-  cursor: pointer;
-  transition: all 0.25s ease;
+  background: var(--accent); color: #fff;
+  padding: 0.65rem 1.4rem; border-radius: 0.6rem;
+  font-family: 'Geist', Arial, sans-serif; font-weight: 600; font-size: 0.875rem;
+  border: 1px solid var(--accent); cursor: pointer;
+  transition: background 0.2s, color 0.2s;
   text-decoration: none;
 }
-.btn-red:hover {
-  background: transparent;
-  color: var(--accent);
-  box-shadow: 0 0 20px var(--accent-glow);
-}
+.btn-red:hover { background: transparent; color: var(--accent); }
 
 .btn-outline {
   display: inline-flex; align-items: center; gap: 8px;
-  background: transparent;
-  color: #fff;
-  padding: 0.7rem 1.6rem;
-  border-radius: var(--radius);
-  font-family: 'Geist', Arial, sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  border: 1px solid rgba(255,255,255,0.2);
-  cursor: pointer;
-  transition: all 0.25s ease;
+  background: transparent; color: #fff;
+  padding: 0.65rem 1.4rem; border-radius: 0.6rem;
+  font-family: 'Geist', Arial, sans-serif; font-weight: 600; font-size: 0.875rem;
+  border: 1px solid rgba(255,255,255,0.18); cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
   text-decoration: none;
 }
-.btn-outline:hover {
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ── Performance-safe mode ──
+   Add class="performance-safe" to <body> via browser console or
+   a user toggle to strip all non-essential GPU effects.
+── */
+body.performance-safe .glass {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+body.performance-safe .marquee-left,
+body.performance-safe .marquee-right {
+  animation: none !important;
+}
+body.performance-safe * {
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+}
+body.performance-safe .anim-fade-up,
+body.performance-safe .anim-fade-in {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ── Card hover — pure CSS, no JS border mutations ── */
+.card-hover {
+  transition: border-color 0.2s ease, transform 0.25s ease;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+.card-hover:hover {
+  border-color: rgba(111,4,20,0.45);
+  transform: translateY(-4px);
+}
+
+/* Project/service/experience card link hover */
+.card-link {
+  transition: border-color 0.2s, color 0.2s;
+  border: 1px solid rgba(255,255,255,0.09);
+  color: rgba(255,255,255,0.50);
+}
+.card-link:hover {
   border-color: var(--accent);
   color: var(--accent);
-  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+/* Social link hover */
+.social-link {
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.50);
+}
+.social-link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
 }

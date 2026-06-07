@@ -220,10 +220,10 @@ export default function Hero() {
                 Contact Me
               </a>
               <a
-                href="/Great Emman-wori_Resume.latest.pdf"
-                download="Great-Emman-Wori-CV.pdf"
+                href="/Great-Emman-Wori-CV.pdf"
+                download
                 className="hero-button hero-button-secondary"
-                aria-label="Download Great Emman-Wori's CV"
+                aria-label="Download Great Emman-Wori CV"
               >
                 <Download size={14} /> Download CV
               </a>

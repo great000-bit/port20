@@ -47,10 +47,8 @@ export default function Contact() {
             <div className="flex flex-col gap-3">
               {SOCIALS.map(s=>(
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
-                  className="glass flex items-center gap-4 rounded-xl p-4 group transition-all duration-200"
+                  className="glass flex items-center gap-4 rounded-xl p-4 group card-hover"
                   style={{borderColor:"rgba(255,255,255,0.07)"}}
-                  onMouseEnter={e=>{e.currentTarget.style.borderColor="rgba(111,4,20,0.45)";e.currentTarget.style.boxShadow="0 0 16px rgba(111,4,20,0.15)";}}
-                  onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(255,255,255,0.07)";e.currentTarget.style.boxShadow="";}}>
                   <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors group-hover:bg-[#6f0414]"
                     style={{background:"rgba(111,4,20,0.15)",color:"var(--accent)"}}>
                     {s.icon}

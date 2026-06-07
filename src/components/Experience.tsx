@@ -81,7 +81,7 @@ export default function Experience() {
                 </div>
                 {/* card */}
                 <div className={`md:w-[46%] ${isLeft?"md:mr-auto":"md:ml-auto"}`}>
-                  <article className="glass rounded-2xl p-6 group transition-all duration-300"
+                  <article className="glass rounded-2xl p-6 group card-hover"
                     style={{borderColor:"rgba(255,255,255,0.07)"}}
                     onMouseEnter={el=>el.currentTarget.style.borderColor="rgba(111,4,20,0.42)"}
                     onMouseLeave={el=>el.currentTarget.style.borderColor="rgba(255,255,255,0.07)"}>

@@ -52,9 +52,10 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "py-3 bg-black/85 backdrop-blur-xl border-b border-white/5 shadow-lg"
+          ? "py-3 border-b border-white/5 shadow-sm"
           : "py-5 bg-transparent"
       }`}
+      style={scrolled ? {background:"rgba(0,0,0,0.92)"} : {}}
     >
       <div className="max-w-7xl mx-auto px-5 flex items-center justify-between">
         {/* Logo */}
@@ -64,7 +65,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1 glass rounded-full px-4 py-2">
+        <nav className="hidden md:flex items-center gap-1 rounded-full px-4 py-2" style={{background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.08)"}}>
           {NAV.map(n => {
             const isActive = active === n.href.slice(1);
             return (
@@ -95,9 +96,9 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <div className={`md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/5 transition-all duration-300 ${
+      <div className={`md:hidden absolute top-full left-0 w-full border-b border-white/5 transition-all duration-300 ${
         open ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
-      }`}>
+      }`} style={{background:"rgba(0,0,0,0.96)"}}>
         <nav className="max-w-7xl mx-auto px-5 py-6 flex flex-col gap-2">
           {NAV.map(n => (
             <a key={n.href} href={n.href} onClick={close}

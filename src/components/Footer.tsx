@@ -54,10 +54,8 @@ export default function Footer() {
               {SOCIALS.map(s=>(
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
+                  className="w-9 h-9 rounded-full flex items-center justify-center social-link"
                   style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.07)",color:"rgba(255,255,255,0.50)"}}
-                  onMouseEnter={e=>{e.currentTarget.style.background="var(--accent)";e.currentTarget.style.borderColor="var(--accent)";e.currentTarget.style.color="#fff";}}
-                  onMouseLeave={e=>{e.currentTarget.style.background="rgba(255,255,255,0.04)";e.currentTarget.style.borderColor="rgba(255,255,255,0.07)";e.currentTarget.style.color="rgba(255,255,255,0.50)";}}>
                   {s.icon}
                 </a>
               ))}

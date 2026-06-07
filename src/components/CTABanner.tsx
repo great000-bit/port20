@@ -2,8 +2,8 @@ export default function CTABanner() {
   return (
     <section className="section-sm bg-black" aria-label="Call to action">
       <div className="max-w-4xl mx-auto px-5">
-        <div className="glass rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
-          style={{borderColor:"rgba(111,4,20,0.32)"}}>
+        <div className="rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
+          style={{background:"rgba(111,4,20,0.06)",border:"1px solid rgba(111,4,20,0.28)"}}>
           <div aria-hidden="true" style={{position:"absolute",inset:0,background:"radial-gradient(ellipse at center,rgba(111,4,20,0.10) 0%,transparent 70%)",pointerEvents:"none"}}/>
           <div className="relative z-10">
             <span className="section-label mb-6">Let's Build Together</span>

@@ -60,10 +60,8 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map((s,i)=>(
-            <article key={i} className="glass rounded-2xl p-7 group hover:-translate-y-1.5 transition-all duration-300"
+            <article key={i} className="glass rounded-2xl p-7 group card-hover"
               style={{borderColor:"rgba(255,255,255,0.07)"}}
-              onMouseEnter={e=>e.currentTarget.style.borderColor="rgba(111,4,20,0.50)"}
-              onMouseLeave={e=>e.currentTarget.style.borderColor="rgba(255,255,255,0.07)"}>
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300"
                 style={{background:"rgba(111,4,20,0.10)",border:"1px solid rgba(111,4,20,0.25)",color:"var(--accent)"}}>
                 {s.icon}

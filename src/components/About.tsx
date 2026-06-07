@@ -37,8 +37,6 @@ function StatCard({ end, suffix, label, isSpecial = false }: { end: number; suff
   return (
     <div ref={ref} className="glass rounded-2xl p-6 text-center group hover:-translate-y-1 transition-transform duration-300"
       style={{borderColor:"rgba(255,255,255,0.06)"}}
-      onMouseEnter={e=>e.currentTarget.style.boxShadow="0 0 24px rgba(111,4,20,0.20)"}
-      onMouseLeave={e=>e.currentTarget.style.boxShadow=""}>
       {isSpecial ? (
         <div className="font-heading text-4xl font-bold mb-1 transition-colors group-hover:text-[#c0392b]"
           style={{color:"var(--accent)", opacity: visible ? 1 : 0, transform: visible ? "scale(1)" : "scale(0.7)", transition:"opacity 0.5s ease, transform 0.5s ease"}}>
@@ -68,8 +66,8 @@ export default function About() {
         </div>
 
         {/* Bio glass card */}
-        <div className="glass rounded-2xl p-8 md:p-12 mb-10 max-w-3xl mx-auto text-center"
-          style={{borderColor:"rgba(111,4,20,0.20)"}}>
+        <div className="rounded-2xl p-8 md:p-12 mb-10 max-w-3xl mx-auto text-center"
+          style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(111,4,20,0.18)"}}>
           <p className="font-body text-white/70 text-lg leading-relaxed mb-5">
             I'm <strong className="text-white">Great Emman-Wori</strong>, a Fullstack Website Developer, Product Designer,
             and UI/UX Designer based in <strong className="text-white">Port Harcourt, Nigeria</strong> — available remotely worldwide.
