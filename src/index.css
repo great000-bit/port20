@@ -212,11 +212,6 @@ body.performance-safe .anim-fade-in {
   color: #fff;
 }
 
-/* ── Scroll performance: isolate section paint ── */
-section {
-  contain: layout style;
-}
-
 /* ── AOS override: use transform only, never layout props ── */
 [data-aos] {
   will-change: auto;
