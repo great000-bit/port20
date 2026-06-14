@@ -5,7 +5,7 @@ export default function CTABanner() {
         <div className="rounded-3xl p-10 md:p-16 text-center relative overflow-hidden"
           style={{background:"rgba(111,4,20,0.06)",border:"1px solid rgba(111,4,20,0.28)"}}>
           <div aria-hidden="true" style={{position:"absolute",inset:0,background:"radial-gradient(ellipse at center,rgba(111,4,20,0.10) 0%,transparent 70%)",pointerEvents:"none"}}/>
-          <div className="relative z-10">
+          <div className="relative z-10" data-aos="fade-up">
             <span className="section-label mb-6">Let's Build Together</span>
             <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mt-3 mb-5 leading-tight">
               Ready to build a website that<br className="hidden sm:block"/> looks premium and converts?

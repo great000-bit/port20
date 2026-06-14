@@ -49,7 +49,7 @@ export default function Services() {
   return (
     <section id="services" className="section bg-[#030303]" aria-label="Services offered by Great Emman-Wori">
       <div className="max-w-7xl mx-auto px-5">
-        <div className="text-center mb-14">
+        <div className="text-center mb-14" data-aos="fade-up">
           <span className="section-label">What I Build</span>
           <h2 className="font-heading text-4xl md:text-5xl text-white mt-3">Services</h2>
           <div style={{width:48,height:3,background:"var(--accent)",borderRadius:2,margin:"16px auto 0"}}/>
@@ -61,7 +61,9 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {SERVICES.map((s,i)=>(
             <article key={i} className="glass rounded-2xl p-7 group card-hover"
-              style={{borderColor:"rgba(255,255,255,0.07)"}}>
+              style={{borderColor:"rgba(255,255,255,0.07)"}}
+              data-aos="fade-up"
+              data-aos-delay={i * 80}>
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300"
                 style={{background:"rgba(111,4,20,0.10)",border:"1px solid rgba(111,4,20,0.25)",color:"var(--accent)"}}>
                 {s.icon}

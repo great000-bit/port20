@@ -60,7 +60,7 @@ function MarqueeRow({items, dir}:{items:{name:string;icon:string}[]; dir:"left"|
 export default function TechStack() {
   return (
     <section className="section-sm bg-black overflow-hidden">
-      <div className="max-w-7xl mx-auto px-5 text-center mb-10">
+      <div className="max-w-7xl mx-auto px-5 text-center mb-10" data-aos="fade-up">
         <span className="section-label">Tech Stack</span>
         <h2 className="font-heading text-3xl md:text-4xl text-white mt-3">Skills &amp; Technologies</h2>
       </div>

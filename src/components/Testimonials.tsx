@@ -74,7 +74,7 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-5">
 
         {/* Header */}
-        <div className="text-center mb-14">
+        <div className="text-center mb-14" data-aos="fade-up">
           <span className="section-label">Social Proof</span>
           <h2 id="testimonials-heading" className="font-heading text-4xl md:text-5xl text-white mt-3">
             Client Testimonials

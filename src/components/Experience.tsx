@@ -54,7 +54,7 @@ export default function Experience() {
   return (
     <section id="experience" className="section bg-[#030303]" aria-label="Work experience of Great Emman-Wori">
       <div className="max-w-7xl mx-auto px-5">
-        <div className="text-center mb-14">
+        <div className="text-center mb-14" data-aos="fade-up">
           <span className="section-label">Track Record</span>
           <h2 className="font-heading text-4xl md:text-5xl text-white mt-3">Work Experience</h2>
           <div style={{width:48,height:3,background:"var(--accent)",borderRadius:2,margin:"16px auto 0"}}/>

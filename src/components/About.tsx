@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-/* ── Animated counter — IntersectionObserver, runs once, respects reduced-motion ── */
 function useCountUp(end: number, duration = 1400, start = false) {
   const [val, setVal] = useState(0);
   const ran = useRef(false);
@@ -12,7 +11,6 @@ function useCountUp(end: number, duration = 1400, start = false) {
     const startTime = performance.now();
     const tick = (now: number) => {
       const p = Math.min((now - startTime) / duration, 1);
-      // ease-out cubic
       const ease = 1 - Math.pow(1 - p, 3);
       setVal(Math.round(ease * end));
       if (p < 1) requestAnimationFrame(tick);
@@ -59,15 +57,15 @@ export default function About() {
     <section id="about" className="section bg-black" aria-label="About Great Emman-Wori">
       <div className="max-w-7xl mx-auto px-5">
 
-        <div className="text-center mb-14">
+        <div className="text-center mb-14" data-aos="fade-up">
           <span className="section-label">Who I Am</span>
           <h2 className="font-heading text-4xl md:text-5xl text-white mt-3">About Great Emman-Wori</h2>
           <div style={{width:48,height:3,background:"var(--accent)",borderRadius:2,margin:"16px auto 0"}}/>
         </div>
 
-        {/* Bio glass card */}
         <div className="rounded-2xl p-8 md:p-12 mb-10 max-w-3xl mx-auto text-center"
-          style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(111,4,20,0.18)"}}>
+          style={{background:"rgba(255,255,255,0.03)",border:"1px solid rgba(111,4,20,0.18)"}}
+          data-aos="fade-up" data-aos-delay="100">
           <p className="font-body text-white/70 text-lg leading-relaxed mb-5">
             I'm <strong className="text-white">Great Emman-Wori</strong>, a Fullstack Website Developer, Product Designer,
             and UI/UX Designer based in <strong className="text-white">Port Harcourt, Nigeria</strong> — available remotely worldwide.
@@ -85,8 +83,7 @@ export default function About() {
           </p>
         </div>
 
-        {/* Value pills */}
-        <div className="flex flex-wrap gap-3 justify-center mb-16">
+        <div className="flex flex-wrap gap-3 justify-center mb-16" data-aos="fade-up" data-aos-delay="150">
           {VALUES.map(v=>(
             <span key={v} className="glass px-4 py-1.5 rounded-full text-sm font-medium"
               style={{color:"var(--accent)",borderColor:"var(--red-border)"}}>
@@ -95,12 +92,19 @@ export default function About() {
           ))}
         </div>
 
-        {/* Stats — animated counters, values are editable placeholders */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-4xl mx-auto">
-          <StatCard end={16} suffix="+"  label="Projects Completed" />
-          <StatCard end={3}  suffix="+"  label="Years Learning & Building" />
-          <StatCard end={100} suffix="%" label="Responsive Builds" />
-          <StatCard end={0}  label="SEO-Ready Delivery" isSpecial />
+          {[
+            {end:16,suffix:"+",label:"Projects Completed"},
+            {end:3,suffix:"+",label:"Years Learning & Building"},
+            {end:100,suffix:"%",label:"Responsive Builds"},
+          ].map((s,i)=>(
+            <div key={i} data-aos="fade-up" data-aos-delay={i*80}>
+              <StatCard {...s}/>
+            </div>
+          ))}
+          <div data-aos="fade-up" data-aos-delay={3*80}>
+            <StatCard end={0} label="SEO-Ready Delivery" isSpecial/>
+          </div>
         </div>
 
       </div>

@@ -31,7 +31,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section bg-[#030303]">
       <div className="max-w-7xl mx-auto px-5">
-        <div className="text-center mb-14">
+        <div className="text-center mb-14" data-aos="fade-up">
           <span className="section-label">Get In Touch</span>
           <h2 className="font-heading text-4xl md:text-5xl text-white mt-3">Let's work together</h2>
           <div style={{width:48,height:3,background:"var(--accent)",borderRadius:2,margin:"16px auto 0"}}/>

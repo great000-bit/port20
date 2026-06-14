@@ -36,7 +36,7 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="section bg-black" aria-label="Selected projects by Great Emman-Wori">
       <div className="max-w-7xl mx-auto px-5">
-        <div className="text-center mb-10">
+        <div className="text-center mb-10" data-aos="fade-up">
           <span className="section-label">My Work</span>
           <h2 className="font-heading text-4xl md:text-5xl text-white mt-3">Selected Projects</h2>
           <div style={{width:48,height:3,background:"var(--accent)",borderRadius:2,margin:"16px auto 0"}}/>
@@ -64,8 +64,8 @@ export default function Portfolio() {
           {displayed.map((p,i)=>(
             <article key={i} className="glass rounded-2xl overflow-hidden group card-hover"
               style={{borderColor:"rgba(255,255,255,0.07)"}}
-              onMouseEnter={e=>e.currentTarget.style.borderColor="rgba(111,4,20,0.48)"}
-              onMouseLeave={e=>e.currentTarget.style.borderColor="rgba(255,255,255,0.07)"}>
+              data-aos="fade-up"
+              data-aos-delay={(i % 3) * 100}>
               <div className="relative overflow-hidden" style={{aspectRatio:"16/9",background:"#0a0a0a"}}>
                 <img src={p.img} alt={p.alt} width={480} height={270}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy"/>
