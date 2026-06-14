@@ -75,8 +75,8 @@ export default function Testimonials() {
 
         {/* Header */}
         <div className="text-center mb-14" data-aos="fade-up">
-          <span className="section-label">Social Proof</span>
-          <h2 id="testimonials-heading" className="font-heading text-4xl md:text-5xl text-white mt-3">
+          <span style={{fontFamily:"Arial,sans-serif",fontSize:11,fontWeight:600,letterSpacing:"0.2em",textTransform:"uppercase",color:"rgba(255,255,255,0.20)",display:"block",marginBottom:16}}>06 — Testimonials</span>
+          <h2 id="testimonials-heading" style={{fontFamily:"Geist,Arial,sans-serif",fontSize:"clamp(28px,3.5vw,42px)",fontWeight:400,letterSpacing:"-0.04em",color:"#fff",margin:"0 0 12px 0"}}>
             Client Testimonials
           </h2>
           <div style={{width:48,height:3,background:"var(--accent)",borderRadius:2,margin:"16px auto 0"}}/>
