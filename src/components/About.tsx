@@ -171,34 +171,41 @@ export default function About() {
 
         /* Stats */
         .about-stats {
-          border-top: 1px solid rgba(255,255,255,0.07);
-          padding-top: 36px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1px;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.06);
+          border-radius: 12px;
+          overflow: hidden;
+          margin-top: 4px;
         }
         .about-stat {
-          padding-bottom: 28px;
-          border-bottom: 1px solid rgba(255,255,255,0.05);
-          margin-bottom: 28px;
+          padding: 24px 20px;
+          background: #0a0a0a;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
         }
         .about-stat:last-child {
           border-bottom: none;
           margin-bottom: 0;
-          padding-bottom: 0;
+          padding-bottom: 24px;
         }
         .about-stat-value {
           font-family: Geist, Arial, sans-serif;
-          font-size: 44px;
+          font-size: 36px;
           font-weight: 700;
           color: #fff;
           line-height: 1;
           letter-spacing: -0.03em;
-          margin-bottom: 6px;
         }
         .about-stat-label {
           font-family: Arial, sans-serif;
-          font-size: 11px;
+          font-size: 10px;
           font-weight: 600;
           text-transform: uppercase;
-          letter-spacing: 0.14em;
+          letter-spacing: 0.12em;
           color: rgba(255,255,255,0.28);
         }
 
@@ -299,10 +306,10 @@ export default function About() {
               </div>
             </div>
 
-            {/* Stats */}
+            {/* Stats — 2x2 grid */}
             <div className="about-stats">
               <CountStat end={16}  suffix="+" label="Projects Completed" />
-              <CountStat end={3}   suffix="+" label="Years Building & Designing" />
+              <CountStat end={3}   suffix="+" label="Years Experience" />
               <CountStat end={100} suffix="%" label="Responsive Builds" />
               <SpecialStat value="SEO ✓" label="SEO-Ready Delivery" />
             </div>
