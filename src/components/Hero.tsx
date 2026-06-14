@@ -211,8 +211,6 @@ export default function Hero() {
         <div className="hero-container">
           {/* LEFT */}
           <div className="hero-content">
-            <span className="hero-section-num">00 — Introduction</span>
-
             <div className="hero-badge">
               <span className="hero-badge-dot"/>
               Available for work
