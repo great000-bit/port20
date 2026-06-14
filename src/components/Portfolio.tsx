@@ -36,11 +36,14 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="section bg-black" aria-label="Selected projects by Great Emman-Wori">
       <div className="max-w-7xl mx-auto px-5">
-        <div className="text-center mb-10" data-aos="fade-up">
-          <span className="section-label">My Work</span>
-          <h2 className="font-heading text-4xl md:text-5xl text-white mt-3">Selected Projects</h2>
-          <div style={{width:48,height:3,background:"var(--accent)",borderRadius:2,margin:"16px auto 0"}}/>
-          <p className="font-body text-white/45 mt-4 max-w-xl mx-auto">
+        <div className="mb-10" data-aos="fade-up">
+          <span style={{fontFamily:"Arial,sans-serif",fontSize:11,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",color:"rgba(255,255,255,0.22)",display:"block",marginBottom:16}}>
+            04 — Projects
+          </span>
+          <h2 style={{fontFamily:"Geist,Arial,sans-serif",fontSize:"clamp(28px,3.5vw,42px)",fontWeight:400,color:"#fff",letterSpacing:"-0.04em",margin:"0 0 12px 0"}}>
+            Selected Projects
+          </h2>
+          <p style={{fontFamily:"Arial,sans-serif",fontSize:15,color:"rgba(255,255,255,0.38)",maxWidth:560,margin:0}}>
             Fullstack websites, product designs, and web applications — built with attention to performance, usability, and conversion.
           </p>
         </div>
