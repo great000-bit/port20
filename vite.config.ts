@@ -36,7 +36,7 @@ export default defineConfig(({ mode }) => ({
           'vendor-react': ['react', 'react-dom'],
           'vendor-router': ['react-router-dom'],
           'vendor-ui': ['lucide-react'],
-          'vendor-utils': ['@studio-freight/lenis', 'aos'],
+          'vendor-utils': ['aos'],
         },
       },
     },
