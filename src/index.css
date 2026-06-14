@@ -327,3 +327,30 @@ body.performance-safe * { filter: none !important; }
 [data-theme="light"] .about-stat-value {
   color: var(--fg) !important;
 }
+
+/* ══ Light mode: force white text on red backgrounds ══ */
+[data-theme="light"] .nav-link.active,
+[data-theme="light"] .nav-cta,
+[data-theme="light"] .btn-red,
+[data-theme="light"] .hero-button-primary,
+[data-theme="light"] .role-btn.active,
+[data-theme="light"] .form-submit,
+[data-theme="light"] button[style*="background: #6f0414"],
+[data-theme="light"] button[style*="background:\"#6f0414\""],
+[data-theme="light"] a[style*="background: #6f0414"],
+[data-theme="light"] a[style*="background:\"var(--accent)\""],
+[data-theme="light"] [style*="background: var(--accent)"],
+[data-theme="light"] [style*="background:\"var(--accent)\""] {
+  color: #ffffff !important;
+}
+
+/* Nav active pill specifically */
+[data-theme="light"] .nav-link.active {
+  color: #ffffff !important;
+}
+
+/* Filter buttons in Projects when active */
+[data-theme="light"] button[style*="background: var(--accent)"],
+[data-theme="light"] button[style*="background:\"var(--accent)\""] {
+  color: #ffffff !important;
+}
