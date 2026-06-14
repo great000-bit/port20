@@ -7,11 +7,14 @@ import 'aos/dist/aos.css';
 
 // Initialize AOS — IntersectionObserver based, no scroll listener cost
 AOS.init({
-  duration: 700,
-  easing: 'ease-out-cubic',
-  once: true,        // animate once per element, not every scroll
-  offset: 80,        // trigger 80px before element enters viewport
+  duration: 650,
+  easing: 'ease-out-quad',
+  once: true,
+  offset: 60,
   delay: 0,
+  startEvent: 'DOMContentLoaded',
+  initClassName: 'aos-init',
+  animatedClassName: 'aos-animate',
   disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
 });
 
