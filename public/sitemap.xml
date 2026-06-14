@@ -3,12 +3,43 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://port20-chi.vercel.app/</loc>
-    <lastmod>2026-06-04</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.00</priority>
     <image:image>
       <image:loc>https://port20-chi.vercel.app/great-emman-wori-fullstack-developer.png</image:loc>
-      <image:title>Great Emman-Wori — Fullstack Website Developer &amp; Product Designer</image:title>
+      <image:title>Great Emman-Wori — Fullstack Website Developer, Product Designer &amp; UI/UX Designer</image:title>
+      <image:caption>Great Emman-Wori, Founder of Creative Emman, Fullstack Website Developer based in Port Harcourt Nigeria</image:caption>
     </image:image>
+  </url>
+  <url>
+    <loc>https://port20-chi.vercel.app/#about</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://port20-chi.vercel.app/#services</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://port20-chi.vercel.app/#portfolio</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://port20-chi.vercel.app/#experience</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://port20-chi.vercel.app/#contact</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
 </urlset>

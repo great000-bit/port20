@@ -219,3 +219,74 @@ body.performance-safe .anim-fade-in {
 [data-aos].aos-animate {
   will-change: auto;
 }
+
+/* ── Light / Dark Theme ── */
+:root, [data-theme="dark"] {
+  --bg:          #000000;
+  --bg-2:        #030303;
+  --fg:          #ffffff;
+  --fg-muted:    rgba(255,255,255,0.55);
+  --fg-faint:    rgba(255,255,255,0.25);
+  --border:      rgba(255,255,255,0.07);
+  --border-soft: rgba(255,255,255,0.05);
+  --card-bg:     rgba(255,255,255,0.03);
+  --nav-bg:      rgba(0,0,0,0.92);
+  --nav-pill:    rgba(255,255,255,0.05);
+  --nav-pill-border: rgba(255,255,255,0.08);
+}
+
+[data-theme="light"] {
+  --bg:          #f5f5f5;
+  --bg-2:        #ebebeb;
+  --fg:          #0a0a0a;
+  --fg-muted:    rgba(10,10,10,0.55);
+  --fg-faint:    rgba(10,10,10,0.28);
+  --border:      rgba(0,0,0,0.08);
+  --border-soft: rgba(0,0,0,0.05);
+  --card-bg:     rgba(0,0,0,0.03);
+  --nav-bg:      rgba(245,245,245,0.95);
+  --nav-pill:    rgba(0,0,0,0.05);
+  --nav-pill-border: rgba(0,0,0,0.10);
+}
+
+/* Apply theme vars to base elements */
+body {
+  background: var(--bg) !important;
+  color: var(--fg) !important;
+}
+
+/* Light mode card adjustments */
+[data-theme="light"] .glass {
+  background: rgba(0,0,0,0.04);
+  border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] section {
+  background: var(--bg) !important;
+}
+[data-theme="light"] #about,
+[data-theme="light"] #techstack,
+[data-theme="light"] #portfolio,
+[data-theme="light"] #experience,
+[data-theme="light"] #contact {
+  background: var(--bg) !important;
+}
+[data-theme="light"] #services,
+[data-theme="light"] #testimonials {
+  background: var(--bg-2) !important;
+}
+
+/* Text colors adapt */
+[data-theme="light"] .hero-title,
+[data-theme="light"] .about-heading,
+[data-theme="light"] .exp-role,
+[data-theme="light"] .exp-heading,
+[data-theme="light"] .contact-heading {
+  color: var(--fg) !important;
+}
+[data-theme="light"] .hero-subtitle,
+[data-theme="light"] .hero-section {
+  background: var(--bg) !important;
+}
+[data-theme="light"] .hero-subtitle {
+  color: rgba(10,10,10,0.55) !important;
+}

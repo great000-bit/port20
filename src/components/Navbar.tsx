@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "../context/ThemeContext";
 
 const NAV = [
   { label:"About",      href:"#about" },
@@ -10,105 +11,219 @@ const NAV = [
 ];
 
 export default function Navbar() {
-  const [open, setOpen]     = useState(false);
+  const [open, setOpen]       = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("hero");
-  const ticking = useRef(false);
+  const [active, setActive]   = useState("hero");
+  const ticking               = useRef(false);
+  const { theme, toggle }     = useTheme();
+  const isDark                = theme === "dark";
 
-  // Lightweight scroll handler — throttled via requestAnimationFrame
   useEffect(() => {
     const onScroll = () => {
       if (ticking.current) return;
       ticking.current = true;
-      requestAnimationFrame(() => {
-        setScrolled(window.scrollY > 40);
-        ticking.current = false;
-      });
+      requestAnimationFrame(() => { setScrolled(window.scrollY > 40); ticking.current = false; });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // IntersectionObserver for active section — zero scroll cost
   useEffect(() => {
     const ids = ["hero","about","services","experience","portfolio","contact"];
-    const observers: IntersectionObserver[] = [];
-    ids.forEach(id => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(id); },
-        { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    const obs = ids.map(id => {
+      const el = document.getElementById(id); if (!el) return null;
+      const o = new IntersectionObserver(
+        ([e]) => { if (e.isIntersecting) setActive(id); },
+        { rootMargin:"-40% 0px -55% 0px", threshold:0 }
       );
-      obs.observe(el);
-      observers.push(obs);
+      o.observe(el); return o;
     });
-    return () => observers.forEach(o => o.disconnect());
+    return () => obs.forEach(o => o?.disconnect());
   }, []);
 
   const close = () => setOpen(false);
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "py-3 border-b border-white/5 shadow-sm"
-          : "py-5 bg-transparent"
-      }`}
-      style={scrolled ? {background:"rgba(0,0,0,0.92)"} : {}}
-    >
-      <div className="max-w-7xl mx-auto px-5 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#hero" onClick={close} className="text-xl font-heading font-bold tracking-tight">
-          <span style={{color:"var(--accent)"}}>Great</span>
-          <span className="text-white"> Emman-Wori</span>
-        </a>
+    <>
+      <style>{`
+        .nav-header {
+          position: fixed; top: 0; left: 0; width: 100%; z-index: 50;
+          transition: background 0.3s, padding 0.3s;
+        }
+        .nav-inner {
+          max-width: 1280px; margin: 0 auto;
+          padding: 0 clamp(20px,4vw,56px);
+          height: 72px;
+          display: flex; align-items: center; justify-content: space-between;
+          gap: 16px;
+        }
+        /* Logo */
+        .nav-logo {
+          display: flex; align-items: center; gap: 10px;
+          text-decoration: none; flex-shrink: 0;
+        }
+        .nav-logo-img {
+          width: 34px; height: 34px; border-radius: 50%;
+          object-fit: cover; object-position: center top;
+          border: 1px solid rgba(111,4,20,0.45);
+          flex-shrink: 0;
+        }
+        .nav-logo-text {
+          font-family: Geist,Arial,sans-serif;
+          font-size: 15px; font-weight: 600;
+          letter-spacing: -0.02em;
+          color: var(--fg);
+        }
+        /* Pill nav — Omijeh style */
+        .nav-pill {
+          display: flex; align-items: center; gap: 2px;
+          padding: 5px; border-radius: 999px;
+          background: var(--nav-pill);
+          border: 1px solid var(--nav-pill-border);
+        }
+        .nav-link {
+          padding: 6px 14px; border-radius: 999px;
+          font-family: Arial,sans-serif; font-size: 13px; font-weight: 500;
+          text-decoration: none; transition: all 0.2s;
+          color: var(--fg-muted);
+          white-space: nowrap;
+        }
+        .nav-link:hover { color: var(--fg); }
+        .nav-link.active {
+          background: var(--accent);
+          color: #fff;
+        }
+        /* Theme toggle */
+        .nav-theme-btn {
+          width: 34px; height: 34px; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center;
+          background: var(--nav-pill); border: 1px solid var(--nav-pill-border);
+          cursor: pointer; color: var(--fg-muted);
+          transition: all 0.2s; flex-shrink: 0;
+        }
+        .nav-theme-btn:hover { color: var(--fg); }
+        /* Right group */
+        .nav-right {
+          display: flex; align-items: center; gap: 10px;
+        }
+        /* Hire Me */
+        .nav-cta {
+          display: inline-flex; align-items: center;
+          padding: 7px 18px; border-radius: 8px;
+          font-family: Arial,sans-serif; font-size: 13px; font-weight: 600;
+          background: var(--accent); color: #fff;
+          border: 1px solid var(--accent); text-decoration: none;
+          transition: background 0.2s; white-space: nowrap;
+        }
+        .nav-cta:hover { background: #8a0519; }
+        /* Hamburger */
+        .nav-hamburger {
+          width: 34px; height: 34px; border-radius: 50%;
+          display: flex; align-items: center; justify-content: center;
+          background: var(--nav-pill); border: 1px solid var(--nav-pill-border);
+          cursor: pointer; color: var(--fg);
+        }
+        /* Mobile menu — Omijeh style: slide from top, pill-shaped */
+        .nav-mobile {
+          position: absolute; top: 80px; left: 50%; transform: translateX(-50%);
+          width: calc(100% - 40px); max-width: 420px;
+          border-radius: 20px;
+          background: var(--nav-bg);
+          border: 1px solid var(--border);
+          padding: 12px;
+          transition: opacity 0.25s, transform 0.25s;
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+        }
+        .nav-mobile.closed {
+          opacity: 0; pointer-events: none;
+          transform: translateX(-50%) translateY(-8px);
+        }
+        .nav-mobile.open {
+          opacity: 1; pointer-events: all;
+          transform: translateX(-50%) translateY(0);
+        }
+        .nav-mobile-link {
+          display: block; padding: 11px 16px; border-radius: 12px;
+          font-family: Arial,sans-serif; font-size: 15px; font-weight: 500;
+          color: var(--fg-muted); text-decoration: none;
+          transition: background 0.15s, color 0.15s;
+        }
+        .nav-mobile-link:hover { background: var(--card-bg); color: var(--fg); }
+        .nav-mobile-divider {
+          height: 1px; background: var(--border); margin: 8px 0;
+        }
+        @media (min-width: 768px) {
+          .nav-hamburger { display: none; }
+          .nav-mobile { display: none; }
+        }
+        @media (max-width: 767px) {
+          .nav-pill-wrap { display: none; }
+          .nav-cta { display: none; }
+        }
+      `}</style>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1 rounded-full px-4 py-2" style={{background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.08)"}}>
-          {NAV.map(n => {
-            const isActive = active === n.href.slice(1);
-            return (
-              <a
-                key={n.href} href={n.href}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors duration-200 ${
-                  isActive ? "text-white" : "text-white/55 hover:text-white"
-                }`}
-                style={isActive ? {background:"var(--accent)"} : {}}
-              >
+      <header
+        className="nav-header"
+        style={{ background: scrolled ? "var(--nav-bg)" : "transparent",
+                 borderBottom: scrolled ? "1px solid var(--border-soft)" : "none" }}
+      >
+        <div className="nav-inner">
+          {/* Logo with photo — Omijeh style */}
+          <a href="#hero" onClick={close} className="nav-logo">
+            <img
+              src="/great-emman-wori-fullstack-developer.png"
+              alt="Great Emman-Wori"
+              className="nav-logo-img"
+              loading="eager"
+            />
+            <span className="nav-logo-text" style={{ color:"var(--accent)" }}>Great</span>
+            <span className="nav-logo-text" style={{ marginLeft:3 }}>Emman-Wori</span>
+          </a>
+
+          {/* Desktop pill nav */}
+          <nav className="nav-pill-wrap nav-pill" aria-label="Main navigation">
+            {NAV.map(n => (
+              <a key={n.href} href={n.href}
+                className={`nav-link${active === n.href.slice(1) ? " active" : ""}`}>
                 {n.label}
               </a>
-            );
-          })}
-        </nav>
+            ))}
+          </nav>
 
-        {/* CTA */}
-        <a href="#contact" className="hidden md:inline-flex btn-red text-sm">Hire Me →</a>
+          {/* Right: theme toggle + CTA + hamburger */}
+          <div className="nav-right">
+            {/* Theme toggle */}
+            <button onClick={toggle} className="nav-theme-btn" aria-label="Toggle light/dark mode">
+              {isDark ? <Sun size={15}/> : <Moon size={15}/>}
+            </button>
 
-        {/* Hamburger */}
-        <button
-          className="md:hidden w-9 h-9 rounded-full glass flex items-center justify-center text-white"
-          onClick={() => setOpen(o => !o)}
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          {open ? <X size={18}/> : <Menu size={18}/>}
-        </button>
-      </div>
+            <a href="#contact" className="nav-cta">Hire Me →</a>
 
-      {/* Mobile menu */}
-      <div className={`md:hidden absolute top-full left-0 w-full border-b border-white/5 transition-all duration-300 ${
-        open ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-2"
-      }`} style={{background:"rgba(0,0,0,0.96)"}}>
-        <nav className="max-w-7xl mx-auto px-5 py-6 flex flex-col gap-2">
+            <button
+              className="nav-hamburger md:hidden"
+              onClick={() => setOpen(o => !o)}
+              aria-label={open ? "Close menu" : "Open menu"}
+            >
+              {open ? <X size={16}/> : <Menu size={16}/>}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile menu — Omijeh floating pill style */}
+        <div className={`nav-mobile ${open ? "open" : "closed"}`}>
           {NAV.map(n => (
-            <a key={n.href} href={n.href} onClick={close}
-              className="px-4 py-3 rounded-xl text-sm font-medium text-white/65 hover:text-white hover:bg-white/5 transition-all">
+            <a key={n.href} href={n.href} onClick={close} className="nav-mobile-link">
               {n.label}
             </a>
           ))}
-          <a href="#contact" onClick={close} className="btn-red mt-2 justify-center">Hire Me →</a>
-        </nav>
-      </div>
-    </header>
+          <div className="nav-mobile-divider"/>
+          <a href="#contact" onClick={close} className="nav-mobile-link"
+            style={{ color:"var(--accent)", fontWeight:600 }}>
+            Hire Me →
+          </a>
+        </div>
+      </header>
+    </>
   );
 }
