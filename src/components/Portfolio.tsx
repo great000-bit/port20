@@ -63,7 +63,7 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
         transition:"border-color 0.2s, transform 0.25s",
       }}
       onMouseEnter={e => { e.currentTarget.style.borderColor="rgba(111,4,20,0.45)"; e.currentTarget.style.transform="translateY(-4px)"; }}
-      onMouseLeave={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.07)"; e.currentTarget.style.transform="translateY(0)"; }}
+      onMouseLeave={e => { e.currentTarget.style.borderColor="var(--border)"; e.currentTarget.style.transform="translateY(0)"; }}
     >
       {/* ── URL bar — Omijeh style ── */}
       <div style={{
@@ -80,10 +80,10 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
         </div>
         {/* URL */}
         <div style={{
-          flex:1, background:"rgba(255,255,255,0.04)",
+          flex:1, background:"var(--tag-bg)",
           borderRadius:5, padding:"3px 10px",
           fontFamily:"Arial,sans-serif", fontSize:11,
-          color:"rgba(255,255,255,0.35)", letterSpacing:"0.01em",
+          color:"var(--fg-faint)", letterSpacing:"0.01em",
           overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap",
         }}>
           {displayUrl}
@@ -112,7 +112,7 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
             animation:"shimmer 1.6s infinite",
             display:"flex", alignItems:"center", justifyContent:"center",
           }}>
-            <span style={{fontFamily:"Arial,sans-serif",fontSize:11,color:"rgba(255,255,255,0.18)",letterSpacing:"0.08em"}}>
+            <span style={{fontFamily:"Arial,sans-serif",fontSize:11,color:"var(--fg-ultra)",letterSpacing:"0.08em"}}>
               Loading preview…
             </span>
           </div>
@@ -147,7 +147,7 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
         </h3>
         <p style={{
           fontFamily:"Arial,sans-serif", fontSize:13, lineHeight:1.65,
-          color:"rgba(255,255,255,0.42)", margin:"0 0 16px 0", flex:1,
+          color:"var(--fg-muted)", margin:"0 0 16px 0", flex:1,
         }}>
           {p.desc}
         </p>
@@ -157,16 +157,16 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
           {p.tags.slice(0,3).map(t => (
             <span key={t} style={{
               fontFamily:"Arial,sans-serif", fontSize:11,
-              color:"rgba(255,255,255,0.35)",
+              color:"var(--fg-faint)",
               padding:"3px 9px", borderRadius:4,
-              background:"rgba(255,255,255,0.04)",
+              background:"var(--tag-bg)",
               border:"1px solid var(--border)",
             }}>
               {t}
             </span>
           ))}
           {p.tags.length > 3 && (
-            <span style={{fontFamily:"Arial,sans-serif",fontSize:11,color:"rgba(255,255,255,0.22)",padding:"3px 6px"}}>
+            <span style={{fontFamily:"Arial,sans-serif",fontSize:11,color:"var(--fg-ultra)",padding:"3px 6px"}}>
               +{p.tags.length - 3}
             </span>
           )}
@@ -181,14 +181,14 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
           style={{
             display:"inline-flex", alignItems:"center", gap:6,
             fontFamily:"Arial,sans-serif", fontSize:13, fontWeight:600,
-            color:"rgba(255,255,255,0.55)",
+            color:"var(--fg-muted)",
             textDecoration:"none",
             letterSpacing:"0.01em",
             transition:"color 0.2s",
             width:"fit-content",
           }}
-          onMouseEnter={e => (e.currentTarget.style.color="#fff")}
-          onMouseLeave={e => (e.currentTarget.style.color="rgba(255,255,255,0.55)")}
+          onMouseEnter={e => (e.currentTarget.style.color="var(--fg)")}
+          onMouseLeave={e => (e.currentTarget.style.color="var(--fg-muted)")}
         >
           Open Live <ArrowUpRight size={13}/>
         </a>
@@ -220,7 +220,7 @@ export default function Portfolio() {
           <span style={{
             fontFamily:"Arial,sans-serif", fontSize:11, fontWeight:600,
             letterSpacing:"0.2em", textTransform:"uppercase",
-            color:"rgba(255,255,255,0.20)", display:"block", marginBottom:16,
+            color:"var(--fg-ultra)", display:"block", marginBottom:16,
           }}>
             04 — Projects
           </span>
@@ -233,7 +233,7 @@ export default function Portfolio() {
           </h2>
           <p style={{
             fontFamily:"Arial,sans-serif", fontSize:15,
-            color:"rgba(255,255,255,0.35)", margin:0, maxWidth:560,
+            color:"var(--fg-faint)", margin:0, maxWidth:560,
           }}>
             {PROJECTS.length}+ projects built with attention to performance, usability, and conversion.
           </p>
@@ -248,9 +248,9 @@ export default function Portfolio() {
               style={{
                 fontFamily:"Arial,sans-serif", fontSize:13, fontWeight:500,
                 padding:"7px 18px", borderRadius:999, cursor:"pointer",
-                border: filter === f.value ? "1px solid #6f0414" : "1px solid rgba(255,255,255,0.10)",
+                border: filter === f.value ? "1px solid #6f0414" : "1px solid var(--fg-ultra)",
                 background: filter === f.value ? "#6f0414" : "transparent",
-                color: filter === f.value ? "#fff" : "rgba(255,255,255,0.45)",
+                color: filter === f.value ? "var(--fg)" : "var(--fg-muted)",
                 transition:"all 0.2s",
               }}
             >
@@ -277,12 +277,12 @@ export default function Portfolio() {
               style={{
                 fontFamily:"Arial,sans-serif", fontSize:14, fontWeight:500,
                 padding:"10px 28px", borderRadius:8, cursor:"pointer",
-                border:"1px solid rgba(255,255,255,0.14)",
-                background:"transparent", color:"rgba(255,255,255,0.55)",
+                border:"1px solid var(--border-strong)",
+                background:"transparent", color:"var(--fg-muted)",
                 transition:"all 0.2s",
               }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor="var(--accent)"; e.currentTarget.style.color="#fff"; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.14)"; e.currentTarget.style.color="rgba(255,255,255,0.55)"; }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor="var(--accent)"; e.currentTarget.style.color="var(--fg)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor="var(--border-strong)"; e.currentTarget.style.color="var(--fg-muted)"; }}
             >
               {showAll ? "Show Less" : `View All ${shown.length} Projects`}
             </button>

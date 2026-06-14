@@ -50,13 +50,13 @@ export default function Services() {
     <section id="services" className="section" style={{background:"var(--bg-2)"}} aria-label="Services offered by Great Emman-Wori">
       <div className="max-w-7xl mx-auto px-5">
         <div className="mb-14" data-aos="fade-up">
-          <span style={{fontFamily:"Arial,sans-serif",fontSize:11,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",color:"rgba(255,255,255,0.22)",display:"block",marginBottom:16}}>
+          <span style={{fontFamily:"Arial,sans-serif",fontSize:11,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",color:"var(--fg-ultra)",display:"block",marginBottom:16}}>
             03 — Services
           </span>
           <h2 style={{fontFamily:"Geist,Arial,sans-serif",fontSize:"clamp(28px,3.5vw,42px)",fontWeight:400,color:"var(--fg)",letterSpacing:"-0.04em",margin:"0 0 12px 0"}}>
             What I Build
           </h2>
-          <p style={{fontFamily:"Arial,sans-serif",fontSize:15,color:"rgba(255,255,255,0.38)",maxWidth:520,margin:0}}>
+          <p style={{fontFamily:"Arial,sans-serif",fontSize:15,color:"var(--fg-faint)",maxWidth:520,margin:0}}>
             Fullstack website development, product design, and UI/UX services for brands, businesses, and founders.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function Services() {
               <div className="flex flex-wrap gap-2">
                 {s.tags.map(t=>(
                   <span key={t} className="text-xs px-2.5 py-1 rounded-full"
-                    style={{background:"rgba(111,4,20,0.08)",border:"1px solid rgba(111,4,20,0.20)",color:"rgba(255,255,255,0.50)"}}>
+                    style={{background:"rgba(111,4,20,0.08)",border:"1px solid rgba(111,4,20,0.20)",color:"var(--fg-muted)"}}>
                     {t}
                   </span>
                 ))}

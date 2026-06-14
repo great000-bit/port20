@@ -14,14 +14,14 @@ function SkillBar({ name, pct, delay = 0 }: { name: string; pct: number; delay?:
   return (
     <div ref={ref} style={{ marginBottom: 18 }}>
       <div style={{ display:"flex", justifyContent:"space-between", marginBottom:7 }}>
-        <span style={{ fontFamily:"Arial,sans-serif", fontSize:14, color:"rgba(255,255,255,0.75)", fontWeight:500 }}>
+        <span style={{ fontFamily:"Arial,sans-serif", fontSize:14, color:"var(--fg-muted)", fontWeight:500 }}>
           {name}
         </span>
-        <span style={{ fontFamily:"Arial,sans-serif", fontSize:13, color:"rgba(255,255,255,0.30)", fontWeight:400 }}>
+        <span style={{ fontFamily:"Arial,sans-serif", fontSize:13, color:"var(--fg-faint)", fontWeight:400 }}>
           {pct}%
         </span>
       </div>
-      <div style={{ height:3, background:"rgba(255,255,255,0.07)", borderRadius:2, overflow:"hidden" }}>
+      <div style={{ height:3, background:"var(--border)", borderRadius:2, overflow:"hidden" }}>
         <div style={{
           height:"100%", borderRadius:2,
           background:"var(--accent)",
@@ -82,7 +82,7 @@ export default function TechStack() {
           <span style={{
             fontFamily:"Arial,sans-serif", fontSize:11, fontWeight:600,
             letterSpacing:"0.18em", textTransform:"uppercase",
-            color:"rgba(255,255,255,0.22)", display:"block", marginBottom:16,
+            color:"var(--fg-ultra)", display:"block", marginBottom:16,
           }}>
             02 — Skills
           </span>
@@ -93,7 +93,7 @@ export default function TechStack() {
             Technical Depth
           </h2>
           <p style={{
-            fontFamily:"Arial,sans-serif", fontSize:15, color:"rgba(255,255,255,0.38)",
+            fontFamily:"Arial,sans-serif", fontSize:15, color:"var(--fg-faint)",
             marginTop:12, maxWidth:540,
           }}>
             A fullstack skillset built across 3+ years — from responsive UIs to backend systems and product design.
@@ -112,7 +112,7 @@ export default function TechStack() {
           ].map(s => (
             <div key={s.l}>
               <div style={{fontFamily:"Geist,Arial,sans-serif",fontSize:36,fontWeight:700,color:"var(--fg)",lineHeight:1}}>{s.v}</div>
-              <div style={{fontFamily:"Arial,sans-serif",fontSize:12,color:"rgba(255,255,255,0.35)",marginTop:6,textTransform:"uppercase",letterSpacing:"0.06em"}}>{s.l}</div>
+              <div style={{fontFamily:"Arial,sans-serif",fontSize:12,color:"var(--fg-faint)",marginTop:6,textTransform:"uppercase",letterSpacing:"0.06em"}}>{s.l}</div>
             </div>
           ))}
         </div>

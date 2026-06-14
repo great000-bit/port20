@@ -27,8 +27,8 @@ export default function Contact() {
 
   const iStyle = (name: string) => ({
     width:"100%", padding:"11px 14px",
-    background:"rgba(255,255,255,0.03)",
-    border: focused === name ? "1px solid var(--accent)" : "1px solid rgba(255,255,255,0.09)",
+    background:"var(--card-bg)",
+    border: focused === name ? "1px solid var(--accent)" : "1px solid var(--input-border)",
     borderRadius:8, color:"var(--fg)",
     fontFamily:"Arial,sans-serif", fontSize:14,
     outline:"none", transition:"border-color 0.2s",
@@ -75,20 +75,20 @@ export default function Contact() {
         .role-btn {
           font-family: Arial,sans-serif; font-size:13px; font-weight:500;
           padding:6px 16px; border-radius:999px; cursor:pointer;
-          transition: all 0.2s; border:1px solid rgba(255,255,255,0.12);
+          transition: all 0.2s; border:1px solid var(--fg-ultra);
           background:transparent; color:"var(--fg-muted)";
         }
         .role-btn.active {
           background:var(--accent); border-color:var(--accent); color:"var(--fg)";
         }
         .role-btn:hover:not(.active) {
-          border-color:"var(--fg-faint)"; color:rgba(255,255,255,0.75);
+          border-color:"var(--fg-faint)"; color:var(--fg-muted);
         }
         /* Social links */
         .social-row {
           display:flex; align-items:center; gap:14px;
           padding:14px 0;
-          border-bottom:1px solid rgba(255,255,255,0.05);
+          border-bottom:1px solid var(--border-soft);
           text-decoration:none;
           transition:opacity 0.2s;
         }
@@ -161,7 +161,7 @@ export default function Contact() {
               <div style={{ textAlign:"center", padding:"48px 0" }}>
                 <CheckCircle size={40} style={{ color:"var(--accent)", margin:"0 auto 16px", display:"block" }}/>
                 <p style={{ fontFamily:"Geist,Arial,sans-serif", fontSize:18, color:"var(--fg)", marginBottom:8 }}>Message sent.</p>
-                <p style={{ fontFamily:"Arial,sans-serif", fontSize:14, color:"rgba(255,255,255,0.40)" }}>I'll get back to you within 24 hours.</p>
+                <p style={{ fontFamily:"Arial,sans-serif", fontSize:14, color:"var(--fg-faint)" }}>I'll get back to you within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>

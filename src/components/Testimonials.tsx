@@ -75,7 +75,7 @@ export default function Testimonials() {
 
         {/* Header */}
         <div className="text-center mb-14" data-aos="fade-up">
-          <span style={{fontFamily:"Arial,sans-serif",fontSize:11,fontWeight:600,letterSpacing:"0.2em",textTransform:"uppercase",color:"rgba(255,255,255,0.20)",display:"block",marginBottom:16}}>06 — Testimonials</span>
+          <span style={{fontFamily:"Arial,sans-serif",fontSize:11,fontWeight:600,letterSpacing:"0.2em",textTransform:"uppercase",color:"var(--fg-ultra)",display:"block",marginBottom:16}}>06 — Testimonials</span>
           <h2 id="testimonials-heading" style={{fontFamily:"Geist,Arial,sans-serif",fontSize:"clamp(28px,3.5vw,42px)",fontWeight:400,letterSpacing:"-0.04em",color:"var(--fg)",margin:"0 0 12px 0"}}>
             Client Testimonials
           </h2>
@@ -140,7 +140,7 @@ export default function Testimonials() {
                   aria-current={i===idx?"true":undefined}
                   style={{
                     width: i===idx ? 28 : 8, height:8, borderRadius:4,
-                    background: i===idx ? "var(--accent)" : "rgba(255,255,255,0.18)",
+                    background: i===idx ? "var(--accent)" : "var(--fg-ultra)",
                     transition:"all 0.3s ease", border:"none", cursor:"pointer", padding:0,
                   }}/>
               ))}

@@ -179,7 +179,7 @@ export default function Experience() {
           position: absolute;
           left: 0; top: 6px; bottom: 0;
           width: 1px;
-          background: rgba(255,255,255,0.07);
+          background: var(--border);
         }
         /* Each entry */
         .exp-entry {

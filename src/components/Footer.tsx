@@ -18,7 +18,7 @@ export default function Footer() {
   return (
     <footer style={{
       background:"var(--bg)",
-      borderTop:"1px solid rgba(255,255,255,0.06)",
+      borderTop:"1px solid var(--border-soft)",
     }}>
       <div style={{
         maxWidth:1280, margin:"0 auto",
@@ -30,7 +30,7 @@ export default function Footer() {
         {/* Left — copyright */}
         <p style={{
           fontFamily:"Arial,sans-serif", fontSize:12,
-          color:"rgba(255,255,255,0.22)", margin:0,
+          color:"var(--fg-ultra)", margin:0,
           letterSpacing:"0.02em",
         }}>
           © MMXXVI · Great Emman-Wori · All rights reserved
@@ -41,11 +41,11 @@ export default function Footer() {
           {NAV.map(l => (
             <a key={l.label} href={l.href} style={{
               fontFamily:"Arial,sans-serif", fontSize:12,
-              color:"rgba(255,255,255,0.28)", textDecoration:"none",
+              color:"var(--fg-faint)", textDecoration:"none",
               transition:"color 0.2s",
             }}
-            onMouseEnter={e => (e.currentTarget.style.color="#fff")}
-            onMouseLeave={e => (e.currentTarget.style.color="rgba(255,255,255,0.28)")}>
+            onMouseEnter={e => (e.currentTarget.style.color="var(--fg)")}
+            onMouseLeave={e => (e.currentTarget.style.color="var(--fg-faint)")}>
               {l.label}
             </a>
           ))}
@@ -57,11 +57,11 @@ export default function Footer() {
             <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
               aria-label={s.label}
               style={{
-                color:"rgba(255,255,255,0.28)", textDecoration:"none",
+                color:"var(--fg-faint)", textDecoration:"none",
                 transition:"color 0.2s",
               }}
-              onMouseEnter={e => (e.currentTarget.style.color="#fff")}
-              onMouseLeave={e => (e.currentTarget.style.color="rgba(255,255,255,0.28)")}>
+              onMouseEnter={e => (e.currentTarget.style.color="var(--fg)")}
+              onMouseLeave={e => (e.currentTarget.style.color="var(--fg-faint)")}>
               {s.icon}
             </a>
           ))}

@@ -147,7 +147,7 @@ export default function Hero() {
         .hero-button-primary:hover { background: #8a0519; border-color: #8a0519; }
         .hero-button-secondary {
           background:"var(--card-bg)"; color: #EDEDED;
-          border: 1px solid rgba(255,255,255,0.14);
+          border: 1px solid var(--border-strong);
         }
         .hero-button-secondary:hover { border-color:"var(--fg-faint)"; }
         .hero-image-wrap {

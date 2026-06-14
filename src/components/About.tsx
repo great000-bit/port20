@@ -174,7 +174,7 @@ export default function About() {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           gap: 1px;
-          background: rgba(255,255,255,0.06);
+          background: var(--border-soft);
           border:"1px solid var(--border-soft)";
           border-radius: 12px;
           overflow: hidden;
@@ -225,7 +225,7 @@ export default function About() {
           {/* LEFT — story */}
           <div data-aos="fade-up" data-aos-delay="80">
             <div className="about-body">
-              <p style={{ color: "rgba(255,255,255,0.72)" }}>
+              <p style={{ color: "var(--fg-muted)" }}>
                 I'm <strong style={{ color:"var(--fg)", fontWeight:600 }}>Great Emman-Wori</strong> — a Fullstack Website
                 Developer, Product Designer, and UI/UX Designer based in{" "}
                 <strong style={{ color:"var(--fg)", fontWeight:600 }}>Port Harcourt, Nigeria</strong>.
@@ -236,13 +236,13 @@ export default function About() {
                 </a>
                 {" "}— a premium digital design &amp; branding studio.
               </p>
-              <p style={{ color: "rgba(255,255,255,0.50)" }}>
+              <p style={{ color: "var(--fg-muted)" }}>
                 I bridge the gap between clean code, visual design, usability, and real business outcomes.
                 I build websites, web applications, and digital product experiences that are responsive,
                 conversion-ready, and built to rank — from frontend interfaces to fullstack systems to
                 Figma design systems.
               </p>
-              <p style={{ color: "rgba(255,255,255,0.38)" }}>
+              <p style={{ color: "var(--fg-faint)" }}>
                 Currently handling digital operations at{" "}
                 <span style={{ color:"var(--accent)", fontWeight:600 }}>Phatbird</span> (UK), while
                 building client websites and brand experiences for global clients through Creative Emman.

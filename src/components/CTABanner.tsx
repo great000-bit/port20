@@ -24,7 +24,7 @@ export default function CTABanner() {
           </blockquote>
           <p style={{
             fontFamily:"Arial,sans-serif", fontSize:13,
-            color:"rgba(255,255,255,0.22)", marginTop:28,
+            color:"var(--fg-ultra)", marginTop:28,
             letterSpacing:"0.06em", textTransform:"uppercase",
           }}>
             — Great Emman-Wori, Founder · Creative Emman
@@ -44,7 +44,7 @@ export default function CTABanner() {
             }}>
               Ready to build something that converts?
             </h2>
-            <p style={{ fontFamily:"Arial,sans-serif", fontSize:15, color:"rgba(255,255,255,0.35)", margin:0 }}>
+            <p style={{ fontFamily:"Arial,sans-serif", fontSize:15, color:"var(--fg-faint)", margin:0 }}>
               Available for freelance, contract, and remote projects.
             </p>
           </div>
@@ -65,12 +65,12 @@ export default function CTABanner() {
               display:"inline-flex", alignItems:"center", gap:6,
               height:46, padding:"0 24px", borderRadius:8,
               fontFamily:"Arial,sans-serif", fontSize:14, fontWeight:600,
-              background:"transparent", color:"rgba(255,255,255,0.55)",
-              border:"1px solid rgba(255,255,255,0.12)", textDecoration:"none",
+              background:"transparent", color:"var(--fg-muted)",
+              border:"1px solid var(--fg-ultra)", textDecoration:"none",
               transition:"border-color 0.2s, color 0.2s",
             }}
-            onMouseEnter={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.28)"; e.currentTarget.style.color="#fff"; }}
-            onMouseLeave={e => { e.currentTarget.style.borderColor="rgba(255,255,255,0.12)"; e.currentTarget.style.color="rgba(255,255,255,0.55)"; }}>
+            onMouseEnter={e => { e.currentTarget.style.borderColor="var(--fg-faint)"; e.currentTarget.style.color="var(--fg)"; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor="var(--fg-ultra)"; e.currentTarget.style.color="var(--fg-muted)"; }}>
               View My Work
             </a>
           </div>
