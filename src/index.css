@@ -45,16 +45,20 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* ── Glass — only on small cards, NOT large sections ── */
+/* ── Glass — NO backdrop-filter by default (too expensive on many cards) ── */
 .glass {
   background: var(--card);
   border: 1px solid var(--card-border);
-  /* backdrop-filter only on genuinely small card surfaces */
+  /* backdrop-filter removed — causes GPU composite layers on every card = scroll lag */
+}
+
+/* Only apply blur where truly needed and isolated (e.g. navbar) */
+.glass-blur {
+  background: var(--card);
+  border: 1px solid var(--card-border);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
-
-/* ── Section spacing ── */
 .section    { padding: 6rem 0; }
 .section-sm { padding: 4rem 0; }
 
