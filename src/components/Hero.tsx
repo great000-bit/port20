@@ -113,7 +113,7 @@ export default function Hero() {
           font-size: 16px;
           line-height: 26px;
           font-weight: 400;
-          color: #D0D5DB;
+          color: var(--fg-muted);
           max-width: 600px;
           margin: 0;
           opacity: 0;

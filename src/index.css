@@ -264,3 +264,66 @@ body.performance-safe * { filter: none !important; }
   .hero-actions { margin-top:28px !important; gap:10px !important; flex-wrap:wrap !important; }
   .hero-button { height:44px !important; padding:0 18px !important; font-size:14px !important; }
 }
+
+/* ══ Light mode targeted fixes ══ */
+[data-theme="light"] {
+  /* Form inputs */
+  color-scheme: light;
+}
+[data-theme="light"] input,
+[data-theme="light"] textarea {
+  color: var(--fg) !important;
+  background: var(--input-bg) !important;
+  border-color: var(--input-border) !important;
+}
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: var(--fg-faint) !important;
+}
+/* Hero secondary buttons in light mode */
+[data-theme="light"] .hero-button-secondary {
+  color: var(--fg) !important;
+  border-color: var(--border-strong) !important;
+  background: transparent !important;
+}
+[data-theme="light"] .hero-button-secondary:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent) !important;
+}
+/* Skill bar track */
+[data-theme="light"] .skill-track {
+  background: var(--border) !important;
+}
+/* Experience timeline rail */
+[data-theme="light"] .exp-timeline::before {
+  background: var(--border) !important;
+}
+/* Testimonial card in light mode */
+[data-theme="light"] .testi-card {
+  background: #ffffff !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+}
+/* Services card */
+[data-theme="light"] article.glass {
+  background: #ffffff !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+}
+/* Portfolio cards */
+[data-theme="light"] article[style*="background"] {
+  background: #ffffff !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+}
+/* Section eyebrow labels */
+[data-theme="light"] .about-eyebrow,
+[data-theme="light"] .exp-eyebrow,
+[data-theme="light"] .contact-eyebrow,
+[data-theme="light"] .testi-eyebrow {
+  color: var(--fg-faint) !important;
+}
+/* Stat labels */
+[data-theme="light"] .about-stat-label {
+  color: var(--fg-faint) !important;
+}
+[data-theme="light"] .about-stat-value {
+  color: var(--fg) !important;
+}

@@ -39,7 +39,7 @@ const TESTIMONIALS = [
 const Stars = ({n}:{n:number}) => (
   <div className="flex gap-1" aria-label={`${n} out of 5 stars`}>
     {Array.from({length:n}).map((_,i)=>(
-      <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{color:"var(--accent)"}} aria-hidden="true">
+      <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)" aria-hidden="true">
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
       </svg>
     ))}
@@ -47,14 +47,12 @@ const Stars = ({n}:{n:number}) => (
 );
 
 export default function Testimonials() {
-  const [idx, setIdx]   = useState(0);
+  const [idx, setIdx]       = useState(0);
   const [paused, setPaused] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval>|null>(null);
-
+  const timerRef            = useRef<ReturnType<typeof setInterval>|null>(null);
   const next = useCallback(() => setIdx(i => (i+1) % TESTIMONIALS.length), []);
   const prev = useCallback(() => setIdx(i => (i-1+TESTIMONIALS.length) % TESTIMONIALS.length), []);
 
-  // Auto-advance — simple interval, no window listeners
   useEffect(() => {
     if (paused) { if (timerRef.current) clearInterval(timerRef.current); return; }
     timerRef.current = setInterval(next, 5000);
@@ -64,92 +62,128 @@ export default function Testimonials() {
   const t = TESTIMONIALS[idx];
 
   return (
-    <section
-      id="testimonials"
-      className="section" style={{background:"var(--bg-2)"}}
-      aria-labelledby="testimonials-heading"
+    <section id="testimonials" style={{background:"var(--bg-2)", padding:"clamp(80px,12vh,120px) 0"}}
       onMouseEnter={()=>setPaused(true)}
-      onMouseLeave={()=>setPaused(false)}
-    >
-      <div className="max-w-7xl mx-auto px-5">
+      onMouseLeave={()=>setPaused(false)}>
 
-        {/* Header */}
-        <div className="text-center mb-14" data-aos="fade-up">
-          <span style={{fontFamily:"Arial,sans-serif",fontSize:11,fontWeight:600,letterSpacing:"0.2em",textTransform:"uppercase",color:"var(--fg-ultra)",display:"block",marginBottom:16}}>06 — Testimonials</span>
-          <h2 id="testimonials-heading" style={{fontFamily:"Geist,Arial,sans-serif",fontSize:"clamp(28px,3.5vw,42px)",fontWeight:400,letterSpacing:"-0.04em",color:"var(--fg)",margin:"0 0 12px 0"}}>
-            Client Testimonials
-          </h2>
-          <div style={{width:48,height:3,background:"var(--accent)",borderRadius:2,margin:"16px auto 0"}}/>
-          <p className="font-body text-white/45 mt-4 max-w-lg mx-auto">
-            Real feedback from people and brands I've worked with.
-          </p>
+      <style>{`
+        .testi-eyebrow {
+          font-family:Arial,sans-serif; font-size:11px; font-weight:600;
+          letter-spacing:0.2em; text-transform:uppercase;
+          color:var(--fg-ultra); display:block; margin-bottom:16px;
+        }
+        .testi-heading {
+          font-family:Geist,Arial,sans-serif;
+          font-size:clamp(28px,3.5vw,42px);
+          font-weight:400; letter-spacing:-0.04em;
+          color:var(--fg); margin:0 0 12px 0;
+        }
+        .testi-sub {
+          font-family:Arial,sans-serif; font-size:15px;
+          color:var(--fg-faint); margin:0;
+        }
+        .testi-card {
+          background:var(--card-bg);
+          border:1px solid var(--border);
+          border-radius:16px; padding:clamp(28px,5vw,48px);
+          position:relative; overflow:hidden;
+        }
+        [data-theme="light"] .testi-card {
+          background:#ffffff;
+          border-color:var(--border);
+          box-shadow:0 1px 3px rgba(0,0,0,0.06);
+        }
+        .testi-quote-icon {
+          position:absolute; top:20px; right:24px;
+          opacity:0.08; color:var(--accent);
+        }
+        .testi-text {
+          font-family:Arial,sans-serif;
+          font-size:clamp(15px,1.4vw,17px);
+          line-height:1.75;
+          color:var(--fg-muted);
+          margin:0 0 28px 0;
+        }
+        .testi-author-name {
+          font-family:Geist,Arial,sans-serif;
+          font-size:14px; font-weight:600;
+          color:var(--fg);
+        }
+        .testi-author-role {
+          font-family:Arial,sans-serif;
+          font-size:12px; color:var(--fg-faint);
+          margin-top:2px;
+        }
+        .testi-avatar {
+          width:48px; height:48px; border-radius:50%;
+          object-fit:cover;
+          border:2px solid var(--accent-border);
+          flex-shrink:0;
+        }
+        .testi-nav-btn {
+          width:40px; height:40px; border-radius:50%;
+          display:flex; align-items:center; justify-content:center;
+          background:var(--card-bg);
+          border:1px solid var(--border);
+          color:var(--fg-faint);
+          cursor:pointer; transition:all 0.2s;
+        }
+        .testi-nav-btn:hover {
+          border-color:var(--accent);
+          color:var(--accent);
+        }
+        [data-theme="light"] .testi-nav-btn {
+          background:#ffffff;
+          box-shadow:0 1px 3px rgba(0,0,0,0.08);
+        }
+        .testi-dot {
+          height:8px; border-radius:4px; cursor:pointer;
+          border:none; padding:0; transition:all 0.3s ease;
+        }
+      `}</style>
+
+      <div style={{maxWidth:1280, margin:"0 auto", padding:"0 clamp(24px,5vw,64px)"}}>
+
+        <div style={{marginBottom:48}} data-aos="fade-up">
+          <span className="testi-eyebrow">06 — Testimonials</span>
+          <h2 className="testi-heading">Client Testimonials</h2>
+          <p className="testi-sub">Real feedback from people and brands I've worked with.</p>
         </div>
 
-        {/* Card */}
-        <div className="max-w-3xl mx-auto relative">
-          <article
-            key={t.id}
-            className="glass rounded-2xl p-8 md:p-12 relative overflow-hidden"
-            style={{borderColor:"rgba(111,4,20,0.28)"}}
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            {/* Quote icon */}
-            <div aria-hidden="true" style={{position:"absolute",top:24,right:28,opacity:0.07}}>
-              <Quote size={72} style={{color:"var(--accent)"}}/>
-            </div>
-
-            {/* Red glow bottom */}
-            <div aria-hidden="true" style={{position:"absolute",bottom:0,left:"50%",transform:"translateX(-50%)",width:"60%",height:1,background:"linear-gradient(90deg,transparent,rgba(111,4,20,0.5),transparent)"}}/>
-
-            {/* Stars */}
-            <div className="mb-5"><Stars n={t.rating}/></div>
-
-            {/* Quote text */}
-            <blockquote className="font-body text-white/68 text-base md:text-lg leading-relaxed mb-8">
-              "{t.text}"
-            </blockquote>
-
-            {/* Author */}
-            <div className="flex items-center gap-4">
-              <div style={{width:52,height:52,borderRadius:"50%",overflow:"hidden",border:"2px solid rgba(111,4,20,0.45)",flexShrink:0}}>
-                <img src={t.avatar} alt={`${t.name} testimonial`}
-                  width={52} height={52}
-                  style={{width:"100%",height:"100%",objectFit:"cover"}} loading="lazy"/>
-              </div>
+        <div style={{maxWidth:760, margin:"0 auto"}} data-aos="fade-up" data-aos-delay="80">
+          <article className="testi-card" aria-live="polite" aria-atomic="true">
+            <div className="testi-quote-icon" aria-hidden="true"><Quote size={64}/></div>
+            <div style={{marginBottom:20}}><Stars n={t.rating}/></div>
+            <blockquote className="testi-text">"{t.text}"</blockquote>
+            <div style={{display:"flex", alignItems:"center", gap:14}}>
+              <img src={t.avatar} alt={`${t.name}`} className="testi-avatar" loading="lazy" width={48} height={48}/>
               <div>
-                <p className="font-heading font-semibold text-white text-sm">{t.name}</p>
-                <p className="font-body text-xs text-white/40 mt-0.5">{t.role}</p>
+                <p className="testi-author-name">{t.name}</p>
+                <p className="testi-author-role">{t.role}</p>
               </div>
             </div>
           </article>
 
-          {/* Nav arrows */}
-          <div className="flex items-center justify-between mt-8">
-            <button onClick={prev} aria-label="Previous testimonial"
-              className="w-10 h-10 rounded-full glass flex items-center justify-center text-white/60 hover:text-white transition-colors"
-              style={{border:"1px solid var(--border)"}}>
-              <ChevronLeft size={18}/>
+          {/* Controls */}
+          <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", marginTop:24}}>
+            <button onClick={prev} className="testi-nav-btn" aria-label="Previous testimonial">
+              <ChevronLeft size={17}/>
             </button>
 
-            {/* Dots */}
-            <div className="flex gap-2">
+            <div style={{display:"flex", gap:8}}>
               {TESTIMONIALS.map((_,i)=>(
                 <button key={i} onClick={()=>setIdx(i)}
+                  className="testi-dot"
                   aria-label={`Go to testimonial ${i+1}`}
-                  aria-current={i===idx?"true":undefined}
                   style={{
-                    width: i===idx ? 28 : 8, height:8, borderRadius:4,
-                    background: i===idx ? "var(--accent)" : "var(--fg-ultra)",
-                    transition:"all 0.3s ease", border:"none", cursor:"pointer", padding:0,
+                    width: i===idx ? 28 : 8,
+                    background: i===idx ? "var(--accent)" : "var(--border-strong)",
                   }}/>
               ))}
             </div>
 
-            <button onClick={next} aria-label="Next testimonial"
-              className="w-10 h-10 rounded-full glass flex items-center justify-center text-white/60 hover:text-white transition-colors"
-              style={{border:"1px solid var(--border)"}}>
-              <ChevronRight size={18}/>
+            <button onClick={next} className="testi-nav-btn" aria-label="Next testimonial">
+              <ChevronRight size={17}/>
             </button>
           </div>
         </div>

@@ -242,7 +242,7 @@ export default function About() {
                 conversion-ready, and built to rank — from frontend interfaces to fullstack systems to
                 Figma design systems.
               </p>
-              <p style={{ color: "var(--fg-faint)" }}>
+              <p style={{ color: "var(--fg-muted)" }}>
                 Currently handling digital operations at{" "}
                 <span style={{ color:"var(--accent)", fontWeight:600 }}>Phatbird</span> (UK), while
                 building client websites and brand experiences for global clients through Creative Emman.
