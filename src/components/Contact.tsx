@@ -29,13 +29,13 @@ export default function Contact() {
     width:"100%", padding:"11px 14px",
     background:"rgba(255,255,255,0.03)",
     border: focused === name ? "1px solid var(--accent)" : "1px solid rgba(255,255,255,0.09)",
-    borderRadius:8, color:"#fff",
+    borderRadius:8, color:"var(--fg)",
     fontFamily:"Arial,sans-serif", fontSize:14,
     outline:"none", transition:"border-color 0.2s",
   });
 
   return (
-    <section id="contact" style={{ background:"#000", padding:"clamp(80px,12vh,120px) 0" }}>
+    <section id="contact" style={{ background:"var(--bg)", padding:"clamp(80px,12vh,120px) 0" }}>
       <style>{`
         .contact-wrap {
           max-width: 1280px; margin: 0 auto;
@@ -50,23 +50,23 @@ export default function Contact() {
         .contact-eyebrow {
           font-family: Arial,sans-serif; font-size:11px; font-weight:600;
           letter-spacing:0.2em; text-transform:uppercase;
-          color:rgba(255,255,255,0.20); display:block; margin-bottom:20px;
+          color:"var(--fg-ultra)"; display:block; margin-bottom:20px;
         }
         .contact-heading {
           font-family: Geist,Arial,sans-serif;
           font-size: clamp(28px,3.5vw,42px);
           font-weight:400; letter-spacing:-0.04em;
-          color:#fff; margin:0 0 16px 0;
+          color:"var(--fg)"; margin:0 0 16px 0;
         }
         .contact-sub {
           font-family: Arial,sans-serif; font-size:15px;
-          line-height:1.65; color:rgba(255,255,255,0.38);
+          line-height:1.65; color:"var(--fg-faint)";
           margin:0 0 40px 0;
         }
         /* Role selector — Omijeh style */
         .role-label {
           font-family: Arial,sans-serif; font-size:13px;
-          color:rgba(255,255,255,0.35); margin-bottom:12px;
+          color:"var(--fg-faint)"; margin-bottom:12px;
           display:block; letter-spacing:0.02em;
         }
         .role-options {
@@ -76,13 +76,13 @@ export default function Contact() {
           font-family: Arial,sans-serif; font-size:13px; font-weight:500;
           padding:6px 16px; border-radius:999px; cursor:pointer;
           transition: all 0.2s; border:1px solid rgba(255,255,255,0.12);
-          background:transparent; color:rgba(255,255,255,0.45);
+          background:transparent; color:"var(--fg-muted)";
         }
         .role-btn.active {
-          background:var(--accent); border-color:var(--accent); color:#fff;
+          background:var(--accent); border-color:var(--accent); color:"var(--fg)";
         }
         .role-btn:hover:not(.active) {
-          border-color:rgba(255,255,255,0.28); color:rgba(255,255,255,0.75);
+          border-color:"var(--fg-faint)"; color:rgba(255,255,255,0.75);
         }
         /* Social links */
         .social-row {
@@ -102,11 +102,11 @@ export default function Contact() {
         }
         .social-name {
           font-family:Geist,Arial,sans-serif; font-size:14px; font-weight:500;
-          color:#fff;
+          color:"var(--fg)";
         }
         .social-handle {
           font-family:Arial,sans-serif; font-size:12px;
-          color:rgba(255,255,255,0.30); margin-left:auto;
+          color:"var(--fg-faint)"; margin-left:auto;
         }
         /* Form */
         .form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
@@ -114,14 +114,14 @@ export default function Contact() {
         .form-label {
           font-family:Arial,sans-serif; font-size:11px; font-weight:600;
           text-transform:uppercase; letter-spacing:0.1em;
-          color:rgba(255,255,255,0.28);
+          color:"var(--fg-faint)";
         }
         .form-submit {
           display:inline-flex; align-items:center; gap:8px;
           width:100%; justify-content:center;
           height:46px; border-radius:8px; cursor:pointer;
           font-family:Arial,sans-serif; font-size:14px; font-weight:600;
-          background:var(--accent); color:#fff; border:1px solid var(--accent);
+          background:var(--accent); color:"var(--fg)"; border:1px solid var(--accent);
           transition:background 0.2s; margin-top:4px;
         }
         .form-submit:hover { background:#8a0519; }
@@ -144,7 +144,7 @@ export default function Contact() {
         <div className="contact-grid">
           {/* LEFT — socials */}
           <div data-aos="fade-up" data-aos-delay="80">
-            <div style={{ borderTop:"1px solid rgba(255,255,255,0.07)", paddingTop:0 }}>
+            <div style={{ borderTop:"1px solid var(--border)", paddingTop:0 }}>
               {SOCIALS.map(s => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="social-row">
                   <div className="social-icon">{s.icon}</div>
@@ -160,7 +160,7 @@ export default function Contact() {
             {state.succeeded ? (
               <div style={{ textAlign:"center", padding:"48px 0" }}>
                 <CheckCircle size={40} style={{ color:"var(--accent)", margin:"0 auto 16px", display:"block" }}/>
-                <p style={{ fontFamily:"Geist,Arial,sans-serif", fontSize:18, color:"#fff", marginBottom:8 }}>Message sent.</p>
+                <p style={{ fontFamily:"Geist,Arial,sans-serif", fontSize:18, color:"var(--fg)", marginBottom:8 }}>Message sent.</p>
                 <p style={{ fontFamily:"Arial,sans-serif", fontSize:14, color:"rgba(255,255,255,0.40)" }}>I'll get back to you within 24 hours.</p>
               </div>
             ) : (

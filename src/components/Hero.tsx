@@ -44,7 +44,7 @@ export default function Hero() {
           min-height: 100vh;
           padding-top: 220px;
           padding-bottom: 120px;
-          background: #000;
+          background:"var(--bg)";
           position: relative;
           overflow: hidden;
         }
@@ -65,7 +65,7 @@ export default function Hero() {
           font-weight: 600;
           letter-spacing: 0.18em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.25);
+          color:"var(--fg-faint)";
           margin-bottom: 28px;
           display: block;
         }
@@ -77,7 +77,7 @@ export default function Hero() {
           font-family: Arial, Helvetica, sans-serif;
           font-size: 16px;
           font-weight: 400;
-          color: #00ff7f;
+          color:"var(--badge-text)";
           background: transparent;
           border: none;
           padding: 0;
@@ -85,7 +85,7 @@ export default function Hero() {
         .hero-badge-dot {
           width: 9px; height: 9px;
           border-radius: 50%;
-          background: #00b86b;
+          background:"var(--badge-dot)";
           flex-shrink: 0;
           animation: badgePulse 2.5s ease-in-out infinite;
         }
@@ -99,7 +99,7 @@ export default function Hero() {
           line-height: 1.06;
           font-weight: 400;
           letter-spacing: -1.5px;
-          color: #fff;
+          color:"var(--fg)";
           max-width: 821px;
           margin: 0 0 32px 0;
           overflow-wrap: normal;
@@ -142,14 +142,14 @@ export default function Hero() {
           transition: background 0.2s, border-color 0.2s, color 0.2s;
         }
         .hero-button-primary {
-          background: #6f0414; color: #fff; border: 1px solid #6f0414;
+          background: #6f0414; color:"var(--fg)"; border: 1px solid #6f0414;
         }
         .hero-button-primary:hover { background: #8a0519; border-color: #8a0519; }
         .hero-button-secondary {
-          background: rgba(255,255,255,0.03); color: #EDEDED;
+          background:"var(--card-bg)"; color: #EDEDED;
           border: 1px solid rgba(255,255,255,0.14);
         }
-        .hero-button-secondary:hover { border-color: rgba(255,255,255,0.30); }
+        .hero-button-secondary:hover { border-color:"var(--fg-faint)"; }
         .hero-image-wrap {
           display: flex; align-items: center; justify-content: center;
         }

@@ -51,7 +51,7 @@ export default function About() {
       <style>{`
         #about {
           padding: clamp(80px, 12vh, 140px) 0 clamp(80px, 12vh, 120px);
-          background: #000;
+          background:"var(--bg)";
         }
         .about-wrap {
           max-width: 1280px;
@@ -64,7 +64,7 @@ export default function About() {
           font-weight: 600;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.20);
+          color:"var(--fg-ultra)";
           display: block;
           margin-bottom: 20px;
         }
@@ -73,7 +73,7 @@ export default function About() {
           font-size: clamp(36px, 4.5vw, 56px);
           font-weight: 400;
           letter-spacing: -0.045em;
-          color: #fff;
+          color:"var(--fg)";
           line-height: 1.05;
           margin: 0 0 64px 0;
         }
@@ -97,9 +97,9 @@ export default function About() {
           margin-top: 36px;
           font-family: Arial, sans-serif;
           font-size: 13px;
-          color: rgba(255,255,255,0.35);
+          color:"var(--fg-faint)";
           letter-spacing: 0.02em;
-          border-top: 1px solid rgba(255,255,255,0.07);
+          border-top: 1px solid var(--border);
           padding-top: 28px;
           width: 100%;
         }
@@ -123,10 +123,10 @@ export default function About() {
           font-size: 12px;
           font-weight: 500;
           letter-spacing: 0.04em;
-          color: rgba(255,255,255,0.45);
+          color:"var(--fg-muted)";
           padding: 5px 14px;
           border-radius: 999px;
-          border: 1px solid rgba(255,255,255,0.10);
+          border: 1px solid var(--border-strong);
           background: transparent;
           transition: border-color 0.2s, color 0.2s;
         }
@@ -148,7 +148,7 @@ export default function About() {
           object-position: center 15%;
           border-radius: 12px;
           display: block;
-          border: 1px solid rgba(255,255,255,0.06);
+          border:"1px solid var(--border-soft)";
         }
         .about-photo-caption {
           display: flex;
@@ -160,12 +160,12 @@ export default function About() {
           font-family: Geist, Arial, sans-serif;
           font-size: 13px;
           font-weight: 500;
-          color: rgba(255,255,255,0.55);
+          color:"var(--fg-muted)";
         }
         .about-photo-handle {
           font-family: Arial, sans-serif;
           font-size: 11px;
-          color: rgba(255,255,255,0.22);
+          color:"var(--fg-ultra)";
           letter-spacing: 0.04em;
         }
 
@@ -175,14 +175,14 @@ export default function About() {
           grid-template-columns: repeat(4, 1fr);
           gap: 1px;
           background: rgba(255,255,255,0.06);
-          border: 1px solid rgba(255,255,255,0.06);
+          border:"1px solid var(--border-soft)";
           border-radius: 12px;
           overflow: hidden;
           margin-top: 40px;
         }
         .about-stat {
           padding: 22px 20px;
-          background: #080808;
+          background:"var(--bg-2)";
           display: flex;
           flex-direction: column;
           gap: 6px;
@@ -191,7 +191,7 @@ export default function About() {
           font-family: Geist, Arial, sans-serif;
           font-size: 30px;
           font-weight: 700;
-          color: #fff;
+          color:"var(--fg)";
           line-height: 1;
           letter-spacing: -0.03em;
         }
@@ -201,7 +201,7 @@ export default function About() {
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.12em;
-          color: rgba(255,255,255,0.28);
+          color:"var(--fg-faint)";
         }
         @media (max-width: 640px) {
           .about-stats { grid-template-columns: 1fr 1fr; }
@@ -226,9 +226,9 @@ export default function About() {
           <div data-aos="fade-up" data-aos-delay="80">
             <div className="about-body">
               <p style={{ color: "rgba(255,255,255,0.72)" }}>
-                I'm <strong style={{ color:"#fff", fontWeight:600 }}>Great Emman-Wori</strong> — a Fullstack Website
+                I'm <strong style={{ color:"var(--fg)", fontWeight:600 }}>Great Emman-Wori</strong> — a Fullstack Website
                 Developer, Product Designer, and UI/UX Designer based in{" "}
-                <strong style={{ color:"#fff", fontWeight:600 }}>Port Harcourt, Nigeria</strong>.
+                <strong style={{ color:"var(--fg)", fontWeight:600 }}>Port Harcourt, Nigeria</strong>.
                 Founder of{" "}
                 <a href="https://emman-engineered.vercel.app/" target="_blank" rel="noopener noreferrer"
                   style={{ color:"var(--accent)", fontWeight:600, textDecoration:"none" }}>

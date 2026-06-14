@@ -74,7 +74,7 @@ const SKILL_GROUPS = [
 
 export default function TechStack() {
   return (
-    <section id="techstack" className="section bg-[#030303]" style={{paddingTop:"5rem",paddingBottom:"5rem"}}>
+    <section id="techstack" className="section" style={{background:"var(--bg-2)"}} style={{paddingTop:"5rem",paddingBottom:"5rem"}}>
       <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 clamp(24px,5vw,64px)" }}>
 
         {/* Section label */}
@@ -88,7 +88,7 @@ export default function TechStack() {
           </span>
           <h2 style={{
             fontFamily:"Geist,Arial,sans-serif", fontSize:"clamp(28px,3.5vw,42px)",
-            fontWeight:400, color:"#fff", letterSpacing:"-0.04em", margin:0,
+            fontWeight:400, color:"var(--fg)", letterSpacing:"-0.04em", margin:0,
           }}>
             Technical Depth
           </h2>
@@ -111,7 +111,7 @@ export default function TechStack() {
             {v:"Full",l:"Stack Depth"},
           ].map(s => (
             <div key={s.l}>
-              <div style={{fontFamily:"Geist,Arial,sans-serif",fontSize:36,fontWeight:700,color:"#fff",lineHeight:1}}>{s.v}</div>
+              <div style={{fontFamily:"Geist,Arial,sans-serif",fontSize:36,fontWeight:700,color:"var(--fg)",lineHeight:1}}>{s.v}</div>
               <div style={{fontFamily:"Arial,sans-serif",fontSize:12,color:"rgba(255,255,255,0.35)",marginTop:6,textTransform:"uppercase",letterSpacing:"0.06em"}}>{s.l}</div>
             </div>
           ))}

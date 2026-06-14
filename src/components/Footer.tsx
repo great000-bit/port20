@@ -17,7 +17,7 @@ const NAV = [
 export default function Footer() {
   return (
     <footer style={{
-      background:"#000",
+      background:"var(--bg)",
       borderTop:"1px solid rgba(255,255,255,0.06)",
     }}>
       <div style={{

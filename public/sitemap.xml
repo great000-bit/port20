@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
   <url>
     <loc>https://port20-chi.vercel.app/</loc>
     <lastmod>2026-06-14</lastmod>
@@ -8,38 +11,65 @@
     <priority>1.00</priority>
     <image:image>
       <image:loc>https://port20-chi.vercel.app/great-emman-wori-fullstack-developer.png</image:loc>
-      <image:title>Great Emman-Wori — Fullstack Website Developer, Product Designer &amp; UI/UX Designer</image:title>
-      <image:caption>Great Emman-Wori, Founder of Creative Emman, Fullstack Website Developer based in Port Harcourt Nigeria</image:caption>
+      <image:title>Great Emman-Wori — Fullstack Website Developer, Product Designer and UI/UX Designer</image:title>
+      <image:caption>Great Emman-Wori, Founder of Creative Emman Studio, Fullstack Website Developer based in Port Harcourt Nigeria</image:caption>
     </image:image>
   </url>
+
+  <!-- About -->
   <url>
     <loc>https://port20-chi.vercel.app/#about</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
   </url>
+
+  <!-- Services -->
   <url>
     <loc>https://port20-chi.vercel.app/#services</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.88</priority>
   </url>
+
+  <!-- Projects -->
   <url>
     <loc>https://port20-chi.vercel.app/#portfolio</loc>
     <lastmod>2026-06-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.92</priority>
+    <image:image>
+      <image:loc>https://port20-chi.vercel.app/thelightmission.png</image:loc>
+      <image:title>The Light Mission NGO Website — Fullstack Project by Great Emman-Wori</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://port20-chi.vercel.app/funke.png</image:loc>
+      <image:title>Funke Akindele Official Website — React Project by Great Emman-Wori</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://port20-chi.vercel.app/timini.png</image:loc>
+      <image:title>Timini Egbuson Actor Portfolio — React Project by Great Emman-Wori</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://port20-chi.vercel.app/bof.webp</image:loc>
+      <image:title>Bourdillon Omijeh Foundation Website — UI/UX Project by Great Emman-Wori</image:title>
+    </image:image>
   </url>
+
+  <!-- Experience -->
   <url>
     <loc>https://port20-chi.vercel.app/#experience</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.82</priority>
   </url>
+
+  <!-- Contact -->
   <url>
     <loc>https://port20-chi.vercel.app/#contact</loc>
     <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.80</priority>
   </url>
+
 </urlset>

@@ -91,7 +91,7 @@ export default function Navbar() {
         .nav-link:hover { color: var(--fg); }
         .nav-link.active {
           background: var(--accent);
-          color: #fff;
+          color: var(--fg);
         }
         /* Theme toggle */
         .nav-theme-btn {
@@ -111,7 +111,7 @@ export default function Navbar() {
           display: inline-flex; align-items: center;
           padding: 7px 18px; border-radius: 8px;
           font-family: Arial,sans-serif; font-size: 13px; font-weight: 600;
-          background: var(--accent); color: #fff;
+          background: var(--accent); color: var(--fg);
           border: 1px solid var(--accent); text-decoration: none;
           transition: background 0.2s; white-space: nowrap;
         }

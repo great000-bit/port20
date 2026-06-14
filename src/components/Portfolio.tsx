@@ -54,8 +54,8 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
       data-aos="fade-up"
       data-aos-delay={(index % 3) * 80}
       style={{
-        background:"#0a0a0a",
-        border:"1px solid rgba(255,255,255,0.07)",
+        background:"var(--bg-3)",
+        border:"1px solid var(--border)",
         borderRadius:14,
         overflow:"hidden",
         display:"flex",
@@ -69,8 +69,8 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
       <div style={{
         display:"flex", alignItems:"center", gap:8,
         padding:"9px 14px",
-        borderBottom:"1px solid rgba(255,255,255,0.06)",
-        background:"#060606",
+        borderBottom:"1px solid var(--border-soft)",
+        background:"var(--url-bar-bg)",
       }}>
         {/* Traffic lights */}
         <div style={{display:"flex",gap:5,flexShrink:0}}>
@@ -91,12 +91,12 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
       </div>
 
       {/* ── Preview area ── */}
-      <div style={{ position:"relative", height:200, background:"#000", overflow:"hidden", flexShrink:0 }}>
+      <div style={{ position:"relative", height:200, background:"var(--bg)", overflow:"hidden", flexShrink:0 }}>
         {/* Category badge */}
         <span style={{
           position:"absolute", top:10, left:10, zIndex:3,
           fontFamily:"Arial,sans-serif", fontSize:10, fontWeight:700,
-          padding:"3px 10px", borderRadius:999, color:"#fff",
+          padding:"3px 10px", borderRadius:999, color:"var(--fg)",
           background: BADGE_COLOR[p.badge] || "rgba(111,4,20,0.85)",
           letterSpacing:"0.06em", textTransform:"uppercase",
         }}>
@@ -140,7 +140,7 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
       <div style={{ padding:"20px 20px 22px", flex:1, display:"flex", flexDirection:"column" }}>
         <h3 style={{
           fontFamily:"Geist,Arial,sans-serif", fontSize:15, fontWeight:600,
-          color:"#fff", margin:"0 0 8px 0", lineHeight:1.3,
+          color:"var(--fg)", margin:"0 0 8px 0", lineHeight:1.3,
           letterSpacing:"-0.01em",
         }}>
           {p.title}
@@ -160,7 +160,7 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
               color:"rgba(255,255,255,0.35)",
               padding:"3px 9px", borderRadius:4,
               background:"rgba(255,255,255,0.04)",
-              border:"1px solid rgba(255,255,255,0.07)",
+              border:"1px solid var(--border)",
             }}>
               {t}
             </span>
@@ -205,7 +205,7 @@ export default function Portfolio() {
   const displayed = showAll ? shown : shown.slice(0, 6);
 
   return (
-    <section id="portfolio" className="section bg-black">
+    <section id="portfolio" className="section" style={{background:"var(--bg)"}}>
       <style>{`
         @keyframes shimmer {
           0%   { background-position: 200% 0; }
@@ -226,7 +226,7 @@ export default function Portfolio() {
           </span>
           <h2 style={{
             fontFamily:"Geist,Arial,sans-serif", fontSize:"clamp(28px,3.5vw,42px)",
-            fontWeight:400, color:"#fff", letterSpacing:"-0.04em",
+            fontWeight:400, color:"var(--fg)", letterSpacing:"-0.04em",
             margin:"0 0 12px 0",
           }}>
             Selected Projects

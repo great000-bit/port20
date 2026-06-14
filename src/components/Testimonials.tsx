@@ -66,7 +66,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="section bg-[#030303]"
+      className="section" style={{background:"var(--bg-2)"}}
       aria-labelledby="testimonials-heading"
       onMouseEnter={()=>setPaused(true)}
       onMouseLeave={()=>setPaused(false)}
@@ -76,7 +76,7 @@ export default function Testimonials() {
         {/* Header */}
         <div className="text-center mb-14" data-aos="fade-up">
           <span style={{fontFamily:"Arial,sans-serif",fontSize:11,fontWeight:600,letterSpacing:"0.2em",textTransform:"uppercase",color:"rgba(255,255,255,0.20)",display:"block",marginBottom:16}}>06 — Testimonials</span>
-          <h2 id="testimonials-heading" style={{fontFamily:"Geist,Arial,sans-serif",fontSize:"clamp(28px,3.5vw,42px)",fontWeight:400,letterSpacing:"-0.04em",color:"#fff",margin:"0 0 12px 0"}}>
+          <h2 id="testimonials-heading" style={{fontFamily:"Geist,Arial,sans-serif",fontSize:"clamp(28px,3.5vw,42px)",fontWeight:400,letterSpacing:"-0.04em",color:"var(--fg)",margin:"0 0 12px 0"}}>
             Client Testimonials
           </h2>
           <div style={{width:48,height:3,background:"var(--accent)",borderRadius:2,margin:"16px auto 0"}}/>
@@ -128,7 +128,7 @@ export default function Testimonials() {
           <div className="flex items-center justify-between mt-8">
             <button onClick={prev} aria-label="Previous testimonial"
               className="w-10 h-10 rounded-full glass flex items-center justify-center text-white/60 hover:text-white transition-colors"
-              style={{border:"1px solid rgba(255,255,255,0.08)"}}>
+              style={{border:"1px solid var(--border)"}}>
               <ChevronLeft size={18}/>
             </button>
 
@@ -148,7 +148,7 @@ export default function Testimonials() {
 
             <button onClick={next} aria-label="Next testimonial"
               className="w-10 h-10 rounded-full glass flex items-center justify-center text-white/60 hover:text-white transition-colors"
-              style={{border:"1px solid rgba(255,255,255,0.08)"}}>
+              style={{border:"1px solid var(--border)"}}>
               <ChevronRight size={18}/>
             </button>
           </div>

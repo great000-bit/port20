@@ -3,10 +3,10 @@ export default function CTABanner() {
     <>
       {/* Pull quote — strong branded statement */}
       <section aria-label="Brand statement" style={{
-        background:"#000",
+        background:"var(--bg)",
         padding:"clamp(80px,12vh,120px) clamp(24px,5vw,64px)",
-        borderTop:"1px solid rgba(255,255,255,0.05)",
-        borderBottom:"1px solid rgba(255,255,255,0.05)",
+        borderTop:"1px solid var(--border-soft)",
+        borderBottom:"1px solid var(--border-soft)",
       }}>
         <div style={{ maxWidth:1280, margin:"0 auto" }} data-aos="fade-up">
           <blockquote style={{
@@ -15,7 +15,7 @@ export default function CTABanner() {
             fontWeight:400,
             letterSpacing:"-0.045em",
             lineHeight:1.12,
-            color:"#fff",
+            color:"var(--fg)",
             margin:0,
             maxWidth:900,
           }}>
@@ -33,14 +33,14 @@ export default function CTABanner() {
       </section>
 
       {/* CTA section */}
-      <section style={{ background:"#000", padding:"clamp(64px,8vh,96px) clamp(24px,5vw,64px)" }}>
+      <section style={{ background:"var(--bg)", padding:"clamp(64px,8vh,96px) clamp(24px,5vw,64px)" }}>
         <div style={{ maxWidth:1280, margin:"0 auto", display:"flex", flexWrap:"wrap", alignItems:"center", justifyContent:"space-between", gap:32 }} data-aos="fade-up">
           <div>
             <h2 style={{
               fontFamily:"Geist,Arial,sans-serif",
               fontSize:"clamp(24px,3vw,36px)",
               fontWeight:400, letterSpacing:"-0.03em",
-              color:"#fff", margin:"0 0 8px 0",
+              color:"var(--fg)", margin:"0 0 8px 0",
             }}>
               Ready to build something that converts?
             </h2>
@@ -53,7 +53,7 @@ export default function CTABanner() {
               display:"inline-flex", alignItems:"center", gap:6,
               height:46, padding:"0 24px", borderRadius:8,
               fontFamily:"Arial,sans-serif", fontSize:14, fontWeight:600,
-              background:"var(--accent)", color:"#fff",
+              background:"var(--accent)", color:"var(--fg)",
               border:"1px solid var(--accent)", textDecoration:"none",
               transition:"background 0.2s",
             }}

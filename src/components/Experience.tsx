@@ -148,7 +148,7 @@ const EXP = [
 
 export default function Experience() {
   return (
-    <section id="experience" style={{ background:"#030303", padding:"clamp(80px,12vh,120px) 0" }}>
+    <section id="experience" style={{ background:"var(--bg-2)", padding:"clamp(80px,12vh,120px) 0" }}>
       <style>{`
         .exp-wrap {
           max-width: 1280px;
@@ -159,14 +159,14 @@ export default function Experience() {
           font-family: Arial,sans-serif;
           font-size: 11px; font-weight: 600;
           letter-spacing: 0.2em; text-transform: uppercase;
-          color: rgba(255,255,255,0.20);
+          color:"var(--fg-ultra)";
           display: block; margin-bottom: 20px;
         }
         .exp-heading {
           font-family: Geist,Arial,sans-serif;
           font-size: clamp(28px,3.5vw,42px);
           font-weight: 400; letter-spacing: -0.04em;
-          color: #fff; margin: 0 0 64px 0;
+          color:"var(--fg)"; margin: 0 0 64px 0;
         }
         /* Timeline container */
         .exp-timeline {
@@ -210,13 +210,13 @@ export default function Experience() {
         .exp-role {
           font-family: Geist,Arial,sans-serif;
           font-size: 18px; font-weight: 600;
-          color: #fff; margin: 0 0 4px 0;
+          color:"var(--fg)"; margin: 0 0 4px 0;
           letter-spacing: -0.02em;
         }
         /* Org + loc */
         .exp-org {
           font-family: Arial,sans-serif;
-          font-size: 13px; color: rgba(255,255,255,0.40);
+          font-size: 13px; color:"var(--fg-faint)";
           margin-bottom: 20px;
         }
         /* Bullets */
@@ -228,7 +228,7 @@ export default function Experience() {
         .exp-bullet {
           font-family: Arial,sans-serif;
           font-size: 14px; line-height: 1.65;
-          color: rgba(255,255,255,0.48);
+          color:"var(--fg-muted)";
           display: flex; gap: 10px;
         }
         .exp-bullet::before {
@@ -245,15 +245,15 @@ export default function Experience() {
         .exp-tag {
           font-family: Arial,sans-serif;
           font-size: 11px; font-weight: 500;
-          color: rgba(255,255,255,0.30);
+          color:"var(--fg-faint)";
           padding: 3px 10px; border-radius: 4px;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.07);
+          background:"var(--card-bg)";
+          border:"1px solid var(--border)";
         }
         /* Divider between entries */
         .exp-divider {
           height: 1px;
-          background: rgba(255,255,255,0.05);
+          background:"var(--nav-pill)";
           margin-bottom: 48px;
         }
         @media (max-width: 640px) {
