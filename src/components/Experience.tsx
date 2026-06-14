@@ -123,7 +123,7 @@ const EXP = [
     tags: ["WordPress","Elementor","Divi","Figma","UI/UX","SEO"],
   },
   {
-    role: "UI/UX Design Intern",
+    role: "UI/UX Designer",
     org: "Digital Nexus AI",
     loc: "Remote · India",
     period: "Jan 2018 – Jun 2025",
@@ -131,10 +131,10 @@ const EXP = [
       "Designed interfaces for AI-driven tools, simplifying complex features for end users",
       "Participated in usability testing and design reviews, improving accessibility scores",
     ],
-    tags: ["Figma","UI/UX","AI Tools","Accessibility","Internship"],
+    tags: ["Figma","UI/UX","AI Tools","Accessibility"],
   },
   {
-    role: "UI/UX Design Intern",
+    role: "UI/UX Designer",
     org: "Hyperbird Digital Technologies",
     loc: "Remote · Nigeria",
     period: "Jan 2018 – Jun 2025",
@@ -142,7 +142,7 @@ const EXP = [
       "Supported design of responsive web and mobile interfaces across diverse industries",
       "Created wireframes and prototypes that enhanced user satisfaction and client delivery",
     ],
-    tags: ["Figma","Wireframing","Prototyping","Responsive Design","Internship"],
+    tags: ["Figma","Wireframing","Prototyping","Responsive Design"],
   },
 ];
 
