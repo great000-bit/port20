@@ -169,32 +169,27 @@ export default function About() {
           letter-spacing: 0.04em;
         }
 
-        /* Stats */
+        /* Stats — horizontal strip below text */
         .about-stats {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: repeat(4, 1fr);
           gap: 1px;
           background: rgba(255,255,255,0.06);
           border: 1px solid rgba(255,255,255,0.06);
           border-radius: 12px;
           overflow: hidden;
-          margin-top: 4px;
+          margin-top: 40px;
         }
         .about-stat {
-          padding: 24px 20px;
-          background: #0a0a0a;
+          padding: 22px 20px;
+          background: #080808;
           display: flex;
           flex-direction: column;
           gap: 6px;
         }
-        .about-stat:last-child {
-          border-bottom: none;
-          margin-bottom: 0;
-          padding-bottom: 24px;
-        }
         .about-stat-value {
           font-family: Geist, Arial, sans-serif;
-          font-size: 36px;
+          font-size: 30px;
           font-weight: 700;
           color: #fff;
           line-height: 1;
@@ -208,27 +203,14 @@ export default function About() {
           letter-spacing: 0.12em;
           color: rgba(255,255,255,0.28);
         }
+        @media (max-width: 640px) {
+          .about-stats { grid-template-columns: 1fr 1fr; }
+        }
 
         /* Responsive */
         @media (max-width: 960px) {
-          .about-grid {
-            grid-template-columns: 1fr;
-            gap: 56px;
-          }
-          .about-right {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            align-items: start;
-          }
-          .about-photo-wrap { margin-bottom: 0; }
-          .about-stats { border-top: none; padding-top: 0; }
-        }
-        @media (max-width: 580px) {
-          .about-right {
-            grid-template-columns: 1fr;
-          }
-          .about-stat-value { font-size: 38px; }
+          .about-grid { grid-template-columns: 1fr; gap: 48px; }
+          .about-photo { max-width: 400px; }
         }
       `}</style>
 
@@ -286,11 +268,18 @@ export default function About() {
                 <span key={v} className="about-tag">{v}</span>
               ))}
             </div>
+
+            {/* Stats — horizontal strip below tags */}
+            <div className="about-stats">
+              <CountStat end={16}  suffix="+" label="Projects Completed" />
+              <CountStat end={3}   suffix="+" label="Years Experience" />
+              <CountStat end={100} suffix="%" label="Responsive Builds" />
+              <SpecialStat value="SEO ✓" label="SEO-Ready Delivery" />
+            </div>
           </div>
 
-          {/* RIGHT — photo + stats */}
+          {/* RIGHT — photo only */}
           <div className="about-right" data-aos="fade-up" data-aos-delay="160">
-            {/* Photo */}
             <div className="about-photo-wrap">
               <img
                 src="/great-emman-wori-fullstack-developer.png"
@@ -304,14 +293,6 @@ export default function About() {
                 <span className="about-photo-name">Great Emman-Wori</span>
                 <span className="about-photo-handle">@creative_emman</span>
               </div>
-            </div>
-
-            {/* Stats — 2x2 grid */}
-            <div className="about-stats">
-              <CountStat end={16}  suffix="+" label="Projects Completed" />
-              <CountStat end={3}   suffix="+" label="Years Experience" />
-              <CountStat end={100} suffix="%" label="Responsive Builds" />
-              <SpecialStat value="SEO ✓" label="SEO-Ready Delivery" />
             </div>
           </div>
         </div>
