@@ -71,7 +71,7 @@ export default function Services() {
                 style={{background:"rgba(111,4,20,0.10)",border:"1px solid rgba(111,4,20,0.25)",color:"var(--accent)"}}>
                 {s.icon}
               </div>
-              <h3 className="font-heading text-lg font-semibold text-white mb-1 group-hover:text-red-300 transition-colors">{s.title}</h3>
+              <h3 className="font-heading text-lg font-semibold mb-1 transition-colors" style={{color:"var(--fg)"}}>{s.title}</h3>
               <p className="font-body text-xs mb-3" style={{color:"var(--accent)",letterSpacing:"0.04em"}}>{s.sub}</p>
               <p className="font-body text-sm text-white/52 leading-relaxed mb-5">{s.desc}</p>
               <div className="flex flex-wrap gap-2">
