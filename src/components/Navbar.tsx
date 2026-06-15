@@ -174,21 +174,61 @@ export default function Navbar() {
             padding: 14px 20px;
             justify-content: center;
           }
-          /* Single centered pill containing avatar + theme + menu */
+          /* Single centered pill — iOS liquid glass */
           .nav-mobile-pill {
             display: flex;
             align-items: center;
             gap: 16px;
             padding: 10px 20px;
             border-radius: 999px;
-            background: rgba(20,20,20,0.85);
-            border: 1px solid rgba(255,255,255,0.10);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(
+              135deg,
+              rgba(255,255,255,0.13) 0%,
+              rgba(255,255,255,0.04) 100%
+            );
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255,255,255,0.14);
+            box-shadow:
+              0 20px 48px rgba(0,0,0,0.50),
+              0 4px 16px rgba(0,0,0,0.30),
+              inset 0 1px 0 rgba(255,255,255,0.20),
+              inset 0 -1px 0 rgba(255,255,255,0.04);
+          }
+          /* Glossy top-left reflection */
+          .nav-mobile-pill::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+              ellipse at top left,
+              rgba(255,255,255,0.22) 0%,
+              transparent 55%
+            );
+            pointer-events: none;
+            border-radius: inherit;
           }
           [data-theme="light"] .nav-mobile-pill {
-            background: rgba(248,247,244,0.90);
-            border-color: rgba(0,0,0,0.10);
+            background: linear-gradient(
+              135deg,
+              rgba(255,255,255,0.72) 0%,
+              rgba(255,255,255,0.42) 100%
+            );
+            border-color: rgba(255,255,255,0.55);
+            box-shadow:
+              0 16px 40px rgba(0,0,0,0.18),
+              0 4px 12px rgba(0,0,0,0.10),
+              inset 0 1px 0 rgba(255,255,255,0.90),
+              inset 0 -1px 0 rgba(0,0,0,0.04);
+          }
+          [data-theme="light"] .nav-mobile-pill::before {
+            background: radial-gradient(
+              ellipse at top left,
+              rgba(255,255,255,0.85) 0%,
+              transparent 55%
+            );
           }
           .nav-logo-img {
             width: 38px; height: 38px;
