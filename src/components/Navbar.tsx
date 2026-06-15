@@ -160,34 +160,56 @@ export default function Navbar() {
         @media (max-width: 767px) {
           .nav-pill-wrap { display: none; }
           .nav-cta { display: none; }
-          /* Mobile: centered floating pill — Omijeh style */
+          .nav-logo-text { display: none; }
+          .nav-logo { display: none; }
+          .nav-right { display: none; }
+
+          /* Centered floating pill on mobile */
+          .nav-header {
+            background: transparent !important;
+            border: none !important;
+          }
           .nav-inner {
-            justify-content: space-between;
-            padding: 0 16px;
-            height: 64px;
+            height: auto;
+            padding: 14px 20px;
+            justify-content: center;
           }
-          .nav-logo-text span:last-child {
-            display: none;
+          /* Single centered pill containing avatar + theme + menu */
+          .nav-mobile-pill {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: rgba(20,20,20,0.85);
+            border: 1px solid rgba(255,255,255,0.10);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
           }
+          [data-theme="light"] .nav-mobile-pill {
+            background: rgba(248,247,244,0.90);
+            border-color: rgba(0,0,0,0.10);
+          }
+          .nav-logo-img {
+            width: 38px; height: 38px;
+          }
+        }
+        @media (min-width: 768px) {
+          .nav-mobile-pill { display: none; }
         }
       `}</style>
 
-      <header
-        className="nav-header"
+      <header className="nav-header"
         style={{ background: scrolled ? "var(--nav-bg)" : "transparent",
                  borderBottom: scrolled ? "1px solid var(--border-soft)" : "none" }}
       >
         <div className="nav-inner">
-          {/* Logo with photo — Omijeh style */}
+          {/* Logo — desktop only */}
           <a href="#hero" onClick={close} className="nav-logo">
-            <img
-              src="/great-emman-wori-fullstack-developer.png"
-              alt="Great Emman-Wori"
-              className="nav-logo-img"
-              loading="eager"
-            />
-            <span className="nav-logo-text" style={{ color:"var(--accent)" }}>Great</span>
-            <span className="nav-logo-text" style={{ marginLeft:3 }}>Emman-Wori</span>
+            <img src="/great-emman-wori-fullstack-developer.png" alt="Great Emman-Wori"
+              className="nav-logo-img" loading="eager"/>
+            <span className="nav-logo-text" style={{color:"var(--accent)"}}>Great</span>
+            <span className="nav-logo-text" style={{marginLeft:3}}>Emman-Wori</span>
           </a>
 
           {/* Desktop pill nav */}
@@ -200,26 +222,35 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Right: theme toggle + CTA + hamburger */}
+          {/* Desktop right */}
           <div className="nav-right">
-            {/* Theme toggle */}
-            <button onClick={toggle} className="nav-theme-btn" aria-label="Toggle light/dark mode">
+            <button onClick={toggle} className="nav-theme-btn" aria-label="Toggle theme">
               {isDark ? <Sun size={15}/> : <Moon size={15}/>}
             </button>
-
             <a href="#contact" className="nav-cta">Hire Me →</a>
+            <button className="nav-hamburger md:hidden" onClick={() => setOpen(o => !o)}
+              aria-label={open ? "Close menu" : "Open menu"}>
+              {open ? <X size={16}/> : <Menu size={16}/>}
+            </button>
+          </div>
 
-            <button
-              className="nav-hamburger md:hidden"
-              onClick={() => setOpen(o => !o)}
-              aria-label={open ? "Close menu" : "Open menu"}
-            >
+          {/* ── MOBILE: centered floating pill ── */}
+          <div className="nav-mobile-pill" aria-hidden="false" role="navigation">
+            <a href="#hero" onClick={close}>
+              <img src="/great-emman-wori-fullstack-developer.png" alt="Great Emman-Wori"
+                className="nav-logo-img" loading="eager"/>
+            </a>
+            <button onClick={toggle} className="nav-theme-btn" aria-label="Toggle theme">
+              {isDark ? <Sun size={16}/> : <Moon size={16}/>}
+            </button>
+            <button className="nav-hamburger" onClick={() => setOpen(o => !o)}
+              aria-label={open ? "Close menu" : "Open menu"}>
               {open ? <X size={16}/> : <Menu size={16}/>}
             </button>
           </div>
         </div>
 
-        {/* Mobile menu — Omijeh floating pill style */}
+        {/* Mobile menu */}
         <div className={`nav-mobile ${open ? "open" : "closed"}`}>
           {NAV.map(n => (
             <a key={n.href} href={n.href} onClick={close} className="nav-mobile-link">

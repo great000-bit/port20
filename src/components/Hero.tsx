@@ -157,29 +157,24 @@ export default function Hero() {
           .hero-desktop-img-wrap { order:-1; }
         }
 
-        /* ══ MOBILE ≤ 640px — Omijeh exact ══ */
+        /* ══ MOBILE ≤ 640px — Omijeh structure ══ */
         @media (max-width: 640px) {
           .hero-section {
             min-height: 100svh;
             display: flex;
             flex-direction: column;
             padding: 0;
+            overflow-y: auto;
           }
-          .hero-desktop-wrap  { display: none; }
+          .hero-desktop-wrap { display: none !important; }
           .hero-mobile-layout {
-            display: flex;
+            display: flex !important;
             flex-direction: column;
-            flex: 1;
             width: 100%;
+            padding: 80px 24px 40px;
+            gap: 0;
           }
-
-          /* TEXT — starts below floating nav, generous top space */
-          .hero-mobile-text {
-            padding: 108px 24px 32px;
-            flex: 1;
-          }
-
-          /* Badge — pill style like Omijeh */
+          /* Badge — pill like reference */
           .hero-badge {
             display: inline-flex !important;
             align-items: center;
@@ -190,45 +185,46 @@ export default function Hero() {
             border: 1px solid rgba(255,255,255,0.14) !important;
             font-size: 11px !important;
             font-weight: 700 !important;
-            letter-spacing: 0.1em !important;
+            letter-spacing: 0.12em !important;
             text-transform: uppercase !important;
-            color: var(--fg-muted) !important;
-            margin-bottom: 24px !important;
+            color: rgba(255,255,255,0.65) !important;
+            margin-bottom: 28px !important;
+            width: fit-content;
           }
           [data-theme="light"] .hero-badge {
-            background: rgba(0,0,0,0.05) !important;
-            border-color: rgba(0,0,0,0.12) !important;
+            background: rgba(0,0,0,0.06) !important;
+            border-color: rgba(0,0,0,0.14) !important;
+            color: rgba(0,0,0,0.55) !important;
           }
           .hero-badge-dot {
-            width: 7px !important;
-            height: 7px !important;
+            width: 7px !important; height: 7px !important;
           }
-
-          /* H1 — Omijeh scale: fills the screen width */
+          /* H1 — Omijeh scale */
           .hero-title {
-            font-size: clamp(40px, 11.5vw, 56px) !important;
+            font-size: clamp(40px, 11vw, 54px) !important;
             line-height: 1.02 !important;
             letter-spacing: -0.04em !important;
             margin-bottom: 20px !important;
             max-width: 100% !important;
             word-break: keep-all !important;
+            overflow-wrap: break-word !important;
             hyphens: none !important;
           }
-
           /* Subtitle */
           .hero-subtitle {
             font-size: 15px !important;
-            line-height: 1.62 !important;
+            line-height: 1.65 !important;
             color: var(--fg-muted) !important;
             max-width: 100% !important;
+            margin-bottom: 0 !important;
           }
-
           /* Buttons */
           .hero-mobile-actions {
             display: flex;
             flex-direction: column;
             gap: 10px;
             margin-top: 32px;
+            margin-bottom: 32px;
           }
           .hero-btn-primary {
             height: 54px !important;
@@ -236,7 +232,7 @@ export default function Hero() {
             justify-content: center !important;
             font-size: 16px !important;
             font-weight: 600 !important;
-            border-radius: 14px !important;
+            border-radius: 12px !important;
           }
           .hero-mobile-row {
             display: flex;
@@ -247,41 +243,30 @@ export default function Hero() {
             height: 48px !important;
             justify-content: center !important;
             font-size: 14px !important;
-            border-radius: 14px !important;
+            border-radius: 12px !important;
           }
-
-          /* Image — just top of head peeking, Omijeh style */
+          /* Image — full rounded square card below buttons */
           .hero-mobile-img-wrap {
-            width: 88%;
-            margin: 0 auto;
-            height: 32vw;
-            min-height: 130px;
-            max-height: 200px;
-            border-radius: 16px 16px 0 0;
+            width: 100%;
+            border-radius: 20px;
             overflow: hidden;
             position: relative;
             flex-shrink: 0;
-            align-self: flex-start;
+            aspect-ratio: 1 / 1;
+            max-height: 360px;
           }
           .hero-mobile-img {
             width: 100%;
-            height: 200%;
+            height: 100%;
             object-fit: cover;
-            object-position: center 0%;
+            object-position: center 10%;
             display: block;
-          }
-          /* Fade bottom */
-          .hero-mobile-img-wrap::after {
-            content: "";
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 50%;
-            background: linear-gradient(to bottom, transparent, var(--bg));
-            pointer-events: none;
           }
         }
         @media (max-width: 390px) {
-          .hero-mobile-text { padding-top: 96px; padding-left: 20px; padding-right: 20px; }
+          .hero-mobile-layout { padding: 72px 18px 32px; }
+          .hero-title { font-size: 36px !important; }
+        }
           .hero-title { font-size: 36px !important; }
         }
 
@@ -363,13 +348,13 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Image peeking at bottom — exactly like Omijeh */}
+          {/* Image card — full, rounded, below buttons like Omijeh */}
           <div className="hero-mobile-img-wrap">
             <img
               className="hero-mobile-img"
               src="/great-emman-wori-fullstack-developer.png"
-              alt="Great Emman-Wori"
-              width={800} height={800}
+              alt="Great Emman-Wori, Fullstack Website Developer"
+              width={600} height={600}
               loading="eager"
             />
           </div>
