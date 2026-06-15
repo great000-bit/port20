@@ -157,7 +157,7 @@ export default function Hero() {
           .hero-desktop-img-wrap { order:-1; }
         }
 
-        /* ══ MOBILE ≤ 640px — Omijeh exact structure ══ */
+        /* ══ MOBILE ≤ 640px — Omijeh exact ══ */
         @media (max-width: 640px) {
           .hero-section {
             min-height: 100svh;
@@ -173,100 +173,118 @@ export default function Hero() {
             width: 100%;
           }
 
-          /* TEXT BLOCK — top, full padding */
+          /* TEXT — starts below floating nav, generous top space */
           .hero-mobile-text {
-            padding: 100px 22px 28px;
+            padding: 108px 24px 32px;
             flex: 1;
           }
+
+          /* Badge — pill style like Omijeh */
           .hero-badge {
-            display: inline-flex;
+            display: inline-flex !important;
             align-items: center;
             gap: 8px;
-            padding: 5px 14px;
-            border-radius: 999px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: var(--fg-muted);
-            margin-bottom: 28px;
+            padding: 6px 14px !important;
+            border-radius: 999px !important;
+            background: rgba(255,255,255,0.06) !important;
+            border: 1px solid rgba(255,255,255,0.14) !important;
+            font-size: 11px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.1em !important;
+            text-transform: uppercase !important;
+            color: var(--fg-muted) !important;
+            margin-bottom: 24px !important;
+          }
+          [data-theme="light"] .hero-badge {
+            background: rgba(0,0,0,0.05) !important;
+            border-color: rgba(0,0,0,0.12) !important;
           }
           .hero-badge-dot {
-            width: 8px; height: 8px;
-          }
-          .hero-title {
-            font-size: clamp(36px, 10.5vw, 52px);
-            line-height: 1.04;
-            letter-spacing: -0.04em;
-            margin-bottom: 18px;
-            max-width: 100%;
-          }
-          .hero-subtitle {
-            font-size: 15px;
-            line-height: 1.65;
-            color: var(--fg-muted);
-            max-width: 100%;
+            width: 7px !important;
+            height: 7px !important;
           }
 
-          /* BUTTONS */
+          /* H1 — Omijeh scale: fills the screen width */
+          .hero-title {
+            font-size: clamp(40px, 11.5vw, 56px) !important;
+            line-height: 1.02 !important;
+            letter-spacing: -0.04em !important;
+            margin-bottom: 20px !important;
+            max-width: 100% !important;
+            word-break: keep-all !important;
+            hyphens: none !important;
+          }
+
+          /* Subtitle */
+          .hero-subtitle {
+            font-size: 15px !important;
+            line-height: 1.62 !important;
+            color: var(--fg-muted) !important;
+            max-width: 100% !important;
+          }
+
+          /* Buttons */
           .hero-mobile-actions {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 28px;
+            margin-top: 32px;
           }
           .hero-btn-primary {
-            height: 52px;
-            width: 100%;
-            justify-content: center;
-            font-size: 15px;
-            font-weight: 600;
-            border-radius: 12px;
+            height: 54px !important;
+            width: 100% !important;
+            justify-content: center !important;
+            font-size: 16px !important;
+            font-weight: 600 !important;
+            border-radius: 14px !important;
           }
           .hero-mobile-row {
             display: flex;
             gap: 10px;
           }
           .hero-btn-secondary {
-            flex: 1;
-            height: 46px;
-            justify-content: center;
-            font-size: 14px;
+            flex: 1 !important;
+            height: 48px !important;
+            justify-content: center !important;
+            font-size: 14px !important;
+            border-radius: 14px !important;
           }
 
-          /* IMAGE — bottom, peeking up like Omijeh */
+          /* Image — just top of head peeking, Omijeh style */
           .hero-mobile-img-wrap {
-            width: 100%;
-            height: 38vw;
-            min-height: 160px;
-            max-height: 260px;
+            width: 88%;
+            margin: 0 auto;
+            height: 32vw;
+            min-height: 130px;
+            max-height: 200px;
+            border-radius: 16px 16px 0 0;
             overflow: hidden;
             position: relative;
             flex-shrink: 0;
+            align-self: flex-start;
           }
           .hero-mobile-img {
             width: 100%;
-            height: 100%;
+            height: 200%;
             object-fit: cover;
-            object-position: center 15%;
+            object-position: center 0%;
             display: block;
           }
-          /* Gradient fade into background at bottom */
+          /* Fade bottom */
           .hero-mobile-img-wrap::after {
             content: "";
             position: absolute;
             bottom: 0; left: 0; right: 0;
-            height: 40%;
+            height: 50%;
             background: linear-gradient(to bottom, transparent, var(--bg));
             pointer-events: none;
           }
         }
-        @media (max-width: 380px) {
-          .hero-mobile-text { padding-top: 88px; padding-left: 18px; padding-right: 18px; }
-          .hero-title { font-size: 32px; }
+        @media (max-width: 390px) {
+          .hero-mobile-text { padding-top: 96px; padding-left: 20px; padding-right: 20px; }
+          .hero-title { font-size: 36px !important; }
         }
+
       `}</style>
 
       <section id="hero" className="hero-section">

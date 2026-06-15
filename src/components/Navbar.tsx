@@ -160,6 +160,15 @@ export default function Navbar() {
         @media (max-width: 767px) {
           .nav-pill-wrap { display: none; }
           .nav-cta { display: none; }
+          /* Mobile: centered floating pill — Omijeh style */
+          .nav-inner {
+            justify-content: space-between;
+            padding: 0 16px;
+            height: 64px;
+          }
+          .nav-logo-text span:last-child {
+            display: none;
+          }
         }
       `}</style>
 
