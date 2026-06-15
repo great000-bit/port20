@@ -214,7 +214,7 @@ export default function Hero() {
           /* Supporting tagline — smaller, below name */
           .hero-mobile-tagline {
             font-family: Geist, Arial, sans-serif;
-            font-size: clamp(22px, 6.5vw, 30px);
+            font-size: clamp(19px, 5.5vw, 27px);
             line-height: 1.18;
             font-weight: 400;
             letter-spacing: -0.025em;
