@@ -250,7 +250,7 @@ export default function Portfolio() {
                 padding:"7px 18px", borderRadius:999, cursor:"pointer",
                 border: filter === f.value ? "1px solid #6f0414" : "1px solid var(--fg-ultra)",
                 background: filter === f.value ? "#6f0414" : "transparent",
-                color: filter === f.value ? "var(--fg)" : "var(--fg-muted)",
+                color: filter === f.value ? "#ffffff" : "var(--fg-muted)",
                 transition:"all 0.2s",
               }}
             >
@@ -281,7 +281,7 @@ export default function Portfolio() {
                 background:"transparent", color:"var(--fg-muted)",
                 transition:"all 0.2s",
               }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor="var(--accent)"; e.currentTarget.style.color="var(--fg)"; }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor="var(--accent)"; e.currentTarget.style.color="#ffffff"; e.currentTarget.style.background="var(--accent)"; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor="var(--border-strong)"; e.currentTarget.style.color="var(--fg-muted)"; }}
             >
               {showAll ? "Show Less" : `View All ${shown.length} Projects`}
