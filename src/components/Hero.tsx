@@ -77,7 +77,7 @@ export default function Hero() {
           font-family: Arial, Helvetica, sans-serif;
           font-size: 16px;
           font-weight: 400;
-          color:"var(--badge-text)";
+          color: var(--badge-text);
           background: transparent;
           border: none;
           padding: 0;
@@ -85,7 +85,7 @@ export default function Hero() {
         .hero-badge-dot {
           width: 9px; height: 9px;
           border-radius: 50%;
-          background:"var(--badge-dot)";
+          background: var(--badge-dot);
           flex-shrink: 0;
           animation: badgePulse 2.5s ease-in-out infinite;
         }
