@@ -199,16 +199,33 @@ export default function Hero() {
           .hero-badge-dot {
             width: 7px !important; height: 7px !important;
           }
-          /* H1 — Omijeh scale */
-          .hero-title {
-            font-size: clamp(40px, 11vw, 54px) !important;
-            line-height: 1.02 !important;
-            letter-spacing: -0.04em !important;
-            margin-bottom: 20px !important;
-            max-width: 100% !important;
-            word-break: keep-all !important;
-            overflow-wrap: break-word !important;
-            hyphens: none !important;
+          /* H1 — dominant name line, Omijeh scale */
+          .hero-mobile-name {
+            font-family: Geist, Arial, sans-serif;
+            font-size: clamp(42px, 12vw, 58px);
+            line-height: 1.01;
+            font-weight: 400;
+            letter-spacing: -0.04em;
+            color: var(--fg);
+            margin: 0 0 16px 0;
+            word-break: keep-all;
+            hyphens: none;
+          }
+          /* Supporting tagline — smaller, below name */
+          .hero-mobile-tagline {
+            font-family: Geist, Arial, sans-serif;
+            font-size: clamp(22px, 6.5vw, 30px);
+            line-height: 1.18;
+            font-weight: 400;
+            letter-spacing: -0.025em;
+            color: var(--fg-muted);
+            margin: 0 0 20px 0;
+            word-break: keep-all;
+            hyphens: none;
+          }
+          .hero-mobile-tagline strong {
+            font-weight: 700;
+            color: var(--fg);
           }
           /* Subtitle */
           .hero-subtitle {
@@ -324,13 +341,13 @@ export default function Hero() {
               <span className="hero-badge-dot"/>
               Available for work
             </div>
-            <h1 className="hero-title">
-              I'm Great Emman-Wori
-              <br/>
-              I build <strong>impactful websites,</strong>
-              <br/>
-              and digital experiences.
+            <h1 className="hero-mobile-name">
+              Hey, I'm Great Emman-Wori.
             </h1>
+            <p className="hero-mobile-tagline">
+              I build <strong>impactful websites,</strong><br/>
+              and digital experiences.
+            </p>
             <p className="hero-subtitle">
               Fullstack Website Developer and Product Designer creating accessible,
               responsive, and conversion-focused experiences for brands and businesses.
