@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Download } from "lucide-react";
 
-/* Character-by-character stagger reveal */
-function TextReveal({ text, className, delay = 0, tag = "span" }: {
-  text: string; className?: string; delay?: number; tag?: "span" | "strong"
+function TextReveal({ text, delay = 0, bold = false }: {
+  text: string; delay?: number; bold?: boolean;
 }) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -13,15 +12,17 @@ function TextReveal({ text, className, delay = 0, tag = "span" }: {
     return () => clearTimeout(t);
   }, [delay]);
 
-  const Tag = tag as keyof JSX.IntrinsicElements;
+  const Tag = bold ? "strong" : "span";
   return (
-    <Tag className={className} aria-label={text}>
+    <Tag aria-label={text}>
       {text.split("").map((char, i) => (
         <span key={i} aria-hidden="true" style={{
           display: "inline-block",
           opacity: visible ? 1 : 0,
           transform: visible ? "translateY(0)" : "translateY(10px)",
-          transition: visible ? `opacity 0.35s ease ${i * 25 + delay}ms, transform 0.35s ease ${i * 25 + delay}ms` : "none",
+          transition: visible
+            ? `opacity 0.35s ease ${i * 25 + delay}ms, transform 0.35s ease ${i * 25 + delay}ms`
+            : "none",
           whiteSpace: char === " " ? "pre" : "normal",
         }}>{char}</span>
       ))}
@@ -30,261 +31,246 @@ function TextReveal({ text, className, delay = 0, tag = "span" }: {
 }
 
 export default function Hero() {
+  const imgRef = useRef<HTMLImageElement>(null);
+
   return (
     <>
       <style>{`
-        /* ══ DESKTOP hero ══ */
+        /* ══ SHARED ══ */
         .hero-section {
-          min-height: 100vh;
-          padding-top: 220px;
-          padding-bottom: 120px;
           background: var(--bg);
           position: relative;
           overflow: hidden;
         }
-        .hero-container {
-          width: min(calc(100% - 48px), 1280px);
-          margin-inline: auto;
-          display: grid;
-          grid-template-columns: 821px 1fr;
-          align-items: center;
-          gap: 48px;
-        }
-        .hero-content { width: 821px; max-width: 821px; }
-
-        /* Badge */
         .hero-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          margin-bottom: 32px;
+          display: inline-flex; align-items: center; gap: 8px;
           font-family: Arial, Helvetica, sans-serif;
-          font-size: 14px;
-          font-weight: 500;
+          font-size: 14px; font-weight: 500;
           color: var(--fg-muted);
-          background: transparent;
-          border: none;
-          padding: 0;
+          padding: 0; border: none; background: transparent;
           letter-spacing: 0.01em;
+          margin-bottom: 32px;
         }
         .hero-badge-dot {
-          width: 9px; height: 9px;
-          border-radius: 50%;
+          width: 9px; height: 9px; border-radius: 50%;
           background: var(--badge-dot);
           flex-shrink: 0;
           animation: badgePulse 2.5s ease-in-out infinite;
         }
         @keyframes badgePulse {
-          0%,100% { opacity: 1; transform: scale(1); }
-          50%      { opacity: 0.5; transform: scale(0.85); }
+          0%,100% { opacity:1; transform:scale(1); }
+          50%      { opacity:0.45; transform:scale(0.8); }
         }
-
-        /* H1 */
         .hero-title {
           font-family: Geist, Arial, sans-serif;
-          font-size: 60px;
-          line-height: 1.06;
           font-weight: 400;
           letter-spacing: -1.5px;
           color: var(--fg);
-          max-width: 821px;
           margin: 0 0 24px 0;
           overflow-wrap: normal;
-          word-break: normal;
+          word-break: keep-all;
           hyphens: none;
         }
         .hero-title strong { font-weight: 700; }
-
-        /* Subtitle */
         .hero-subtitle {
           font-family: Arial, Helvetica, sans-serif;
-          font-size: 16px;
-          line-height: 26px;
           font-weight: 400;
           color: var(--fg-muted);
-          max-width: 600px;
           margin: 0;
+          line-height: 1.65;
         }
-
-        /* Actions */
-        .hero-actions {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          margin-top: 40px;
-          flex-wrap: wrap;
-        }
-        .hero-button {
+        .hero-btn {
           display: inline-flex; align-items: center; gap: 7px;
-          height: 48px; padding: 0 24px; border-radius: 8px;
           font-family: Arial, Helvetica, sans-serif;
-          font-size: 15px; font-weight: 500;
-          text-decoration: none; cursor: pointer;
-          white-space: nowrap;
-          transition: all 0.2s;
+          font-weight: 500; text-decoration: none; cursor: pointer;
+          transition: all 0.2s; white-space: nowrap;
+          border-radius: 10px;
         }
-        .hero-button-primary {
+        .hero-btn-primary {
           background: var(--accent); color: #fff;
           border: 1px solid var(--accent);
         }
-        .hero-button-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
-        .hero-button-secondary {
+        .hero-btn-primary:hover { background: var(--accent-hover); }
+        .hero-btn-secondary {
           background: transparent; color: var(--fg-muted);
           border: 1px solid var(--border-strong);
         }
-        .hero-button-secondary:hover { border-color: var(--accent); color: var(--accent); }
-
-        /* Image */
-        .hero-image-wrap { display: flex; align-items: center; justify-content: center; }
+        .hero-btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
         .hero-image {
-          width: 441px; height: 441px;
-          border-radius: 999px;
-          object-fit: cover; object-position: center top;
+          object-fit: cover; object-position: center 18%;
           display: block;
-          border: 2px solid var(--accent-border);
-          flex-shrink: 0;
-          animation: heroImgIn 0.7s ease both 0.3s;
-        }
-        .hero-text-in { animation: heroTextIn 0.55s ease both; }
-
-        @keyframes heroImgIn {
-          from { opacity:0; transform:scale(0.96); }
-          to   { opacity:1; transform:scale(1); }
-        }
-        @keyframes heroTextIn {
-          from { opacity:0; transform:translateY(16px); }
-          to   { opacity:1; transform:translateY(0); }
         }
         @media (prefers-reduced-motion: reduce) {
-          .hero-image, .hero-text-in, .hero-badge-dot {
-            animation: none !important; opacity:1 !important; transform:none !important;
+          .hero-badge-dot { animation: none !important; }
+        }
+
+        /* ══ DESKTOP / TABLET ≥ 641px ══ */
+        @media (min-width: 641px) {
+          .hero-section {
+            min-height: 100vh;
+            padding-top: 220px;
+            padding-bottom: 120px;
+            display: block;
+          }
+          .hero-desktop-wrap {
+            width: min(calc(100% - 48px), 1280px);
+            margin-inline: auto;
+            display: grid;
+            grid-template-columns: 821px 1fr;
+            align-items: center;
+            gap: 48px;
+          }
+          .hero-desktop-content { width: 821px; max-width: 821px; }
+          .hero-title { font-size: 60px; line-height: 1.06; max-width: 821px; }
+          .hero-subtitle { font-size: 16px; line-height: 26px; max-width: 600px; }
+          .hero-badge { margin-bottom: 32px; }
+          .hero-desktop-actions {
+            display: flex; align-items: center;
+            gap: 12px; margin-top: 40px; flex-wrap: wrap;
+          }
+          .hero-btn { height: 48px; padding: 0 24px; font-size: 15px; }
+          .hero-desktop-img-wrap { display: flex; align-items: center; justify-content: center; }
+          .hero-desktop-img {
+            width: 441px; height: 441px;
+            border-radius: 999px;
+            border: 2px solid var(--accent-border);
+            animation: heroImgIn 0.7s ease both 0.3s;
+          }
+          .hero-mobile-layout { display: none; }
+          @keyframes heroImgIn {
+            from { opacity:0; transform:scale(0.96); }
+            to   { opacity:1; transform:scale(1); }
           }
         }
-
-        /* Laptop */
-        @media (max-width: 1200px) {
-          .hero-container { grid-template-columns: minmax(0,1fr) 360px; gap:40px; }
-          .hero-content   { width:100%; max-width:760px; }
-          .hero-title     { font-size:52px; max-width:760px; }
-          .hero-image     { width:360px; height:360px; }
+        @media (min-width: 641px) and (max-width: 1200px) {
+          .hero-desktop-wrap { grid-template-columns: minmax(0,1fr) 360px; gap:40px; }
+          .hero-desktop-content { width:100%; max-width:680px; }
+          .hero-title { font-size:46px; }
+          .hero-desktop-img { width:340px; height:340px; }
+        }
+        @media (min-width: 641px) and (max-width: 980px) {
+          .hero-section { padding-top:140px; padding-bottom:80px; }
+          .hero-desktop-wrap { grid-template-columns:1fr; gap:40px; }
+          .hero-desktop-content { width:100%; max-width:100%; }
+          .hero-title { font-size:40px; }
+          .hero-desktop-img { width:min(55vw,300px); height:min(55vw,300px); }
+          .hero-desktop-img-wrap { order:-1; }
         }
 
-        /* Tablet */
-        @media (max-width: 980px) {
-          .hero-section   { padding-top:150px; padding-bottom:80px; }
-          .hero-container { grid-template-columns:1fr; gap:40px; }
-          .hero-content   { width:100%; max-width:680px; }
-          .hero-title     { font-size:44px; letter-spacing:-1.2px; max-width:680px; }
-          .hero-image     { width:min(60vw,320px); height:min(60vw,320px); }
-          .hero-image-wrap { order:-1; }
-        }
-
-        /* ══ MOBILE — Omijeh structure ══ */
+        /* ══ MOBILE ≤ 640px — Omijeh exact structure ══ */
         @media (max-width: 640px) {
           .hero-section {
             min-height: 100svh;
+            display: flex;
+            flex-direction: column;
             padding: 0;
+          }
+          .hero-desktop-wrap  { display: none; }
+          .hero-mobile-layout {
             display: flex;
             flex-direction: column;
-            background: var(--bg);
+            flex: 1;
+            width: 100%;
           }
 
-          /* Image at top — full bleed, not a circle */
-          .hero-container {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            gap: 0;
+          /* TEXT BLOCK — top, full padding */
+          .hero-mobile-text {
+            padding: 100px 22px 28px;
+            flex: 1;
           }
-          .hero-image-wrap {
-            order: -1;
-            width: 100%;
-            flex-shrink: 0;
-          }
-          .hero-image {
-            width: 100%;
-            height: 52vw;
-            min-height: 200px;
-            border-radius: 0;
-            border: none;
-            border-bottom: 1px solid var(--border-soft);
-            object-position: center 18%;
-            animation: none;
-            opacity: 1;
-            transform: none;
-          }
-
-          /* Text block */
-          .hero-content {
-            width: 100%;
-            max-width: 100%;
-            padding: 28px 20px 40px;
-            order: 1;
-          }
-
-          /* Badge */
           .hero-badge {
-            font-size: 13px;
-            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 14px;
+            border-radius: 999px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--fg-muted);
+            margin-bottom: 28px;
           }
           .hero-badge-dot {
             width: 8px; height: 8px;
           }
-
-          /* Headline — no awkward breaks */
           .hero-title {
-            font-size: clamp(30px, 8.5vw, 40px);
-            line-height: 1.1;
-            letter-spacing: -0.03em;
+            font-size: clamp(36px, 10.5vw, 52px);
+            line-height: 1.04;
+            letter-spacing: -0.04em;
+            margin-bottom: 18px;
             max-width: 100%;
-            margin-bottom: 16px;
-            word-break: keep-all;
-            overflow-wrap: break-word;
-            hyphens: none;
           }
-
-          /* Subtitle */
           .hero-subtitle {
-            font-size: 14px;
+            font-size: 15px;
             line-height: 1.65;
+            color: var(--fg-muted);
             max-width: 100%;
           }
 
-          /* Buttons — stack primary full width, secondaries row */
-          .hero-actions {
-            margin-top: 24px;
+          /* BUTTONS */
+          .hero-mobile-actions {
+            display: flex;
             flex-direction: column;
-            align-items: stretch;
             gap: 10px;
+            margin-top: 28px;
           }
-          .hero-button-primary {
-            height: 50px;
+          .hero-btn-primary {
+            height: 52px;
+            width: 100%;
             justify-content: center;
             font-size: 15px;
             font-weight: 600;
-            border-radius: 10px;
+            border-radius: 12px;
           }
-          .hero-mobile-secondary {
+          .hero-mobile-row {
             display: flex;
             gap: 10px;
           }
-          .hero-button-secondary {
+          .hero-btn-secondary {
             flex: 1;
             height: 46px;
             justify-content: center;
             font-size: 14px;
-            border-radius: 10px;
+          }
+
+          /* IMAGE — bottom, peeking up like Omijeh */
+          .hero-mobile-img-wrap {
+            width: 100%;
+            height: 38vw;
+            min-height: 160px;
+            max-height: 260px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+          }
+          .hero-mobile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 15%;
+            display: block;
+          }
+          /* Gradient fade into background at bottom */
+          .hero-mobile-img-wrap::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 40%;
+            background: linear-gradient(to bottom, transparent, var(--bg));
+            pointer-events: none;
           }
         }
-
         @media (max-width: 380px) {
-          .hero-title { font-size: 28px; }
-          .hero-content { padding: 22px 16px 36px; }
+          .hero-mobile-text { padding-top: 88px; padding-left: 18px; padding-right: 18px; }
+          .hero-title { font-size: 32px; }
         }
       `}</style>
 
       <section id="hero" className="hero-section">
-        {/* Subtle red glow — desktop only */}
+        {/* Subtle glow — desktop */}
         <div aria-hidden="true" style={{
           position:"absolute", top:"10%", right:"-4%",
           width:"38vw", height:"60vh",
@@ -292,75 +278,90 @@ export default function Hero() {
           pointerEvents:"none",
         }}/>
 
-        <div className="hero-container">
-          {/* LEFT / BOTTOM — text */}
-          <div className="hero-content hero-text-in">
+        {/* ══ DESKTOP layout ══ */}
+        <div className="hero-desktop-wrap">
+          <div className="hero-desktop-content hero-text-in" style={{animation:"heroTextIn 0.55s ease both"}}>
             <div className="hero-badge">
               <span className="hero-badge-dot"/>
               Available for work
             </div>
-
             <h1 className="hero-title">
               <TextReveal text="I'm Great Emman-Wori" delay={80}/>
               <br/>
               <TextReveal text="I build " delay={600}/>
-              <strong><TextReveal text="impactful websites," delay={780}/></strong>
+              <TextReveal text="impactful websites," delay={780} bold/>
               <br/>
               <TextReveal text="and digital experiences." delay={980}/>
             </h1>
-
             <p className="hero-subtitle">
               Fullstack Website Developer and Product Designer creating accessible,
               responsive, and conversion-focused experiences for brands and businesses.
             </p>
-
-            {/* Desktop buttons */}
-            <div className="hero-actions hero-desktop-actions">
-              <a href="#portfolio" className="hero-button hero-button-primary">
-                View Projects <ArrowRight size={14}/>
-              </a>
-              <a href="#contact" className="hero-button hero-button-secondary">Contact Me</a>
-              <a href="/Great-Emman-Wori-CV.pdf" download className="hero-button hero-button-secondary">
+            <div className="hero-desktop-actions">
+              <a href="#portfolio" className="hero-btn hero-btn-primary">View Projects <ArrowRight size={14}/></a>
+              <a href="#contact"   className="hero-btn hero-btn-secondary">Contact Me</a>
+              <a href="/Great-Emman-Wori-CV.pdf" download className="hero-btn hero-btn-secondary">
                 <Download size={13}/> Download CV
               </a>
             </div>
+          </div>
+          <div className="hero-desktop-img-wrap">
+            <img ref={imgRef} className="hero-image hero-desktop-img"
+              src="/great-emman-wori-fullstack-developer.png"
+              alt="Great Emman-Wori, Fullstack Website Developer and Product Designer"
+              width={441} height={441} loading="eager" fetchPriority="high"/>
+          </div>
+        </div>
 
-            {/* Mobile buttons — primary full width + secondaries in row */}
-            <div className="hero-actions hero-mobile-actions">
-              <a href="#portfolio" className="hero-button hero-button-primary">
+        {/* ══ MOBILE layout — Omijeh structure ══ */}
+        <div className="hero-mobile-layout">
+          {/* Text first */}
+          <div className="hero-mobile-text">
+            <div className="hero-badge">
+              <span className="hero-badge-dot"/>
+              Available for work
+            </div>
+            <h1 className="hero-title">
+              I'm Great Emman-Wori
+              <br/>
+              I build <strong>impactful websites,</strong>
+              <br/>
+              and digital experiences.
+            </h1>
+            <p className="hero-subtitle">
+              Fullstack Website Developer and Product Designer creating accessible,
+              responsive, and conversion-focused experiences for brands and businesses.
+            </p>
+            <div className="hero-mobile-actions">
+              <a href="#portfolio" className="hero-btn hero-btn-primary">
                 View Projects <ArrowRight size={14}/>
               </a>
-              <div className="hero-mobile-secondary">
-                <a href="#contact" className="hero-button hero-button-secondary">Contact Me</a>
-                <a href="/Great-Emman-Wori-CV.pdf" download className="hero-button hero-button-secondary">
+              <div className="hero-mobile-row">
+                <a href="#contact" className="hero-btn hero-btn-secondary">Contact Me</a>
+                <a href="/Great-Emman-Wori-CV.pdf" download className="hero-btn hero-btn-secondary">
                   <Download size={13}/> CV
                 </a>
               </div>
             </div>
           </div>
 
-          {/* RIGHT / TOP — image */}
-          <div className="hero-image-wrap">
+          {/* Image peeking at bottom — exactly like Omijeh */}
+          <div className="hero-mobile-img-wrap">
             <img
-              className="hero-image"
+              className="hero-mobile-img"
               src="/great-emman-wori-fullstack-developer.png"
-              alt="Great Emman-Wori, Fullstack Website Developer and Product Designer"
-              width={441} height={441}
+              alt="Great Emman-Wori"
+              width={800} height={800}
               loading="eager"
-              fetchPriority="high"
             />
           </div>
         </div>
       </section>
 
       <style>{`
-        /* Hide mobile actions on desktop, desktop actions on mobile */
-        .hero-mobile-actions { display: none; }
-        .hero-desktop-actions { display: flex; }
-
-        @media (max-width: 640px) {
-          .hero-desktop-actions { display: none !important; }
-          .hero-mobile-actions  { display: flex !important; }
+        @keyframes heroTextIn {
+          from { opacity:0; transform:translateY(16px); }
+          to   { opacity:1; transform:translateY(0); }
         }
       `}</style>
     </>
