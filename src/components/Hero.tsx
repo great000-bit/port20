@@ -329,7 +329,7 @@ export default function Hero() {
             <img ref={imgRef} className="hero-image hero-desktop-img"
               src="/great-emman-wori-fullstack-developer.png"
               alt="Great Emman-Wori, Fullstack Website Developer and Product Designer"
-              width={441} height={441} loading="eager" fetchPriority="high"/>
+              width={441} height={441} loading="eager"/>
           </div>
         </div>
 

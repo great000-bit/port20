@@ -1,4 +1,5 @@
 import { Suspense, useEffect } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,12 +29,13 @@ const App = () => {
   }, []);
 
   return (
+    <HelmetProvider>
     <ThemeProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
           <Suspense fallback={
             <div role="status" aria-label="Loading content" style={{
               position:"fixed",inset:0,background:"#000",
@@ -52,6 +54,7 @@ const App = () => {
       </TooltipProvider>
     </QueryClientProvider>
     </ThemeProvider>
+    </HelmetProvider>
   );
 };
 
