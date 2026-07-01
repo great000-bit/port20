@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
-import Navbar      from "../components/Navbar";
-import Hero        from "../components/Hero";
-import TechStack   from "../components/TechStack";
-import About       from "../components/About";
-import Services    from "../components/Services";
-import Portfolio   from "../components/Portfolio";
-import Experience  from "../components/Experience";
-import CTABanner   from "../components/CTABanner";
-import Contact     from "../components/Contact";
-import Footer      from "../components/Footer";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import TechStack from "../components/TechStack";
+import About from "../components/About";
+import Services from "../components/Services";
+import Portfolio from "../components/Portfolio";
+import Experience from "../components/Experience";
+import CTABanner from "../components/CTABanner";
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 
 /* ── JSON-LD Schemas ── */
@@ -17,7 +17,7 @@ const PERSON = {
   "@type": "Person",
   "@id": "https://port20-chi.vercel.app/#person",
   "name": "Great Emman-Wori",
-  "alternateName": ["Great Emman Wori","Emman-Wori","Creative Emman","greatemmanwori"],
+  "alternateName": ["Great Emman Wori", "Emman-Wori", "Creative Emman", "greatemmanwori"],
   "url": "https://port20-chi.vercel.app",
   "image": {
     "@type": "ImageObject",
@@ -25,7 +25,7 @@ const PERSON = {
     "width": 800,
     "height": 800
   },
-  "jobTitle": ["Fullstack Website Developer","Product Designer","UI/UX Designer","Founder"],
+  "jobTitle": ["Fullstack Website Developer", "Product Designer", "UI/UX Designer", "Founder"],
   "description": "Great Emman-Wori is a Fullstack Website Developer, Product Designer, and UI/UX Designer based in Port Harcourt, Nigeria. Founder of Creative Emman — a premium digital design and branding studio. Building modern websites, web applications, and digital brand experiences for global clients.",
   "address": {
     "@type": "PostalAddress",
@@ -38,10 +38,10 @@ const PERSON = {
   "gender": "Male",
   "nationality": "Nigerian",
   "knowsAbout": [
-    "Fullstack Website Development","Frontend Development","Backend Development",
-    "React","TypeScript","Laravel","WordPress","Figma","UI/UX Design",
-    "Product Design","Responsive Web Design","SEO","Web Performance",
-    "Elementor","Divi","Tailwind CSS","JavaScript","PHP"
+    "Fullstack Website Development", "Frontend Development", "Backend Development",
+    "React", "TypeScript", "Laravel", "WordPress", "Figma", "UI/UX Design",
+    "Product Design", "Responsive Web Design", "SEO", "Web Performance",
+    "Elementor", "Divi", "Tailwind CSS", "JavaScript", "PHP"
   ],
   "knowsLanguage": ["English"],
   "hasOccupation": {
@@ -125,13 +125,13 @@ const PROJECTS_SCHEMA = {
   "name": "Selected Projects by Great Emman-Wori",
   "description": "Portfolio of fullstack website, product design, and UI/UX projects by Great Emman-Wori — Founder of Creative Emman.",
   "itemListElement": [
-    { "@type":"CreativeWork","position":1,"name":"The Light Mission NGO Website","url":"https://www.thelightmission.com/","creator":{"@id":"https://port20-chi.vercel.app/#person"},"keywords":"Fullstack Website, Laravel, React, NGO" },
-    { "@type":"CreativeWork","position":2,"name":"Timini Egbuson Actor Portfolio","url":"https://timini-egbuson-website-star.vercel.app/","creator":{"@id":"https://port20-chi.vercel.app/#person"},"keywords":"React Portfolio, Nollywood, Frontend Development" },
-    { "@type":"CreativeWork","position":3,"name":"Funke Akindele Official Website","url":"https://funke-akindele-unveiled.vercel.app/","creator":{"@id":"https://port20-chi.vercel.app/#person"},"keywords":"Celebrity Website, React, Web Development" },
-    { "@type":"CreativeWork","position":4,"name":"Bourdillon Omijeh Foundation","url":"https://www.bourdillonomijehfoundation.com/","creator":{"@id":"https://port20-chi.vercel.app/#person"},"keywords":"Nonprofit Website, UI/UX Design, WordPress" },
-    { "@type":"CreativeWork","position":5,"name":"YouthUp Global EmpowerAfrika","url":"https://youthupglobal.com/empowerafrika/","creator":{"@id":"https://port20-chi.vercel.app/#person"},"keywords":"WordPress, Multilingual Website, International NGO" },
-    { "@type":"CreativeWork","position":6,"name":"Bellostylez Fashion Blog Canada","url":"https://bellostylez.ca/blog/","creator":{"@id":"https://port20-chi.vercel.app/#person"},"keywords":"WordPress Blog, Fashion, Canada, SEO" },
-    { "@type":"CreativeWork","position":7,"name":"WaContacts WhatsApp Business Directory","url":"https://wacontacts.com/","creator":{"@id":"https://port20-chi.vercel.app/#person"},"keywords":"Product Design, Business Platform, WhatsApp" }
+    { "@type": "CreativeWork", "position": 1, "name": "The Light Mission NGO Website", "url": "https://www.thelightmission.com/", "creator": { "@id": "https://port20-chi.vercel.app/#person" }, "keywords": "Fullstack Website, Laravel, React, NGO" },
+    { "@type": "CreativeWork", "position": 2, "name": "Timini Egbuson Actor Portfolio", "url": "https://timini-egbuson-website-star.vercel.app/", "creator": { "@id": "https://port20-chi.vercel.app/#person" }, "keywords": "React Portfolio, Nollywood, Frontend Development" },
+    { "@type": "CreativeWork", "position": 3, "name": "Funke Akindele Official Website", "url": "https://funke-akindele-unveiled.vercel.app/", "creator": { "@id": "https://port20-chi.vercel.app/#person" }, "keywords": "Celebrity Website, React, Web Development" },
+    { "@type": "CreativeWork", "position": 4, "name": "Bourdillon Omijeh Foundation", "url": "https://www.bourdillonomijehfoundation.com/", "creator": { "@id": "https://port20-chi.vercel.app/#person" }, "keywords": "Nonprofit Website, UI/UX Design, WordPress" },
+    { "@type": "CreativeWork", "position": 5, "name": "YouthUp Global EmpowerAfrika", "url": "https://youthupglobal.com/empowerafrika/", "creator": { "@id": "https://port20-chi.vercel.app/#person" }, "keywords": "WordPress, Multilingual Website, International NGO" },
+    { "@type": "CreativeWork", "position": 6, "name": "Bellostylez Fashion Blog Canada", "url": "https://bellostylez.ca/blog/", "creator": { "@id": "https://port20-chi.vercel.app/#person" }, "keywords": "WordPress Blog, Fashion, Canada, SEO" },
+    { "@type": "CreativeWork", "position": 7, "name": "WaContacts WhatsApp Business Directory", "url": "https://wacontacts.com/", "creator": { "@id": "https://port20-chi.vercel.app/#person" }, "keywords": "Product Design, Business Platform, WhatsApp" }
   ]
 };
 export default function Index() {
