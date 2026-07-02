@@ -21,7 +21,17 @@ type Role = typeof ROLES[number];
 
 export default function Contact() {
   const formspreeId = String((import.meta as Record<string, unknown>).env?.VITE_FORMSPREE_ID ?? "");
-  const [state, handleSubmit] = useForm(formspreeId);
+  if (!formspreeId) {
+    // Prevents the whole page from going blank if VITE_FORMSPREE_ID isn't set at build
+    // time (e.g. missing from the deployment platform's env config). @formspree/react's
+    // useForm() throws synchronously without a key/hashid, which unmounts the entire tree.
+    console.warn(
+      "Contact form: VITE_FORMSPREE_ID is not set. The contact form will render in a " +
+        "disabled state. Set VITE_FORMSPREE_ID in your local .env and in your deployment " +
+        "platform's environment variables, then rebuild."
+    );
+  }
+  const [state, handleSubmit] = useForm(formspreeId || "placeholder");
   const [role, setRole] = useState<Role | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
 
@@ -157,7 +167,16 @@ export default function Contact() {
 
           {/* RIGHT — role selector + form */}
           <div data-aos="fade-up" data-aos-delay="140">
-            {state.succeeded ? (
+            {!formspreeId ? (
+              <div style={{ textAlign:"center", padding:"48px 0" }}>
+                <p style={{ fontFamily:"Geist,Arial,sans-serif", fontSize:16, color:"var(--fg)", marginBottom:8 }}>
+                  The contact form is temporarily unavailable.
+                </p>
+                <p style={{ fontFamily:"Arial,sans-serif", fontSize:14, color:"var(--fg-faint)" }}>
+                  Please reach out directly using one of the links on the left in the meantime.
+                </p>
+              </div>
+            ) : state.succeeded ? (
               <div style={{ textAlign:"center", padding:"48px 0" }}>
                 <CheckCircle size={40} style={{ color:"var(--accent)", margin:"0 auto 16px", display:"block" }}/>
                 <p style={{ fontFamily:"Geist,Arial,sans-serif", fontSize:18, color:"var(--fg)", marginBottom:8 }}>Message sent.</p>
