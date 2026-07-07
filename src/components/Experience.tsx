@@ -1,5 +1,19 @@
 const EXP = [
   {
+    role: "Web & Email Infrastructure Specialist",
+    org: "Dr. Alexander Oburoh",
+    loc: "Remote",
+    period: "Jul 2026",
+    bullets: [
+      "Configured professional domain email for alexanderoburoh.com using Truehost Workplace Email and Cloudflare DNS.",
+      "Set up and verified MX, SPF, DMARC, and DKIM records while preserving the existing Vercel website deployment.",
+      "Created and tested the official business mailbox ao@alexanderoburoh.com for sending and receiving.",
+      "Diagnosed Gmail spam delivery issues using Gmail \"Show original\" headers and authentication results.",
+      "Coordinated with Truehost support to resolve DKIM signing and email deliverability concerns.",
+    ],
+    tags: ["Cloudflare","DNS","Email Hosting","Truehost","Vercel","SPF","DKIM","DMARC","Deliverability"],
+  },
+  {
     role: "UI/UX Designer",
     org: "Bourdillon Omijeh Foundation",
     loc: "Port Harcourt, Nigeria",
