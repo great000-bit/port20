@@ -38,26 +38,27 @@ export default function Footer() {
     <>
       <style>{`
         .site-footer {
-          background: #000;
-          border-top: 1px solid rgba(248,247,244,0.12);
-          color: #F8F7F4;
+          background: var(--bg);
+          border-top: 1px solid var(--border);
+          color: var(--fg);
           overflow: hidden;
+          transition: background-color .35s ease,color .35s ease,border-color .35s ease;
         }
         .footer-directory {
           display: grid;
           grid-template-columns: repeat(4,minmax(0,1fr));
-          border-bottom: 1px solid rgba(248,247,244,0.13);
+          border-bottom: 1px solid var(--border-strong);
         }
         .footer-column {
           min-height: clamp(220px,21vw,310px);
           padding: clamp(32px,3.4vw,52px) clamp(24px,3.4vw,52px);
         }
         .footer-column + .footer-column {
-          border-left: 1px solid rgba(248,247,244,0.13);
+          border-left: 1px solid var(--border-strong);
         }
         .footer-heading {
           margin: 0 0 28px;
-          color: #F8F7F4;
+          color: var(--fg);
           font: 700 11px/1.2 Arial,sans-serif;
           letter-spacing: 0.09em;
           text-transform: uppercase;
@@ -73,14 +74,14 @@ export default function Footer() {
         }
         .footer-directory-link,
         .footer-directory-text {
-          color: rgba(248,247,244,0.72);
+          color: var(--fg-muted);
           font: 400 clamp(14px,1.15vw,17px)/1.45 Arial,sans-serif;
         }
         .footer-directory-link {
           text-decoration: none;
           transition: color .2s ease;
         }
-        .footer-directory-link:hover { color: #F8F7F4; }
+        .footer-directory-link:hover { color: var(--fg); }
         .footer-brand-stage {
           position: relative;
           display: flex;
@@ -97,9 +98,10 @@ export default function Footer() {
           width: min(54vw,760px);
           aspect-ratio: 1.4;
           content: "";
-          background: radial-gradient(ellipse,rgba(140,0,18,0.28) 0%,rgba(90,0,12,0.12) 42%,transparent 72%);
+          background: radial-gradient(ellipse,var(--accent-soft) 0%,transparent 72%);
           filter: blur(24px);
           pointer-events: none;
+          transition: background .35s ease;
         }
         .footer-name {
           display: flex;
@@ -108,7 +110,7 @@ export default function Footer() {
           gap: clamp(12px,1.25vw,22px);
           width: 100%;
           margin: 0;
-          color: #F8F7F4;
+          color: var(--fg);
           font-family: "Clash Display",Arial,sans-serif;
           font-size: clamp(4.25rem,8.2vw,7.5rem);
           font-weight: 700;
@@ -123,27 +125,38 @@ export default function Footer() {
           gap: 24px;
           min-height: 62px;
           padding: 18px clamp(24px,3vw,48px);
-          border-top: 1px solid rgba(248,247,244,0.13);
+          border-top: 1px solid var(--border-strong);
         }
         .footer-copyright,
         .footer-credit {
           margin: 0;
-          color: rgba(248,247,244,0.38);
+          color: var(--fg-faint);
           font: 400 10px/1.4 Arial,sans-serif;
           letter-spacing: .08em;
           text-transform: uppercase;
+        }
+        .footer-directory,
+        .footer-column,
+        .footer-heading,
+        .footer-directory-link,
+        .footer-directory-text,
+        .footer-name,
+        .footer-utility,
+        .footer-copyright,
+        .footer-credit {
+          transition: color .35s ease,border-color .35s ease;
         }
         @media (max-width: 860px) {
           .footer-directory { grid-template-columns: repeat(2,minmax(0,1fr)); }
           .footer-column { min-height: 210px; }
           .footer-column:nth-child(3) { border-left: 0; }
-          .footer-column:nth-child(n+3) { border-top: 1px solid rgba(248,247,244,0.13); }
+          .footer-column:nth-child(n+3) { border-top: 1px solid var(--border-strong); }
           .footer-name { font-size: clamp(3.3rem,10.2vw,5.5rem); }
         }
         @media (max-width: 559px) {
           .footer-directory { grid-template-columns: 1fr; }
           .footer-column { min-height: auto; padding-block: 30px; }
-          .footer-column + .footer-column { border-left: 0; border-top: 1px solid rgba(248,247,244,0.13); }
+          .footer-column + .footer-column { border-left: 0; border-top: 1px solid var(--border-strong); }
           .footer-heading { margin-bottom: 20px; }
           .footer-brand-stage {
             min-height: 300px;
