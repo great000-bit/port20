@@ -73,8 +73,8 @@ export default function Navbar() {
           line-height: 1; white-space: nowrap;
         }
         .nav-logo-text {
-          font-family: Godber,Geist,Arial,sans-serif;
-          font-size: 15px; font-weight: 400;
+          font-family: "Clash Display",Geist,Arial,sans-serif;
+          font-size: 15px; font-weight: 600;
           letter-spacing: -0.02em;
           color: var(--fg);
         }
