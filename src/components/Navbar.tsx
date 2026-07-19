@@ -68,12 +68,17 @@ export default function Navbar() {
           border: 1px solid rgba(111,4,20,0.45);
           flex-shrink: 0;
         }
+        .nav-logo-name {
+          display: inline-flex; align-items: center; gap: 5px;
+          line-height: 1; white-space: nowrap;
+        }
         .nav-logo-text {
-          font-family: Geist,Arial,sans-serif;
-          font-size: 15px; font-weight: 600;
+          font-family: Godber,Geist,Arial,sans-serif;
+          font-size: 15px; font-weight: 400;
           letter-spacing: -0.02em;
           color: var(--fg);
         }
+        .nav-logo-text-accent { color: var(--accent); }
         /* Pill nav — Omijeh style */
         .nav-pill {
           display: flex; align-items: center; gap: 2px;
@@ -248,8 +253,10 @@ export default function Navbar() {
           <a href="#hero" onClick={close} className="nav-logo">
             <img src="/great-emman-wori-fullstack-developer.png" alt="Great Emman-Wori"
               className="nav-logo-img" loading="eager"/>
-            <span className="nav-logo-text" style={{color:"var(--accent)"}}>Great</span>
-            <span className="nav-logo-text" style={{marginLeft:3}}>Emman-Wori</span>
+            <span className="nav-logo-name">
+              <span className="nav-logo-text nav-logo-text-accent">Great</span>
+              <span className="nav-logo-text">Emman-Wori</span>
+            </span>
           </a>
 
           {/* Desktop pill nav */}
