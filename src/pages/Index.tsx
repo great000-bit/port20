@@ -34,7 +34,7 @@ const PERSON = {
     "addressCountry": "NG"
   },
   "email": "greatemmanwori@gmail.com",
-  "telephone": "+234-810-388-7554",
+  "telephone": "+2347037845433",
   "gender": "Male",
   "nationality": "Nigerian",
   "knowsAbout": [

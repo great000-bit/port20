@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Linkedin, Instagram, Send, CheckCircle, Phone } from "lucide-react";
+import { Mail, Linkedin, Instagram, Send, CheckCircle, Phone, Smartphone } from "lucide-react";
 import { useForm } from "@formspree/react";
 
 const TikTok = ({ size = 16 }: { size?: number }) => (
@@ -9,11 +9,12 @@ const TikTok = ({ size = 16 }: { size?: number }) => (
 );
 
 const SOCIALS = [
-  { label:"Email",     icon:<Mail size={15}/>,      href:"mailto:greatemmanwori@gmail.com",               sub:"greatemmanwori@gmail.com" },
-  { label:"WhatsApp",  icon:<Phone size={15}/>,     href:"https://wa.me/2348103887554",                   sub:"+234 810 388 7554" },
-  { label:"LinkedIn",  icon:<Linkedin size={15}/>,  href:"https://www.linkedin.com/in/great-emman-wori",  sub:"great-emman-wori" },
-  { label:"Instagram", icon:<Instagram size={15}/>, href:"https://msng.link/o?creative_emman=ig",         sub:"@creative_emman" },
-  { label:"TikTok",    icon:<TikTok />,             href:"https://www.tiktok.com/@great_emman_wori",      sub:"@great_emman_wori" },
+  { label:"Email",     icon:<Mail size={15}/>,       href:"mailto:greatemmanwori@gmail.com",               sub:"greatemmanwori@gmail.com", ariaLabel:"Email Great Emman-wori" },
+  { label:"WhatsApp",  icon:<Phone size={15}/>,      href:"https://wa.me/2348103887554",                   sub:"+234 810 388 7554",        ariaLabel:"Message Great Emman-wori on WhatsApp" },
+  { label:"Phone",     icon:<Smartphone size={15}/>, href:"tel:+2347037845433",                            sub:"+234 703 784 5433",        ariaLabel:"Call Great Emman-wori" },
+  { label:"LinkedIn",  icon:<Linkedin size={15}/>,   href:"https://www.linkedin.com/in/great-emman-wori",  sub:"great-emman-wori",         ariaLabel:"Connect with Great Emman-wori on LinkedIn" },
+  { label:"Instagram", icon:<Instagram size={15}/>,  href:"https://msng.link/o?creative_emman=ig",         sub:"@creative_emman",          ariaLabel:"Follow Great Emman-wori on Instagram" },
+  { label:"TikTok",    icon:<TikTok />,              href:"https://www.tiktok.com/@great_emman_wori",      sub:"@great_emman_wori",        ariaLabel:"Follow Great Emman-wori on TikTok" },
 ];
 
 const ROLES = ["client","collaborator","other"] as const;
@@ -117,6 +118,7 @@ export default function Contact() {
         .social-handle {
           font-family:Arial,sans-serif; font-size:12px;
           color:"var(--fg-faint)"; margin-left:auto;
+          min-width:0; overflow-wrap:anywhere; text-align:right;
         }
         /* Form */
         .form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
@@ -156,7 +158,14 @@ export default function Contact() {
           <div data-aos="fade-up" data-aos-delay="80">
             <div style={{ borderTop:"1px solid var(--border)", paddingTop:0 }}>
               {SOCIALS.map(s => (
-                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="social-row">
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.ariaLabel}
+                  target={s.href.startsWith("http") ? "_blank" : undefined}
+                  rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="social-row"
+                >
                   <div className="social-icon">{s.icon}</div>
                   <span className="social-name">{s.label}</span>
                   <span className="social-handle">{s.sub}</span>
