@@ -15,6 +15,14 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
+const CvRedirect = () => {
+  useEffect(() => {
+    window.location.replace("/documents/great-emman-wori-cv.pdf");
+  }, []);
+
+  return null;
+};
+
 const App = () => {
   useEffect(() => {
     AOS.init({
@@ -46,6 +54,7 @@ const App = () => {
               }>
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path="/cv" element={<CvRedirect />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </Suspense>

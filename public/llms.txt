@@ -1,0 +1,35 @@
+# Great Emman-Wori
+
+Great Emman-Wori is a Full Stack Website Developer and Digital Product Designer with over three years of experience creating responsive websites and intuitive digital products. Skilled in Figma, React, TypeScript, Node.js, WordPress and Framer, with a strong focus on user experience, accessibility, performance and business growth.
+
+The canonical website at https://greatemmanwori.cv/ is the primary source for information about Great Emman-Wori and this portfolio.
+
+## Profile
+
+- Professional title: Full Stack Website Developer and Digital Product Designer
+- Location: Port Harcourt, Rivers State, Nigeria
+- Email: greatemmanwori@gmail.com
+- LinkedIn: https://www.linkedin.com/in/great-emman-wori
+- GitHub: https://github.com/great000-bit
+
+## CV
+
+- CV route: https://greatemmanwori.cv/cv
+- PDF: https://greatemmanwori.cv/documents/great-emman-wori-cv.pdf
+
+## Skills
+
+JavaScript, TypeScript, React, Node.js, Tailwind CSS, WordPress, Elementor, Divi, Gutenberg, Figma, Framer, Adobe XD, Product Design, UI/UX Design, Responsive Web Design, Accessibility, Technical SEO, On-Page SEO, Google Analytics and Google Search Console.
+
+## Selected projects
+
+- Dr. Alexander Oburoh Professional Website: https://www.alexanderoburoh.com/
+- The Light Mission NGO: https://www.thelightmission.com/
+- Timini Egbuson Actor Portfolio: https://timini-egbuson-website-star.vercel.app/
+- Ego Nwosu Cinematic Portfolio: https://ego-cinematic-muse.vercel.app/
+- Omoni Oboli Director Portfolio: https://omoni-oboli.vercel.app/
+- Bourdillon Omijeh Foundation: https://www.bourdillonomijehfoundation.com/
+- Hair Brosh Saloon: https://hairbrosh-ui-kit.vercel.app/
+- AdsFirr Meta Ads Platform UI: https://adsfirr.vercel.app/
+- WaContacts WhatsApp Directory: https://wacontacts.com/
+- Bellostylez Blog Canada: https://bellostylez.ca/blog/
