@@ -258,7 +258,7 @@ export default function About() {
                 rel="noopener noreferrer"
                 className="about-studio-link"
               >
-                Creative Emman Studio →
+                Creative Emman Limited →
               </a>
             </div>
 
