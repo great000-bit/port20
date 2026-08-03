@@ -53,20 +53,20 @@ const PERSON = {
   "worksFor": {
     "@type": "Organization",
     "name": "Creative Emman Limited",
-    "url": "https://emman-engineered.vercel.app/",
+    "url": "https://www.creativeemmanlimited.com/",
     "description": "Premium digital design and branding studio founded by Great Emman-Wori"
   },
   "founder": {
     "@type": "Organization",
     "name": "Creative Emman Limited",
-    "url": "https://emman-engineered.vercel.app/"
+    "url": "https://www.creativeemmanlimited.com/"
   },
   "sameAs": [
     "https://www.linkedin.com/in/great-emman-wori",
     "https://github.com/great000-bit",
     "https://msng.link/o?creative_emman=ig",
     "https://www.tiktok.com/@great_emman_wori",
-    "https://emman-engineered.vercel.app/"
+    "https://www.creativeemmanlimited.com/"
   ]
 };
 
