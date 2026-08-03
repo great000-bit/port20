@@ -1,30 +1,6 @@
-# Great Emman-Wori Portfolio
-# https://port20-chi.vercel.app
-
+# Great Emman-Wori portfolio
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /_next/
-Crawl-delay: 1
+Allow: /documents/great-emman-wori-cv.pdf
 
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-Sitemap: https://port20-chi.vercel.app/sitemap.xml
+Sitemap: https://greatemmanwori.cv/sitemap.xml
