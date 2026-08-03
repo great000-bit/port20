@@ -27,7 +27,7 @@ export default function CTABanner() {
             color:"var(--fg-ultra)", marginTop:28,
             letterSpacing:"0.06em", textTransform:"uppercase",
           }}>
-            — Great Emman-Wori, Founder · Creative Emman
+            — Great Emman-Wori, Founder · Creative Emman Limited
           </p>
         </div>
       </section>

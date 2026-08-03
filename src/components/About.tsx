@@ -232,7 +232,7 @@ export default function About() {
                 Founder of{" "}
                 <a href="https://emman-engineered.vercel.app/" target="_blank" rel="noopener noreferrer"
                   style={{ color:"var(--accent)", fontWeight:600, textDecoration:"none" }}>
-                  Creative Emman
+                  Creative Emman Limited
                 </a>
                 {" "}— a premium digital design &amp; branding studio.
               </p>
@@ -245,7 +245,7 @@ export default function About() {
               <p style={{ color: "var(--fg-muted)" }}>
                 Currently handling digital operations at{" "}
                 <span style={{ color:"var(--accent)", fontWeight:600 }}>Phatbird</span> (UK), while
-                building client websites and brand experiences for global clients through Creative Emman.
+                building client websites and brand experiences for global clients through Creative Emman Limited.
               </p>
             </div>
 
@@ -283,7 +283,7 @@ export default function About() {
             <div className="about-photo-wrap">
               <img
                 src="/great-emman-wori-fullstack-developer.png"
-                alt="Great Emman-Wori, Founder of Creative Emman"
+                alt="Great Emman-Wori, Founder of Creative Emman Limited"
                 className="about-photo"
                 loading="lazy"
                 width={400}

@@ -17,7 +17,7 @@ const PERSON = {
   "@type": "Person",
   "@id": "https://port20-chi.vercel.app/#person",
   "name": "Great Emman-Wori",
-  "alternateName": ["Great Emman Wori", "Emman-Wori", "Creative Emman", "greatemmanwori"],
+  "alternateName": ["Great Emman Wori", "Emman-Wori", "Creative Emman Limited", "greatemmanwori"],
   "url": "https://port20-chi.vercel.app",
   "image": {
     "@type": "ImageObject",
@@ -26,7 +26,7 @@ const PERSON = {
     "height": 800
   },
   "jobTitle": ["Fullstack Website Developer", "Product Designer", "UI/UX Designer", "Founder"],
-  "description": "Great Emman-Wori is a Fullstack Website Developer, Product Designer, and UI/UX Designer based in Port Harcourt, Nigeria. Founder of Creative Emman — a premium digital design and branding studio. Building modern websites, web applications, and digital brand experiences for global clients.",
+  "description": "Great Emman-Wori is a Fullstack Website Developer, Product Designer, and UI/UX Designer based in Port Harcourt, Nigeria. Founder of Creative Emman Limited — a premium digital design and branding studio. Building modern websites, web applications, and digital brand experiences for global clients.",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Port Harcourt",
@@ -52,13 +52,13 @@ const PERSON = {
   },
   "worksFor": {
     "@type": "Organization",
-    "name": "Creative Emman",
+    "name": "Creative Emman Limited",
     "url": "https://emman-engineered.vercel.app/",
     "description": "Premium digital design and branding studio founded by Great Emman-Wori"
   },
   "founder": {
     "@type": "Organization",
-    "name": "Creative Emman",
+    "name": "Creative Emman Limited",
     "url": "https://emman-engineered.vercel.app/"
   },
   "sameAs": [
@@ -75,7 +75,7 @@ const WEBSITE = {
   "@type": "WebSite",
   "@id": "https://port20-chi.vercel.app/#website",
   "name": "Great Emman-Wori — Portfolio",
-  "alternateName": "Creative Emman Portfolio",
+  "alternateName": "Creative Emman Limited Portfolio",
   "url": "https://port20-chi.vercel.app",
   "description": "Official portfolio of Great Emman-Wori — Fullstack Website Developer, Product Designer, and UI/UX Designer based in Port Harcourt, Nigeria.",
   "inLanguage": "en-US",
@@ -123,7 +123,7 @@ const PROJECTS_SCHEMA = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "Selected Projects by Great Emman-Wori",
-  "description": "Portfolio of fullstack website, product design, and UI/UX projects by Great Emman-Wori — Founder of Creative Emman.",
+  "description": "Portfolio of fullstack website, product design, and UI/UX projects by Great Emman-Wori — Founder of Creative Emman Limited.",
   "itemListElement": [
     { "@type": "CreativeWork", "position": 1, "name": "The Light Mission NGO Website", "url": "https://www.thelightmission.com/", "creator": { "@id": "https://port20-chi.vercel.app/#person" }, "keywords": "Fullstack Website, Laravel, React, NGO" },
     { "@type": "CreativeWork", "position": 2, "name": "Timini Egbuson Actor Portfolio", "url": "https://timini-egbuson-website-star.vercel.app/", "creator": { "@id": "https://port20-chi.vercel.app/#person" }, "keywords": "React Portfolio, Nollywood, Frontend Development" },
