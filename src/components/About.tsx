@@ -230,7 +230,7 @@ export default function About() {
                 Developer, Product Designer, and UI/UX Designer based in{" "}
                 <strong style={{ color:"var(--fg)", fontWeight:600 }}>Port Harcourt, Nigeria</strong>.
                 Founder of{" "}
-                <a href="https://emman-engineered.vercel.app/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.creativeemmanlimited.com/" target="_blank" rel="noopener noreferrer"
                   style={{ color:"var(--accent)", fontWeight:600, textDecoration:"none" }}>
                   Creative Emman Limited
                 </a>
@@ -253,7 +253,7 @@ export default function About() {
             <div className="about-studio-line">
               <span>Founder &amp; Creative Director —</span>
               <a
-                href="https://emman-engineered.vercel.app/"
+                href="https://www.creativeemmanlimited.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="about-studio-link"
