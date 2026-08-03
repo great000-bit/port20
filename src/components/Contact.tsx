@@ -1,6 +1,36 @@
-import { useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { Mail, Linkedin, Instagram, Send, CheckCircle, Phone, Smartphone } from "lucide-react";
-import { useForm } from "@formspree/react";
+import { ValidationError, useForm } from "@formspree/react";
+
+const DEFAULT_PORTFOLIO_FORM_ENDPOINT = "https://formspree.io/f/xdaqjqwe";
+
+const configuredFormEndpoint = String(import.meta.env.VITE_FORMSPREE_ENDPOINT ?? "").trim();
+const normalizedConfiguredFormEndpoint = configuredFormEndpoint.replace(/\/$/, "");
+const isValidFormspreeEndpoint = (value: string) => {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && url.hostname === "formspree.io" && /^\/f\/[a-zA-Z0-9]+\/?$/.test(url.pathname);
+  } catch {
+    return false;
+  }
+};
+
+const PORTFOLIO_FORM_ENDPOINT = isValidFormspreeEndpoint(configuredFormEndpoint)
+  && normalizedConfiguredFormEndpoint === DEFAULT_PORTFOLIO_FORM_ENDPOINT
+  ? normalizedConfiguredFormEndpoint
+  : DEFAULT_PORTFOLIO_FORM_ENDPOINT;
+const PORTFOLIO_FORM_KEY = PORTFOLIO_FORM_ENDPOINT.split("/").pop() ?? "xdaqjqwe";
+
+type ContactFormFields = {
+  name: string;
+  email: string;
+  message: string;
+  role?: string;
+  _gotcha?: string;
+};
+
+type RequiredField = "name" | "email" | "message";
+type FieldErrors = Partial<Record<RequiredField, string>>;
 
 const TikTok = ({ size = 16 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -21,20 +51,86 @@ const ROLES = ["client","collaborator","other"] as const;
 type Role = typeof ROLES[number];
 
 export default function Contact() {
-  const formspreeId = String((import.meta as Record<string, unknown>).env?.VITE_FORMSPREE_ID ?? "");
-  if (!formspreeId) {
-    // Prevents the whole page from going blank if VITE_FORMSPREE_ID isn't set at build
-    // time (e.g. missing from the deployment platform's env config). @formspree/react's
-    // useForm() throws synchronously without a key/hashid, which unmounts the entire tree.
-    console.warn(
-      "Contact form: VITE_FORMSPREE_ID is not set. The contact form will render in a " +
-        "disabled state. Set VITE_FORMSPREE_ID in your local .env and in your deployment " +
-        "platform's environment variables, then rebuild."
-    );
-  }
-  const [state, handleSubmit] = useForm(formspreeId || "placeholder");
+  const [state, handleSubmit, resetSubmission] = useForm<ContactFormFields>(PORTFOLIO_FORM_KEY);
   const [role, setRole] = useState<Role | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const [successOpen, setSuccessOpen] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const submitButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const restoreSubmitFocusRef = useRef(false);
+
+  useEffect(() => {
+    if (!state.succeeded) return;
+
+    formRef.current?.reset();
+    setRole(null);
+    setFieldErrors({});
+    setSuccessOpen(true);
+  }, [state.succeeded]);
+
+  useEffect(() => {
+    if (!successOpen) return;
+
+    closeButtonRef.current?.focus();
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        restoreSubmitFocusRef.current = true;
+        setSuccessOpen(false);
+        resetSubmission();
+      }
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [resetSubmission, successOpen]);
+
+  useEffect(() => {
+    if (successOpen || !restoreSubmitFocusRef.current) return;
+    restoreSubmitFocusRef.current = false;
+    const focusTimer = window.setTimeout(() => submitButtonRef.current?.focus(), 50);
+    return () => window.clearTimeout(focusTimer);
+  }, [successOpen]);
+
+  const closeSuccessModal = () => {
+    restoreSubmitFocusRef.current = true;
+    setSuccessOpen(false);
+    resetSubmission();
+  };
+
+  const clearFieldError = (field: RequiredField) => {
+    setFieldErrors(current => current[field] ? { ...current, [field]: undefined } : current);
+  };
+
+  const submitContactForm = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim();
+    const message = String(data.get("message") ?? "").trim();
+    const emailInput = form.elements.namedItem("email") as HTMLInputElement | null;
+    const nextErrors: FieldErrors = {};
+
+    if (!name) nextErrors.name = "Please enter your name.";
+    if (!email) nextErrors.email = "Please enter your email address.";
+    else if (emailInput?.validity.typeMismatch) nextErrors.email = "Please enter a valid email address.";
+    if (!message) nextErrors.message = "Please enter a message.";
+
+    if (Object.keys(nextErrors).length > 0) {
+      setFieldErrors(nextErrors);
+      const firstInvalidField = (["name", "email", "message"] as RequiredField[]).find(field => nextErrors[field]);
+      if (firstInvalidField) (form.elements.namedItem(firstInvalidField) as HTMLElement | null)?.focus();
+      return;
+    }
+
+    setFieldErrors({});
+    resetSubmission();
+    await handleSubmit(event);
+  };
 
   const iStyle = (name: string) => ({
     width:"100%", padding:"11px 14px",
@@ -138,6 +234,45 @@ export default function Contact() {
         }
         .form-submit:hover { background:#8a0519; }
         .form-submit:disabled { opacity:0.5; cursor:not-allowed; }
+        .role-btn:focus-visible,
+        .form-submit:focus-visible,
+        .contact-modal-close:focus-visible {
+          outline:2px solid var(--accent); outline-offset:3px;
+        }
+        .contact-honeypot {
+          position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+          overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+        }
+        .form-error {
+          display:block; margin-top:2px;
+          font-family:Arial,sans-serif; font-size:12px; line-height:1.45;
+          color:var(--accent);
+        }
+        .form-error-summary { margin:0 0 12px; }
+        .contact-status {
+          position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+          overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+        }
+        .contact-modal-backdrop {
+          position:fixed; inset:0; z-index:200;
+          display:flex; align-items:center; justify-content:center;
+          padding:24px; background:rgba(0,0,0,0.72);
+        }
+        .contact-modal {
+          width:min(100%,420px); border-radius:16px;
+          padding:40px 32px; text-align:center;
+          background:var(--card-bg); border:1px solid var(--border);
+          color:var(--fg); box-shadow:0 24px 80px rgba(0,0,0,0.35);
+        }
+        .contact-modal-title {
+          font-family:Geist,Arial,sans-serif; font-size:18px;
+          font-weight:500; color:var(--fg); margin:0 0 8px;
+        }
+        .contact-modal-copy {
+          font-family:Arial,sans-serif; font-size:14px;
+          color:var(--fg-faint); margin:0 0 24px;
+        }
+        .contact-modal-close { margin-top:0; }
         @media (max-width:880px) {
           .contact-grid { grid-template-columns:1fr; gap:56px; }
           .form-row { grid-template-columns:1fr; }
@@ -176,71 +311,121 @@ export default function Contact() {
 
           {/* RIGHT — role selector + form */}
           <div data-aos="fade-up" data-aos-delay="140">
-            {!formspreeId ? (
-              <div style={{ textAlign:"center", padding:"48px 0" }}>
-                <p style={{ fontFamily:"Geist,Arial,sans-serif", fontSize:16, color:"var(--fg)", marginBottom:8 }}>
-                  The contact form is temporarily unavailable.
-                </p>
-                <p style={{ fontFamily:"Arial,sans-serif", fontSize:14, color:"var(--fg-faint)" }}>
-                  Please reach out directly using one of the links on the left in the meantime.
-                </p>
+            <form
+              ref={formRef}
+              action={PORTFOLIO_FORM_ENDPOINT}
+              method="POST"
+              noValidate
+              onSubmit={submitContactForm}
+            >
+              {/* Role selector */}
+              <span className="role-label">I am a</span>
+              <div className="role-options" aria-label="Enquiry type">
+                {ROLES.map(r => (
+                  <button
+                    key={r} type="button"
+                    className={`role-btn${role === r ? " active" : ""}`}
+                    aria-pressed={role === r}
+                    onClick={() => setRole(r)}
+                  >
+                    {r}
+                  </button>
+                ))}
               </div>
-            ) : state.succeeded ? (
-              <div style={{ textAlign:"center", padding:"48px 0" }}>
-                <CheckCircle size={40} style={{ color:"var(--accent)", margin:"0 auto 16px", display:"block" }}/>
-                <p style={{ fontFamily:"Geist,Arial,sans-serif", fontSize:18, color:"var(--fg)", marginBottom:8 }}>Message sent.</p>
-                <p style={{ fontFamily:"Arial,sans-serif", fontSize:14, color:"var(--fg-faint)" }}>I'll get back to you within 24 hours.</p>
+
+              {/* Hidden role field and Formspree honeypot */}
+              {role && <input type="hidden" name="role" value={role}/>}
+              <div className="contact-honeypot" aria-hidden="true">
+                <label htmlFor="contact-company">Leave this field empty</label>
+                <input id="contact-company" name="_gotcha" type="text" tabIndex={-1} autoComplete="off" />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit}>
-                {/* Role selector */}
-                <span className="role-label">I am a</span>
-                <div className="role-options">
-                  {ROLES.map(r => (
-                    <button
-                      key={r} type="button"
-                      className={`role-btn${role === r ? " active" : ""}`}
-                      onClick={() => setRole(r)}
-                    >
-                      {r}
-                    </button>
-                  ))}
-                </div>
 
-                {/* Hidden role field */}
-                {role && <input type="hidden" name="role" value={role}/>}
-
-                <div className="form-row">
-                  <div className="form-field">
-                    <label className="form-label" htmlFor="name">Name</label>
-                    <input id="name" name="name" type="text" required placeholder="Your name"
-                      style={iStyle("name") as React.CSSProperties}
-                      onFocus={() => setFocused("name")} onBlur={() => setFocused(null)}/>
-                  </div>
-                  <div className="form-field">
-                    <label className="form-label" htmlFor="email">Email</label>
-                    <input id="email" name="email" type="email" required placeholder="your@email.com"
-                      style={iStyle("email") as React.CSSProperties}
-                      onFocus={() => setFocused("email")} onBlur={() => setFocused(null)}/>
-                  </div>
-                </div>
-
+              <div className="form-row">
                 <div className="form-field">
-                  <label className="form-label" htmlFor="message">Message</label>
-                  <textarea id="message" name="message" required rows={5}
-                    placeholder="Tell me about your project..."
-                    style={{...iStyle("message") as React.CSSProperties, resize:"none"}}
-                    onFocus={() => setFocused("message")} onBlur={() => setFocused(null)}/>
+                  <label className="form-label" htmlFor="name">Name</label>
+                  <input id="name" name="name" type="text" required placeholder="Your name"
+                    aria-invalid={Boolean(fieldErrors.name || state.errors?.getFieldErrors("name").length)}
+                    aria-describedby={fieldErrors.name ? "name-error" : undefined}
+                    style={iStyle("name") as React.CSSProperties}
+                    onChange={() => clearFieldError("name")}
+                    onFocus={() => setFocused("name")} onBlur={() => setFocused(null)}/>
+                  {fieldErrors.name && <span id="name-error" className="form-error" role="alert">{fieldErrors.name}</span>}
+                  <ValidationError errors={state.errors} field="name" className="form-error" role="alert" />
                 </div>
+                <div className="form-field">
+                  <label className="form-label" htmlFor="email">Email</label>
+                  <input id="email" name="email" type="email" required placeholder="your@email.com"
+                    aria-invalid={Boolean(fieldErrors.email || state.errors?.getFieldErrors("email").length)}
+                    aria-describedby={fieldErrors.email ? "email-error" : undefined}
+                    style={iStyle("email") as React.CSSProperties}
+                    onChange={() => clearFieldError("email")}
+                    onFocus={() => setFocused("email")} onBlur={() => setFocused(null)}/>
+                  {fieldErrors.email && <span id="email-error" className="form-error" role="alert">{fieldErrors.email}</span>}
+                  <ValidationError errors={state.errors} field="email" className="form-error" role="alert" />
+                </div>
+              </div>
 
-                <button type="submit" disabled={state.submitting} className="form-submit">
-                  <Send size={14}/> {state.submitting ? "Sending…" : "Send Message →"}
-                </button>
-              </form>
-            )}
+              <div className="form-field">
+                <label className="form-label" htmlFor="message">Message</label>
+                <textarea id="message" name="message" required rows={5}
+                  placeholder="Tell me about your project..."
+                  aria-invalid={Boolean(fieldErrors.message || state.errors?.getFieldErrors("message").length)}
+                  aria-describedby={fieldErrors.message ? "message-error" : undefined}
+                  style={{...iStyle("message") as React.CSSProperties, resize:"none"}}
+                  onChange={() => clearFieldError("message")}
+                  onFocus={() => setFocused("message")} onBlur={() => setFocused(null)}/>
+                {fieldErrors.message && <span id="message-error" className="form-error" role="alert">{fieldErrors.message}</span>}
+                <ValidationError errors={state.errors} field="message" className="form-error" role="alert" />
+              </div>
+
+              <ValidationError
+                errors={state.errors}
+                prefix="Unable to send your message:"
+                className="form-error form-error-summary"
+                role="alert"
+                aria-live="assertive"
+              />
+
+              <button ref={submitButtonRef} type="submit" disabled={state.submitting} className="form-submit">
+                <Send size={14}/> {state.submitting ? "Sending…" : "Send Message →"}
+              </button>
+              <span className="contact-status" role="status" aria-live="polite">
+                {state.submitting ? "Sending your message." : successOpen ? "Your message was sent successfully." : ""}
+              </span>
+            </form>
           </div>
         </div>
       </div>
+
+      {successOpen && (
+        <div
+          className="contact-modal-backdrop"
+          onMouseDown={event => {
+            if (event.target === event.currentTarget) closeSuccessModal();
+          }}
+        >
+          <div
+            className="contact-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="contact-success-title"
+            aria-describedby="contact-success-description"
+            onKeyDown={event => {
+              if (event.key === "Tab") {
+                event.preventDefault();
+                closeButtonRef.current?.focus();
+              }
+            }}
+          >
+            <CheckCircle size={40} aria-hidden="true" style={{ color:"var(--accent)", margin:"0 auto 16px", display:"block" }}/>
+            <p id="contact-success-title" className="contact-modal-title">Message sent.</p>
+            <p id="contact-success-description" className="contact-modal-copy">I'll get back to you within 24 hours.</p>
+            <button ref={closeButtonRef} type="button" className="form-submit contact-modal-close" onClick={closeSuccessModal}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
