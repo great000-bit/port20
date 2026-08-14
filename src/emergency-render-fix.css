@@ -1,0 +1,46 @@
+/* Emergency render guard
+   Keeps the application content visible if animation or third-party styles fail. */
+
+#root,
+main,
+.hero-section,
+.hero-desktop-wrap,
+.hero-desktop-content,
+.hero-text-in,
+.hero-mobile-layout,
+.hero-mobile-text {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+main,
+.hero-section {
+  position: relative;
+  z-index: 0;
+}
+
+/* Prevent a failed entrance animation from leaving the hero off-screen. */
+.hero-text-in {
+  transform: none !important;
+}
+
+/* Keep the intended responsive layouts intact. */
+@media (min-width: 641px) {
+  .hero-desktop-wrap {
+    display: grid;
+  }
+
+  .hero-mobile-layout {
+    display: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-desktop-wrap {
+    display: none !important;
+  }
+
+  .hero-mobile-layout {
+    display: flex !important;
+  }
+}
