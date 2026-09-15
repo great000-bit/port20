@@ -11,6 +11,7 @@ import "aos/dist/aos.css";
 import { ThemeProvider } from "./context/ThemeContext";
 
 const Index = lazy(() => import("./pages/Index"));
+const Graphics = lazy(() => import("./pages/Graphics"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -54,6 +55,7 @@ const App = () => {
               }>
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path="/graphics" element={<Graphics />} />
                   <Route path="/cv" element={<CvRedirect />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>

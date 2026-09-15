@@ -121,6 +121,16 @@ export default function Navbar() {
           transition: background 0.2s; white-space: nowrap;
         }
         .nav-cta:hover { background: #8a0519; }
+        /* Graphics Portfolio */
+        .nav-gx {
+          display: inline-flex; align-items: center;
+          padding: 7px 16px; border-radius: 8px;
+          font-family: Arial,sans-serif; font-size: 13px; font-weight: 600;
+          background: transparent; color: var(--fg);
+          border: 1px solid var(--border-strong); text-decoration: none;
+          transition: all 0.2s; white-space: nowrap;
+        }
+        .nav-gx:hover { border-color: var(--accent); color: var(--accent); }
         /* Hamburger */
         .nav-hamburger {
           width: 34px; height: 34px; border-radius: 50%;
@@ -274,6 +284,7 @@ export default function Navbar() {
             <button onClick={toggle} className="nav-theme-btn" aria-label="Toggle theme">
               {isDark ? <Sun size={15}/> : <Moon size={15}/>}
             </button>
+            <a href="/graphics" className="nav-gx">Graphics Portfolio</a>
             <a href="#contact" className="nav-cta">Hire Me →</a>
             <button className="nav-hamburger md:hidden" onClick={() => setOpen(o => !o)}
               aria-label={open ? "Close menu" : "Open menu"}>
@@ -305,6 +316,9 @@ export default function Navbar() {
             </a>
           ))}
           <div className="nav-mobile-divider"/>
+          <a href="/graphics" onClick={close} className="nav-mobile-link">
+            Graphics Portfolio
+          </a>
           <a href="#contact" onClick={close} className="nav-mobile-link"
             style={{ color:"var(--accent)", fontWeight:600 }}>
             Hire Me →
