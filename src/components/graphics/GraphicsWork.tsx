@@ -1,79 +1,52 @@
-import { ImageIcon } from "lucide-react";
-
-// Placeholder slots — swap `img` for a real flyer path once assets are supplied,
-// and remove the `placeholder: true` flag on that item.
 const GRAPHICS_ITEMS = [
-  { id: 1, title: "Flyer Design",        tag: "Event Flyer",     placeholder: true },
-  { id: 2, title: "Social Media Post",   tag: "Instagram",       placeholder: true },
-  { id: 3, title: "Church Program Card", tag: "Event Graphic",   placeholder: true },
-  { id: 4, title: "Promo Banner",        tag: "Ad Creative",     placeholder: true },
-  { id: 5, title: "Business Flyer",      tag: "Corporate",       placeholder: true },
-  { id: 6, title: "Product Showcase",    tag: "E-commerce",      placeholder: true },
+  { title: "Building Modern Web", tag: "Web design", image: "/graphics/flyers/flyer-01.jpg" },
+  { title: "Design. Build. Grow.", tag: "Web development", image: "/graphics/flyers/flyer-02.jpg" },
+  { title: "Meet Our Co-Founders", tag: "Corporate flyer", image: "/graphics/flyers/flyer-03.jpg" },
+  { title: "Simplifying Buying and Selling for Everyone", tag: "Real estate", image: "/graphics/flyers/flyer-04.jpg" },
+  { title: "Career Talk 1.0", tag: "Event flyer", image: "/graphics/flyers/flyer-05.jpg" },
+  { title: "Lux Films", tag: "Brand showcase", image: "/graphics/flyers/flyer-06.jpg" },
+  { title: "Touko Banix", tag: "Brand identity", image: "/graphics/flyers/flyer-07.jpg" },
+  { title: "Appligo", tag: "Product campaign", image: "/graphics/flyers/flyer-08.jpg" },
+  { title: "This September", tag: "Campaign flyer", image: "/graphics/flyers/flyer-09.jpg" },
 ];
 
 export default function GraphicsWork() {
   return (
     <>
       <style>{`
-        .gx-grid-wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px) 100px; }
+        .gx-grid-wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px) 112px; }
         .gx-grid-head { margin-bottom: 32px; }
-        .gx-grid-title {
-          font-family: Geist, Arial, sans-serif; font-weight: 700;
-          font-size: clamp(24px,3vw,32px); color: var(--fg); margin-bottom: 8px;
-        }
-        .gx-grid-sub { font-family: Arial, sans-serif; font-size: 14px; color: var(--fg-muted); }
-        .gx-grid {
-          display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-          gap: 20px;
-        }
-        .gx-card {
-          position: relative; border-radius: 18px; overflow: hidden;
-          aspect-ratio: 4 / 5;
-          background: linear-gradient(150deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.015) 100%);
-          backdrop-filter: blur(14px);
-          -webkit-backdrop-filter: blur(14px);
-          border: 1px solid var(--card-border);
-          transition: transform 0.28s ease, border-color 0.28s ease;
-          display: flex; flex-direction: column;
-        }
-        .gx-card:hover { transform: translateY(-6px); border-color: var(--accent-border); }
-        .gx-card-media {
-          flex: 1; display: flex; align-items: center; justify-content: center;
-          background: var(--bg-3);
-          color: var(--fg-faint);
-        }
-        .gx-card-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .gx-card-body { padding: 16px 18px; }
-        .gx-card-tag {
-          display: inline-block; font-family: Arial, sans-serif; font-size: 11px;
-          font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;
-          color: var(--accent); margin-bottom: 6px;
-        }
-        .gx-card-title {
-          font-family: Geist, Arial, sans-serif; font-weight: 600; font-size: 15px;
-          color: var(--fg);
-        }
+        .gx-grid-kicker { color: var(--accent); font: 600 12px/1 Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; margin: 0 0 10px; }
+        .gx-grid-title { font-family: Geist, Arial, sans-serif; font-weight: 700; font-size: clamp(26px,3vw,36px); letter-spacing: -.04em; color: var(--fg); margin: 0 0 10px; }
+        .gx-grid-sub { font-family: Arial, sans-serif; font-size: 14px; color: var(--fg-muted); margin: 0; }
+        .gx-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+        .gx-card { border-radius: 18px; overflow: hidden; background: var(--card-bg); border: 1px solid var(--card-border); transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease; }
+        .gx-card:hover { transform: translateY(-6px); border-color: var(--accent-border); box-shadow: 0 18px 42px rgba(0,0,0,.18); }
+        .gx-card-media { aspect-ratio: 4 / 5; overflow: hidden; background: var(--bg-3); }
+        .gx-card-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s ease; }
+        .gx-card:hover .gx-card-img { transform: scale(1.025); }
+        .gx-card-body { padding: 16px 18px 18px; }
+        .gx-card-tag { display: inline-block; font-family: Arial, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); margin-bottom: 7px; }
+        .gx-card-title { font-family: Geist, Arial, sans-serif; font-weight: 600; font-size: 16px; line-height: 1.35; color: var(--fg); }
+        @media (max-width: 860px) { .gx-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 520px) { .gx-grid { grid-template-columns: 1fr; gap: 16px; } .gx-card-media { aspect-ratio: 4 / 4.6; } }
       `}</style>
 
-      <div className="gx-grid-wrap">
+      <section id="gx-content" className="gx-grid-wrap" aria-label="Graphic design work">
         <div className="gx-grid-head" data-aos="fade-up">
-          <h2 className="gx-grid-title">Graphic Design Work</h2>
-          <p className="gx-grid-sub">Flyers, social content, and visual campaigns.</p>
+          <p className="gx-grid-kicker">Selected work</p>
+          <h2 className="gx-grid-title">Graphic design work</h2>
+          <p className="gx-grid-sub">Flyers, campaigns, and visual communication designed to be noticed.</p>
         </div>
         <div className="gx-grid">
-          {GRAPHICS_ITEMS.map((item, i) => (
-            <article key={item.id} className="gx-card" data-aos="fade-up" data-aos-delay={(i % 3) * 80}>
-              <div className="gx-card-media">
-                {item.placeholder ? <ImageIcon size={30} strokeWidth={1.4} /> : null}
-              </div>
-              <div className="gx-card-body">
-                <span className="gx-card-tag">{item.tag}</span>
-                <div className="gx-card-title">{item.title}</div>
-              </div>
+          {GRAPHICS_ITEMS.map((item, index) => (
+            <article key={item.image} className="gx-card" data-aos="fade-up" data-aos-delay={(index % 3) * 80}>
+              <div className="gx-card-media"><img className="gx-card-img" src={item.image} alt={item.title} loading={index < 3 ? "eager" : "lazy"} /></div>
+              <div className="gx-card-body"><span className="gx-card-tag">{item.tag}</span><div className="gx-card-title">{item.title}</div></div>
             </article>
           ))}
         </div>
-      </div>
+      </section>
     </>
   );
 }
