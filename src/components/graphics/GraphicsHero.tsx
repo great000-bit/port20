@@ -42,11 +42,12 @@ export default function GraphicsHero() {
         }
         .gx-hero-title {
           font-family: Geist, Arial, sans-serif;
-          font-weight: 400; font-size: clamp(34px, 4.6vw, 54px);
+          font-weight: 400; font-size: clamp(34px, 4.1vw, 56px);
           letter-spacing: -1.5px; line-height: 1.1;
           color: var(--fg); margin: 0 0 22px 0;
         }
         .gx-hero-title strong { font-weight: 700; }
+        .gx-hero-title-line { display: block; }
         .gx-hero-sub {
           font-family: Arial, sans-serif; font-size: 17px;
           color: var(--fg-muted); line-height: 1.7;
@@ -86,8 +87,8 @@ export default function GraphicsHero() {
               </div>
             </div>
             <h1 className="gx-hero-title">
-              Hey, I'm Great Emman-Wori.<br />
-              I design <strong>bold, memorable visuals</strong> for brands.
+              <span className="gx-hero-title-line">Hey, I'm Great.</span>
+              <span className="gx-hero-title-line">I design <strong>bold, memorable visuals</strong> for brands.</span>
             </h1>
             <p className="gx-hero-sub">
               Graphic Designer with 3+ years of experience in branding and visual
@@ -96,7 +97,7 @@ export default function GraphicsHero() {
             </p>
             <div className="gx-hero-actions">
               <a href="#gx-content" className="gx-btn gx-btn-primary">View My Work <ArrowRight size={14} /></a>
-              <a href="/#contact" className="gx-btn gx-btn-secondary">Get In Touch</a>
+              <a href="#contact" className="gx-btn gx-btn-secondary">Get In Touch</a>
             </div>
           </div>
           <div className="gx-hero-img-wrap" data-aos="fade-up" data-aos-delay="120">

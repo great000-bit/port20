@@ -5,6 +5,7 @@ import GraphicsToggle from "../components/graphics/GraphicsToggle";
 import GraphicsWork from "../components/graphics/GraphicsWork";
 import BrandingWork from "../components/graphics/BrandingWork";
 import GraphicsFooter from "../components/graphics/GraphicsFooter";
+import Contact from "../components/Contact";
 
 type View = "graphics" | "branding";
 
@@ -22,6 +23,7 @@ export default function Graphics() {
         <GraphicsHero />
         <GraphicsToggle view={view} setView={setView} />
         {view === "graphics" ? <GraphicsWork /> : <BrandingWork />}
+        <Contact />
       </main>
       <GraphicsFooter />
     </>
