@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Great Emman-Wori</title>
+    <!--
+      This 404.html exists so that when the host serves a "no file found"
+      response for a client-side route (e.g. a direct visit or refresh on
+      /graphics), the visitor doesn't land on a dead-end error page.
+      Instead we redirect them straight back into the real app at the same
+      path, and index.html (see the matching script there) restores that
+      exact path once the app boots. This works regardless of whether the
+      hosting platform has SPA rewrites configured.
+    -->
+    <script>
+      var path = window.location.pathname + window.location.search + window.location.hash;
+      sessionStorage.setItem("gx-redirect-path", path);
+      window.location.replace("/");
+    </script>
+  </head>
+  <body></body>
+</html>

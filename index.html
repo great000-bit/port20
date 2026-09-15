@@ -168,6 +168,21 @@
 
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-7622289621648088" />
+    <!-- SPA deep-link recovery: if 404.html stashed a path (because the
+         host returned a "not found" response for a client-side route like
+         /graphics), restore that exact URL now, before the router mounts,
+         so the correct page renders instead of the homepage. -->
+    <script>
+      (function () {
+        var redirect = sessionStorage.getItem("gx-redirect-path");
+        if (redirect) {
+          sessionStorage.removeItem("gx-redirect-path");
+          if (redirect !== window.location.pathname + window.location.search + window.location.hash) {
+            window.history.replaceState(null, "", redirect);
+          }
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
