@@ -22,17 +22,18 @@ export default function GraphicsHero() {
           gap: 56px; align-items: center;
           position: relative; z-index: 1;
         }
+        .gx-hero-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; margin-bottom: 28px; }
         .gx-back {
           display: inline-flex; align-items: center; gap: 6px;
           font-family: Arial, sans-serif; font-size: 13px; font-weight: 500;
           color: var(--fg-muted); text-decoration: none;
-          margin-bottom: 28px; transition: color 0.2s;
+          transition: color 0.2s;
         }
         .gx-back:hover { color: var(--accent); }
         .gx-hero-badge {
           display: inline-flex; align-items: center; gap: 8px;
           font-family: Arial, sans-serif; font-size: 14px; font-weight: 500;
-          color: var(--fg-muted); margin-bottom: 28px;
+          color: var(--fg-muted);
         }
         .gx-hero-badge-dot {
           width: 9px; height: 9px; border-radius: 50%;
@@ -77,10 +78,12 @@ export default function GraphicsHero() {
         <div className="gx-hero-glow" aria-hidden="true" />
         <div className="gx-hero-wrap">
           <div data-aos="fade-up">
-            <a href="/" className="gx-back"><ArrowLeft size={14} /> Back to main portfolio</a>
-            <div className="gx-hero-badge">
-              <span className="gx-hero-badge-dot" />
-              Available for graphic design work
+            <div className="gx-hero-meta">
+              <a href="/" className="gx-back"><ArrowLeft size={14} /> Back to main portfolio</a>
+              <div className="gx-hero-badge">
+                <span className="gx-hero-badge-dot" />
+                Available for graphic design work
+              </div>
             </div>
             <h1 className="gx-hero-title">
               Hey, I'm Great Emman-Wori.<br />
