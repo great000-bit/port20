@@ -5,6 +5,10 @@ const stryvonPages = Array.from(
   { length: 18 },
   (_, index) => `/branding/stryvon/stryvon-${String(index + 1).padStart(2, "0")}.jpg`
 );
+const oakConstructionPages = Array.from(
+  { length: 12 },
+  (_, index) => `/branding/oak-construction/oak-construction-${String(index + 1).padStart(2, "0")}.jpg`
+);
 
 const BRANDS = [
   {
@@ -13,8 +17,21 @@ const BRANDS = [
     type: "Fitness brand identity",
     summary:
       "A bold visual identity for a fitness brand built around movement, discipline, and forward momentum.",
+    description:
+      "The system combines a sharp, energetic mark with a high-contrast palette that feels confident across digital, apparel, and physical brand touchpoints.",
     cover: stryvonPages[1],
     pages: stryvonPages,
+  },
+  {
+    id: "oak-construction",
+    name: "OAK Construction Limited",
+    type: "Construction brand identity",
+    summary:
+      "A practical, high-visibility identity system for a construction company built to inspire confidence on and off site.",
+    description:
+      "The identity pairs a sturdy, geometric mark with a distinctive orange-and-charcoal palette, creating a clear and trusted presence across site wear, machinery, stationery, and campaign materials.",
+    cover: oakConstructionPages[1],
+    pages: oakConstructionPages,
   },
 ];
 
@@ -30,7 +47,7 @@ export default function BrandingWork() {
         .gx-grid-kicker { color: var(--accent); font: 600 12px/1 Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; margin: 0 0 10px; }
         .gx-grid-title { font-family: Geist, Arial, sans-serif; font-weight: 700; font-size: clamp(26px,3vw,36px); letter-spacing: -.04em; color: var(--fg); margin: 0 0 10px; }
         .gx-grid-sub { font: 14px/1.65 Arial, sans-serif; color: var(--fg-muted); margin: 0; max-width: 54ch; }
-        .gx-brand-grid { display: grid; grid-template-columns: minmax(0, 820px); justify-content: center; }
+        .gx-brand-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; max-width: 1000px; margin: 0 auto; }
         .gx-brand-card { border-radius: 22px; overflow: hidden; cursor: pointer; background: var(--card-bg); border: 1px solid var(--card-border); transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease; }
         .gx-brand-card:hover { transform: translateY(-6px); border-color: var(--accent-border); box-shadow: 0 20px 52px rgba(0,0,0,.2); }
         .gx-brand-cover { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg-3); }
@@ -56,7 +73,7 @@ export default function BrandingWork() {
         .gx-guideline-gallery { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
         .gx-guideline-page { border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; background: var(--bg-3); margin: 0; }
         .gx-guideline-page img { width: 100%; height: auto; display: block; }
-        @media (max-width: 760px) { .gx-grid-head { display:block; } .gx-brand-intro { grid-template-columns: 1fr; } .gx-brand-detail-cover { max-width: 520px; } .gx-guideline-gallery { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; } }
+        @media (max-width: 760px) { .gx-grid-head { display:block; } .gx-brand-grid { grid-template-columns: 1fr; max-width: 620px; } .gx-brand-intro { grid-template-columns: 1fr; } .gx-brand-detail-cover { max-width: 520px; } .gx-guideline-gallery { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; } }
         @media (max-width: 460px) { .gx-brand-body { padding: 18px; } .gx-brand-summary { font-size: 12px; } .gx-guideline-gallery { grid-template-columns: 1fr; } }
       `}</style>
 
@@ -93,7 +110,7 @@ export default function BrandingWork() {
               <div>
                 <p className="gx-brand-detail-type">{brand.type}</p>
                 <h2 className="gx-brand-detail-title">{brand.name}</h2>
-                <p className="gx-brand-detail-text">{brand.summary} The system combines a sharp, energetic mark with a high-contrast palette that feels confident across digital, apparel, and physical brand touchpoints.</p>
+                <p className="gx-brand-detail-text">{brand.summary} {brand.description}</p>
               </div>
             </div>
             <div className="gx-guidelines-head"><ChevronRight size={16} color="var(--accent)" /> Brand guidelines & applications</div>
