@@ -134,7 +134,7 @@ export default function RateCard() {
         <div className="gx-rc-wrap">
           <div className="gx-rc-head" data-aos="fade-up">
             <p className="gx-rc-kicker">Pricing</p>
-            <h2 className="gx-rc-title">Rate Card</h2>
+            <h2 className="gx-rc-title">My Rates</h2>
             <p className="gx-rc-sub">
               Clear, fixed rates for the most common design work. Pick a package and message me to get started.
             </p>
