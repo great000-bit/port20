@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Check, ArrowUpRight } from "lucide-react";
 
-type Currency = "NGN" | "USD";
+type Currency = "NGN" | "USD" | "INR";
 
 type Plan = {
   id: string;
@@ -14,12 +14,18 @@ type Plan = {
 
 const WHATSAPP_NUMBER = "2348103887554";
 
+const CURRENCY_LABELS: Record<Currency, string> = {
+  NGN: "₦ Naira",
+  USD: "$ Dollar",
+  INR: "₹ Rupee",
+};
+
 const PLANS: Plan[] = [
   {
     id: "branding",
     name: "Branding",
     tagline: "Complete brand identity",
-    price: { NGN: "₦250,000", USD: "$170" },
+    price: { NGN: "₦250,000", USD: "$170", INR: "₹16,450" },
     features: [
       "Logo with 3 concepts",
       "Color palette and typography",
@@ -33,7 +39,7 @@ const PLANS: Plan[] = [
     id: "logo",
     name: "Logo",
     tagline: "A mark that lasts",
-    price: { NGN: "₦60,000", USD: "$40" },
+    price: { NGN: "₦60,000", USD: "$40", INR: "₹3,850" },
     features: [
       "3 initial concepts",
       "2 rounds of revisions",
@@ -46,7 +52,7 @@ const PLANS: Plan[] = [
     id: "flyer",
     name: "Flyer",
     tagline: "Print and digital ready",
-    price: { NGN: "₦10,000", USD: "$15" },
+    price: { NGN: "₦10,000", USD: "$15", INR: "₹1,450" },
     features: [
       "1 custom flyer design",
       "2 rounds of revisions",
@@ -59,7 +65,7 @@ const PLANS: Plan[] = [
     id: "cover-photo",
     name: "Cover Photo",
     tagline: "Profile and page headers",
-    price: { NGN: "₦15,000", USD: "$10" },
+    price: { NGN: "₦15,000", USD: "$10", INR: "₹950" },
     features: [
       "1 custom cover design",
       "2 rounds of revisions",
@@ -139,7 +145,7 @@ export default function RateCard() {
               Clear, fixed rates for the most common design work. Pick a package and message me to get started.
             </p>
             <div className="gx-rc-switch" role="group" aria-label="Currency">
-              {(["NGN", "USD"] as Currency[]).map((c) => (
+              {(["NGN", "USD", "INR"] as Currency[]).map((c) => (
                 <button
                   key={c}
                   type="button"
@@ -147,7 +153,7 @@ export default function RateCard() {
                   aria-pressed={currency === c}
                   onClick={() => setCurrency(c)}
                 >
-                  {c === "NGN" ? "₦ Naira" : "$ Dollar"}
+                  {CURRENCY_LABELS[c]}
                 </button>
               ))}
             </div>
