@@ -46,7 +46,7 @@ const PLANS: Plan[] = [
     id: "flyer",
     name: "Flyer",
     tagline: "Print and digital ready",
-    price: { NGN: "₦20,000", USD: "$15" },
+    price: { NGN: "₦10,000", USD: "$7" },
     features: [
       "1 custom flyer design",
       "2 rounds of revisions",
