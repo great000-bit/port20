@@ -174,14 +174,14 @@ export default function Experience() {
           font-family: Arial,sans-serif;
           font-size: 11px; font-weight: 600;
           letter-spacing: 0.2em; text-transform: uppercase;
-          color:"var(--fg-ultra)";
+          color:var(--fg-ultra);
           display: block; margin-bottom: 20px;
         }
         .exp-heading {
           font-family: Geist,Arial,sans-serif;
           font-size: clamp(28px,3.5vw,42px);
           font-weight: 400; letter-spacing: -0.04em;
-          color:"var(--fg)"; margin: 0 0 64px 0;
+          color:var(--fg); margin: 0 0 64px 0;
         }
         /* Timeline container */
         .exp-timeline {
@@ -225,13 +225,13 @@ export default function Experience() {
         .exp-role {
           font-family: Geist,Arial,sans-serif;
           font-size: 18px; font-weight: 600;
-          color:"var(--fg)"; margin: 0 0 4px 0;
+          color:var(--fg); margin: 0 0 4px 0;
           letter-spacing: -0.02em;
         }
         /* Org + loc */
         .exp-org {
           font-family: Arial,sans-serif;
-          font-size: 13px; color:"var(--fg-faint)";
+          font-size: 13px; color:var(--fg-faint);
           margin-bottom: 20px;
         }
         /* Bullets */
@@ -243,7 +243,7 @@ export default function Experience() {
         .exp-bullet {
           font-family: Arial,sans-serif;
           font-size: 14px; line-height: 1.65;
-          color:"var(--fg-muted)";
+          color:var(--fg-muted);
           display: flex; gap: 10px;
         }
         .exp-bullet-text { min-width: 0; overflow-wrap: anywhere; }
@@ -261,15 +261,15 @@ export default function Experience() {
         .exp-tag {
           font-family: Arial,sans-serif;
           font-size: 11px; font-weight: 500;
-          color:"var(--fg-faint)";
+          color:var(--fg-faint);
           padding: 3px 10px; border-radius: 4px;
-          background:"var(--card-bg)";
-          border:"1px solid var(--border)";
+          background:var(--card-bg);
+          border:1px solid var(--border);
         }
         /* Divider between entries */
         .exp-divider {
           height: 1px;
-          background:"var(--nav-pill)";
+          background:var(--nav-pill);
           margin-bottom: 48px;
         }
         @media (max-width: 640px) {
