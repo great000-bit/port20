@@ -12,6 +12,10 @@
     "a": "He is based in Port Harcourt, Rivers State, Nigeria, and works remotely. He has delivered work for clients in Nigeria, Canada and the UK."
   },
   {
+    "q": "Does he offer web design and branding services in Port Harcourt?",
+    "a": "Yes. Great Emman-Wori and Creative Emman Limited are based in Port Harcourt, Rivers State, and provide web design, web development and branding services to businesses in Port Harcourt, across Nigeria and abroad."
+  },
+  {
     "q": "Which technologies does he use?",
     "a": "React, TypeScript, Vite, Tailwind CSS, Node.js, Laravel and Supabase for web applications, WordPress with Elementor and Divi for content websites, and Figma and Framer for design."
   },
