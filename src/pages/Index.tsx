@@ -8,11 +8,21 @@ import Experience from "../components/Experience";
 import CTABanner from "../components/CTABanner";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import { useEffect } from "react";
 import Testimonials from "../components/Testimonials";
 import Seo from "../components/Seo";
 import FAQ from "../components/FAQ";
 
 export default function Index() {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const timer = window.setTimeout(() => {
+      document.querySelector(hash)?.scrollIntoView();
+    }, 120);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Seo page="home" />

@@ -1,23 +1,16 @@
 import { useState, useRef, useEffect } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import projects from "@/data/projects.json";
 
 type Cat = "all"|"fullstack"|"uiux"|"landing";
 
-const PROJECTS = [
-  { title:"Dr. Alexander Oburoh — Professional Website Development, Email & DNS Setup", cat:"fullstack", url:"https://alexanderoburoh.com", img:"/alexanderoburoh.png", alt:"Professional website development and domain email/DNS infrastructure setup for Dr. Alexander Oburoh by Great Emman-Wori", desc:"Configured and supported the professional web presence for Dr. Alexander Oburoh, including website deployment support, domain email setup, Cloudflare DNS configuration, and Truehost Workplace Email integration.", tags:["Cloudflare","DNS","Truehost","Vercel","Email Hosting","SPF","DKIM","DMARC","Deliverability"], badge:"Full-Stack" },
-  { title:"The Light Mission NGO",          cat:"fullstack", url:"https://www.thelightmission.com/",                        img:"/thelightmission.png",  alt:"Fullstack NGO website — Laravel + React by Great Emman-Wori",                          desc:"Full-stack Laravel 12 + React registration system — admin dashboard, enrollment form, CSV export, and Facebook Pixel tracking.",              tags:["Laravel","React","TypeScript","Full-Stack"],  badge:"Full-Stack" },
-  { title:"Timini Egbuson — Actor Portfolio",cat:"fullstack", url:"https://timini-egbuson-website-star.vercel.app/",         img:"/timini.png",           alt:"React portfolio for Nollywood actor Timini Egbuson by Great Emman-Wori",                desc:"Premium React portfolio for Nollywood actor Timini Egbuson — cinematic dark design, smooth animations, mobile-first.",                        tags:["React","TypeScript","Vite","Frontend"],       badge:"Web Dev" },
-  { title:"Funke Akindele — Official Site",  cat:"fullstack", url:"https://funke-akindele-unveiled.vercel.app/",             img:"/funke.png",            alt:"Official website for Funke Akindele built with React by Great Emman-Wori",              desc:"Official website for iconic actress and director Funke Akindele — premium design, React, Core Web Vitals optimised.",                        tags:["React","Frontend","Celebrity","Responsive"],  badge:"Web Dev" },
-  { title:"Ego Nwosu — Cinematic Portfolio", cat:"fullstack", url:"https://ego-cinematic-muse.vercel.app/",                  img:"/ego.png",              alt:"Cinematic portfolio for Nollywood actress Ego Nwosu by Great Emman-Wori",               desc:"Cinematic portfolio for Nollywood actress Ego Nwosu — dark aesthetic, scroll interactions, React, performance-first.",                       tags:["React","Vite","Frontend","Portfolio"],        badge:"Web Dev" },
-  { title:"Omoni Oboli — Director Portfolio",cat:"fullstack", url:"https://omoni-oboli.vercel.app/",                         img:"/omoni.png",            alt:"Portfolio website for Omoni Oboli built with React by Great Emman-Wori",                desc:"Elegant portfolio for Nollywood actress and director Omoni Oboli — premium dark design, fully responsive React build.",                      tags:["React","TypeScript","Vite","Portfolio"],      badge:"Web Dev" },
-  { title:"Wizor Progress — Real Estate",    cat:"fullstack", url:"https://wizor-progress-hub.vercel.app/",                  img:"/wizor.png",            alt:"Real estate website built with React by Great Emman-Wori",                              desc:"Professional business website for a real estate manager — responsive, conversion-focused React build.",                                       tags:["React","Frontend","Real Estate"],             badge:"Web Dev" },
-  { title:"Bourdillon Omijeh Foundation",    cat:"uiux",      url:"https://www.bourdillonomijehfoundation.com/",             img:"/bof.webp",             alt:"Nonprofit website designed and built by Great Emman-Wori",                              desc:"Nonprofit site designed for credibility and accessibility — WCAG-compliant, brand-aligned, 55% visitor engagement increase.",                tags:["WordPress","Figma","UI/UX","Nonprofit"],      badge:"UI/UX" },
-  { title:"Hair Brosh Saloon",               cat:"uiux",      url:"https://hairbrosh-ui-kit.vercel.app/",                    img:"/webbb.webp",           alt:"Responsive salon website designed and developed by Great Emman-Wori",                   desc:"Pixel-perfect responsive salon website — designed in Figma, built with modern CSS, 100% responsive across all devices.",                    tags:["Figma","UI/UX","Responsive","CSS"],           badge:"UI/UX" },
-  { title:"AdsFirr — Meta Ads Platform UI",  cat:"uiux",      url:"https://adsfirr.vercel.app/",                             img:"/adsfirr.png",          alt:"Meta Ads management dashboard UI designed by Great Emman-Wori",                         desc:"Dashboard UI for a Meta and Instagram ad management platform — analytics layout, campaign management, user satisfaction from 3.2 to 4.6.",  tags:["UI/UX","Dashboard","Meta Ads","Figma"],       badge:"UI/UX" },
-  { title:"WaContacts — WhatsApp Directory", cat:"uiux",      url:"https://wacontacts.com/",                                 img:"/wacontacts.png",       alt:"WhatsApp business directory platform designed by Great Emman-Wori",                     desc:"Product design for a WhatsApp business directory connecting Nigerian SMEs with real customers.",                                             tags:["Product Design","UI/UX","Business"],         badge:"Product" },
-  { title:"YouthUp Global — EmpowerAfrika",  cat:"landing",   url:"https://youthupglobal.com/empowerafrika/",                img:"/youthup.webp",         alt:"International youth initiative website built with WordPress by Great Emman-Wori",       desc:"Responsive international youth initiative — multilingual WordPress build serving 5 countries, 3,000+ active monthly users.",                tags:["WordPress","Elementor","SEO","Multilingual"], badge:"WordPress" },
-  { title:"Bellostylez Blog — Canada",       cat:"landing",   url:"https://bellostylez.ca/blog/",                            img:"/bellow-stylus.webp",   alt:"Canadian beauty blog built with WordPress by Great Emman-Wori",                         desc:"Beauty and lifestyle blog for a Canadian brand — WordPress/Divi, 1,500+ monthly visitors in first quarter, 60% Google impressions boost.",  tags:["WordPress","Divi","Blog","SEO"],              badge:"WordPress" },
-];
+type Project = {
+  slug: string; name: string; title: string; cat: string; url: string; img: string;
+  alt: string; desc: string; tags: string[]; badge: string; highlights: string[];
+};
+
+const PROJECTS = projects as Project[];
 
 const FILTERS: { label: string; value: Cat }[] = [
   { label:"All",            value:"all" },
@@ -35,7 +28,7 @@ const BADGE_COLOR: Record<string,string> = {
 };
 
 /* Iframe card — URL bar + live preview + loading skeleton */
-function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
+function ProjectCard({ p, index }: { p: Project; index: number }) {
   const [loaded, setLoaded] = useState(false);
   const [inView, setInView] = useState(false);
   const ref = useRef<HTMLElement>(null);
@@ -173,7 +166,19 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
           )}
         </div>
 
-        {/* CTA — Omijeh style */}
+        {/* CTA row */}
+        <div style={{ display:"flex", flexWrap:"wrap", alignItems:"center", gap:"10px 20px" }}>
+        <Link
+          to={`/work/${p.slug}`}
+          aria-label={`Read the ${p.name} case study`}
+          style={{
+            display:"inline-flex", alignItems:"center", gap:6,
+            fontFamily:"Arial,sans-serif", fontSize:13, fontWeight:600,
+            color:"var(--accent)", textDecoration:"none", letterSpacing:"0.01em",
+          }}
+        >
+          Case study <ArrowUpRight size={13}/>
+        </Link>
         <a
           href={p.url}
           target="_blank"
@@ -193,6 +198,7 @@ function ProjectCard({ p, index }: { p: typeof PROJECTS[0]; index: number }) {
         >
           Open Live <ArrowUpRight size={13}/>
         </a>
+        </div>
       </div>
     </article>
   );
