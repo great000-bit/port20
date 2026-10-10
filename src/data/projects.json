@@ -5,7 +5,7 @@
     "title": "Dr. Alexander Oburoh — Professional Website Development, Email & DNS Setup",
     "cat": "fullstack",
     "url": "https://alexanderoburoh.com",
-    "img": "/alexanderoburoh.png",
+    "img": "/alexanderoburoh.webp",
     "alt": "Professional website development and domain email/DNS infrastructure setup for Dr. Alexander Oburoh by Great Emman-Wori",
     "desc": "Configured and supported the professional web presence for Dr. Alexander Oburoh, including website deployment support, domain email setup, Cloudflare DNS configuration, and Truehost Workplace Email integration.",
     "tags": [
@@ -35,7 +35,7 @@
     "title": "The Light Mission NGO",
     "cat": "fullstack",
     "url": "https://www.thelightmission.com/",
-    "img": "/thelightmission.png",
+    "img": "/thelightmission.webp",
     "alt": "Fullstack NGO website — Laravel + React by Great Emman-Wori",
     "desc": "Full-stack Laravel 12 + React registration system — admin dashboard, enrollment form, CSV export, and Facebook Pixel tracking.",
     "tags": [
@@ -57,7 +57,7 @@
     "title": "Timini Egbuson — Actor Portfolio",
     "cat": "fullstack",
     "url": "https://timini-egbuson-website-star.vercel.app/",
-    "img": "/timini.png",
+    "img": "/timini.webp",
     "alt": "React portfolio for Nollywood actor Timini Egbuson by Great Emman-Wori",
     "desc": "Premium React portfolio for Nollywood actor Timini Egbuson — cinematic dark design, smooth animations, mobile-first.",
     "tags": [
@@ -79,7 +79,7 @@
     "title": "Funke Akindele — Official Site",
     "cat": "fullstack",
     "url": "https://funke-akindele-unveiled.vercel.app/",
-    "img": "/funke.png",
+    "img": "/funke.webp",
     "alt": "Official website for Funke Akindele built with React by Great Emman-Wori",
     "desc": "Official website for iconic actress and director Funke Akindele — premium design, React, Core Web Vitals optimised.",
     "tags": [
@@ -101,7 +101,7 @@
     "title": "Ego Nwosu — Cinematic Portfolio",
     "cat": "fullstack",
     "url": "https://ego-cinematic-muse.vercel.app/",
-    "img": "/ego.png",
+    "img": "/ego.webp",
     "alt": "Cinematic portfolio for Nollywood actress Ego Nwosu by Great Emman-Wori",
     "desc": "Cinematic portfolio for Nollywood actress Ego Nwosu — dark aesthetic, scroll interactions, React, performance-first.",
     "tags": [
@@ -123,7 +123,7 @@
     "title": "Omoni Oboli — Director Portfolio",
     "cat": "fullstack",
     "url": "https://omoni-oboli.vercel.app/",
-    "img": "/omoni.png",
+    "img": "/omoni.webp",
     "alt": "Portfolio website for Omoni Oboli built with React by Great Emman-Wori",
     "desc": "Elegant portfolio for Nollywood actress and director Omoni Oboli — premium dark design, fully responsive React build.",
     "tags": [
@@ -145,7 +145,7 @@
     "title": "Wizor Progress — Real Estate",
     "cat": "fullstack",
     "url": "https://wizor-progress-hub.vercel.app/",
-    "img": "/wizor.png",
+    "img": "/wizor.webp",
     "alt": "Real estate website built with React by Great Emman-Wori",
     "desc": "Professional business website for a real estate manager — responsive, conversion-focused React build.",
     "tags": [
@@ -210,7 +210,7 @@
     "title": "AdsFirr — Meta Ads Platform UI",
     "cat": "uiux",
     "url": "https://adsfirr.vercel.app/",
-    "img": "/adsfirr.png",
+    "img": "/adsfirr.webp",
     "alt": "Meta Ads management dashboard UI designed by Great Emman-Wori",
     "desc": "Dashboard UI for a Meta and Instagram ad management platform — analytics layout, campaign management, user satisfaction from 3.2 to 4.6.",
     "tags": [
@@ -232,7 +232,7 @@
     "title": "WaContacts — WhatsApp Directory",
     "cat": "uiux",
     "url": "https://wacontacts.com/",
-    "img": "/wacontacts.png",
+    "img": "/wacontacts.webp",
     "alt": "WhatsApp business directory platform designed by Great Emman-Wori",
     "desc": "Product design for a WhatsApp business directory connecting Nigerian SMEs with real customers.",
     "tags": [
