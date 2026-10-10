@@ -1,0 +1,24 @@
+{
+  "siteUrl": "https://greatemmanwori.cv",
+  "pages": {
+    "home": {
+      "path": "/",
+      "title": "Great Emman-Wori | Full Stack Developer & Product Designer",
+      "description": "Great Emman-Wori is a Full Stack Website Developer and Product Designer in Port Harcourt, Nigeria, building fast, accessible React and WordPress websites.",
+      "ogType": "profile"
+    },
+    "graphics": {
+      "path": "/graphics",
+      "title": "Graphics & Brand Identity Portfolio | Great Emman-Wori",
+      "description": "Logos, flyers, cover photos and full brand identities by Great Emman-Wori, with clear rates in naira, dollars and rupees. Based in Port Harcourt, Nigeria.",
+      "ogType": "website"
+    },
+    "notFound": {
+      "path": "/",
+      "title": "Page not found | Great Emman-Wori",
+      "description": "This page does not exist. Head back to the Great Emman-Wori portfolio.",
+      "ogType": "website",
+      "noindex": true
+    }
+  }
+}

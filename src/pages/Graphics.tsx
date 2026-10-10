@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Seo from "../components/Seo";
 import GraphicsNav from "../components/graphics/GraphicsNav";
 import GraphicsHero from "../components/graphics/GraphicsHero";
 import GraphicsToggle from "../components/graphics/GraphicsToggle";
@@ -13,12 +14,9 @@ type View = "graphics" | "branding";
 export default function Graphics() {
   const [view, setView] = useState<View>("graphics");
 
-  useEffect(() => {
-    document.title = "Graphics Portfolio — Great Emman-Wori";
-  }, []);
-
   return (
     <>
+      <Seo page="graphics" />
       <GraphicsNav />
       <main id="gx-content">
         <GraphicsHero />

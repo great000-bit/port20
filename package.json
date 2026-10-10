@@ -9,7 +9,8 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "vite preview --host 0.0.0.0 --port ${PORT:-3000}"
+    "start": "vite preview --host 0.0.0.0 --port ${PORT:-3000}",
+    "postbuild": "node scripts/prerender-meta.mjs"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",
