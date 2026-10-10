@@ -246,6 +246,7 @@ export default function Experience() {
           color:"var(--fg-muted)";
           display: flex; gap: 10px;
         }
+        .exp-bullet-text { min-width: 0; overflow-wrap: anywhere; }
         .exp-bullet::before {
           content: "—";
           color: var(--accent);
@@ -293,7 +294,7 @@ export default function Experience() {
               <p className="exp-org">{e.org} · {e.loc}</p>
               <ul className="exp-bullets">
                 {e.bullets.map((b, j) => (
-                  <li key={j} className="exp-bullet">{b}</li>
+                  <li key={j} className="exp-bullet"><span className="exp-bullet-text">{b}</span></li>
                 ))}
               </ul>
               <div className="exp-tags">
