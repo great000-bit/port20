@@ -234,7 +234,7 @@ export default function About() {
                   style={{ color:"var(--accent)", fontWeight:600, textDecoration:"none" }}>
                   Creative Emman Limited
                 </a>
-                {" "}— a premium digital design &amp; branding studio.
+                {" "}— a digital design, development &amp; branding company.
               </p>
               <p style={{ color: "var(--fg-muted)" }}>
                 I bridge the gap between clean code, visual design, usability, and real business outcomes.
@@ -249,7 +249,7 @@ export default function About() {
               </p>
             </div>
 
-            {/* Studio attribution line */}
+            {/* Company attribution line */}
             <div className="about-studio-line">
               <span>Founder &amp; Creative Director —</span>
               <a
