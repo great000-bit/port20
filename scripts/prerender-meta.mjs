@@ -65,3 +65,20 @@ for (const [key, page] of Object.entries(config.pages)) {
   writeFileSync(join(dir, "index.html"), html);
   console.log(`prerender-meta: wrote ${page.path}/index.html (${key})`);
 }
+
+// FAQPage structured data for the homepage, generated from the same file the
+// visible FAQ section renders so the two can never disagree.
+const faq = JSON.parse(readFileSync(join(root, "src/faq.json"), "utf8"));
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": `${config.siteUrl}/#faq`,
+  mainEntity: faq.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
+const home = swap(base, /<\/head>/, `    <script type="application/ld+json">\n    ${JSON.stringify(faqLd).replace(/</g, "\\u003c")}\n    </script>\n  </head>`, "</head>");
+writeFileSync(join(dist, "index.html"), home);
+console.log("prerender-meta: added FAQPage schema to /index.html");

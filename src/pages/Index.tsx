@@ -10,6 +10,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 import Testimonials from "../components/Testimonials";
 import Seo from "../components/Seo";
+import FAQ from "../components/FAQ";
 
 export default function Index() {
   return (
@@ -28,6 +29,7 @@ export default function Index() {
         <Portfolio />
         <Experience />
         <Testimonials />
+        <FAQ />
         <CTABanner />
         <Contact />
       </main>
