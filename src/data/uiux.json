@@ -43,7 +43,7 @@
     "stats": [
       {
         "label": "Projects",
-        "value": "7"
+        "value": "8"
       },
       {
         "label": "Experience",
@@ -148,6 +148,53 @@
         "A complete e-commerce design in Figma covering 10 core screens, from home page to checkout",
         "A consistent component and spacing system, ready for developer handoff",
         "A short, clear path from browsing to buying, with account and wishlist built in"
+      ]
+    },
+    {
+      "slug": "shipx-logistics-landing-page",
+      "title": "ShipX: Logistics Landing Page",
+      "type": "SaaS landing page design",
+      "cover": "/shipx-logistics-landing-page.webp",
+      "alt": "ShipX shipping and logistics landing page hero shown on a laptop, designed by Great Emman-Wori",
+      "canvas": "#ebebf6",
+      "year": "2025",
+      "role": "UI/UX Designer",
+      "client": "ShipX",
+      "tools": [
+        "Figma"
+      ],
+      "fields": [
+        "UI/UX",
+        "Landing Page",
+        "SaaS Design"
+      ],
+      "tags": [
+        "Logistics",
+        "Shipping",
+        "SaaS",
+        "Landing Page",
+        "Dashboard UI",
+        "Figma"
+      ],
+      "brief": "ShipX is a shipping and logistics platform that helps businesses book, track and analyse shipments in one place. The brief was a confident landing page that explains the product quickly and builds trust, from a full-bleed hero and product previews to workflow, testimonials, partner integrations and FAQs. I designed the page in Figma on a deep navy and indigo palette, with soft glass cards and clear calls to action.",
+      "story": [
+        {
+          "title": "A hero that says it in one line",
+          "body": "A full-bleed container-port photograph, a bold headline and two clear actions open the page. Floating brand chips add scale and trust without crowding the message."
+        },
+        {
+          "title": "Show the product, not just describe it",
+          "body": "Phone-style cards put real shipment numbers up front, and a dark section below shows custom reports, shipment statistics and an analytical view, so visitors see the dashboard before signing up."
+        },
+        {
+          "title": "Trust and answers before the ask",
+          "body": "Testimonials, partner integrations and an FAQ sit ahead of the final call to action, answering the main questions a buyer has before they get in touch."
+        }
+      ],
+      "results": [
+        "A complete landing page design in Figma, from hero to footer",
+        "Product previews and dashboard components reusable across the site",
+        "A clear path to contact or sign up repeated at every section"
       ]
     },
     {
