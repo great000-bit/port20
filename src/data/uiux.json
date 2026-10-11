@@ -280,5 +280,28 @@
       ],
       "liveUrl": "https://www.bourdillonomijehfoundation.com/"
     }
+  ],
+  "testimonials": [
+    {
+      "name": "YouthUp Global UK",
+      "role": "CEO & Founder — YouthUp Global",
+      "text": "Great brought our vision for YouthUp Global Pathways to life with clarity, creativity, and care. His ability to turn complex ideas into a clean, intuitive web experience made the entire process seamless. We now have a platform that truly reflects our mission."
+    },
+    {
+      "name": "Professor Bourdillion Omijeh",
+      "role": "CEO & Founder — Bourdillion Omijeh Foundation",
+      "text": "Great captured the essence of our foundation and transformed it into a design that is dependable, contemporary, and accessible. His focus on user experience made the website very user-friendly for our wide range of visitors.",
+      "project": "bourdillon-omijeh-foundation"
+    },
+    {
+      "name": "Trust-God Ewuziem",
+      "role": "Founder & CEO — Nexatrux",
+      "text": "Great has been instrumental in transforming our digital experiences. His ability to streamline complexities, create aesthetically striking designs, and maintain usability across platforms has enhanced our value delivery. His creative precision is unparalleled."
+    },
+    {
+      "name": "Bello Stylez",
+      "role": "CEO — Bellostylez Unisex Saloon",
+      "text": "Working with Great was the best decision for my brand. He captured my vision perfectly, delivered ahead of schedule, and made everything feel effortless. My site now feels like me — stylish, fast, and functional."
+    }
   ]
 }

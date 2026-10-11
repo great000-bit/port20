@@ -6,7 +6,7 @@ import Seo from "../components/Seo";
 import UiUxNav from "../components/uiux/UiUxNav";
 import ProjectCard from "../components/uiux/ProjectCard";
 import NotFound from "./NotFound";
-import { profile, projects, mockupsFor, canvasTone } from "@/data/uiux";
+import { profile, projects, mockupsFor, canvasTone, testimonials } from "@/data/uiux";
 import config from "@/seo.config.json";
 import "../components/uiux/uiux.css";
 
@@ -168,6 +168,16 @@ export default function UiUxProject() {
                 </>
               );
             })()}
+
+            {testimonials.filter((t) => t.project === project.slug).map((t) => (
+              <section className="ux-mod" key={t.name}>
+                <div className="ux-mod-inner">
+                  <p className="ux-eyebrow">Client feedback</p>
+                  <blockquote className="ux-bigquote">{t.text}</blockquote>
+                  <p className="ux-bigquote-by"><strong>{t.name}</strong>, {t.role}</p>
+                </div>
+              </section>
+            ))}
 
             {project.results.length > 0 && (
             <section className="ux-mod" aria-labelledby="ux-results">

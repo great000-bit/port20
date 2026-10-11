@@ -48,3 +48,6 @@ export function canvasTone(hex: string) {
     ? { fg: "#ffffff", muted: "rgba(255,255,255,.68)", line: "rgba(255,255,255,.16)" }
     : { fg: "#111111", muted: "rgba(17,17,17,.66)", line: "rgba(17,17,17,.14)" };
 }
+
+export type UiUxTestimonial = { name: string; role: string; text: string; project?: string };
+export const testimonials = data.testimonials as UiUxTestimonial[];

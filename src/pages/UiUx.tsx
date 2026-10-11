@@ -3,7 +3,7 @@ import { Mail, MapPin, Briefcase, ArrowUpRight } from "lucide-react";
 import Seo from "../components/Seo";
 import UiUxNav from "../components/uiux/UiUxNav";
 import ProjectCard from "../components/uiux/ProjectCard";
-import { profile, projects } from "@/data/uiux";
+import { profile, projects, testimonials } from "@/data/uiux";
 import config from "@/seo.config.json";
 import "../components/uiux/uiux.css";
 
@@ -87,6 +87,17 @@ export default function UiUx() {
                 <div>
                   <h2>Tools</h2>
                   <div className="ux-chips">{profile.tools.map((t) => <span key={t} className="ux-chip">{t}</span>)}</div>
+                </div>
+                <div>
+                  <h2>Client words</h2>
+                  <div className="ux-quotes">
+                    {testimonials.map((t) => (
+                      <figure className="ux-quote" key={t.name}>
+                        <blockquote>{t.text}</blockquote>
+                        <figcaption><strong>{t.name}</strong><span>{t.role}</span></figcaption>
+                      </figure>
+                    ))}
+                  </div>
                 </div>
                 <div>
                   <a className="ux-btn ux-btn-primary" href={profile.whatsapp} target="_blank" rel="noopener noreferrer">Start a project <ArrowUpRight size={15} /></a>
