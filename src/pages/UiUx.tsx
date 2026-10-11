@@ -1,6 +1,7 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { Mail, MapPin, Briefcase, ArrowUpRight } from "lucide-react";
 import Seo from "../components/Seo";
+import Contact from "../components/Contact";
 import UiUxNav from "../components/uiux/UiUxNav";
 import ProjectCard from "../components/uiux/ProjectCard";
 import { profile, projects, testimonials } from "@/data/uiux";
@@ -107,6 +108,7 @@ export default function UiUx() {
           </section>
         </div>
       </main>
+      <Contact eyebrow="Contact" heading="Let's design something." sub="Have a product, app or website in mind? Tell me about it — I reply within 24 hours." />
       <footer className="ux-foot">
         <span>© {new Date().getFullYear()} {profile.name}. UI/UX portfolio.</span>
         <span><Link to="/">Main portfolio</Link> · <Link to="/graphics">Graphics</Link> · <a href={config.siteUrl}>{config.siteUrl.replace("https://", "")}</a></span>

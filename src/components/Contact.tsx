@@ -50,7 +50,13 @@ const SOCIALS = [
 const ROLES = ["client","collaborator","other"] as const;
 type Role = typeof ROLES[number];
 
-export default function Contact() {
+type ContactProps = { eyebrow?: string; heading?: string; sub?: string };
+
+export default function Contact({
+  eyebrow = "07 — Contact",
+  heading = "Let's Build.",
+  sub = "Clients, collaborators, and creative partners — reach out.",
+}: ContactProps = {}) {
   const [state, handleSubmit, resetSubmission] = useForm<ContactFormFields>(PORTFOLIO_FORM_KEY);
   const [role, setRole] = useState<Role | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
@@ -167,7 +173,7 @@ export default function Contact() {
         }
         .contact-sub {
           font-family: Arial,sans-serif; font-size:15px;
-          line-height:1.65; color: var(--fg-faint);
+          line-height:1.65; color: var(--fg-muted);
           margin:0 0 40px 0;
         }
         /* Role selector — Omijeh style */
@@ -281,10 +287,10 @@ export default function Contact() {
 
       <div className="contact-wrap">
         <div data-aos="fade-up">
-          <span className="contact-eyebrow">07 — Contact</span>
-          <h2 className="contact-heading">Let's Build.</h2>
+          <span className="contact-eyebrow">{eyebrow}</span>
+          <h2 className="contact-heading">{heading}</h2>
           <p className="contact-sub">
-            Clients, collaborators, and creative partners — reach out.
+            {sub}
           </p>
         </div>
 

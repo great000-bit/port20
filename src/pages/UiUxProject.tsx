@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { ThumbsUp, Mail, Wrench, Share2, Link2, Linkedin, MessageCircle, ArrowUpRight, Check } from "lucide-react";
 import { toast } from "sonner";
 import Seo from "../components/Seo";
+import Contact from "../components/Contact";
 import UiUxNav from "../components/uiux/UiUxNav";
 import ProjectCard from "../components/uiux/ProjectCard";
 import NotFound from "./NotFound";
@@ -301,6 +302,7 @@ export default function UiUxProject() {
           </section>
         )}
       </main>
+      <Contact eyebrow="Contact" heading="Let's design something." sub="Have a product, app or website in mind? Tell me about it — I reply within 24 hours." />
       <footer className="ux-foot">
         <span>© {new Date().getFullYear()} {profile.name}. UI/UX portfolio.</span>
         <span><Link to="/uiux">All projects</Link> · <Link to="/">Main portfolio</Link></span>
