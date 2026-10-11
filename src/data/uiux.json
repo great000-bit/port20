@@ -82,7 +82,7 @@
         "Product Listing",
         "Figma"
       ],
-      "brief": "XIV QR is a menswear store. The brief was a clean, editorial shopping experience across desktop and mobile, covering the home page, product listing with filters, product detail, cart and checkout.",
+      "brief": "XIV QR is a menswear brand that needed an online store that feels as considered as its clothes. The brief was a clean, editorial shopping experience that works equally well on desktop and phone: a home page that sells the collection, a product listing with real filtering, a focused product page, and a cart and checkout with no friction. I designed the full flow in Figma with a restrained black and grey palette, a bold display typeface and generous photography.",
       "story": [
         {
           "title": "An editorial home page",
@@ -97,7 +97,11 @@
           "body": "Product detail, cart and a three-step checkout (information, shipping, payment) share one layout language on desktop and phone, keeping the order summary visible while the customer fills in details."
         }
       ],
-      "results": []
+      "results": [
+        "A complete e-commerce flow designed for desktop and mobile: home, listing, product, cart and checkout",
+        "Consistent layout system across screen sizes, ready for developer handoff in Figma",
+        "Filtering and a three-step checkout that keep the path from browsing to buying short"
+      ]
     },
     {
       "slug": "adsfirr-meta-ads-platform",
