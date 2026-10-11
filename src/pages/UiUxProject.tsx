@@ -143,22 +143,33 @@ export default function UiUxProject() {
               </div>
             </section>
 
-            {project.story.map((block) => (
-              <section className="ux-mod" key={block.title}>
-                <div className="ux-mod-inner">
-                  <p className="ux-eyebrow">The story</p>
-                  <h2>{block.title}</h2>
-                  {block.body.split("\n\n").map((para) => <p key={para}>{para}</p>)}
-                </div>
-              </section>
-            ))}
+            {(() => {
+              const mock = (src: string, i: number) => (
+                <figure className="ux-mod-img" key={src}>
+                  <img src={src} alt={`${project.title} mockup ${i + 1}`} loading="lazy" decoding="async" />
+                </figure>
+              );
+              const used = Math.min(project.story.length, mockups.length);
+              return (
+                <>
+                  {project.story.map((block, i) => (
+                    <div key={block.title}>
+                      <section className="ux-mod">
+                        <div className="ux-mod-inner">
+                          {i === 0 && <p className="ux-eyebrow">The story</p>}
+                          <h2>{block.title}</h2>
+                          {block.body.split("\n\n").map((para) => <p key={para}>{para}</p>)}
+                        </div>
+                      </section>
+                      {i < used && mock(mockups[i], i)}
+                    </div>
+                  ))}
+                  {mockups.slice(used).map((src, i) => mock(src, used + i))}
+                </>
+              );
+            })()}
 
-            {mockups.map((src, i) => (
-              <figure className="ux-mod-img" key={src}>
-                <img src={src} alt={`${project.title} mockup ${i + 1}`} loading="lazy" decoding="async" />
-              </figure>
-            ))}
-
+            {project.results.length > 0 && (
             <section className="ux-mod" aria-labelledby="ux-results">
               <div className="ux-mod-inner">
                 <p className="ux-eyebrow">Results</p>
@@ -170,6 +181,7 @@ export default function UiUxProject() {
                 </ol>
               </div>
             </section>
+            )}
 
             <section className="ux-mod ux-mod-cta" aria-label="Next steps">
               <div className="ux-mod-inner">

@@ -17,20 +17,88 @@
       "Usability testing and iteration",
       "Design handoff for development"
     ],
-    "tools": ["Figma", "Framer", "Adobe XD"],
+    "tools": [
+      "Figma",
+      "Framer",
+      "Adobe XD"
+    ],
     "links": [
-      { "label": "Main portfolio", "href": "/" },
-      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/great-emman-wori" },
-      { "label": "Instagram", "href": "https://msng.link/o?creative_emman=ig" },
-      { "label": "GitHub", "href": "https://github.com/great000-bit" }
+      {
+        "label": "Main portfolio",
+        "href": "/"
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/great-emman-wori"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://msng.link/o?creative_emman=ig"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/great000-bit"
+      }
     ],
     "stats": [
-      { "label": "Projects", "value": "5" },
-      { "label": "Experience", "value": "3+ years" },
-      { "label": "Availability", "value": "Open to work" }
+      {
+        "label": "Projects",
+        "value": "6"
+      },
+      {
+        "label": "Experience",
+        "value": "3+ years"
+      },
+      {
+        "label": "Availability",
+        "value": "Open to work"
+      }
     ]
   },
   "projects": [
+    {
+      "slug": "xiv-qr-fashion-store",
+      "title": "XIV QR: Fashion Store UI",
+      "type": "E-commerce web and mobile design",
+      "cover": "/xiv-qr-fashion-store.webp",
+      "alt": "XIV QR fashion store e-commerce UI shown on a laptop and phone, designed by Great Emman-Wori",
+      "canvas": "#e4e4e8",
+      "year": "2025",
+      "role": "UI/UX Designer",
+      "client": "XIV QR",
+      "tools": [
+        "Figma"
+      ],
+      "fields": [
+        "UI/UX",
+        "E-commerce",
+        "Mobile Design"
+      ],
+      "tags": [
+        "Fashion",
+        "E-commerce",
+        "Responsive Design",
+        "Checkout",
+        "Product Listing",
+        "Figma"
+      ],
+      "brief": "XIV QR is a menswear store. The brief was a clean, editorial shopping experience across desktop and mobile, covering the home page, product listing with filters, product detail, cart and checkout.",
+      "story": [
+        {
+          "title": "An editorial home page",
+          "body": "A bold condensed wordmark headline, a quiet grey paper texture and large model photography lead the home page, so the collection reads like a lookbook before it reads like a shop."
+        },
+        {
+          "title": "Filters that stay out of the way",
+          "body": "The product listing pairs a collapsible filter column (size, availability, category, colour, price, tags, ratings) with a clean three-column grid. On mobile the same filters fold into an expandable panel above the products."
+        },
+        {
+          "title": "A short path to checkout",
+          "body": "Product detail, cart and a three-step checkout (information, shipping, payment) share one layout language on desktop and phone, keeping the order summary visible while the customer fills in details."
+        }
+      ],
+      "results": []
+    },
     {
       "slug": "adsfirr-meta-ads-platform",
       "title": "AdsFirr: Meta Ads Platform UI",
@@ -41,9 +109,22 @@
       "year": "2025",
       "role": "UI/UX Designer",
       "client": "AdsFirr",
-      "tools": ["Figma"],
-      "fields": ["UI/UX", "Dashboard Design", "Product Design"],
-      "tags": ["Meta Ads", "Instagram Ads", "Analytics", "Campaign Management", "Dashboard", "Figma"],
+      "tools": [
+        "Figma"
+      ],
+      "fields": [
+        "UI/UX",
+        "Dashboard Design",
+        "Product Design"
+      ],
+      "tags": [
+        "Meta Ads",
+        "Instagram Ads",
+        "Analytics",
+        "Campaign Management",
+        "Dashboard",
+        "Figma"
+      ],
       "brief": "AdsFirr is a platform for managing Meta and Instagram advertising. The brief was a dashboard interface with a clear analytics layout and simple campaign management for advertisers.",
       "story": [],
       "results": [
@@ -63,9 +144,22 @@
       "year": "2025",
       "role": "UI/UX Designer, co-led design",
       "client": "SuiBiz hackathon team",
-      "tools": ["Figma"],
-      "fields": ["UI/UX", "Web3", "Design System"],
-      "tags": ["Web3", "Marketplace", "Sui blockchain", "Design System", "Hackathon", "Figma"],
+      "tools": [
+        "Figma"
+      ],
+      "fields": [
+        "UI/UX",
+        "Web3",
+        "Design System"
+      ],
+      "tags": [
+        "Web3",
+        "Marketplace",
+        "Sui blockchain",
+        "Design System",
+        "Hackathon",
+        "Figma"
+      ],
       "brief": "SuiBiz is a decentralised marketplace on the Sui blockchain where people buy and sell products and book services, with secure escrow and community-driven trust. It was designed and built for a national hackathon.",
       "story": [],
       "results": [
@@ -85,9 +179,22 @@
       "year": "",
       "role": "Product Designer",
       "client": "WaContacts",
-      "tools": ["Figma"],
-      "fields": ["UI/UX", "Product Design", "Business"],
-      "tags": ["WhatsApp", "Business Directory", "SME", "Nigeria", "Product Design", "Figma"],
+      "tools": [
+        "Figma"
+      ],
+      "fields": [
+        "UI/UX",
+        "Product Design",
+        "Business"
+      ],
+      "tags": [
+        "WhatsApp",
+        "Business Directory",
+        "SME",
+        "Nigeria",
+        "Product Design",
+        "Figma"
+      ],
       "brief": "WaContacts is a WhatsApp business directory that connects Nigerian small and medium businesses with real customers. The brief was a clear, trustworthy product experience for both sides of the directory.",
       "story": [],
       "results": [
@@ -107,9 +214,22 @@
       "year": "2025",
       "role": "UI/UX Designer",
       "client": "Hair Brosh Saloon",
-      "tools": ["Figma"],
-      "fields": ["UI/UX", "Design System", "Web Design"],
-      "tags": ["UI Kit", "Salon", "Responsive", "Component Library", "Design System", "Figma"],
+      "tools": [
+        "Figma"
+      ],
+      "fields": [
+        "UI/UX",
+        "Design System",
+        "Web Design"
+      ],
+      "tags": [
+        "UI Kit",
+        "Salon",
+        "Responsive",
+        "Component Library",
+        "Design System",
+        "Figma"
+      ],
       "brief": "A pixel-perfect, responsive salon website designed in Figma and supported by a scalable UI kit, so the design could move to development without guesswork.",
       "story": [],
       "results": [
@@ -129,9 +249,23 @@
       "year": "2025",
       "role": "UI/UX Designer",
       "client": "Bourdillon Omijeh Foundation",
-      "tools": ["Figma", "WordPress"],
-      "fields": ["UI/UX", "Accessibility", "Web Design"],
-      "tags": ["Nonprofit", "WCAG", "Accessibility", "WordPress", "SEO", "Figma"],
+      "tools": [
+        "Figma",
+        "WordPress"
+      ],
+      "fields": [
+        "UI/UX",
+        "Accessibility",
+        "Web Design"
+      ],
+      "tags": [
+        "Nonprofit",
+        "WCAG",
+        "Accessibility",
+        "WordPress",
+        "SEO",
+        "Figma"
+      ],
       "brief": "A nonprofit website designed for credibility and accessibility, aligned with the foundation's brand and built to turn visitors into trainees and partners.",
       "story": [],
       "results": [

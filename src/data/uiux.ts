@@ -16,7 +16,7 @@ export type UiUxProject = {
   brief: string;
   story: { title: string; body: string }[];
   results: string[];
-  liveUrl: string;
+  liveUrl?: string;
 };
 
 export const profile = data.profile;
