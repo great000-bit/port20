@@ -176,10 +176,10 @@
     {
       "slug": "wacontacts-whatsapp-directory",
       "title": "WaContacts: WhatsApp Directory",
-      "type": "Product design",
+      "type": "Marketplace and dashboard design",
       "cover": "/wacontacts.webp",
-      "alt": "WaContacts WhatsApp business directory platform designed by Great Emman-Wori",
-      "canvas": "#eefaf2",
+      "alt": "WaContacts WhatsApp marketplace landing page shown on a laptop, designed by Great Emman-Wori",
+      "canvas": "#e3eee8",
       "year": "",
       "role": "Product Designer",
       "client": "WaContacts",
@@ -189,22 +189,41 @@
       "fields": [
         "UI/UX",
         "Product Design",
-        "Business"
+        "Web App"
       ],
       "tags": [
         "WhatsApp",
+        "Marketplace",
         "Business Directory",
-        "SME",
+        "Vendor Dashboard",
+        "Pricing",
+        "Design System",
         "Nigeria",
-        "Product Design",
         "Figma"
       ],
-      "brief": "WaContacts is a WhatsApp business directory that connects Nigerian small and medium businesses with real customers. The brief was a clear, trustworthy product experience for both sides of the directory.",
-      "story": [],
+      "brief": "WaContacts is a WhatsApp-first marketplace and business directory for Nigeria. Buyers browse by category and chat with sellers directly on WhatsApp, while vendors post promotions, track performance and manage their plan. The brief was one clear, trustworthy product for both sides, covering the landing page, marketplace, sign up and sign in, vendor dashboard, promotion creation, profiles, in-app chat and pricing. I designed every screen in Figma on a calm green palette, with a reusable component library behind it.",
+      "story": [
+        {
+          "title": "A landing page that explains it in one look",
+          "body": "A bold headline, two clear actions (shop or sell) and a category grid tell visitors what WaContacts is before they scroll. Green keeps it close to WhatsApp, and the orange accent marks the main calls to action."
+        },
+        {
+          "title": "A marketplace built for browsing",
+          "body": "Categories sit in a persistent sidebar, filters stay above the results, and every promotion card shows its badge, price and a direct Chat button, so a buyer is one tap from the seller on WhatsApp."
+        },
+        {
+          "title": "Tools that help vendors sell",
+          "body": "The vendor dashboard puts revenue, customers, conversion and order value in four colour-coded cards, with analytics, promotions and settings one tab away. A guided promotion form with live preview and tips keeps listings consistent."
+        },
+        {
+          "title": "Simple plans, quiet account screens",
+          "body": "Basic, Pro and Business plans are compared side by side with the recommended tier highlighted, and sign in, profile and chat screens reuse the same components to keep the product consistent."
+        }
+      ],
       "results": [
-        "Product design for a WhatsApp business directory",
-        "Connects Nigerian SMEs with real customers",
-        "Interface designed in Figma"
+        "A complete product design in Figma covering 18 screens, from landing page to vendor dashboard",
+        "A reusable component library, ready for developer handoff",
+        "One consistent experience for buyers and vendors, with direct WhatsApp contact built into every listing"
       ],
       "liveUrl": "https://wacontacts.com/"
     },
