@@ -174,7 +174,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
           style={{
             display:"inline-flex", alignItems:"center", gap:6,
             fontFamily:"Arial,sans-serif", fontSize:13, fontWeight:600,
-            color:"var(--accent)", textDecoration:"none", letterSpacing:"0.01em",
+            color:"var(--accent-text)", textDecoration:"none", letterSpacing:"0.01em",
           }}
         >
           Case study <ArrowUpRight size={13}/>

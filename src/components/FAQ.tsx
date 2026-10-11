@@ -13,7 +13,7 @@ export default function FAQ() {
         .faq-item { border-bottom: 1px solid var(--border); }
         .faq-q { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; font: 600 16px/1.4 Geist, Arial, sans-serif; letter-spacing: -.01em; color: var(--fg); }
         .faq-q::-webkit-details-marker { display: none; }
-        .faq-q:hover { color: var(--accent); }
+        .faq-q:hover { color: var(--accent-text); }
         .faq-icon { flex: 0 0 auto; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--border-strong); color: var(--fg-muted); transition: transform .25s ease, background .2s, border-color .2s, color .2s; }
         .faq-item[open] .faq-icon { transform: rotate(45deg); background: var(--accent); border-color: var(--accent); color: #fff; }
         .faq-a { font: 15px/1.75 Arial, sans-serif; color: var(--fg-muted); margin: 0; padding: 0 50px 24px 0; max-width: 70ch; }

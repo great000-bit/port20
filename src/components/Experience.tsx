@@ -209,7 +209,7 @@ export default function Experience() {
           width: 12px; height: 12px;
           border-radius: 50%;
           background: var(--accent);
-          border: 2px solid #030303;
+          border: 2px solid var(--bg);
           box-shadow: 0 0 0 1px var(--accent);
         }
         /* Period label */
@@ -217,7 +217,7 @@ export default function Experience() {
           font-family: Arial,sans-serif;
           font-size: 11px; font-weight: 600;
           letter-spacing: 0.1em; text-transform: uppercase;
-          color: var(--accent);
+          color: var(--accent-text);
           margin-bottom: 10px;
           display: block;
         }
@@ -249,7 +249,7 @@ export default function Experience() {
         .exp-bullet-text { min-width: 0; overflow-wrap: anywhere; }
         .exp-bullet::before {
           content: "—";
-          color: var(--accent);
+          color: var(--accent-text);
           flex-shrink: 0;
           font-size: 12px;
           margin-top: 2px;

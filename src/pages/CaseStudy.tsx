@@ -39,8 +39,8 @@ export default function CaseStudy() {
         .cs-wrap { max-width: 1000px; margin: 0 auto; }
         .cs-crumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font: 13px Arial, sans-serif; color: var(--fg-faint); margin: 0 0 28px; padding: 0; list-style: none; }
         .cs-crumbs a { color: var(--fg-muted); text-decoration: none; }
-        .cs-crumbs a:hover { color: var(--accent); }
-        .cs-badge { display: inline-block; font: 600 11px/1 Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); padding: 7px 12px; border: 1px solid var(--accent-border); border-radius: 999px; background: var(--accent-soft); margin-bottom: 20px; }
+        .cs-crumbs a:hover { color: var(--accent-text); }
+        .cs-badge { display: inline-block; font: 600 11px/1 Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-text); padding: 7px 12px; border: 1px solid var(--accent-border); border-radius: 999px; background: var(--accent-soft); margin-bottom: 20px; }
         .cs-title { font-family: Geist, Arial, sans-serif; font-weight: 700; font-size: clamp(34px, 6vw, 64px); line-height: 1.02; letter-spacing: -.05em; margin: 0 0 20px; }
         .cs-lead { font: clamp(16px,2vw,19px)/1.7 Arial, sans-serif; color: var(--fg-muted); max-width: 62ch; margin: 0 0 28px; }
         .cs-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 44px; }
@@ -57,7 +57,7 @@ export default function CaseStudy() {
         .cs-meta dt { font: 600 11px/1 Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-faint); margin-bottom: 6px; }
         .cs-meta dd { margin: 0; font: 15px/1.5 Arial, sans-serif; color: var(--fg); }
         .cs-meta a { color: var(--fg); text-underline-offset: 3px; }
-        .cs-meta a:hover { color: var(--accent); }
+        .cs-meta a:hover { color: var(--accent-text); }
         .cs-related { border-top: 1px solid var(--border); padding: 56px 0 72px; }
         .cs-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
         .cs-rel { display: block; text-decoration: none; border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; background: var(--card-bg); transition: transform .25s, border-color .25s; }

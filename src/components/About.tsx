@@ -51,7 +51,7 @@ export default function About() {
       <style>{`
         #about {
           padding: clamp(80px, 12vh, 140px) 0 clamp(80px, 12vh, 120px);
-          background:"var(--bg)";
+          background: var(--bg);
         }
         .about-wrap {
           max-width: 1280px;
@@ -64,7 +64,7 @@ export default function About() {
           font-weight: 600;
           letter-spacing: 0.2em;
           text-transform: uppercase;
-          color:"var(--fg-ultra)";
+          color: var(--fg-ultra);
           display: block;
           margin-bottom: 20px;
         }
@@ -73,7 +73,7 @@ export default function About() {
           font-size: clamp(36px, 4.5vw, 56px);
           font-weight: 400;
           letter-spacing: -0.045em;
-          color:"var(--fg)";
+          color: var(--fg);
           line-height: 1.05;
           margin: 0 0 64px 0;
         }
@@ -97,14 +97,14 @@ export default function About() {
           margin-top: 36px;
           font-family: Arial, sans-serif;
           font-size: 13px;
-          color:"var(--fg-faint)";
+          color: var(--fg-faint);
           letter-spacing: 0.02em;
           border-top: 1px solid var(--border);
           padding-top: 28px;
           width: 100%;
         }
         .about-studio-link {
-          color: var(--accent);
+          color: var(--accent-text);
           font-weight: 600;
           text-decoration: none;
           font-size: 13px;
@@ -123,7 +123,7 @@ export default function About() {
           font-size: 12px;
           font-weight: 500;
           letter-spacing: 0.04em;
-          color:"var(--fg-muted)";
+          color: var(--fg-muted);
           padding: 5px 14px;
           border-radius: 999px;
           border: 1px solid var(--border-strong);
@@ -132,7 +132,7 @@ export default function About() {
         }
         .about-tag:hover {
           border-color: var(--accent);
-          color: var(--accent);
+          color: var(--accent-text);
         }
 
         /* Right column */
@@ -148,7 +148,7 @@ export default function About() {
           object-position: center 15%;
           border-radius: 12px;
           display: block;
-          border:"1px solid var(--border-soft)";
+          border: 1px solid var(--border-soft);
         }
         .about-photo-caption {
           display: flex;
@@ -160,12 +160,12 @@ export default function About() {
           font-family: Geist, Arial, sans-serif;
           font-size: 13px;
           font-weight: 500;
-          color:"var(--fg-muted)";
+          color: var(--fg-muted);
         }
         .about-photo-handle {
           font-family: Arial, sans-serif;
           font-size: 11px;
-          color:"var(--fg-ultra)";
+          color: var(--fg-ultra);
           letter-spacing: 0.04em;
         }
 
@@ -175,14 +175,14 @@ export default function About() {
           grid-template-columns: repeat(4, 1fr);
           gap: 1px;
           background: var(--border-soft);
-          border:"1px solid var(--border-soft)";
+          border: 1px solid var(--border-soft);
           border-radius: 12px;
           overflow: hidden;
           margin-top: 40px;
         }
         .about-stat {
           padding: 22px 20px;
-          background:"var(--bg-2)";
+          background: var(--bg-2);
           display: flex;
           flex-direction: column;
           gap: 6px;
@@ -191,7 +191,7 @@ export default function About() {
           font-family: Geist, Arial, sans-serif;
           font-size: 30px;
           font-weight: 700;
-          color:"var(--fg)";
+          color: var(--fg);
           line-height: 1;
           letter-spacing: -0.03em;
         }
@@ -201,7 +201,7 @@ export default function About() {
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.12em;
-          color:"var(--fg-faint)";
+          color: var(--fg-faint);
         }
         @media (max-width: 640px) {
           .about-stats { grid-template-columns: 1fr 1fr; }
@@ -231,7 +231,7 @@ export default function About() {
                 <strong style={{ color:"var(--fg)", fontWeight:600 }}>Port Harcourt, Nigeria</strong>.
                 Founder of{" "}
                 <a href="https://www.creativeemmanlimited.com/" target="_blank" rel="noopener noreferrer"
-                  style={{ color:"var(--accent)", fontWeight:600, textDecoration:"none" }}>
+                  style={{ color:"var(--accent-text)", fontWeight:600, textDecoration:"none" }}>
                   Creative Emman Limited
                 </a>
                 {" "}— a digital design, development &amp; branding company.
@@ -244,7 +244,7 @@ export default function About() {
               </p>
               <p style={{ color: "var(--fg-muted)" }}>
                 Currently handling digital operations at{" "}
-                <span style={{ color:"var(--accent)", fontWeight:600 }}>Phatbird</span> (UK), while
+                <span style={{ color:"var(--accent-text)", fontWeight:600 }}>Phatbird</span> (UK), while
                 building client websites and brand experiences for global clients through Creative Emman Limited.
               </p>
             </div>

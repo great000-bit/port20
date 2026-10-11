@@ -28,7 +28,7 @@ export default function GraphicsNav() {
         .gx-nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .gx-nav-logo-img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(111,4,20,0.45); }
         .gx-nav-logo-text { font-family: "Clash Display", Geist, Arial, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: -0.02em; color: var(--fg); }
-        .gx-nav-logo-accent { color: var(--accent); }
+        .gx-nav-logo-accent { color: var(--accent-text); }
         .gx-nav-badge {
           font-family: Arial, sans-serif; font-size: 11px; font-weight: 600;
           letter-spacing: 0.03em; text-transform: uppercase;

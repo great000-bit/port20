@@ -68,11 +68,11 @@ export default function Services() {
               data-aos="fade-up"
               data-aos-delay={i * 80}>
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300"
-                style={{background:"rgba(111,4,20,0.10)",border:"1px solid rgba(111,4,20,0.25)",color:"var(--accent)"}}>
+                style={{background:"rgba(111,4,20,0.10)",border:"1px solid rgba(111,4,20,0.25)",color:"var(--accent-text)"}}>
                 {s.icon}
               </div>
               <h3 className="font-heading text-lg font-semibold mb-1 transition-colors" style={{color:"var(--fg)"}}>{s.title}</h3>
-              <p className="font-body text-xs mb-3" style={{color:"var(--accent)",letterSpacing:"0.04em"}}>{s.sub}</p>
+              <p className="font-body text-xs mb-3" style={{color:"var(--accent-text)",letterSpacing:"0.04em"}}>{s.sub}</p>
               <p className="font-body text-sm text-white/52 leading-relaxed mb-5">{s.desc}</p>
               <div className="flex flex-wrap gap-2">
                 {s.tags.map(t=>(

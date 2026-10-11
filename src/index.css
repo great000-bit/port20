@@ -18,6 +18,8 @@
   --fg-ultra:        rgba(255,255,255,0.12);
   --accent:          #6f0414;
   --accent-hover:    #8a0519;
+  --accent-text:     #ff7a8c;   /* readable maroon-family text on dark */
+  --on-accent:       #ffffff;
   --accent-soft:     rgba(111,4,20,0.12);
   --accent-border:   rgba(111,4,20,0.40);
   --border:          rgba(255,255,255,0.07);
@@ -34,7 +36,7 @@
   --url-bar-bg:      #060606;
   --url-bar-pill:    rgba(255,255,255,0.04);
   --badge-dot:       #22c55e;
-  --badge-text:      #6f0414;
+  --badge-text:      var(--accent-text);
   --tag-bg:          rgba(255,255,255,0.04);
   --tag-border:      rgba(255,255,255,0.07);
   --tag-color:       rgba(255,255,255,0.40);
@@ -57,6 +59,8 @@
   --fg-ultra:        rgba(17,17,17,0.12);
   --accent:          #6f0414;
   --accent-hover:    #8a0519;
+  --accent-text:     #6f0414;
+  --on-accent:       #ffffff;
   --accent-soft:     rgba(111,4,20,0.08);
   --accent-border:   rgba(111,4,20,0.30);
   --border:          rgba(17,17,17,0.09);
@@ -73,7 +77,7 @@
   --url-bar-bg:      #eeebe6;
   --url-bar-pill:    rgba(17,17,17,0.06);
   --badge-dot:       #6f0414;
-  --badge-text:      #6f0414;
+  --badge-text:      var(--accent-text);
   --tag-bg:          rgba(17,17,17,0.05);
   --tag-border:      rgba(17,17,17,0.10);
   --tag-color:       rgba(17,17,17,0.50);
@@ -171,7 +175,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   font-size: 0.7rem; font-weight: 700;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-text);
   padding: 4px 12px; border-radius: 999px;
   border: 1px solid var(--accent-border);
   background: var(--accent-soft);
@@ -197,7 +201,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border-strong); cursor: pointer;
   transition: border-color 0.2s, color 0.2s; text-decoration: none;
 }
-.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+.btn-outline:hover { border-color: var(--accent); color: var(--accent-text); }
 
 /* ══ AOS ══ */
 [data-aos] { will-change: auto; }
@@ -222,7 +226,7 @@ body.performance-safe * { filter: none !important; }
   border: 1px solid var(--border);
   color: var(--fg-muted);
 }
-.card-link:hover { border-color: var(--accent); color: var(--accent); }
+.card-link:hover { border-color: var(--accent); color: var(--accent-text); }
 .social-link {
   transition: background 0.2s, border-color 0.2s, color 0.2s;
   background: var(--card-bg); border: 1px solid var(--border);
@@ -289,7 +293,7 @@ body.performance-safe * { filter: none !important; }
 }
 [data-theme="light"] .hero-button-secondary:hover {
   border-color: var(--accent) !important;
-  color: var(--accent) !important;
+  color: var(--accent-text) !important;
 }
 /* Skill bar track */
 [data-theme="light"] .skill-track {
@@ -355,3 +359,12 @@ body.performance-safe * { filter: none !important; }
 [data-theme="light"] button[style*="background:\"var(--accent)\""] {
   color: #ffffff !important;
 }
+
+/* ══ Single source of truth: text on accent (red) surfaces is always white, both themes ══ */
+.nav-link.active, .nav-cta, .btn-red, .hero-button-primary, .role-btn.active, .form-submit,
+.gx-btn-primary, .gx-toggle-btn.gx-active, .gx-rc-switch-btn.gx-active, .gx-rc-badge,
+.gx-featured .gx-rc-cta, .ux-btn-primary, .ux-rail-btn.is-primary, .ux-rail-btn.is-on,
+.social-link:hover, .faq-item[open] .faq-icon {
+  color: var(--on-accent) !important;
+}
+[data-theme="light"] .btn-red:hover, [data-theme="dark"] .btn-red:hover { color: var(--on-accent) !important; }

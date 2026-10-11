@@ -20,7 +20,7 @@ export default function CTABanner() {
             maxWidth:900,
           }}>
             "Every pixel, every line of code, every interaction — built to make your brand
-            impossible to <em style={{ fontStyle:"italic", color:"var(--accent)" }}>ignore</em>."
+            impossible to <em style={{ fontStyle:"italic", color:"var(--accent-text)" }}>ignore</em>."
           </blockquote>
           <p style={{
             fontFamily:"Arial,sans-serif", fontSize:13,
@@ -53,7 +53,7 @@ export default function CTABanner() {
               display:"inline-flex", alignItems:"center", gap:6,
               height:46, padding:"0 24px", borderRadius:8,
               fontFamily:"Arial,sans-serif", fontSize:14, fontWeight:600,
-              background:"var(--accent)", color:"var(--fg)",
+              background:"var(--accent)", color:"#ffffff",
               border:"1px solid var(--accent)", textDecoration:"none",
               transition:"background 0.2s",
             }}

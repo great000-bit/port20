@@ -157,23 +157,23 @@ export default function Contact() {
         .contact-eyebrow {
           font-family: Arial,sans-serif; font-size:11px; font-weight:600;
           letter-spacing:0.2em; text-transform:uppercase;
-          color:"var(--fg-ultra)"; display:block; margin-bottom:20px;
+          color: var(--fg-faint); display:block; margin-bottom:20px;
         }
         .contact-heading {
           font-family: Geist,Arial,sans-serif;
           font-size: clamp(28px,3.5vw,42px);
           font-weight:400; letter-spacing:-0.04em;
-          color:"var(--fg)"; margin:0 0 16px 0;
+          color: var(--fg); margin:0 0 16px 0;
         }
         .contact-sub {
           font-family: Arial,sans-serif; font-size:15px;
-          line-height:1.65; color:"var(--fg-faint)";
+          line-height:1.65; color: var(--fg-faint);
           margin:0 0 40px 0;
         }
         /* Role selector — Omijeh style */
         .role-label {
           font-family: Arial,sans-serif; font-size:13px;
-          color:"var(--fg-faint)"; margin-bottom:12px;
+          color: var(--fg-faint); margin-bottom:12px;
           display:block; letter-spacing:0.02em;
         }
         .role-options {
@@ -183,13 +183,13 @@ export default function Contact() {
           font-family: Arial,sans-serif; font-size:13px; font-weight:500;
           padding:6px 16px; border-radius:999px; cursor:pointer;
           transition: all 0.2s; border:1px solid var(--fg-ultra);
-          background:transparent; color:"var(--fg-muted)";
+          background:transparent; color: var(--fg-muted);
         }
         .role-btn.active {
-          background:var(--accent); border-color:var(--accent); color:"var(--fg)";
+          background:var(--accent); border-color:var(--accent); color:#fff;
         }
         .role-btn:hover:not(.active) {
-          border-color:"var(--fg-faint)"; color:var(--fg-muted);
+          border-color: var(--fg-faint); color:var(--fg-muted);
         }
         /* Social links */
         .social-row {
@@ -205,15 +205,15 @@ export default function Contact() {
           width:32px; height:32px; border-radius:8px;
           display:flex; align-items:center; justify-content:center;
           background:rgba(111,4,20,0.12);
-          color:var(--accent); flex-shrink:0;
+          color:var(--accent-text); flex-shrink:0;
         }
         .social-name {
           font-family:Geist,Arial,sans-serif; font-size:14px; font-weight:500;
-          color:"var(--fg)";
+          color: var(--fg);
         }
         .social-handle {
           font-family:Arial,sans-serif; font-size:12px;
-          color:"var(--fg-faint)"; margin-left:auto;
+          color: var(--fg-faint); margin-left:auto;
           min-width:0; overflow-wrap:anywhere; text-align:right;
         }
         /* Form */
@@ -222,14 +222,14 @@ export default function Contact() {
         .form-label {
           font-family:Arial,sans-serif; font-size:11px; font-weight:600;
           text-transform:uppercase; letter-spacing:0.1em;
-          color:"var(--fg-faint)";
+          color: var(--fg-faint);
         }
         .form-submit {
           display:inline-flex; align-items:center; gap:8px;
           width:100%; justify-content:center;
           height:46px; border-radius:8px; cursor:pointer;
           font-family:Arial,sans-serif; font-size:14px; font-weight:600;
-          background:var(--accent); color:"var(--fg)"; border:1px solid var(--accent);
+          background:var(--accent); color:#fff; border:1px solid var(--accent);
           transition:background 0.2s; margin-top:4px;
         }
         .form-submit:hover { background:#8a0519; }
@@ -246,7 +246,7 @@ export default function Contact() {
         .form-error {
           display:block; margin-top:2px;
           font-family:Arial,sans-serif; font-size:12px; line-height:1.45;
-          color:var(--accent);
+          color:var(--accent-text);
         }
         .form-error-summary { margin:0 0 12px; }
         .contact-status {
@@ -417,7 +417,7 @@ export default function Contact() {
               }
             }}
           >
-            <CheckCircle size={40} aria-hidden="true" style={{ color:"var(--accent)", margin:"0 auto 16px", display:"block" }}/>
+            <CheckCircle size={40} aria-hidden="true" style={{ color:"var(--accent-text)", margin:"0 auto 16px", display:"block" }}/>
             <p id="contact-success-title" className="contact-modal-title">Message sent.</p>
             <p id="contact-success-description" className="contact-modal-copy">I'll get back to you within 24 hours.</p>
             <button ref={closeButtonRef} type="button" className="form-submit contact-modal-close" onClick={closeSuccessModal}>

@@ -16,7 +16,7 @@ export default function GraphicsWork() {
       <style>{`
         .gx-grid-wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px) 112px; }
         .gx-grid-head { margin-bottom: 32px; }
-        .gx-grid-kicker { color: var(--accent); font: 600 12px/1 Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; margin: 0 0 10px; }
+        .gx-grid-kicker { color: var(--accent-text); font: 600 12px/1 Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; margin: 0 0 10px; }
         .gx-grid-title { font-family: Geist, Arial, sans-serif; font-weight: 700; font-size: clamp(26px,3vw,36px); letter-spacing: -.04em; color: var(--fg); margin: 0 0 10px; }
         .gx-grid-sub { font-family: Arial, sans-serif; font-size: 14px; color: var(--fg-muted); margin: 0; }
         .gx-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
@@ -26,7 +26,7 @@ export default function GraphicsWork() {
         .gx-card-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .45s ease; }
         .gx-card:hover .gx-card-img { transform: scale(1.025); }
         .gx-card-body { padding: 16px 18px 18px; }
-        .gx-card-tag { display: inline-block; font-family: Arial, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); margin-bottom: 7px; }
+        .gx-card-tag { display: inline-block; font-family: Arial, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--accent-text); margin-bottom: 7px; }
         .gx-card-title { font-family: Geist, Arial, sans-serif; font-weight: 600; font-size: 16px; line-height: 1.35; color: var(--fg); }
         @media (max-width: 860px) { .gx-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 520px) { .gx-grid { grid-template-columns: 1fr; gap: 16px; } .gx-card-media { aspect-ratio: 4 / 4.6; } }

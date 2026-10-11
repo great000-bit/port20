@@ -92,7 +92,7 @@ export default function RateCard() {
         .gx-rc-wrap { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; }
 
         .gx-rc-head { text-align: center; margin-bottom: 48px; }
-        .gx-rc-kicker { display: inline-block; color: var(--accent); font: 600 12px/1 Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; padding: 7px 14px; border: 1px solid var(--accent-border); border-radius: 999px; background: var(--accent-soft); margin: 0 0 22px; }
+        .gx-rc-kicker { display: inline-block; color: var(--accent-text); font: 600 12px/1 Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; padding: 7px 14px; border: 1px solid var(--accent-border); border-radius: 999px; background: var(--accent-soft); margin: 0 0 22px; }
         .gx-rc-title { font-family: Geist, Arial, sans-serif; font-weight: 800; font-size: clamp(54px, 11vw, 132px); line-height: .95; letter-spacing: -.06em; margin: 0 0 20px; background: linear-gradient(180deg, var(--fg) 25%, var(--fg-faint) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
         .gx-rc-sub { font: 16px/1.7 Arial, sans-serif; color: var(--fg-muted); max-width: 52ch; margin: 0 auto 30px; }
 
@@ -123,13 +123,13 @@ export default function RateCard() {
 
         .gx-rc-cta-wrap { padding: 0 26px 26px; }
         .gx-rc-cta { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px 20px; border-radius: 999px; font: 600 13px Arial, sans-serif; text-decoration: none; color: var(--fg); background: transparent; border: 1px solid var(--border-strong); transition: background .2s, border-color .2s, color .2s; }
-        .gx-rc-cta:hover { border-color: var(--accent); color: var(--accent); }
+        .gx-rc-cta:hover { border-color: var(--accent); color: var(--accent-text); }
         .gx-featured .gx-rc-cta { background: var(--accent); border-color: var(--accent); color: #fff; }
         .gx-featured .gx-rc-cta:hover { background: var(--accent-hover); border-color: var(--accent-hover); color: #fff; }
 
         .gx-rc-note { text-align: center; font: 13px/1.6 Arial, sans-serif; color: var(--fg-faint); margin: 34px auto 0; max-width: 60ch; }
         .gx-rc-note a { color: var(--fg-muted); text-decoration: underline; text-underline-offset: 3px; }
-        .gx-rc-note a:hover { color: var(--accent); }
+        .gx-rc-note a:hover { color: var(--accent-text); }
 
         @media (max-width: 1060px) { .gx-rc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         @media (max-width: 620px) { .gx-rc-grid { grid-template-columns: 1fr; max-width: 440px; margin: 0 auto; } .gx-rc { padding-bottom: 88px; } }

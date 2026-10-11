@@ -19,7 +19,7 @@ export default function NotFound() {
           color: "var(--fg)",
         }}
       >
-        <p style={{ color: "var(--accent)", font: "600 12px/1 Arial, sans-serif", letterSpacing: ".11em", textTransform: "uppercase", margin: 0 }}>
+        <p style={{ color: "var(--accent-text)", font: "600 12px/1 Arial, sans-serif", letterSpacing: ".11em", textTransform: "uppercase", margin: 0 }}>
           Error 404
         </p>
         <h1 style={{ fontFamily: "Geist, Arial, sans-serif", fontWeight: 700, fontSize: "clamp(40px, 8vw, 80px)", letterSpacing: "-.05em", margin: 0 }}>

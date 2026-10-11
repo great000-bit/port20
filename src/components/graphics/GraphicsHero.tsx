@@ -29,7 +29,7 @@ export default function GraphicsHero() {
           color: var(--fg-muted); text-decoration: none;
           transition: color 0.2s;
         }
-        .gx-back:hover { color: var(--accent); }
+        .gx-back:hover { color: var(--accent-text); }
         .gx-hero-badge {
           display: inline-flex; align-items: center; gap: 8px;
           font-family: Arial, sans-serif; font-size: 14px; font-weight: 500;
@@ -63,7 +63,7 @@ export default function GraphicsHero() {
         .gx-btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
         .gx-btn-primary:hover { background: var(--accent-hover); }
         .gx-btn-secondary { background: transparent; color: var(--fg); border: 1px solid var(--border-strong); }
-        .gx-btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+        .gx-btn-secondary:hover { border-color: var(--accent); color: var(--accent-text); }
         .gx-hero-img-wrap {
           position: relative; border-radius: 24px; overflow: hidden;
           aspect-ratio: 1 / 1; border: 1px solid var(--border);

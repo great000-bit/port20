@@ -95,7 +95,7 @@ export default function Testimonials() {
         }
         .testi-quote-icon {
           position:absolute; top:20px; right:24px;
-          opacity:0.08; color:var(--accent);
+          opacity:0.08; color:var(--accent-text);
         }
         .testi-text {
           font-family:Arial,sans-serif;
@@ -130,7 +130,7 @@ export default function Testimonials() {
         }
         .testi-nav-btn:hover {
           border-color:var(--accent);
-          color:var(--accent);
+          color:var(--accent-text);
         }
         [data-theme="light"] .testi-nav-btn {
           background:#ffffff;

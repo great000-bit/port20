@@ -44,7 +44,7 @@ export default function BrandingWork() {
       <style>{`
         .gx-brand-wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,5vw,64px) 112px; }
         .gx-grid-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin: 0 auto 32px; max-width: 820px; }
-        .gx-grid-kicker { color: var(--accent); font: 600 12px/1 Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; margin: 0 0 10px; }
+        .gx-grid-kicker { color: var(--accent-text); font: 600 12px/1 Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; margin: 0 0 10px; }
         .gx-grid-title { font-family: Geist, Arial, sans-serif; font-weight: 700; font-size: clamp(26px,3vw,36px); letter-spacing: -.04em; color: var(--fg); margin: 0 0 10px; }
         .gx-grid-sub { font: 14px/1.65 Arial, sans-serif; color: var(--fg-muted); margin: 0; max-width: 54ch; }
         .gx-brand-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; max-width: 1000px; margin: 0 auto; }
@@ -62,11 +62,11 @@ export default function BrandingWork() {
         .gx-brand-card:hover .gx-brand-open { background: var(--accent); border-color: var(--accent); color: #fff; }
         .gx-brand-detail { max-width: 1000px; margin: 0 auto; }
         .gx-brand-back { display: inline-flex; align-items: center; gap: 7px; padding: 0; background: none; border: none; cursor: pointer; font: 500 13px Arial, sans-serif; color: var(--fg-muted); margin-bottom: 30px; transition: color .2s; }
-        .gx-brand-back:hover { color: var(--accent); }
+        .gx-brand-back:hover { color: var(--accent-text); }
         .gx-brand-intro { display: grid; grid-template-columns: minmax(0,1fr) minmax(280px,.75fr); gap: clamp(28px,5vw,72px); align-items: center; margin-bottom: 52px; }
         .gx-brand-detail-cover { aspect-ratio: 4 / 3; border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; background: var(--bg-3); }
         .gx-brand-detail-cover img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center 30%; }
-        .gx-brand-detail-type { color: var(--accent); font: 600 12px/1 Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 12px; }
+        .gx-brand-detail-type { color: var(--accent-text); font: 600 12px/1 Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 12px; }
         .gx-brand-detail-title { color: var(--fg); font: 700 clamp(32px,5vw,52px)/1 Geist, Arial, sans-serif; letter-spacing: -.055em; margin: 0 0 16px; }
         .gx-brand-detail-text { color: var(--fg-muted); font: 15px/1.7 Arial, sans-serif; margin: 0; max-width: 48ch; }
         .gx-guidelines-head { display: flex; align-items: center; gap: 10px; color: var(--fg); font: 600 15px Arial, sans-serif; padding: 18px 0; border-top: 1px solid var(--card-border); }

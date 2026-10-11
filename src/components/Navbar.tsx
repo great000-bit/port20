@@ -78,7 +78,7 @@ export default function Navbar() {
           letter-spacing: -0.02em;
           color: var(--fg);
         }
-        .nav-logo-text-accent { color: var(--accent); }
+        .nav-logo-text-accent { color: var(--accent-text); }
         /* Pill nav — Omijeh style */
         .nav-pill {
           display: flex; align-items: center; gap: 2px;
@@ -96,7 +96,7 @@ export default function Navbar() {
         .nav-link:hover { color: var(--fg); }
         .nav-link.active {
           background: var(--accent);
-          color: var(--fg);
+          color: #ffffff;
         }
         /* Theme toggle */
         .nav-theme-btn {
@@ -130,7 +130,7 @@ export default function Navbar() {
           border: 1px solid var(--border-strong); text-decoration: none;
           transition: all 0.2s; white-space: nowrap;
         }
-        .nav-gx:hover { border-color: var(--accent); color: var(--accent); }
+        .nav-gx:hover { border-color: var(--accent); color: var(--accent-text); }
         /* Hamburger */
         .nav-hamburger {
           width: 34px; height: 34px; border-radius: 50%;
@@ -324,7 +324,7 @@ export default function Navbar() {
             UI/UX Portfolio
           </a>
           <a href="#contact" onClick={close} className="nav-mobile-link"
-            style={{ color:"var(--accent)", fontWeight:600 }}>
+            style={{ color:"var(--accent-text)", fontWeight:600 }}>
             Hire Me →
           </a>
         </div>

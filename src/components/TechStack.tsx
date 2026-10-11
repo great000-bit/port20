@@ -74,7 +74,7 @@ const SKILL_GROUPS = [
 
 export default function TechStack() {
   return (
-    <section id="techstack" className="section" style={{background:"var(--bg-2)"}} style={{paddingTop:"5rem",paddingBottom:"5rem"}}>
+    <section id="techstack" className="section" style={{background:"var(--bg-2)",paddingTop:"5rem",paddingBottom:"5rem"}}>
       <div style={{ maxWidth:1280, margin:"0 auto", padding:"0 clamp(24px,5vw,64px)" }}>
 
         {/* Section label */}
@@ -129,7 +129,7 @@ export default function TechStack() {
               <div style={{
                 fontFamily:"Arial,sans-serif", fontSize:11, fontWeight:700,
                 letterSpacing:"0.14em", textTransform:"uppercase",
-                color:"var(--accent)", marginBottom:20,
+                color:"var(--accent-text)", marginBottom:20,
                 display:"flex", alignItems:"center", gap:8,
               }}>
                 <span style={{width:20,height:1,background:"var(--accent)",display:"inline-block"}}/>

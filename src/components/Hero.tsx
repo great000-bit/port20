@@ -95,7 +95,7 @@ export default function Hero() {
           background: transparent; color: var(--fg-muted);
           border: 1px solid var(--border-strong);
         }
-        .hero-btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+        .hero-btn-secondary:hover { border-color: var(--accent); color: var(--accent-text); }
         .hero-image {
           object-fit: cover; object-position: center 18%;
           display: block;
