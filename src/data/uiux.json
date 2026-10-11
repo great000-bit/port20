@@ -43,7 +43,7 @@
     "stats": [
       {
         "label": "Projects",
-        "value": "6"
+        "value": "7"
       },
       {
         "label": "Experience",
@@ -101,6 +101,53 @@
         "A complete e-commerce flow designed for desktop and mobile: home, listing, product, cart and checkout",
         "Consistent layout system across screen sizes, ready for developer handoff in Figma",
         "Filtering and a three-step checkout that keep the path from browsing to buying short"
+      ]
+    },
+    {
+      "slug": "con-e-commerce-website",
+      "title": "CON: E-Commerce Website UI",
+      "type": "E-commerce web design",
+      "cover": "/con-e-commerce-website.webp",
+      "alt": "CON e-commerce website home page shown on a laptop, designed by Great Emman-Wori",
+      "canvas": "#f1ebeb",
+      "year": "2025",
+      "role": "UI/UX Designer",
+      "client": "CON",
+      "tools": [
+        "Figma"
+      ],
+      "fields": [
+        "UI/UX",
+        "E-commerce",
+        "Web Design"
+      ],
+      "tags": [
+        "E-commerce",
+        "Online Store",
+        "Checkout",
+        "Product Page",
+        "Wishlist",
+        "Figma"
+      ],
+      "brief": "CON is a multi-category online store. The brief was a clear, high-contrast shopping experience that gets customers from discovery to checkout quickly, covering the home page with category navigation and flash sales, product details, wishlist, cart, checkout, account, about, contact and error pages. I designed the full set of screens in Figma on a black, white and red palette.",
+      "story": [
+        {
+          "title": "A home page that sells straight away",
+          "body": "A promo bar, a category sidebar and a full-width hero banner sit above a flash-sale strip with a live countdown, so shoppers see offers and navigation before they scroll."
+        },
+        {
+          "title": "From product to purchase in a few steps",
+          "body": "The product page leads with large imagery, colour and size options and a single Buy Now action. Cart and checkout follow the same grid, keeping the order total in view while billing details are filled in."
+        },
+        {
+          "title": "Account, wishlist and support pages",
+          "body": "Wishlist, account, about, contact and 404 screens reuse the same header, spacing and components, so the whole store feels like one system."
+        }
+      ],
+      "results": [
+        "A complete e-commerce design in Figma covering 10 core screens, from home page to checkout",
+        "A consistent component and spacing system, ready for developer handoff",
+        "A short, clear path from browsing to buying, with account and wishlist built in"
       ]
     },
     {
