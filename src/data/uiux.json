@@ -43,7 +43,7 @@
     "stats": [
       {
         "label": "Projects",
-        "value": "8"
+        "value": "9"
       },
       {
         "label": "Experience",
@@ -195,6 +195,53 @@
         "A complete landing page design in Figma, from hero to footer",
         "Product previews and dashboard components reusable across the site",
         "A clear path to contact or sign up repeated at every section"
+      ]
+    },
+    {
+      "slug": "modeva-fashion-store",
+      "title": "Modeva: Fashion Store UI",
+      "type": "E-commerce web design",
+      "cover": "/modeva-fashion-store.webp",
+      "alt": "Modeva fashion e-commerce home page shown on a laptop, designed by Great Emman-Wori",
+      "canvas": "#f1e9df",
+      "year": "2025",
+      "role": "UI/UX Designer",
+      "client": "Modeva",
+      "tools": [
+        "Figma"
+      ],
+      "fields": [
+        "UI/UX",
+        "E-commerce",
+        "Fashion"
+      ],
+      "tags": [
+        "Fashion",
+        "E-commerce",
+        "Product Listing",
+        "Product Page",
+        "Sign In",
+        "Figma"
+      ],
+      "brief": "Modeva is an Indonesian fashion label that needed an online store with the feel of a magazine. The brief was an elegant, easy-to-browse shopping experience, covering the home page, a filterable product listing, product details with size and quantity selection, and sign in. I designed the screens in Figma using a serif and sans pairing, a warm saddle-brown accent and full-bleed fashion photography.",
+      "story": [
+        {
+          "title": "A home page that reads like a lookbook",
+          "body": "A full-width hero, a bold serif headline and two floating product cards open the page. Category tiles for formal wear and casual style, then curated product rows, lead shoppers straight into the collection."
+        },
+        {
+          "title": "Browsing made simple",
+          "body": "The product listing pairs a collapsible filter column (category, price, size, colour) with a clean three-column grid. Each card shows its category, name, price and rating at a glance."
+        },
+        {
+          "title": "A focused path to buy",
+          "body": "The product page puts large imagery beside the name, price and discount, with size, quantity and one Add to Cart button. The sign in screen keeps the same warm palette and shows password rules as the user types."
+        }
+      ],
+      "results": [
+        "A complete e-commerce design in Figma: home, product listing, product detail and sign in",
+        "A warm, consistent visual system of type, colour and components, ready for developer handoff",
+        "A short path from browsing to adding to cart, with filters and sizing built in"
       ]
     },
     {
