@@ -11,6 +11,7 @@ const dist = join(root, "dist");
 const read = (file) => JSON.parse(readFileSync(join(root, file), "utf8"));
 const config = read("src/seo.config.json");
 const projects = read("src/data/projects.json");
+const uiux = read("src/data/uiux.json");
 const faq = read("src/faq.json");
 const base = readFileSync(join(dist, "index.html"), "utf8");
 const site = config.siteUrl;
@@ -90,7 +91,7 @@ for (const page of Object.values(config.pages)) {
           about: { "@id": `${site}/#person` },
           inLanguage: "en-US",
         },
-        breadcrumbs([["Home", "/"], ["Graphics", page.path]]),
+        breadcrumbs([["Home", "/"], [page.crumb ?? "Page", page.path]]),
       ],
     })
   );
@@ -131,6 +132,40 @@ for (const p of projects) {
   );
 }
 
+// One static page per UI/UX case study
+for (const p of uiux.projects) {
+  const path = `/uiux/${p.slug}`;
+  const page = {
+    path,
+    title: `${p.title} | UI/UX Case Study | Great Emman-Wori`,
+    description: trim(p.brief),
+    ogType: "article",
+    image: `${site}${p.cover}`,
+    imageAlt: p.alt,
+  };
+  write(
+    path,
+    build(page, {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CreativeWork",
+          "@id": `${site}${path}#work`,
+          url: `${site}${path}`,
+          name: p.title,
+          description: p.brief,
+          image: `${site}${p.cover}`,
+          keywords: (p.tags ?? []).join(", "),
+          creator: { "@id": `${site}/#person` },
+          mainEntityOfPage: `${site}${path}`,
+          inLanguage: "en-US",
+        },
+        breadcrumbs([["Home", "/"], ["UI/UX", "/uiux"], [p.title, path]]),
+      ],
+    })
+  );
+}
+
 // Homepage: keep the static head, add FAQPage schema from the visible FAQ data
 const faqLd = {
   "@context": "https://schema.org",
@@ -150,6 +185,8 @@ const today = new Date().toISOString().slice(0, 10);
 const urls = [
   ["/", "1.0"],
   ["/graphics", "0.8"],
+  ["/uiux", "0.8"],
+  ...uiux.projects.map((p) => [`/uiux/${p.slug}`, "0.7"]),
   ...projects.map((p) => [`/work/${p.slug}`, "0.7"]),
   ["/documents/great-emman-wori-cv.pdf", "0.4"],
 ];

@@ -1,0 +1,146 @@
+{
+  "profile": {
+    "name": "Great Emman-Wori",
+    "headline": "UI/UX and Product Designer",
+    "tagline": "Available for freelance and contract UI/UX work",
+    "location": "Port Harcourt, Nigeria",
+    "email": "greatemmanwori@gmail.com",
+    "whatsapp": "https://wa.me/2348103887554",
+    "avatar": "/great-emman-wori-fullstack-developer.png",
+    "coverTitle": "UI/UX Design | Product Design | Design Systems",
+    "coverSub": "Web apps, dashboards and marketplaces, designed in Figma",
+    "bio": "Great Emman-Wori is a UI/UX and Product Designer who also builds what he designs. He creates user flows, wireframes, interfaces and design systems that are clear, usable and ready for development, and he is the founder of Creative Emman Limited.",
+    "services": [
+      "User flows and wireframes",
+      "Interface and product design",
+      "Design systems and component libraries",
+      "Usability testing and iteration",
+      "Design handoff for development"
+    ],
+    "tools": ["Figma", "Framer", "Adobe XD"],
+    "links": [
+      { "label": "Main portfolio", "href": "/" },
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/in/great-emman-wori" },
+      { "label": "Instagram", "href": "https://msng.link/o?creative_emman=ig" },
+      { "label": "GitHub", "href": "https://github.com/great000-bit" }
+    ],
+    "stats": [
+      { "label": "Projects", "value": "5" },
+      { "label": "Experience", "value": "3+ years" },
+      { "label": "Availability", "value": "Open to work" }
+    ]
+  },
+  "projects": [
+    {
+      "slug": "adsfirr-meta-ads-platform",
+      "title": "AdsFirr: Meta Ads Platform UI",
+      "type": "Dashboard and web app",
+      "cover": "/adsfirr.webp",
+      "alt": "AdsFirr Meta Ads management dashboard UI designed by Great Emman-Wori",
+      "canvas": "#14102a",
+      "year": "2025",
+      "role": "UI/UX Designer",
+      "client": "AdsFirr",
+      "tools": ["Figma"],
+      "fields": ["UI/UX", "Dashboard Design", "Product Design"],
+      "tags": ["Meta Ads", "Instagram Ads", "Analytics", "Campaign Management", "Dashboard", "Figma"],
+      "brief": "AdsFirr is a platform for managing Meta and Instagram advertising. The brief was a dashboard interface with a clear analytics layout and simple campaign management for advertisers.",
+      "story": [],
+      "results": [
+        "Reduced user friction by 30% based on analytics",
+        "Raised user satisfaction from 3.2 to 4.6 out of 5 through iterative design improvements",
+        "Delivered the MVP in 3 weeks, enabling early-stage fundraising and stakeholder buy-in"
+      ],
+      "liveUrl": "https://adsfirr.vercel.app/"
+    },
+    {
+      "slug": "suibiz-web3-marketplace",
+      "title": "SuiBiz: Web3 Marketplace",
+      "type": "Marketplace and hackathon project",
+      "cover": "/suibiz.webp",
+      "alt": "SuiBiz decentralised marketplace interface designed by Great Emman-Wori",
+      "canvas": "#f4f1ff",
+      "year": "2025",
+      "role": "UI/UX Designer, co-led design",
+      "client": "SuiBiz hackathon team",
+      "tools": ["Figma"],
+      "fields": ["UI/UX", "Web3", "Design System"],
+      "tags": ["Web3", "Marketplace", "Sui blockchain", "Design System", "Hackathon", "Figma"],
+      "brief": "SuiBiz is a decentralised marketplace on the Sui blockchain where people buy and sell products and book services, with secure escrow and community-driven trust. It was designed and built for a national hackathon.",
+      "story": [],
+      "results": [
+        "Co-led the design of a Web3 marketplace that won 2nd place out of 50+ teams in a national hackathon",
+        "Created 15+ reusable Figma components, accelerating development by 30%",
+        "Ran competitor analysis that improved the task completion rate by 35%"
+      ],
+      "liveUrl": ""
+    },
+    {
+      "slug": "wacontacts-whatsapp-directory",
+      "title": "WaContacts: WhatsApp Directory",
+      "type": "Product design",
+      "cover": "/wacontacts.webp",
+      "alt": "WaContacts WhatsApp business directory platform designed by Great Emman-Wori",
+      "canvas": "#eefaf2",
+      "year": "",
+      "role": "Product Designer",
+      "client": "WaContacts",
+      "tools": ["Figma"],
+      "fields": ["UI/UX", "Product Design", "Business"],
+      "tags": ["WhatsApp", "Business Directory", "SME", "Nigeria", "Product Design", "Figma"],
+      "brief": "WaContacts is a WhatsApp business directory that connects Nigerian small and medium businesses with real customers. The brief was a clear, trustworthy product experience for both sides of the directory.",
+      "story": [],
+      "results": [
+        "Product design for a WhatsApp business directory",
+        "Connects Nigerian SMEs with real customers",
+        "Interface designed in Figma"
+      ],
+      "liveUrl": "https://wacontacts.com/"
+    },
+    {
+      "slug": "hair-brosh-saloon-ui-kit",
+      "title": "Hair Brosh Saloon: UI Kit and Website",
+      "type": "UI kit and responsive website",
+      "cover": "/webbb.webp",
+      "alt": "Hair Brosh Saloon website and UI kit designed by Great Emman-Wori",
+      "canvas": "#120d0d",
+      "year": "2025",
+      "role": "UI/UX Designer",
+      "client": "Hair Brosh Saloon",
+      "tools": ["Figma"],
+      "fields": ["UI/UX", "Design System", "Web Design"],
+      "tags": ["UI Kit", "Salon", "Responsive", "Component Library", "Design System", "Figma"],
+      "brief": "A pixel-perfect, responsive salon website designed in Figma and supported by a scalable UI kit, so the design could move to development without guesswork.",
+      "story": [],
+      "results": [
+        "Developed a scalable UI kit with 40+ components, used by 5+ startups in salon tech",
+        "Reduced design-to-development handoff time by 50% through standardised components",
+        "Achieved 100% responsiveness across desktop, tablet and mobile"
+      ],
+      "liveUrl": "https://hairbrosh-ui-kit.vercel.app/"
+    },
+    {
+      "slug": "bourdillon-omijeh-foundation",
+      "title": "Bourdillon Omijeh Foundation",
+      "type": "Nonprofit website",
+      "cover": "/bof.webp",
+      "alt": "Bourdillon Omijeh Foundation nonprofit website designed by Great Emman-Wori",
+      "canvas": "#eef4ff",
+      "year": "2025",
+      "role": "UI/UX Designer",
+      "client": "Bourdillon Omijeh Foundation",
+      "tools": ["Figma", "WordPress"],
+      "fields": ["UI/UX", "Accessibility", "Web Design"],
+      "tags": ["Nonprofit", "WCAG", "Accessibility", "WordPress", "SEO", "Figma"],
+      "brief": "A nonprofit website designed for credibility and accessibility, aligned with the foundation's brand and built to turn visitors into trainees and partners.",
+      "story": [],
+      "results": [
+        "Designed and deployed a responsive website that increased visitor engagement by 55% within 3 months",
+        "Conducted usability testing with 20+ users, reducing bounce rate by 35%",
+        "Improved the accessibility score from 68 to 92 using WCAG-compliant design practices",
+        "Boosted organic traffic by 40% through SEO-aligned structure and metadata optimisation"
+      ],
+      "liveUrl": "https://www.bourdillonomijehfoundation.com/"
+    }
+  ]
+}

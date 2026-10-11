@@ -1,0 +1,214 @@
+/* ─────────────────────────────────────────────────────────────
+   UI/UX portfolio: Behance structure on the port20 colour system.
+   Measurements follow Behance's profile and project pages
+   (55px nav, 266px cover, 300px sidebar, 100px avatar, 404:316
+   project covers with 20px gaps, 45px action rail, 1135px module
+   column). Colours come from the site tokens in index.css.
+   ───────────────────────────────────────────────────────────── */
+
+.ux { background: var(--bg); color: var(--fg); min-height: 100vh; font-family: Arial, Helvetica, sans-serif; }
+.ux a { color: inherit; }
+
+/* ── Primary nav (55px, fixed) ── */
+.ux-nav { position: fixed; inset: 0 0 auto 0; z-index: 60; height: 55px; background: var(--nav-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+.ux-nav-inner { height: 100%; max-width: 1320px; margin: 0 auto; padding: 0 clamp(16px, 3vw, 40px); display: flex; align-items: center; gap: 28px; }
+.ux-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; flex: 0 0 auto; }
+.ux-logo-img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; border: 1px solid var(--accent-border); }
+.ux-logo-name { font: 700 15px/1 Geist, Arial, sans-serif; letter-spacing: -.02em; }
+.ux-logo-name span { color: var(--accent); }
+.ux-logo-tag { font: 600 10px/1 Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--fg-faint); border: 1px solid var(--border-strong); border-radius: 999px; padding: 4px 8px; }
+.ux-nav-links { display: flex; align-items: center; gap: 22px; margin-right: auto; }
+.ux-nav-link { font: 600 14px/1 Geist, Arial, sans-serif; color: var(--fg-muted); text-decoration: none; padding: 6px 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+.ux-nav-link:hover, .ux-nav-link.is-active { color: var(--fg); }
+.ux-nav-link.is-active { border-bottom-color: var(--accent); }
+.ux-nav-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+.ux-icon-btn { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--nav-pill); border: 1px solid var(--nav-pill-border); color: var(--fg-muted); cursor: pointer; transition: color .2s; }
+.ux-icon-btn:hover { color: var(--fg); }
+
+/* ── Buttons (pill, 40px, as Behance) ── */
+.ux-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 0 22px; border-radius: 100px; font: 600 15px/1 Geist, Arial, sans-serif; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: background .2s, border-color .2s, color .2s; white-space: nowrap; }
+.ux-btn-primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+.ux-btn-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.ux-btn-soft { background: var(--card-bg); color: var(--fg); border-color: var(--border-strong); }
+.ux-btn-soft:hover { border-color: var(--accent); color: var(--accent); }
+.ux-btn-sm { height: 34px; padding: 0 16px; font-size: 13px; }
+.ux-btn-block { width: 100%; }
+
+/* ── Profile: cover ── */
+.ux-cover { position: relative; height: 266px; padding-top: 55px; overflow: hidden; color: #fff; background: radial-gradient(60% 120% at 85% 0%, rgba(176, 20, 52, .55) 0%, transparent 60%), radial-gradient(50% 90% at 5% 100%, rgba(111, 4, 20, .6) 0%, transparent 65%), linear-gradient(120deg, #0b0206 0%, #2a050d 50%, #4d0813 100%); }
+.ux-cover::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(80% 100% at 50% 40%, #000 0%, transparent 85%); -webkit-mask-image: radial-gradient(80% 100% at 50% 40%, #000 0%, transparent 85%); }
+.ux-cover-inner { position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; padding: 0 24px; }
+.ux-cover-title { font: 700 clamp(20px, 3.2vw, 38px)/1.15 Geist, Arial, sans-serif; letter-spacing: -.03em; margin: 0; }
+.ux-cover-sub { font: 15px/1.5 Arial, sans-serif; color: rgba(255,255,255,.7); margin: 0; }
+
+/* ── Profile: layout ── */
+.ux-profile { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 56px) 96px; display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 60px; align-items: start; }
+.ux-side { margin-top: -68px; position: relative; z-index: 2; }
+.ux-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; object-position: center top; display: block; border: 3px solid var(--bg); background: var(--bg-3); }
+.ux-name { font: 700 28px/1.15 Geist, Arial, sans-serif; letter-spacing: -.035em; margin: 18px 0 6px; }
+.ux-headline { font: 15px/1.5 Arial, sans-serif; color: var(--fg-muted); margin: 0 0 14px; }
+.ux-meta { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 8px; }
+.ux-meta li { display: flex; align-items: center; gap: 8px; font: 13px/1.4 Arial, sans-serif; color: var(--fg-muted); }
+.ux-meta svg { flex: 0 0 auto; color: var(--fg-faint); }
+.ux-meta a { text-decoration: none; }
+.ux-meta a:hover { color: var(--accent); }
+.ux-side-actions { display: grid; gap: 10px; margin-bottom: 30px; }
+.ux-side-title { font: 700 11px/1 Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-faint); margin: 0 0 12px; }
+.ux-side-block { padding: 20px 0; border-top: 1px solid var(--border); }
+.ux-stats { margin: 0; display: grid; gap: 10px; }
+.ux-stats div { display: flex; justify-content: space-between; gap: 12px; font: 14px/1.4 Arial, sans-serif; }
+.ux-stats dt { color: var(--fg-muted); }
+.ux-stats dd { margin: 0; font-weight: 700; color: var(--fg); text-align: right; }
+.ux-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.ux-links a { display: inline-flex; align-items: center; gap: 6px; font: 14px/1.4 Arial, sans-serif; color: var(--fg-muted); text-decoration: none; }
+.ux-links a:hover { color: var(--accent); }
+
+/* ── Profile: tabs + grid ── */
+.ux-main { padding-top: 28px; min-width: 0; }
+.ux-tabs { display: flex; gap: 26px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+.ux-tab { position: relative; background: none; border: 0; padding: 0 0 14px; font: 600 14px/1 Geist, Arial, sans-serif; color: var(--fg-muted); cursor: pointer; transition: color .2s; }
+.ux-tab:hover { color: var(--fg); }
+.ux-tab[aria-selected="true"] { color: var(--fg); }
+.ux-tab[aria-selected="true"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--accent); }
+.ux-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+
+/* ── Project card (cover with hover overlay) ── */
+.ux-card { display: block; text-decoration: none; color: inherit; }
+.ux-card-cover { position: relative; overflow: hidden; border-radius: 4px; aspect-ratio: 404 / 316; background: var(--bg-3); }
+.ux-card-cover img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top center; transition: transform .5s ease; }
+.ux-card:hover .ux-card-cover img, .ux-card:focus-visible .ux-card-cover img { transform: scale(1.03); }
+.ux-card-overlay { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; padding: 18px 16px 14px; color: #fff; background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, .78) 100%); opacity: 0; transition: opacity .25s ease; }
+.ux-card:hover .ux-card-overlay, .ux-card:focus-visible .ux-card-overlay { opacity: 1; }
+.ux-card-title { font: 700 15px/1.3 Geist, Arial, sans-serif; letter-spacing: -.01em; }
+.ux-card-owner { font: 12px/1.3 Arial, sans-serif; color: rgba(255,255,255,.8); display: flex; align-items: center; gap: 12px; }
+.ux-card-info { display: none; padding: 12px 2px 0; }
+.ux-card-info .ux-card-title { color: var(--fg); font-size: 14px; }
+.ux-card-info .ux-card-owner { color: var(--fg-muted); margin-top: 4px; }
+.ux-card.is-below .ux-card-overlay { display: none; }
+.ux-card.is-below .ux-card-info { display: block; }
+@media (hover: none) { .ux-card-overlay { display: none; } .ux-card-info { display: block; } }
+
+/* ── About tab ── */
+.ux-about { display: grid; gap: 36px; max-width: 70ch; }
+.ux-about p { font: 16px/1.75 Arial, sans-serif; color: var(--fg-muted); margin: 0; }
+.ux-about h2 { font: 700 18px/1.2 Geist, Arial, sans-serif; letter-spacing: -.02em; margin: 0 0 14px; }
+.ux-about ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.ux-about li { display: flex; gap: 10px; font: 15px/1.6 Arial, sans-serif; color: var(--fg-muted); }
+.ux-about li::before { content: ""; flex: 0 0 auto; width: 6px; height: 6px; margin-top: 9px; border-radius: 50%; background: var(--accent); }
+.ux-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.ux-chip { font: 12px/1 Arial, sans-serif; color: var(--fg-muted); padding: 8px 12px; border-radius: 6px; background: var(--tag-bg); border: 1px solid var(--border); }
+
+/* ── Footer ── */
+.ux-foot { border-top: 1px solid var(--border-soft); padding: 26px clamp(20px, 4vw, 56px); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font: 13px Arial, sans-serif; color: var(--fg-faint); max-width: 1280px; margin: 0 auto; }
+.ux-foot a { text-decoration: none; color: var(--fg-muted); }
+.ux-foot a:hover { color: var(--accent); }
+
+/* ── Project page ── */
+.ux-project { padding-top: 55px; }
+.ux-pbar { max-width: 1205px; margin: 0 auto; padding: 22px clamp(16px, 3vw, 24px) 18px; display: flex; align-items: center; gap: 14px; }
+.ux-pbar-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: center top; flex: 0 0 auto; border: 1px solid var(--border-strong); }
+.ux-pbar-title { font: 700 16px/1.3 Geist, Arial, sans-serif; letter-spacing: -.01em; margin: 0; }
+.ux-pbar-sub { font: 13px/1.4 Arial, sans-serif; color: var(--fg-muted); margin: 2px 0 0; display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.ux-pbar-sub a { text-decoration: none; }
+.ux-pbar-sub a:hover { color: var(--accent); }
+.ux-pbar-fields { margin-left: auto; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+
+.ux-stage { max-width: 1205px; margin: 0 auto; padding: 0 clamp(16px, 3vw, 24px); display: grid; grid-template-columns: minmax(0, 1135px) 45px; gap: 25px; justify-content: center; align-items: start; }
+.ux-canvas { background: var(--canvas); color: var(--canvas-fg); border-radius: 4px; overflow: hidden; }
+.ux-mod-img { display: block; width: 100%; margin: 0; }
+.ux-mod-img img { display: block; width: 100%; height: auto; }
+.ux-mod-img.is-cover img { aspect-ratio: 1135 / 700; object-fit: cover; object-position: top center; }
+.ux-mod { padding: clamp(48px, 9vw, 112px) clamp(24px, 7vw, 96px); }
+.ux-mod-inner { max-width: 760px; margin: 0 auto; }
+.ux-eyebrow { font: 700 11px/1 Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--canvas-muted); margin: 0 0 18px; }
+.ux-mod h2 { font: 700 clamp(28px, 4.4vw, 48px)/1.08 Geist, Arial, sans-serif; letter-spacing: -.045em; margin: 0 0 22px; color: var(--canvas-fg); }
+.ux-mod p { font: clamp(16px, 1.6vw, 19px)/1.75 Arial, sans-serif; color: var(--canvas-muted); margin: 0; }
+.ux-mod p + p { margin-top: 18px; }
+.ux-facts { margin: 44px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 24px; padding-top: 28px; border-top: 1px solid var(--canvas-line); }
+.ux-facts dt { font: 700 11px/1 Arial, sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--canvas-muted); margin-bottom: 8px; opacity: .8; }
+.ux-facts dd { margin: 0; font: 600 16px/1.4 Geist, Arial, sans-serif; color: var(--canvas-fg); }
+.ux-results { list-style: none; margin: 0; padding: 0; display: grid; }
+.ux-results li { display: grid; grid-template-columns: 56px 1fr; gap: 16px; padding: 22px 0; border-top: 1px solid var(--canvas-line); font: 600 clamp(18px, 2.2vw, 24px)/1.35 Geist, Arial, sans-serif; letter-spacing: -.02em; color: var(--canvas-fg); }
+.ux-results li:last-child { border-bottom: 1px solid var(--canvas-line); }
+.ux-results .n { font: 700 13px/1.9 Arial, sans-serif; color: var(--canvas-muted); letter-spacing: .08em; }
+.ux-mod-cta { text-align: center; }
+.ux-mod-cta .ux-mod-inner { display: grid; justify-items: center; gap: 22px; }
+
+/* action rail */
+.ux-rail { position: sticky; top: 96px; display: flex; flex-direction: column; align-items: center; gap: 20px; width: 45px; }
+.ux-rail-item { position: relative; display: flex; flex-direction: column; align-items: center; gap: 5px; }
+.ux-rail-btn { width: 45px; height: 45px; border-radius: 50%; display: grid; place-items: center; background: var(--card-bg); border: 1px solid var(--border-strong); color: var(--fg); cursor: pointer; text-decoration: none; transition: background .2s, color .2s, border-color .2s, transform .2s; overflow: hidden; }
+.ux-rail-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.ux-rail-btn img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.ux-rail-btn.is-primary, .ux-rail-btn.is-on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ux-rail-btn.is-primary:hover { background: var(--accent-hover); color: #fff; }
+.ux-rail-label { font: 600 11px/1 Arial, sans-serif; color: var(--fg-muted); }
+.ux-pop { position: absolute; right: calc(100% + 14px); top: 0; z-index: 20; min-width: 200px; padding: 14px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--border-strong); box-shadow: 0 18px 44px rgba(0,0,0,.35); display: grid; gap: 8px; }
+.ux-pop-title { font: 700 11px/1 Arial, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-faint); margin: 0 0 4px; }
+.ux-pop button, .ux-pop a { display: flex; align-items: center; gap: 10px; background: none; border: 0; padding: 8px 6px; border-radius: 8px; font: 14px/1 Arial, sans-serif; color: var(--fg); text-align: left; text-decoration: none; cursor: pointer; }
+.ux-pop button:hover, .ux-pop a:hover { background: var(--nav-pill); color: var(--accent); }
+.ux-pop-tool { padding: 8px 6px; font: 14px/1 Arial, sans-serif; color: var(--fg); }
+
+/* project info (below the modules) */
+.ux-info { max-width: 1205px; margin: 0 auto; padding: 56px clamp(16px, 3vw, 24px) 24px; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 60px; }
+.ux-info h2 { font: 700 22px/1.3 Geist, Arial, sans-serif; letter-spacing: -.03em; margin: 0 0 12px; }
+.ux-info p { font: 15px/1.75 Arial, sans-serif; color: var(--fg-muted); margin: 0 0 24px; max-width: 70ch; }
+.ux-info-row { padding: 18px 0; border-top: 1px solid var(--border); }
+.ux-info-row .ux-side-title { margin-bottom: 12px; }
+.ux-owner { display: grid; gap: 14px; align-content: start; padding: 20px; border: 1px solid var(--border); border-radius: 12px; background: var(--card-bg); }
+.ux-owner-head { display: flex; align-items: center; gap: 12px; }
+.ux-owner-head img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; object-position: center top; }
+.ux-owner-name { font: 700 15px/1.2 Geist, Arial, sans-serif; margin: 0; }
+.ux-owner-loc { font: 12px/1.3 Arial, sans-serif; color: var(--fg-muted); margin: 3px 0 0; }
+.ux-rights { font: 12px/1.5 Arial, sans-serif; color: var(--fg-faint); margin-top: 28px; }
+.ux-more { max-width: 1205px; margin: 0 auto; padding: 40px clamp(16px, 3vw, 24px) 96px; }
+.ux-more h2 { font: 700 20px/1.2 Geist, Arial, sans-serif; letter-spacing: -.03em; margin: 0 0 22px; }
+.ux-more-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
+  .ux-profile { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .ux-side { display: grid; grid-template-columns: 100px minmax(0, 1fr); column-gap: 20px; align-items: end; margin-top: -50px; margin-bottom: 8px; }
+  .ux-side > .ux-avatar { grid-row: 1 / span 2; }
+  .ux-side > .ux-name { margin: 0; align-self: end; }
+  .ux-side > .ux-headline { margin: 4px 0 0; align-self: start; }
+  .ux-side > .ux-meta, .ux-side > .ux-side-actions, .ux-side > .ux-side-block { grid-column: 1 / -1; }
+  .ux-side > .ux-meta { margin-top: 18px; }
+  .ux-side-actions { grid-template-columns: 1fr 1fr; margin-bottom: 8px; }
+  .ux-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ux-stage { grid-template-columns: minmax(0, 1fr); }
+  .ux-rail { position: fixed; top: auto; bottom: 18px; left: 50%; transform: translateX(-50%); z-index: 55; flex-direction: row; width: auto; gap: 14px; padding: 10px 16px; border-radius: 999px; background: var(--nav-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid var(--border-strong); box-shadow: 0 14px 40px rgba(0,0,0,.35); }
+  .ux-rail-label { display: none; }
+  .ux-rail-btn { width: 40px; height: 40px; }
+  .ux-pop { right: auto; left: 50%; top: auto; bottom: calc(100% + 14px); transform: translateX(-50%); }
+  .ux-info { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .ux-more-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ux-project { padding-bottom: 80px; }
+}
+@media (max-width: 760px) {
+  .ux-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .ux-nav-links { display: none; }
+  .ux-logo-tag { display: none; }
+  .ux-pbar { flex-wrap: wrap; }
+  .ux-pbar-fields { margin-left: 0; justify-content: flex-start; width: 100%; }
+}
+@media (max-width: 520px) {
+  .ux-grid { grid-template-columns: minmax(0, 1fr); }
+  .ux-cover { height: 220px; }
+  .ux-side { grid-template-columns: 84px minmax(0, 1fr); margin-top: -42px; }
+  .ux-avatar { width: 84px; height: 84px; }
+  .ux-name { font-size: 24px; }
+  .ux-more-grid { grid-template-columns: minmax(0, 1fr); }
+  .ux-nav-actions .ux-btn-sm { padding: 0 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ux-card-cover img, .ux-rail-btn { transition: none !important; }
+}
+
+/* Specificity guards against global light-theme element rules */
+.ux-owner .ux-btn-primary { color: #fff !important; }
+.ux-owner .ux-btn-soft { color: var(--fg); }
+.ux-owner .ux-owner-name { margin: 0; color: var(--fg); }
+.ux-owner .ux-owner-loc { margin: 3px 0 0; color: var(--fg-muted); }
+.ux-owner-head > div { display: grid; gap: 0; align-content: center; }
+.ux-info .ux-rights { margin-top: 28px; }

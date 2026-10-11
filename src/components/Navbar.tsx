@@ -285,6 +285,7 @@ export default function Navbar() {
               {isDark ? <Sun size={15}/> : <Moon size={15}/>}
             </button>
             <a href="/graphics" className="nav-gx">Graphics Portfolio</a>
+            <a href="/uiux" className="nav-gx">UI/UX Portfolio</a>
             <a href="#contact" className="nav-cta">Hire Me →</a>
             <button className="nav-hamburger md:hidden" onClick={() => setOpen(o => !o)}
               aria-label={open ? "Close menu" : "Open menu"}>
@@ -318,6 +319,9 @@ export default function Navbar() {
           <div className="nav-mobile-divider"/>
           <a href="/graphics" onClick={close} className="nav-mobile-link">
             Graphics Portfolio
+          </a>
+          <a href="/uiux" onClick={close} className="nav-mobile-link">
+            UI/UX Portfolio
           </a>
           <a href="#contact" onClick={close} className="nav-mobile-link"
             style={{ color:"var(--accent)", fontWeight:600 }}>
