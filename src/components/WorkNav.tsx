@@ -20,7 +20,7 @@ export default function WorkNav() {
         .wk-nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 50; transition: background .3s, border-color .3s; }
         .wk-nav-inner { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px,4vw,56px); height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
         .wk-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .wk-logo-img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(111,4,20,.45); }
+        .wk-logo-img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(95,107,31,.45); }
         .wk-logo-text { font: 600 15px Geist, Arial, sans-serif; letter-spacing: -.02em; color: var(--fg); }
         .wk-logo-text span { color: var(--accent-text); }
         .wk-links { display: flex; align-items: center; gap: clamp(12px, 2.5vw, 28px); }

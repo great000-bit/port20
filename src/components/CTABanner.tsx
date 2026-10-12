@@ -57,7 +57,7 @@ export default function CTABanner() {
               border:"1px solid var(--accent)", textDecoration:"none",
               transition:"background 0.2s",
             }}
-            onMouseEnter={e => (e.currentTarget.style.background="#8a0519")}
+            onMouseEnter={e => (e.currentTarget.style.background="#4c5618")}
             onMouseLeave={e => (e.currentTarget.style.background="var(--accent)")}>
               Start a Project →
             </a>

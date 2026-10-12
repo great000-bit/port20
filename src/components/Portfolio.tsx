@@ -20,9 +20,9 @@ const FILTERS: { label: string; value: Cat }[] = [
 ];
 
 const BADGE_COLOR: Record<string,string> = {
-  "Full-Stack": "rgba(111,4,20,0.9)",
+  "Full-Stack": "rgba(95,107,31,0.9)",
   "Web Dev":    "rgba(16,185,129,0.85)",
-  "UI/UX":      "rgba(111,4,20,0.75)",
+  "UI/UX":      "rgba(95,107,31,0.75)",
   "Product":    "rgba(139,92,246,0.85)",
   "WordPress":  "rgba(59,130,246,0.85)",
 };
@@ -56,7 +56,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
         flexDirection:"column",
         transition:"border-color 0.2s, transform 0.25s",
       }}
-      onMouseEnter={e => { e.currentTarget.style.borderColor="rgba(111,4,20,0.45)"; e.currentTarget.style.transform="translateY(-4px)"; }}
+      onMouseEnter={e => { e.currentTarget.style.borderColor="rgba(95,107,31,0.45)"; e.currentTarget.style.transform="translateY(-4px)"; }}
       onMouseLeave={e => { e.currentTarget.style.borderColor="var(--border)"; e.currentTarget.style.transform="translateY(0)"; }}
     >
       {/* ── URL bar — Omijeh style ── */}
@@ -91,7 +91,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
           position:"absolute", top:10, left:10, zIndex:3,
           fontFamily:"Arial,sans-serif", fontSize:10, fontWeight:700,
           padding:"3px 10px", borderRadius:999, color:"var(--fg)",
-          background: BADGE_COLOR[p.badge] || "rgba(111,4,20,0.85)",
+          background: BADGE_COLOR[p.badge] || "rgba(95,107,31,0.85)",
           letterSpacing:"0.06em", textTransform:"uppercase",
         }}>
           {p.badge}
@@ -255,8 +255,8 @@ export default function Portfolio() {
               style={{
                 fontFamily:"Arial,sans-serif", fontSize:13, fontWeight:500,
                 padding:"7px 18px", borderRadius:999, cursor:"pointer",
-                border: filter === f.value ? "1px solid #6f0414" : "1px solid var(--fg-ultra)",
-                background: filter === f.value ? "#6f0414" : "transparent",
+                border: filter === f.value ? "1px solid #5f6b1f" : "1px solid var(--fg-ultra)",
+                background: filter === f.value ? "#5f6b1f" : "transparent",
                 color: filter === f.value ? "#ffffff" : "var(--fg-muted)",
                 transition:"all 0.2s",
               }}

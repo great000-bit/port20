@@ -4,16 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        accent:  "#6f0414",
-        "accent-soft": "rgba(111,4,20,0.20)",
-        "accent-glow": "rgba(111,4,20,0.45)",
+        accent:  "#5f6b1f",
+        "accent-soft": "rgba(95,107,31,0.20)",
+        "accent-glow": "rgba(95,107,31,0.45)",
         "card-border": "rgba(255,255,255,0.09)",
         muted: "rgba(255,255,255,0.60)",
         // keep compat aliases
         portfolioTheme: {
-          primary:    "#6f0414",
+          primary:    "#5f6b1f",
           secondary:  "#0a0a0a",
-          accent:     "#6f0414",
+          accent:     "#5f6b1f",
           cardBg:     "#0d0d0d",
           textMain:   "#ffffff",
           textAccent: "rgba(255,255,255,0.60)",
@@ -26,8 +26,8 @@ export default {
       },
       borderRadius: { lg: "0.75rem", md: "0.6rem", sm: "0.4rem" },
       boxShadow: {
-        "glow-red": "0 0 24px rgba(111,4,20,0.50)",
-        "glow-red-sm": "0 0 12px rgba(111,4,20,0.35)",
+        "glow-red": "0 0 24px rgba(95,107,31,0.50)",
+        "glow-red-sm": "0 0 12px rgba(95,107,31,0.35)",
       },
     },
   },

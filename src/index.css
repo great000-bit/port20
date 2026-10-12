@@ -16,12 +16,12 @@
   --fg-muted:        rgba(255,255,255,0.60);
   --fg-faint:        rgba(255,255,255,0.28);
   --fg-ultra:        rgba(255,255,255,0.12);
-  --accent:          #6f0414;
-  --accent-hover:    #8a0519;
-  --accent-text:     #ff7a8c;   /* readable maroon-family text on dark */
+  --accent:          #5f6b1f;
+  --accent-hover:    #4c5618;
+  --accent-text:     #a8bc66;   /* readable olive text on dark */
   --on-accent:       #ffffff;
-  --accent-soft:     rgba(111,4,20,0.12);
-  --accent-border:   rgba(111,4,20,0.40);
+  --accent-soft:     rgba(95,107,31,0.12);
+  --accent-border:   rgba(95,107,31,0.40);
   --border:          rgba(255,255,255,0.07);
   --border-soft:     rgba(255,255,255,0.04);
   --border-strong:   rgba(255,255,255,0.12);
@@ -57,12 +57,12 @@
   --fg-muted:        rgba(17,17,17,0.60);
   --fg-faint:        rgba(17,17,17,0.35);
   --fg-ultra:        rgba(17,17,17,0.12);
-  --accent:          #6f0414;
-  --accent-hover:    #8a0519;
-  --accent-text:     #6f0414;
+  --accent:          #5f6b1f;
+  --accent-hover:    #4c5618;
+  --accent-text:     #5f6b1f;
   --on-accent:       #ffffff;
-  --accent-soft:     rgba(111,4,20,0.08);
-  --accent-border:   rgba(111,4,20,0.30);
+  --accent-soft:     rgba(95,107,31,0.08);
+  --accent-border:   rgba(95,107,31,0.30);
   --border:          rgba(17,17,17,0.09);
   --border-soft:     rgba(17,17,17,0.05);
   --border-strong:   rgba(17,17,17,0.15);
@@ -76,7 +76,7 @@
   --shimmer-2:       #d8d3cc;
   --url-bar-bg:      #eeebe6;
   --url-bar-pill:    rgba(17,17,17,0.06);
-  --badge-dot:       #6f0414;
+  --badge-dot:       #5f6b1f;
   --badge-text:      var(--accent-text);
   --tag-bg:          rgba(17,17,17,0.05);
   --tag-border:      rgba(17,17,17,0.10);
@@ -218,7 +218,7 @@ body.performance-safe * { filter: none !important; }
   border: 1px solid var(--card-border);
 }
 .card-hover:hover {
-  border-color: rgba(111,4,20,0.45);
+  border-color: rgba(95,107,31,0.45);
   transform: translateY(-4px);
 }
 .card-link {
@@ -340,9 +340,9 @@ body.performance-safe * { filter: none !important; }
 [data-theme="light"] .hero-button-primary,
 [data-theme="light"] .role-btn.active,
 [data-theme="light"] .form-submit,
-[data-theme="light"] button[style*="background: #6f0414"],
-[data-theme="light"] button[style*="background:\"#6f0414\""],
-[data-theme="light"] a[style*="background: #6f0414"],
+[data-theme="light"] button[style*="background: #5f6b1f"],
+[data-theme="light"] button[style*="background:\"#5f6b1f\""],
+[data-theme="light"] a[style*="background: #5f6b1f"],
 [data-theme="light"] a[style*="background:\"var(--accent)\""],
 [data-theme="light"] [style*="background: var(--accent)"],
 [data-theme="light"] [style*="background:\"var(--accent)\""] {

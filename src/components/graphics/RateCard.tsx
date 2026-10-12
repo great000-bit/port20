@@ -106,7 +106,7 @@ export default function RateCard() {
         .gx-rc-card { position: relative; display: flex; flex-direction: column; border-radius: 26px; border: 1px solid var(--card-border); background: linear-gradient(180deg, rgba(255,255,255,.055) 0%, rgba(255,255,255,.015) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 24px 60px rgba(0,0,0,.28); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; overflow: hidden; }
         [data-theme="light"] .gx-rc-card { background: var(--card-bg); box-shadow: 0 18px 44px rgba(17,17,17,.08); }
         .gx-rc-card:hover { transform: translateY(-6px); border-color: var(--accent-border); }
-        .gx-rc-card.gx-featured { border-color: var(--accent-border); box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 0 0 1px var(--accent-border), 0 24px 70px rgba(111,4,20,.32); }
+        .gx-rc-card.gx-featured { border-color: var(--accent-border); box-shadow: inset 0 1px 0 rgba(255,255,255,.10), 0 0 0 1px var(--accent-border), 0 24px 70px rgba(95,107,31,.32); }
         .gx-rc-card.gx-featured::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 160px; background: radial-gradient(ellipse at 50% 0%, var(--accent-soft) 0%, transparent 70%); pointer-events: none; }
 
         .gx-rc-top { position: relative; padding: 28px 26px 26px; border-bottom: 1px solid var(--border); }

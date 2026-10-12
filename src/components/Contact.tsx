@@ -210,7 +210,7 @@ export default function Contact({
         .social-icon {
           width:32px; height:32px; border-radius:8px;
           display:flex; align-items:center; justify-content:center;
-          background:rgba(111,4,20,0.12);
+          background:rgba(95,107,31,0.12);
           color:var(--accent-text); flex-shrink:0;
         }
         .social-name {
@@ -238,7 +238,7 @@ export default function Contact({
           background:var(--accent); color:#fff; border:1px solid var(--accent);
           transition:background 0.2s; margin-top:4px;
         }
-        .form-submit:hover { background:#8a0519; }
+        .form-submit:hover { background:#4c5618; }
         .form-submit:disabled { opacity:0.5; cursor:not-allowed; }
         .role-btn:focus-visible,
         .form-submit:focus-visible,

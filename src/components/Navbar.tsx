@@ -65,7 +65,7 @@ export default function Navbar() {
         .nav-logo-img {
           width: 34px; height: 34px; border-radius: 50%;
           object-fit: cover; object-position: center top;
-          border: 1px solid rgba(111,4,20,0.45);
+          border: 1px solid rgba(95,107,31,0.45);
           flex-shrink: 0;
         }
         .nav-logo-name {
@@ -120,7 +120,7 @@ export default function Navbar() {
           border: 1px solid var(--accent); text-decoration: none;
           transition: background 0.2s; white-space: nowrap;
         }
-        .nav-cta:hover { background: #8a0519; }
+        .nav-cta:hover { background: #4c5618; }
         /* Graphics Portfolio */
         .nav-gx {
           display: inline-flex; align-items: center;
