@@ -1,43 +1,43 @@
-import { Globe, Palette, ShoppingCart, Sparkles, Code, Video } from "lucide-react";
+import { PiTerminalWindowDuotone, PiDevicesDuotone, PiPenNibDuotone, PiBrowserDuotone, PiBriefcaseDuotone, PiVideoCameraDuotone } from "react-icons/pi";
 
 const SERVICES = [
   {
-    icon:<Code size={28}/>,
+    icon:<PiTerminalWindowDuotone size={32}/>,
     title:"Fullstack Website Development",
     sub:"Frontend · Backend · Full-Stack",
     desc:"I build responsive, scalable websites and web applications using modern frontend and backend technologies. From React and TypeScript frontends to Laravel and Node.js backends — clean code, strong architecture, production-ready.",
     tags:["React","TypeScript","Laravel","Node.js","Fullstack","Responsive"],
   },
   {
-    icon:<Globe size={28}/>,
+    icon:<PiDevicesDuotone size={32}/>,
     title:"Frontend Development",
     sub:"React · Tailwind · Modern Interfaces",
     desc:"I create clean, animated, responsive user interfaces with strong attention to usability, accessibility, and performance. Modern web interfaces that look sharp on every screen size and device.",
     tags:["React","Tailwind CSS","Vite","Animations","Responsive UI"],
   },
   {
-    icon:<Palette size={28}/>,
+    icon:<PiPenNibDuotone size={32}/>,
     title:"Product Design & UI/UX",
     sub:"Figma · User-Centered · Outcome-Driven",
     desc:"I design user flows, wireframes, interfaces, and digital product experiences that are clear, usable, and visually strong. Product-minded design that balances usability with visual excellence and conversion outcomes.",
     tags:["Figma","UX Research","Prototyping","Product Design","Interface Design"],
   },
   {
-    icon:<ShoppingCart size={28}/>,
+    icon:<PiBrowserDuotone size={32}/>,
     title:"Landing Pages & Business Websites",
     sub:"Conversion-Focused · SEO-Ready",
     desc:"I build focused landing pages and business websites designed to communicate value clearly and increase conversions. Built with performance, SEO, and the user journey in mind from the start.",
     tags:["Landing Pages","Business Website","Conversion","SEO-Ready","WordPress"],
   },
   {
-    icon:<Sparkles size={28}/>,
+    icon:<PiBriefcaseDuotone size={32}/>,
     title:"Portfolio & Personal Brand Websites",
     sub:"Premium · Memorable · Credibility-Building",
     desc:"I create premium portfolio websites for creatives, founders, professionals, and technical talent. Designed to make a strong first impression and position you as a credible, serious professional.",
     tags:["Portfolio Website","Personal Brand","React","Design System"],
   },
   {
-    icon:<Video size={28}/>,
+    icon:<PiVideoCameraDuotone size={32}/>,
     title:"Content, Media & AI Tooling",
     sub:"Video · Copywriting · Automation",
     desc:"Mobile videography, video editing, ghostwriting, social media management, and prompt engineering for AI workflows. End-to-end content creation that amplifies your brand and drives audience growth.",
