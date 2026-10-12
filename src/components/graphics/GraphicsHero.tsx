@@ -65,10 +65,10 @@ export default function GraphicsHero() {
         .gx-btn-secondary { background: transparent; color: var(--fg); border: 1px solid var(--border-strong); }
         .gx-btn-secondary:hover { border-color: var(--accent); color: var(--accent-text); }
         .gx-hero-img-wrap {
-          position: relative; border-radius: 24px; overflow: hidden;
+          position: relative; border-radius: 50%; overflow: hidden;
           aspect-ratio: 1 / 1; border: 1px solid var(--border);
         }
-        .gx-hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+        .gx-hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
         @media (max-width: 860px) {
           .gx-hero-wrap { grid-template-columns: 1fr; gap: 36px; }
           .gx-hero-img-wrap { max-width: 380px; margin: 0 auto; }

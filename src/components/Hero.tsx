@@ -97,7 +97,7 @@ export default function Hero() {
         }
         .hero-btn-secondary:hover { border-color: var(--accent); color: var(--accent-text); }
         .hero-image {
-          object-fit: cover; object-position: center 18%;
+          object-fit: cover; object-position: center;
           display: block;
         }
         @media (prefers-reduced-motion: reduce) {
@@ -264,19 +264,20 @@ export default function Hero() {
           }
           /* Image — full rounded square card below buttons */
           .hero-mobile-img-wrap {
-            width: 100%;
-            border-radius: 20px;
+            width: min(100%, 320px);
+            margin: 0 auto;
+            border-radius: 50%;
             overflow: hidden;
             position: relative;
             flex-shrink: 0;
             aspect-ratio: 1 / 1;
-            max-height: 360px;
+            border: 2px solid var(--accent-border);
           }
           .hero-mobile-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 10%;
+            object-position: center;
             display: block;
           }
         }

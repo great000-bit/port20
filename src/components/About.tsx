@@ -145,8 +145,8 @@ export default function About() {
           width: 100%;
           aspect-ratio: 4/4;
           object-fit: cover;
-          object-position: center 15%;
-          border-radius: 12px;
+          object-position: center;
+          border-radius: 50%;
           display: block;
           border: 1px solid var(--border-soft);
         }
