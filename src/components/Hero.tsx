@@ -328,7 +328,7 @@ export default function Hero() {
           </div>
           <div className="hero-desktop-img-wrap">
             <img ref={imgRef} className="hero-image hero-desktop-img"
-              src="/great-emman-wori-fullstack-developer.png"
+              src="/great-emman-wori-2026.png"
               alt="Great Emman-Wori, Fullstack Website Developer and Product Designer"
               width={441} height={441} loading="eager"/>
           </div>
@@ -370,7 +370,7 @@ export default function Hero() {
           <div className="hero-mobile-img-wrap">
             <img
               className="hero-mobile-img"
-              src="/great-emman-wori-fullstack-developer.png"
+              src="/great-emman-wori-2026.png"
               alt="Great Emman-Wori, Fullstack Website Developer"
               width={600} height={600}
               loading="eager"

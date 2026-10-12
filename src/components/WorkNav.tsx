@@ -39,7 +39,7 @@ export default function WorkNav() {
       >
         <div className="wk-nav-inner">
           <Link to="/" className="wk-logo" aria-label="Great Emman-Wori home">
-            <img src="/great-emman-wori-fullstack-developer.png" alt="" className="wk-logo-img" width={34} height={34} />
+            <img src="/great-emman-wori-2026.png" alt="" className="wk-logo-img" width={34} height={34} />
             <span className="wk-logo-text"><span>Great</span> Emman-Wori</span>
           </Link>
           <nav className="wk-links" aria-label="Case study navigation">

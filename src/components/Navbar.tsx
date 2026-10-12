@@ -261,7 +261,7 @@ export default function Navbar() {
         <div className="nav-inner">
           {/* Logo — desktop only */}
           <a href="#hero" onClick={close} className="nav-logo">
-            <img src="/great-emman-wori-fullstack-developer.png" alt="Great Emman-Wori"
+            <img src="/great-emman-wori-2026.png" alt="Great Emman-Wori"
               className="nav-logo-img" loading="eager"/>
             <span className="nav-logo-name">
               <span className="nav-logo-text nav-logo-text-accent">Great</span>
@@ -296,7 +296,7 @@ export default function Navbar() {
           {/* ── MOBILE: centered floating pill ── */}
           <div className="nav-mobile-pill" aria-hidden="false" role="navigation">
             <a href="#hero" onClick={close}>
-              <img src="/great-emman-wori-fullstack-developer.png" alt="Great Emman-Wori"
+              <img src="/great-emman-wori-2026.png" alt="Great Emman-Wori"
                 className="nav-logo-img" loading="eager"/>
             </a>
             <button onClick={toggle} className="nav-theme-btn" aria-label="Toggle theme">

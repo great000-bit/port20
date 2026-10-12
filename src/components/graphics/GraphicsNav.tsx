@@ -52,7 +52,7 @@ export default function GraphicsNav() {
       >
         <div className="gx-nav-inner">
           <a href="/graphics" className="gx-nav-logo">
-            <img src="/great-emman-wori-fullstack-developer.png" alt="Great" className="gx-nav-logo-img" />
+            <img src="/great-emman-wori-2026.png" alt="Great" className="gx-nav-logo-img" />
             <span className="gx-nav-logo-text">
               <span className="gx-nav-logo-accent">Great</span>
             </span>

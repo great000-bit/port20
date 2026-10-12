@@ -282,7 +282,7 @@ export default function About() {
           <div className="about-right" data-aos="fade-up" data-aos-delay="160">
             <div className="about-photo-wrap">
               <img
-                src="/great-emman-wori-fullstack-developer.png"
+                src="/great-emman-wori-2026.png"
                 alt="Great Emman-Wori, Founder of Creative Emman Limited"
                 className="about-photo"
                 loading="lazy"
