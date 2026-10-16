@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 Allow: /documents/great-emman-wori-cv.pdf
 
-Sitemap: https://greatemmanwori.cv/sitemap.xml
+Sitemap: https://www.greatemmanwori.cv/sitemap.xml

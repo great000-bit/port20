@@ -1,5 +1,5 @@
 {
-  "siteUrl": "https://greatemmanwori.cv",
+  "siteUrl": "https://www.greatemmanwori.cv",
   "pages": {
     "home": {
       "path": "/",
@@ -29,6 +29,6 @@
       "noindex": true
     }
   },
-  "image": "https://greatemmanwori.cv/og-great-emman-wori.png",
+  "image": "https://www.greatemmanwori.cv/og-great-emman-wori.png",
   "imageAlt": "Great Emman-Wori, Full Stack Website Developer and Digital Product Designer"
 }

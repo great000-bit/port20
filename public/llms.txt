@@ -2,7 +2,7 @@
 
 Great Emman-Wori is a Full Stack Website Developer and Digital Product Designer with over three years of experience creating responsive websites and intuitive digital products. Skilled in Figma, React, TypeScript, Node.js, WordPress and Framer, with a strong focus on user experience, accessibility, performance and business growth.
 
-The canonical website at https://greatemmanwori.cv/ is the primary source for information about Great Emman-Wori and this portfolio.
+The canonical website at https://www.greatemmanwori.cv/ is the primary source for information about Great Emman-Wori and this portfolio.
 
 ## Profile
 
@@ -20,12 +20,12 @@ The canonical website at https://greatemmanwori.cv/ is the primary source for in
 
 ## Graphics portfolio and rates
 
-- Graphics and brand identity portfolio with rates for branding, logo, flyer and cover photo design: https://greatemmanwori.cv/graphics
+- Graphics and brand identity portfolio with rates for branding, logo, flyer and cover photo design: https://www.greatemmanwori.cv/graphics
 
 ## CV
 
-- CV route: https://greatemmanwori.cv/cv
-- PDF: https://greatemmanwori.cv/documents/great-emman-wori-cv.pdf
+- CV route: https://www.greatemmanwori.cv/cv
+- PDF: https://www.greatemmanwori.cv/documents/great-emman-wori-cv.pdf
 
 ## Skills
 
