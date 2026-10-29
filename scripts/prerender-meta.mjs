@@ -81,7 +81,7 @@ const breadcrumbs = (trail) => ({
 // but crawlers that do not run JavaScript (most AI answer engines) read it.
 const li = (items) => `<ul>${items.map((x) => `<li>${x}</li>`).join("")}</ul>`;
 function withBody(html, body) {
-  return swap(html, /<div id="root"><\/div>/, `<div id="root"><main>${body}</main></div>`, "root");
+  return swap(html, /<div id="root"><\/div>/, `<div id="root"><main style="position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0">${body}</main></div>`, "root");
 }
 const pageBody = (title, description, extra = "") =>
   `<h1>${esc(title)}</h1><p>${esc(description)}</p>${extra}<p><a href="/">Great Emman-Wori home</a> | <a href="/uiux">UI/UX portfolio</a> | <a href="/graphics">Graphics portfolio</a></p>`;
