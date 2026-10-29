@@ -13,6 +13,7 @@ const config = read("src/seo.config.json");
 const projects = read("src/data/projects.json");
 const uiux = read("src/data/uiux.json");
 const faq = read("src/faq.json");
+const rates = read("src/data/rates.json");
 const base = readFileSync(join(dist, "index.html"), "utf8");
 const site = config.siteUrl;
 
@@ -83,6 +84,36 @@ function withBody(html, body) {
 const pageBody = (title, description, extra = "") =>
   `<h1>${esc(title)}</h1><p>${esc(description)}</p>${extra}<p><a href="/">Great Emman-Wori home</a> | <a href="/uiux">UI/UX portfolio</a> | <a href="/graphics">Graphics portfolio</a></p>`;
 
+
+// Page-specific crawlable copy and structured data for the two portfolio hubs
+const num = (s) => Number(s.replace(/[^0-9.]/g, ""));
+const graphicsBody = () =>
+  `<h2>Graphic design rates</h2>${li(rates.map((r) => `${esc(r.name)}: ${esc(r.price.NGN)} (about ${esc(r.price.USD)}). ${esc(r.tagline)}. Includes: ${r.features.map(esc).join(", ")}.`))}`;
+const graphicsSchema = () => ({
+  "@type": "OfferCatalog",
+  "@id": `${site}/graphics#rates`,
+  name: "Graphic design and brand identity services by Great Emman-Wori",
+  provider: { "@id": `${site}/#person` },
+  areaServed: [{ "@type": "Country", name: "Nigeria" }, "Worldwide"],
+  itemListElement: rates.map((r) => ({
+    "@type": "Offer",
+    priceCurrency: "NGN",
+    price: num(r.price.NGN),
+    availability: "https://schema.org/InStock",
+    itemOffered: { "@type": "Service", name: `${r.name} design`, description: `${r.tagline}. ${r.features.join(", ")}.`, provider: { "@id": `${site}/#person` } },
+  })),
+});
+const uiuxBody = () =>
+  `<h2>UI/UX case studies</h2>${li(uiux.projects.map((p) => `<a href="/uiux/${p.slug}">${esc(p.title)}</a> (${esc(p.type)}): ${esc(trim(p.brief, 160))}`))}` +
+  `<h2>What I design</h2>${li((uiux.profile.services ?? []).map(esc))}<h2>Tools</h2><p>${(uiux.profile.tools ?? []).map(esc).join(", ")}</p>`;
+const uiuxSchema = () => ({
+  "@type": "ItemList",
+  "@id": `${site}/uiux#projects`,
+  name: "UI/UX case studies by Great Emman-Wori",
+  itemListElement: uiux.projects.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: `${site}/uiux/${p.slug}`, name: p.title })),
+});
+const hubExtra = { "/graphics": [graphicsSchema, graphicsBody], "/uiux": [uiuxSchema, uiuxBody] };
+
 // Static routes defined in seo.config.json (the homepage and 404 are handled separately)
 for (const page of Object.values(config.pages)) {
   if (page.noindex || page.path === "/") continue;
@@ -102,8 +133,9 @@ for (const page of Object.values(config.pages)) {
           inLanguage: "en-NG",
         },
         breadcrumbs([["Home", "/"], [page.crumb ?? "Page", page.path]]),
+        ...(hubExtra[page.path] ? [hubExtra[page.path][0]()] : []),
       ],
-    }, pageBody(page.title, page.description))
+    }, pageBody(page.title, page.description, hubExtra[page.path] ? hubExtra[page.path][1]() : ""))
   );
 }
 
@@ -172,7 +204,10 @@ for (const p of uiux.projects) {
         },
         breadcrumbs([["Home", "/"], ["UI/UX", "/uiux"], [p.title, path]]),
       ],
-    }, pageBody(p.title, p.brief, li((p.tags ?? []).map(esc))))
+    }, pageBody(p.title, p.brief,
+      `<p>Client: ${esc(p.client ?? "")}. Role: ${esc(p.role ?? "")}. Year: ${esc(String(p.year ?? ""))}. Tools: ${(p.tools ?? []).map(esc).join(", ")}.</p>` +
+      (p.story ?? []).map((s) => `<h2>${esc(s.title)}</h2><p>${esc(s.body)}</p>`).join("") +
+      `<h2>Results</h2>${li((p.results ?? []).map(esc))}`))
   );
 }
 
@@ -201,6 +236,11 @@ console.log("prerender-meta: added FAQPage schema to /index.html");
 
 // Sitemap generated from the same route data
 const today = new Date().toISOString().slice(0, 10);
+const imageFor = {
+  "/": "/great-emman-wori-2026.png",
+  ...Object.fromEntries(uiux.projects.map((p) => [`/uiux/${p.slug}`, p.cover])),
+  ...Object.fromEntries(projects.map((p) => [`/work/${p.slug}`, p.img])),
+};
 const urls = [
   ["/", "1.0"],
   ["/graphics", "0.8"],
@@ -211,10 +251,35 @@ const urls = [
 ];
 writeFileSync(
   join(dist, "sitemap.xml"),
-  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
     urls
-      .map(([path, priority]) => `  <url>\n    <loc>${site}${path}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>\n  </url>`)
+      .map(([path, priority]) => {
+        const img = imageFor[path];
+        const image = img ? `\n    <image:image>\n      <image:loc>${site}${img}</image:loc>\n    </image:image>` : "";
+        return `  <url>\n    <loc>${site}${path}</loc>\n    <lastmod>${today}</lastmod>\n    <priority>${priority}</priority>${image}\n  </url>`;
+      })
       .join("\n") +
     `\n</urlset>\n`
 );
 console.log(`prerender-meta: wrote sitemap.xml (${urls.length} urls)`);
+
+// llms-full.txt: the whole portfolio as plain text for answer engines
+const full = [
+  "# Great Emman-Wori: full portfolio",
+  "",
+  `${config.pages.home.description} Founder of Creative Emman Limited. Contact: greatemmanwori@gmail.com. Site: ${site}/`,
+  "",
+  "## Graphic design rates (starting prices per project)",
+  ...rates.map((r) => `- ${r.name}: ${r.price.NGN} / ${r.price.USD}. ${r.tagline}. Includes: ${r.features.join("; ")}.`),
+  "",
+  "## Web projects",
+  ...projects.map((p) => `- ${p.name} (${site}/work/${p.slug}): ${p.desc}`),
+  "",
+  "## UI/UX case studies",
+  ...uiux.projects.map((p) => `- ${p.title} (${site}/uiux/${p.slug}): ${p.brief}`),
+  "",
+  "## Frequently asked questions",
+  ...faq.flatMap((i) => [`Q: ${i.q}`, `A: ${i.a}`, ""]),
+].join("\n");
+writeFileSync(join(dist, "llms-full.txt"), full + "\n");
+console.log("prerender-meta: wrote llms-full.txt");

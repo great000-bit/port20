@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Check, ArrowUpRight } from "lucide-react";
+import rates from "@/data/rates.json";
 
 type Currency = "NGN" | "USD" | "INR";
 
@@ -20,61 +21,7 @@ const CURRENCY_LABELS: Record<Currency, string> = {
   INR: "₹ Rupee",
 };
 
-const PLANS: Plan[] = [
-  {
-    id: "branding",
-    name: "Branding",
-    tagline: "Complete brand identity",
-    price: { NGN: "₦250,000", USD: "$170", INR: "₹16,450" },
-    features: [
-      "Logo with 3 concepts",
-      "Color palette and typography",
-      "Brand guidelines PDF",
-      "Business card design",
-      "Social media kit",
-    ],
-    featured: true,
-  },
-  {
-    id: "logo",
-    name: "Logo",
-    tagline: "A mark that lasts",
-    price: { NGN: "₦60,000", USD: "$40", INR: "₹3,850" },
-    features: [
-      "3 initial concepts",
-      "2 rounds of revisions",
-      "PNG, SVG and PDF files",
-      "Light and dark versions",
-      "Full usage rights",
-    ],
-  },
-  {
-    id: "flyer",
-    name: "Flyer",
-    tagline: "Print and digital ready",
-    price: { NGN: "₦10,000", USD: "$15", INR: "₹1,450" },
-    features: [
-      "1 custom flyer design",
-      "2 rounds of revisions",
-      "Print-ready PDF",
-      "Web-optimised PNG",
-      "Your copy, logo and brand colors",
-    ],
-  },
-  {
-    id: "cover-photo",
-    name: "Cover Photo",
-    tagline: "Profile and page headers",
-    price: { NGN: "₦15,000", USD: "$10", INR: "₹950" },
-    features: [
-      "1 custom cover design",
-      "2 rounds of revisions",
-      "Sized for one platform",
-      "High-resolution PNG",
-      "Mobile and desktop safe zones",
-    ],
-  },
-];
+const PLANS = rates as Plan[];
 
 const whatsappLink = (plan: Plan) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(

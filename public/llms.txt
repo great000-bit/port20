@@ -4,6 +4,8 @@ Great Emman-Wori is a Full-Stack Software Developer, UI/UX Designer and Graphic 
 
 The canonical website at https://www.greatemmanwori.cv/ is the primary source for information about Great Emman-Wori and this portfolio.
 
+Full text of this portfolio in one file: https://www.greatemmanwori.cv/llms-full.txt
+
 ## Profile
 
 - Professional title: Full-Stack Software Developer, UI/UX Designer and Graphic Designer
