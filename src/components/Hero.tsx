@@ -315,8 +315,8 @@ export default function Hero() {
               <TextReveal text="and digital experiences." delay={980}/>
             </h1>
             <p className="hero-subtitle">
-              Fullstack Website Developer and Product Designer creating accessible,
-              responsive, and conversion-focused experiences for brands and businesses.
+              Full-stack developer, UI/UX designer and graphic designer in Nigeria, creating accessible,
+              responsive, conversion-focused websites, apps and brands for businesses.
             </p>
             <div className="hero-desktop-actions">
               <a href="#portfolio" className="hero-btn hero-btn-primary">View Projects <ArrowRight size={14}/></a>
@@ -329,7 +329,7 @@ export default function Hero() {
           <div className="hero-desktop-img-wrap">
             <img ref={imgRef} className="hero-image hero-desktop-img"
               src="/great-emman-wori-2026.png"
-              alt="Great Emman-Wori, Fullstack Website Developer and Product Designer"
+              alt="Great Emman-Wori, Full-Stack Software Developer, UI/UX Designer and Graphic Designer"
               width={441} height={441} loading="eager"/>
           </div>
         </div>
@@ -342,16 +342,16 @@ export default function Hero() {
               <span className="hero-badge-dot"/>
               Available for work
             </div>
-            <h1 className="hero-mobile-name">
+            <p className="hero-mobile-name" role="presentation">
               Hey, I'm Great Emman-Wori.
-            </h1>
+            </p>
             <p className="hero-mobile-tagline">
               I build <strong>impactful websites,</strong><br/>
               and digital experiences.
             </p>
             <p className="hero-subtitle">
-              Fullstack Website Developer and Product Designer creating accessible,
-              responsive, and conversion-focused experiences for brands and businesses.
+              Full-stack developer, UI/UX designer and graphic designer in Nigeria, creating accessible,
+              responsive, conversion-focused websites, apps and brands for businesses.
             </p>
             <div className="hero-mobile-actions">
               <a href="#portfolio" className="hero-btn hero-btn-primary">

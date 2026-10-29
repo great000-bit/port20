@@ -34,7 +34,7 @@ function swap(html, pattern, replacement, label) {
 
 const metaTag = (attr, id) => new RegExp(`<meta ${attr}="${id}" content="[^"]*"\\s*\\/?>`);
 
-function build(page, structuredData) {
+function build(page, structuredData, body) {
   const url = `${site}${page.path}`;
   const image = page.image ?? config.image;
   const imageAlt = page.imageAlt ?? config.imageAlt;
@@ -53,7 +53,7 @@ function build(page, structuredData) {
   html = swap(html, metaTag("name", "twitter:image"), `<meta name="twitter:image" content="${image}" />`, "twitter:image");
   html = swap(html, metaTag("name", "twitter:image:alt"), `<meta name="twitter:image:alt" content="${esc(imageAlt)}" />`, "twitter:image:alt");
   html = swap(html, /<script type="application\/ld\+json">[\s\S]*?<\/script>/, ld(structuredData), "JSON-LD");
-  return html;
+  return body ? withBody(html, body) : html;
 }
 
 function write(path, html) {
@@ -73,6 +73,16 @@ const breadcrumbs = (trail) => ({
   })),
 });
 
+
+// Static, crawlable body copy placed inside #root. React replaces it on mount,
+// but crawlers that do not run JavaScript (most AI answer engines) read it.
+const li = (items) => `<ul>${items.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+function withBody(html, body) {
+  return swap(html, /<div id="root"><\/div>/, `<div id="root"><main>${body}</main></div>`, "root");
+}
+const pageBody = (title, description, extra = "") =>
+  `<h1>${esc(title)}</h1><p>${esc(description)}</p>${extra}<p><a href="/">Great Emman-Wori home</a> | <a href="/uiux">UI/UX portfolio</a> | <a href="/graphics">Graphics portfolio</a></p>`;
+
 // Static routes defined in seo.config.json (the homepage and 404 are handled separately)
 for (const page of Object.values(config.pages)) {
   if (page.noindex || page.path === "/") continue;
@@ -89,11 +99,11 @@ for (const page of Object.values(config.pages)) {
           description: page.description,
           isPartOf: { "@id": `${site}/#website` },
           about: { "@id": `${site}/#person` },
-          inLanguage: "en-US",
+          inLanguage: "en-NG",
         },
         breadcrumbs([["Home", "/"], [page.crumb ?? "Page", page.path]]),
       ],
-    })
+    }, pageBody(page.title, page.description))
   );
 }
 
@@ -124,11 +134,11 @@ for (const p of projects) {
           creator: { "@id": `${site}/#person` },
           mainEntityOfPage: `${site}${path}`,
           isPartOf: { "@id": `${site}/#projects` },
-          inLanguage: "en-US",
+          inLanguage: "en-NG",
         },
         breadcrumbs([["Home", "/"], ["Projects", "/#portfolio"], [p.name, path]]),
       ],
-    })
+    }, pageBody(p.name, p.desc, li((p.tags ?? []).map(esc))))
   );
 }
 
@@ -158,11 +168,11 @@ for (const p of uiux.projects) {
           keywords: (p.tags ?? []).join(", "),
           creator: { "@id": `${site}/#person` },
           mainEntityOfPage: `${site}${path}`,
-          inLanguage: "en-US",
+          inLanguage: "en-NG",
         },
         breadcrumbs([["Home", "/"], ["UI/UX", "/uiux"], [p.title, path]]),
       ],
-    })
+    }, pageBody(p.title, p.brief, li((p.tags ?? []).map(esc))))
   );
 }
 
@@ -177,7 +187,16 @@ const faqLd = {
     acceptedAnswer: { "@type": "Answer", text: item.a },
   })),
 };
-writeFileSync(join(dist, "index.html"), swap(base, /<\/head>/, `    ${ld(faqLd)}\n  </head>`, "</head>"));
+const homeBody =
+  `<h1>Great Emman-Wori: Full-Stack Software Developer, UI/UX Designer and Graphic Designer in Nigeria</h1>` +
+  `<p>${esc(config.pages.home.description)} He is the founder of Creative Emman Limited, a digital design, development and branding company in Port Harcourt, Rivers State, Nigeria, with more than three years of experience.</p>` +
+  `<nav><a href="/uiux">UI/UX design portfolio</a> | <a href="/graphics">Graphics and brand identity portfolio, with rates</a> | <a href="/documents/great-emman-wori-cv.pdf">CV (PDF)</a></nav>` +
+  `<h2>Services</h2>${li(["Full-stack web development (React, TypeScript, Node.js, Laravel, Supabase, WordPress)", "UI/UX design in Figma and Framer", "Graphic design: logos, flyers, cover photos and brand identity", "Technical SEO, accessibility and performance"])}` +
+  `<h2>Selected projects</h2>${li(projects.map((p) => `<a href="/work/${p.slug}">${esc(p.name)}</a>: ${esc(trim(p.desc, 140))}`))}` +
+  `<h2>UI/UX case studies</h2>${li(uiux.projects.map((p) => `<a href="/uiux/${p.slug}">${esc(p.title)}</a>`))}` +
+  `<h2>Frequently asked questions</h2>${faq.map((i) => `<h3>${esc(i.q)}</h3><p>${esc(i.a)}</p>`).join("")}` +
+  `<h2>Contact</h2><p>Email greatemmanwori@gmail.com. Based in Port Harcourt, Rivers State, Nigeria. Available for freelance, contract and remote work.</p>`;
+writeFileSync(join(dist, "index.html"), withBody(swap(base, /<\/head>/, `    ${ld(faqLd)}\n  </head>`, "</head>"), homeBody));
 console.log("prerender-meta: added FAQPage schema to /index.html");
 
 // Sitemap generated from the same route data

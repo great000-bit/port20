@@ -3,8 +3,8 @@
   "pages": {
     "home": {
       "path": "/",
-      "title": "Great Emman-Wori | Full Stack Developer & Product Designer",
-      "description": "Great Emman-Wori is a Full Stack Website Developer and Product Designer in Port Harcourt, Nigeria, building fast, accessible React and WordPress websites.",
+      "title": "Great Emman-Wori | Full-Stack Developer & Designer in Nigeria",
+      "description": "Great Emman-Wori is a full-stack software developer, UI/UX designer and graphic designer in Port Harcourt, Nigeria, building fast websites, apps and brands.",
       "ogType": "profile"
     },
     "graphics": {
@@ -30,5 +30,5 @@
     }
   },
   "image": "https://www.greatemmanwori.cv/og-great-emman-wori.png",
-  "imageAlt": "Great Emman-Wori, Full Stack Website Developer and Digital Product Designer"
+  "imageAlt": "Great Emman-Wori, Full-Stack Software Developer, UI/UX Designer and Graphic Designer"
 }

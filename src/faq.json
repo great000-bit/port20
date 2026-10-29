@@ -1,7 +1,7 @@
 [
   {
     "q": "Who is Great Emman-Wori?",
-    "a": "Great Emman-Wori is a Full Stack Website Developer, Product Designer and UI/UX Designer based in Port Harcourt, Nigeria. He is the founder of Creative Emman Limited and has more than three years of experience building responsive websites and digital products."
+    "a": "Great Emman-Wori is a full-stack software developer, UI/UX designer and graphic designer based in Port Harcourt, Nigeria. He is the founder of Creative Emman Limited and has more than three years of experience building responsive websites and digital products."
   },
   {
     "q": "What does Creative Emman Limited do?",
@@ -10,6 +10,18 @@
   {
     "q": "Where is Great Emman-Wori based, and does he work with clients abroad?",
     "a": "He is based in Port Harcourt, Rivers State, Nigeria, and works remotely. He has delivered work for clients in Nigeria, Canada and the UK."
+  },
+  {
+    "q": "Who is a full-stack web developer in Port Harcourt, Nigeria?",
+    "a": "Great Emman-Wori is a full-stack web developer based in Port Harcourt, Rivers State, Nigeria. He builds websites and web apps with React, TypeScript, Node.js, Laravel and Supabase, and takes on projects from Nigeria and abroad."
+  },
+  {
+    "q": "Who is a UI/UX designer in Nigeria for websites and apps?",
+    "a": "Great Emman-Wori is a UI/UX designer in Nigeria who designs websites, e-commerce stores, SaaS dashboards and mobile apps in Figma, then builds them in code. His UI/UX case studies are on the UI/UX portfolio page."
+  },
+  {
+    "q": "Who is a graphic designer in Port Harcourt for logos and brand identity?",
+    "a": "Great Emman-Wori designs logos, flyers, cover photos and full brand identities in Port Harcourt. Clients in Nigeria, Canada and the UK can see the work and rates on the graphics portfolio page."
   },
   {
     "q": "Does he offer web design and branding services in Port Harcourt?",

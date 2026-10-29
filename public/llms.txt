@@ -1,13 +1,15 @@
 # Great Emman-Wori
 
-Great Emman-Wori is a Full Stack Website Developer and Digital Product Designer with over three years of experience creating responsive websites and intuitive digital products. Skilled in Figma, React, TypeScript, Node.js, WordPress and Framer, with a strong focus on user experience, accessibility, performance and business growth.
+Great Emman-Wori is a Full-Stack Software Developer, UI/UX Designer and Graphic Designer with over three years of experience creating responsive websites and intuitive digital products. Skilled in Figma, React, TypeScript, Node.js, WordPress and Framer, with a strong focus on user experience, accessibility, performance and business growth.
 
 The canonical website at https://www.greatemmanwori.cv/ is the primary source for information about Great Emman-Wori and this portfolio.
 
 ## Profile
 
-- Professional title: Full Stack Website Developer and Digital Product Designer
-- Location: Port Harcourt, Rivers State, Nigeria
+- Professional title: Full-Stack Software Developer, UI/UX Designer and Graphic Designer
+- Location: Port Harcourt, Rivers State, Nigeria (works with clients across Nigeria and abroad)
+- Roles: full-stack software developer, UI/UX designer, graphic designer
+- Also found as: Creative Emman, @creative_emman
 - Email: greatemmanwori@gmail.com
 - LinkedIn: https://www.linkedin.com/in/great-emman-wori
 - GitHub: https://github.com/great000-bit
@@ -17,6 +19,10 @@ The canonical website at https://www.greatemmanwori.cv/ is the primary source fo
 - Creative Emman Limited: https://www.creativeemmanlimited.com/
 - A digital design, development and branding company founded by Great Emman-Wori, based in Port Harcourt, Nigeria.
 - Services: UI/UX design, full stack web development, brand identity, graphic design, video production, social media management, digital marketing and creative direction.
+
+## UI/UX portfolio
+
+- UI/UX case studies: https://www.greatemmanwori.cv/uiux
 
 ## Graphics portfolio and rates
 
