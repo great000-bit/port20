@@ -42,6 +42,7 @@ const SKILL_GROUPS = [
       { name:"PHP",        pct:72 },
       { name:"HTML5 / CSS3", pct:96 },
       { name:"SQL",        pct:70 },
+      { name:"Python",     pct:60 },
     ],
   },
   {
