@@ -9,6 +9,8 @@ import { lazy } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { ThemeProvider } from "./context/ThemeContext";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const Index = lazy(() => import("./pages/Index"));
 const Graphics = lazy(() => import("./pages/Graphics"));
@@ -45,6 +47,8 @@ const App = () => {
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
             <Toaster />
+            <Analytics />
+            <SpeedInsights />
             <Sonner />
             <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
               <Suspense fallback={

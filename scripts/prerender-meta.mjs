@@ -43,6 +43,8 @@ function build(page, structuredData, body) {
   html = swap(html, /<title>[\s\S]*?<\/title>/, `<title>${esc(page.title)}</title>`, "title");
   html = swap(html, metaTag("name", "description"), `<meta name="description" content="${esc(page.description)}" />`, "description");
   html = swap(html, /<link rel="canonical" href="[^"]*"\s*\/?>/, `<link rel="canonical" href="${url}" />`, "canonical");
+  html = swap(html, /<link rel="alternate" hreflang="en-ng" href="[^"]*"\s*\/?>/, `<link rel="alternate" hreflang="en-ng" href="${url}" />`, "hreflang en-ng");
+  html = swap(html, /<link rel="alternate" hreflang="x-default" href="[^"]*"\s*\/?>/, `<link rel="alternate" hreflang="x-default" href="${url}" />`, "hreflang x-default");
   html = swap(html, metaTag("property", "og:type"), `<meta property="og:type" content="${page.ogType}" />`, "og:type");
   html = swap(html, metaTag("property", "og:url"), `<meta property="og:url" content="${url}" />`, "og:url");
   html = swap(html, metaTag("property", "og:title"), `<meta property="og:title" content="${esc(page.title)}" />`, "og:title");

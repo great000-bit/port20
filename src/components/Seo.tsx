@@ -85,6 +85,19 @@ export default function Seo({ page, custom }: { page?: PageKey; custom?: SeoPage
         url
       );
     }
+    for (const lang of ["en-ng", "x-default"]) {
+      upsert(
+        `link[rel="alternate"][hreflang="${lang}"]`,
+        () => {
+          const el = document.createElement("link");
+          el.setAttribute("rel", "alternate");
+          el.setAttribute("hreflang", lang);
+          return el;
+        },
+        "href",
+        url
+      );
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
 
