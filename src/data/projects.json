@@ -52,94 +52,6 @@
     ]
   },
   {
-    "slug": "timini-egbuson-actor-portfolio",
-    "name": "Timini Egbuson Actor Portfolio",
-    "title": "Timini Egbuson — Actor Portfolio",
-    "cat": "fullstack",
-    "url": "https://timini-egbuson-website-star.vercel.app/",
-    "img": "/timini.webp",
-    "alt": "React portfolio for Nollywood actor Timini Egbuson by Great Emman-Wori",
-    "desc": "Premium React portfolio for Nollywood actor Timini Egbuson — cinematic dark design, smooth animations, mobile-first.",
-    "tags": [
-      "React",
-      "TypeScript",
-      "Vite",
-      "Frontend"
-    ],
-    "badge": "Web Dev",
-    "highlights": [
-      "Cinematic dark design with smooth animations",
-      "Mobile-first responsive build with React, TypeScript and Vite",
-      "Optimised for Core Web Vitals, SEO metadata and social sharing previews"
-    ]
-  },
-  {
-    "slug": "funke-akindele-official-site",
-    "name": "Funke Akindele Official Site",
-    "title": "Funke Akindele — Official Site",
-    "cat": "fullstack",
-    "url": "https://funke-akindele-unveiled.vercel.app/",
-    "img": "/funke.webp",
-    "alt": "Official website for Funke Akindele built with React by Great Emman-Wori",
-    "desc": "Official website for iconic actress and director Funke Akindele — premium design, React, Core Web Vitals optimised.",
-    "tags": [
-      "React",
-      "Frontend",
-      "Celebrity",
-      "Responsive"
-    ],
-    "badge": "Web Dev",
-    "highlights": [
-      "Premium design for an official actress and director website",
-      "Built with React and fully responsive across devices",
-      "Optimised for Core Web Vitals, SEO metadata and social sharing previews"
-    ]
-  },
-  {
-    "slug": "ego-nwosu-cinematic-portfolio",
-    "name": "Ego Nwosu Cinematic Portfolio",
-    "title": "Ego Nwosu — Cinematic Portfolio",
-    "cat": "fullstack",
-    "url": "https://ego-cinematic-muse.vercel.app/",
-    "img": "/ego.webp",
-    "alt": "Cinematic portfolio for Nollywood actress Ego Nwosu by Great Emman-Wori",
-    "desc": "Cinematic portfolio for Nollywood actress Ego Nwosu — dark aesthetic, scroll interactions, React, performance-first.",
-    "tags": [
-      "React",
-      "Vite",
-      "Frontend",
-      "Portfolio"
-    ],
-    "badge": "Web Dev",
-    "highlights": [
-      "Dark cinematic aesthetic with scroll interactions",
-      "Performance-first React and Vite build",
-      "Optimised for Core Web Vitals, SEO metadata and social sharing previews"
-    ]
-  },
-  {
-    "slug": "omoni-oboli-director-portfolio",
-    "name": "Omoni Oboli Director Portfolio",
-    "title": "Omoni Oboli — Director Portfolio",
-    "cat": "fullstack",
-    "url": "https://omoni-oboli.vercel.app/",
-    "img": "/omoni.webp",
-    "alt": "Portfolio website for Omoni Oboli built with React by Great Emman-Wori",
-    "desc": "Elegant portfolio for Nollywood actress and director Omoni Oboli — premium dark design, fully responsive React build.",
-    "tags": [
-      "React",
-      "TypeScript",
-      "Vite",
-      "Portfolio"
-    ],
-    "badge": "Web Dev",
-    "highlights": [
-      "Premium dark design for an actress and director portfolio",
-      "Fully responsive React and TypeScript build",
-      "Optimised for Core Web Vitals, SEO metadata and social sharing previews"
-    ]
-  },
-  {
     "slug": "wizor-progress-real-estate",
     "name": "Wizor Progress Real Estate Website",
     "title": "Wizor Progress — Real Estate",
@@ -180,28 +92,6 @@
       "Conducted usability testing with 20+ users, reducing bounce rate by 35%",
       "Improved the accessibility score from 68 to 92 using WCAG-compliant design practices",
       "Boosted organic traffic by 40% through SEO-aligned structure and metadata optimisation"
-    ]
-  },
-  {
-    "slug": "hair-brosh-saloon",
-    "name": "Hair Brosh Saloon",
-    "title": "Hair Brosh Saloon",
-    "cat": "uiux",
-    "url": "https://hairbrosh-ui-kit.vercel.app/",
-    "img": "/webbb.webp",
-    "alt": "Responsive salon website designed and developed by Great Emman-Wori",
-    "desc": "Pixel-perfect responsive salon website — designed in Figma, built with modern CSS, 100% responsive across all devices.",
-    "tags": [
-      "Figma",
-      "UI/UX",
-      "Responsive",
-      "CSS"
-    ],
-    "badge": "UI/UX",
-    "highlights": [
-      "Developed a scalable UI kit with 40+ components, used by 5+ startups in salon tech",
-      "Reduced design-to-development handoff time by 50% through standardised components",
-      "Achieved 100% responsiveness across desktop, tablet and mobile"
     ]
   },
   {

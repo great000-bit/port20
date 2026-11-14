@@ -43,11 +43,7 @@ JavaScript, TypeScript, React, Node.js, Tailwind CSS, WordPress, Elementor, Divi
 
 - Dr. Alexander Oburoh Professional Website: https://www.alexanderoburoh.com/
 - The Light Mission NGO: https://www.thelightmission.com/
-- Timini Egbuson Actor Portfolio: https://timini-egbuson-website-star.vercel.app/
-- Ego Nwosu Cinematic Portfolio: https://ego-cinematic-muse.vercel.app/
-- Omoni Oboli Director Portfolio: https://omoni-oboli.vercel.app/
 - Bourdillon Omijeh Foundation: https://www.bourdillonomijehfoundation.com/
-- Hair Brosh Saloon: https://hairbrosh-ui-kit.vercel.app/
 - AdsFirr Meta Ads Platform UI: https://adsfirr.vercel.app/
 - WaContacts WhatsApp Directory: https://wacontacts.com/
 - Bellostylez Blog Canada: https://bellostylez.ca/blog/
