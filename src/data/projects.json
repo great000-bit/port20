@@ -1,5 +1,81 @@
 [
   {
+    "slug": "nexus-e-environmental-expertise-exchange",
+    "name": "NEXUS-E Environmental Expertise Exchange",
+    "title": "NEXUS-E: African Environmental Expertise Exchange",
+    "cat": "fullstack",
+    "url": "https://register.nexuse.org/",
+    "img": "/nexus-e.webp",
+    "alt": "NEXUS-E expert registration platform for African environmental professionals built by Great Emman-Wori",
+    "desc": "Registration and discovery platform where African environmental professionals sign up once and can be found for projects, research and development finance.",
+    "tags": [
+      "Full-Stack",
+      "Supabase",
+      "Vercel",
+      "Resend",
+      "QR Registration"
+    ],
+    "badge": "Full-Stack",
+    "highlights": [
+      "Expert registration flow built to be completed in about 90 seconds",
+      "Profile verification so professionals can back their expertise with evidence",
+      "Directory that lists only verified experts who agreed to be listed",
+      "Multi-language interface for a pan-African audience",
+      "Supabase backend, transactional email through Resend, deployed on Vercel"
+    ]
+  },
+  {
+    "slug": "sabihand-artisan-marketplace",
+    "name": "Sabihand Artisan Marketplace",
+    "title": "Sabihand: Verified Artisan Marketplace",
+    "cat": "fullstack",
+    "url": "https://sabihand.vercel.app/",
+    "img": "/sabihand.webp",
+    "alt": "Sabihand marketplace for finding verified artisans in Nigeria built by Great Emman-Wori",
+    "desc": "Marketplace for finding verified artisans across Nigeria. Customers see the price first and pay into a hold that is released only when they confirm the job.",
+    "tags": [
+      "Next.js",
+      "Full-Stack",
+      "Marketplace",
+      "Neon Auth",
+      "Brevo",
+      "Vercel"
+    ],
+    "badge": "Full-Stack",
+    "highlights": [
+      "Search by trade and by state or local government area",
+      "Verified artisan profiles with ratings from completed jobs only",
+      "Written quotes and typical price ranges before any work starts",
+      "Payment hold released only after the customer confirms the job",
+      "Google sign-in through Neon Auth and transactional email through Brevo"
+    ]
+  },
+  {
+    "slug": "memocraft-client-file-delivery",
+    "name": "Memocraft Client File Delivery",
+    "title": "Memocraft: Client File Delivery for Creatives",
+    "cat": "fullstack",
+    "url": "https://www.memocraft.space/",
+    "img": "/memocraft.webp",
+    "alt": "Memocraft client file delivery app for photographers, videographers and designers built by Great Emman-Wori",
+    "desc": "File delivery app for creatives. Every finished file goes out labelled in one link, and you can see when the client opens and downloads it.",
+    "tags": [
+      "Full-Stack",
+      "SaaS",
+      "Cloudflare R2",
+      "Google Sign-In",
+      "Vercel"
+    ],
+    "badge": "Full-Stack",
+    "highlights": [
+      "One delivery link with labelled sections in place of zip files",
+      "Proof of delivery showing when a link was opened and which files were downloaded",
+      "Link controls including password, closing date and pause",
+      "Uploads up to 2 GB that resume when interrupted, stored on Cloudflare R2",
+      "Free in-browser photo enhancer and Google sign-in"
+    ]
+  },
+  {
     "slug": "alexander-oburoh-website-and-email",
     "name": "Dr. Alexander Oburoh Website and Email Setup",
     "title": "Dr. Alexander Oburoh — Professional Website Development, Email & DNS Setup",

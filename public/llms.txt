@@ -41,6 +41,9 @@ JavaScript, TypeScript, React, Node.js, Tailwind CSS, WordPress, Elementor, Divi
 
 ## Selected projects
 
+- NEXUS-E Environmental Expertise Exchange: https://register.nexuse.org/
+- Sabihand Artisan Marketplace: https://sabihand.vercel.app/
+- Memocraft Client File Delivery: https://www.memocraft.space/
 - Dr. Alexander Oburoh Professional Website: https://www.alexanderoburoh.com/
 - The Light Mission NGO: https://www.thelightmission.com/
 - Bourdillon Omijeh Foundation: https://www.bourdillonomijehfoundation.com/
