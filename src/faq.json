@@ -36,6 +36,26 @@
     "a": "Yes. He builds custom React and Laravel websites and web applications, as well as WordPress websites, depending on what the project needs."
   },
   {
+    "q": "What products has Great Emman-Wori built?",
+    "a": "He built Sabihand, a marketplace for finding verified artisans in Nigeria with a payment hold that is released only when the customer confirms the job, and Memocraft, a file delivery app that lets creatives send every finished file in one labelled link and see when it is opened. He also built NEXUS-E, a registration and discovery platform for African environmental professionals."
+  },
+  {
+    "q": "What is Sabihand?",
+    "a": "Sabihand is a Nigerian marketplace for finding verified artisans such as plumbers, electricians, tailors, mechanics, painters and cleaners. Customers see the price first and pay into a hold that is released only when they confirm the job. It was built by Great Emman-Wori and is launching in Port Harcourt, Lagos and Abuja."
+  },
+  {
+    "q": "What is Memocraft?",
+    "a": "Memocraft is a client file delivery app for photographers, videographers, filmmakers and designers, built by Great Emman-Wori. Every finished file goes out labelled in one link, clients never need an account, and you can see when the link is opened and which files were downloaded."
+  },
+  {
+    "q": "What is NEXUS-E?",
+    "a": "NEXUS-E, the African Environmental Expertise Exchange, is a platform where environmental professionals register once and can be found for projects, research and development finance. Great Emman-Wori built it as a full-stack developer, including QR registration, profile verification and a directory of verified experts."
+  },
+  {
+    "q": "Can he build a marketplace, SaaS product or web app from scratch?",
+    "a": "Yes. He designs and builds full products end to end, from UI/UX in Figma to the frontend, backend, authentication, payments logic, file storage and deployment. Sabihand, Memocraft and NEXUS-E are live examples."
+  },
+  {
     "q": "Does he design logos, flyers and brand identities?",
     "a": "Yes. Alongside web work he designs logos, flyers, cover photos and complete brand identities. Examples are on the graphics portfolio page."
   },
