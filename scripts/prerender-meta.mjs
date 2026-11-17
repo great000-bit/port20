@@ -14,6 +14,7 @@ const projects = read("src/data/projects.json");
 const uiux = read("src/data/uiux.json");
 const faq = read("src/faq.json");
 const rates = read("src/data/rates.json");
+const experience = read("src/data/experience.json");
 const base = readFileSync(join(dist, "index.html"), "utf8");
 const site = config.siteUrl;
 
@@ -141,6 +142,36 @@ for (const page of Object.values(config.pages)) {
   );
 }
 
+// Case study structured data and crawlable copy. Live apps are described as
+// WebApplication so answer engines can name the product and its builder.
+const workNode = (p) => {
+  const path = `/work/${p.slug}`;
+  const node = {
+    "@type": p.appCategory ? ["WebApplication", "CreativeWork"] : "CreativeWork",
+    "@id": `${site}${path}#work`,
+    url: `${site}${path}`,
+    name: p.name,
+    headline: p.title,
+    description: p.desc,
+    abstract: (p.highlights ?? []).map((t) => (/[.!?]$/.test(t) ? t : `${t}.`)).join(" "),
+    image: `${site}${p.img}`,
+    keywords: p.tags.join(", "),
+    sameAs: p.url,
+    creator: { "@id": `${site}/#person` },
+    author: { "@id": `${site}/#person` },
+    mainEntityOfPage: `${site}${path}`,
+    isPartOf: { "@id": `${site}/#projects` },
+    inLanguage: "en-NG",
+  };
+  if (p.appCategory) Object.assign(node, { applicationCategory: p.appCategory, operatingSystem: "Web browser" });
+  return node;
+};
+const workBody = (p) =>
+  ((p.highlights ?? []).length ? `<h2>What was built</h2>${li(p.highlights.map(esc))}` : "") +
+  `<h2>Stack and skills</h2><p>${(p.tags ?? []).map(esc).join(", ")}</p>` +
+  `<h2>Live site</h2><p><a href="${esc(p.url)}">${esc(p.url.replace(/^https?:\/\//, "").replace(/\/$/, ""))}</a></p>` +
+  `<p>Built by Great Emman-Wori, full-stack developer and designer in Port Harcourt, Nigeria. To start a similar project, email greatemmanwori@gmail.com.</p>`;
+
 // One static page per case study
 for (const p of projects) {
   const path = `/work/${p.slug}`;
@@ -157,22 +188,10 @@ for (const p of projects) {
     build(page, {
       "@context": "https://schema.org",
       "@graph": [
-        {
-          "@type": "CreativeWork",
-          "@id": `${site}${path}#work`,
-          url: `${site}${path}`,
-          name: p.name,
-          description: p.desc,
-          image: `${site}${p.img}`,
-          keywords: p.tags.join(", "),
-          creator: { "@id": `${site}/#person` },
-          mainEntityOfPage: `${site}${path}`,
-          isPartOf: { "@id": `${site}/#projects` },
-          inLanguage: "en-NG",
-        },
+        workNode(p),
         breadcrumbs([["Home", "/"], ["Projects", "/#portfolio"], [p.name, path]]),
       ],
-    }, pageBody(p.name, p.desc, li((p.tags ?? []).map(esc))))
+    }, pageBody(p.name, p.desc, workBody(p)))
   );
 }
 
@@ -224,16 +243,43 @@ const faqLd = {
     acceptedAnswer: { "@type": "Answer", text: item.a },
   })),
 };
+// Homepage project list in the head JSON-LD, generated from projects.json so it never drifts
+const projectList = {
+  "@type": "ItemList",
+  "@id": `${site}/#projects`,
+  url: `${site}/#portfolio`,
+  name: "Selected projects by Great Emman-Wori",
+  isPartOf: { "@id": `${site}/#profile` },
+  numberOfItems: projects.length,
+  itemListElement: projects.map((p, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    url: `${site}/work/${p.slug}`,
+    item: { "@id": `${site}/work/${p.slug}#work`, "@type": p.appCategory ? "WebApplication" : "CreativeWork", name: p.name, url: p.url, creator: { "@id": `${site}/#person` } },
+  })),
+};
+const withProjects = (html) =>
+  swap(html, /<script type="application\/ld\+json">([\s\S]*?)<\/script>/, (() => {
+    const graph = JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    graph["@graph"] = graph["@graph"].map((n) => (n["@id"] === `${site}/#projects` ? projectList : n));
+    return ld(graph);
+  })(), "homepage JSON-LD");
+const products = projects.filter((p) => p.appCategory);
+const sentence = (t) => (/[.!?]$/.test(t) ? t : `${t}.`);
+const expText = (e) => `${e.role}, ${e.org} (${e.period}, ${e.loc}): ${e.bullets.map(sentence).join(" ")}`;
+
 const homeBody =
   `<h1>Great Emman-Wori: Full-Stack Software Developer, UI/UX Designer and Graphic Designer in Nigeria</h1>` +
   `<p>${esc(config.pages.home.description)} He is the founder of Creative Emman Limited, a digital design, development and branding company in Port Harcourt, Rivers State, Nigeria, with more than three years of experience.</p>` +
   `<nav><a href="/uiux">UI/UX design portfolio</a> | <a href="/graphics">Graphics and brand identity portfolio, with rates</a> | <a href="/documents/great-emman-wori-cv.pdf">CV (PDF)</a></nav>` +
   `<h2>Services</h2>${li(["Full-stack web development (React, TypeScript, Node.js, Laravel, Supabase, WordPress)", "UI/UX design in Figma and Framer", "Graphic design: logos, flyers, cover photos and brand identity", "Technical SEO, accessibility and performance"])}` +
+  `<h2>Products built by Great Emman-Wori</h2>${li(products.map((p) => `<a href="/work/${p.slug}">${esc(p.name)}</a> (<a href="${esc(p.url)}">live</a>): ${esc(p.desc)}`))}` +
   `<h2>Selected projects</h2>${li(projects.map((p) => `<a href="/work/${p.slug}">${esc(p.name)}</a>: ${esc(trim(p.desc, 140))}`))}` +
   `<h2>UI/UX case studies</h2>${li(uiux.projects.map((p) => `<a href="/uiux/${p.slug}">${esc(p.title)}</a>`))}` +
+  `<h2>Work experience</h2>${li(experience.map((e) => esc(expText(e))))}` +
   `<h2>Frequently asked questions</h2>${faq.map((i) => `<h3>${esc(i.q)}</h3><p>${esc(i.a)}</p>`).join("")}` +
   `<h2>Contact</h2><p>Email greatemmanwori@gmail.com. Based in Port Harcourt, Rivers State, Nigeria. Available for freelance, contract and remote work.</p>`;
-writeFileSync(join(dist, "index.html"), withBody(swap(base, /<\/head>/, `    ${ld(faqLd)}\n  </head>`, "</head>"), homeBody));
+writeFileSync(join(dist, "index.html"), withBody(swap(withProjects(base), /<\/head>/, `    ${ld(faqLd)}\n  </head>`, "</head>"), homeBody));
 console.log("prerender-meta: added FAQPage schema to /index.html");
 
 // Sitemap generated from the same route data
@@ -274,6 +320,12 @@ const full = [
   "## Graphic design rates (starting prices per project)",
   ...rates.map((r) => `- ${r.name}: ${r.price.NGN} / ${r.price.USD}. ${r.tagline}. Includes: ${r.features.join("; ")}.`),
   "",
+  "## Products built",
+  ...products.map((p) => `- ${p.name} (${p.url}, case study ${site}/work/${p.slug}): ${p.desc} ${(p.highlights ?? []).map(sentence).join(" ")}`),
+  "",
+  "## Work experience",
+  ...experience.map((e) => `- ${expText(e)}`),
+  "",
   "## Web projects",
   ...projects.map((p) => `- ${p.name} (${site}/work/${p.slug}): ${p.desc}`),
   "",
@@ -284,4 +336,22 @@ const full = [
   ...faq.flatMap((i) => [`Q: ${i.q}`, `A: ${i.a}`, ""]),
 ].join("\n");
 writeFileSync(join(dist, "llms-full.txt"), full + "\n");
+
+const llms = readFileSync(join(dist, "llms.txt"), "utf8");
+const marker = "## Selected projects";
+if (!llms.includes(marker)) throw new Error("prerender-meta: llms.txt has no Selected projects section");
+writeFileSync(
+  join(dist, "llms.txt"),
+  llms.slice(0, llms.indexOf(marker)) +
+    [
+      "## Products built",
+      "",
+      ...products.map((p) => `- ${p.name}: ${p.url} (case study: ${site}/work/${p.slug}). ${p.desc}`),
+      "",
+      marker,
+      "",
+      ...projects.map((p) => `- ${p.name}: ${site}/work/${p.slug} (live: ${p.url})`),
+    ].join("\n") + "\n"
+);
+console.log("prerender-meta: wrote llms.txt projects");
 console.log("prerender-meta: wrote llms-full.txt");

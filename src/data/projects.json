@@ -22,7 +22,8 @@
       "Directory that lists only verified experts who agreed to be listed",
       "Multi-language interface for a pan-African audience",
       "Supabase backend, transactional email through Resend, deployed on Vercel"
-    ]
+    ],
+    "appCategory": "BusinessApplication"
   },
   {
     "slug": "sabihand-artisan-marketplace",
@@ -48,7 +49,8 @@
       "Written quotes and typical price ranges before any work starts",
       "Payment hold released only after the customer confirms the job",
       "Google sign-in through Neon Auth and transactional email through Brevo"
-    ]
+    ],
+    "appCategory": "BusinessApplication"
   },
   {
     "slug": "memocraft-client-file-delivery",
@@ -73,7 +75,8 @@
       "Link controls including password, closing date and pause",
       "Uploads up to 2 GB that resume when interrupted, stored on Cloudflare R2",
       "Free in-browser photo enhancer and Google sign-in"
-    ]
+    ],
+    "appCategory": "BusinessApplication"
   },
   {
     "slug": "alexander-oburoh-website-and-email",

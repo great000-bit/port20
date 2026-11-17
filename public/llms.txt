@@ -37,7 +37,9 @@ Full text of this portfolio in one file: https://www.greatemmanwori.cv/llms-full
 
 ## Skills
 
-JavaScript, TypeScript, React, Node.js, Tailwind CSS, WordPress, Elementor, Divi, Gutenberg, Figma, Framer, Adobe XD, Product Design, UI/UX Design, Responsive Web Design, Accessibility, Technical SEO, On-Page SEO, Google Analytics and Google Search Console.
+JavaScript, TypeScript, React, Next.js, Vite, Node.js, PHP, Laravel, SQL, PostgreSQL, MySQL, Supabase, Python, Tailwind CSS, Vercel, Cloudflare, WordPress, Elementor, Divi, Gutenberg, Figma, Framer, Adobe XD, Product Design, UI/UX Design, Responsive Web Design, Accessibility, Technical SEO, On-Page SEO, Google Analytics and Google Search Console.
+
+Builds full products end to end: marketplaces, SaaS apps and registration platforms, from Figma design to frontend, backend, authentication, file storage and deployment.
 
 ## Selected projects
 
