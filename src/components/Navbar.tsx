@@ -286,6 +286,7 @@ export default function Navbar() {
             </button>
             <a href="/graphics" className="nav-gx">Graphics Portfolio</a>
             <a href="/uiux" className="nav-gx">UI/UX Portfolio</a>
+            <a href="/motion" className="nav-gx">Motion Portfolio</a>
             <a href="#contact" className="nav-cta">Hire Me →</a>
             <button className="nav-hamburger md:hidden" onClick={() => setOpen(o => !o)}
               aria-label={open ? "Close menu" : "Open menu"}>
@@ -322,6 +323,9 @@ export default function Navbar() {
           </a>
           <a href="/uiux" onClick={close} className="nav-mobile-link">
             UI/UX Portfolio
+          </a>
+          <a href="/motion" onClick={close} className="nav-mobile-link">
+            Motion Portfolio
           </a>
           <a href="#contact" onClick={close} className="nav-mobile-link"
             style={{ color:"var(--accent-text)", fontWeight:600 }}>

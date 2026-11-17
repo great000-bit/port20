@@ -17,6 +17,7 @@ const Graphics = lazy(() => import("./pages/Graphics"));
 const CaseStudy = lazy(() => import("./pages/CaseStudy"));
 const UiUx = lazy(() => import("./pages/UiUx"));
 const UiUxProject = lazy(() => import("./pages/UiUxProject"));
+const Motion = lazy(() => import("./pages/Motion"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -65,6 +66,7 @@ const App = () => {
                   <Route path="/graphics" element={<Graphics />} />
                   <Route path="/uiux" element={<UiUx />} />
                   <Route path="/uiux/:slug" element={<UiUxProject />} />
+                  <Route path="/motion" element={<Motion />} />
                   <Route path="/work/:slug" element={<CaseStudy />} />
                   <Route path="/cv" element={<CvRedirect />} />
                   <Route path="*" element={<NotFound />} />

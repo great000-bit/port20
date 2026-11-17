@@ -12,6 +12,7 @@ const read = (file) => JSON.parse(readFileSync(join(root, file), "utf8"));
 const config = read("src/seo.config.json");
 const projects = read("src/data/projects.json");
 const uiux = read("src/data/uiux.json");
+const motion = read("src/data/motion.json");
 const faq = read("src/faq.json");
 const rates = read("src/data/rates.json");
 const experience = read("src/data/experience.json");
@@ -85,7 +86,7 @@ function withBody(html, body) {
   return swap(html, /<div id="root"><\/div>/, `<div id="root"><main style="position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0">${body}</main></div>`, "root");
 }
 const pageBody = (title, description, extra = "") =>
-  `<h1>${esc(title)}</h1><p>${esc(description)}</p>${extra}<p><a href="/">Great Emman-Wori home</a> | <a href="/uiux">UI/UX portfolio</a> | <a href="/graphics">Graphics portfolio</a></p>`;
+  `<h1>${esc(title)}</h1><p>${esc(description)}</p>${extra}<p><a href="/">Great Emman-Wori home</a> | <a href="/uiux">UI/UX portfolio</a> | <a href="/graphics">Graphics portfolio</a> | <a href="/motion">Motion portfolio</a></p>`;
 
 
 // Page-specific crawlable copy and structured data for the two portfolio hubs
@@ -115,7 +116,19 @@ const uiuxSchema = () => ({
   name: "UI/UX case studies by Great Emman-Wori",
   itemListElement: uiux.projects.map((p, i) => ({ "@type": "ListItem", position: i + 1, url: `${site}/uiux/${p.slug}`, name: p.title })),
 });
-const hubExtra = { "/graphics": [graphicsSchema, graphicsBody], "/uiux": [uiuxSchema, uiuxBody] };
+const motionBody = () =>
+  `<h2>Video editing &amp; motion graphics work</h2>${li(motion.map((m) => `${esc(m.title)} (${esc(m.tag)}). Tools: ${m.tools.map(esc).join(", ")}.`))}`;
+const motionSchema = () => ({
+  "@type": "ItemList",
+  "@id": `${site}/motion#work`,
+  name: "Video editing and motion graphics work by Great Emman-Wori",
+  itemListElement: motion.map((m, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: { "@type": "VideoObject", name: m.title, description: m.tag, thumbnailUrl: `${site}${m.poster}`, contentUrl: `${site}${m.video}`, creator: { "@id": `${site}/#person` } },
+  })),
+});
+const hubExtra = { "/graphics": [graphicsSchema, graphicsBody], "/uiux": [uiuxSchema, uiuxBody], "/motion": [motionSchema, motionBody] };
 
 // Static routes defined in seo.config.json (the homepage and 404 are handled separately)
 for (const page of Object.values(config.pages)) {
@@ -271,7 +284,7 @@ const expText = (e) => `${e.role}, ${e.org} (${e.period}, ${e.loc}): ${e.bullets
 const homeBody =
   `<h1>Great Emman-Wori: Full-Stack Software Developer, UI/UX Designer and Graphic Designer in Nigeria</h1>` +
   `<p>${esc(config.pages.home.description)} He is the founder of Creative Emman Limited, a digital design, development and branding company in Port Harcourt, Rivers State, Nigeria, with more than three years of experience.</p>` +
-  `<nav><a href="/uiux">UI/UX design portfolio</a> | <a href="/graphics">Graphics and brand identity portfolio, with rates</a> | <a href="/documents/great-emman-wori-cv.pdf">CV (PDF)</a></nav>` +
+  `<nav><a href="/uiux">UI/UX design portfolio</a> | <a href="/graphics">Graphics and brand identity portfolio, with rates</a> | <a href="/motion">Video editing and motion graphics portfolio</a> | <a href="/documents/great-emman-wori-cv.pdf">CV (PDF)</a></nav>` +
   `<h2>Services</h2>${li(["Full-stack web development (React, TypeScript, Node.js, Laravel, Supabase, WordPress)", "UI/UX design in Figma and Framer", "Graphic design: logos, flyers, cover photos and brand identity", "Technical SEO, accessibility and performance"])}` +
   `<h2>Products built by Great Emman-Wori</h2>${li(products.map((p) => `<a href="/work/${p.slug}">${esc(p.name)}</a> (<a href="${esc(p.url)}">live</a>): ${esc(p.desc)}`))}` +
   `<h2>Selected projects</h2>${li(projects.map((p) => `<a href="/work/${p.slug}">${esc(p.name)}</a>: ${esc(trim(p.desc, 140))}`))}` +
@@ -293,6 +306,7 @@ const urls = [
   ["/", "1.0"],
   ["/graphics", "0.8"],
   ["/uiux", "0.8"],
+  ["/motion", "0.8"],
   ...uiux.projects.map((p) => [`/uiux/${p.slug}`, "0.7"]),
   ...projects.map((p) => [`/work/${p.slug}`, "0.7"]),
   ["/documents/great-emman-wori-cv.pdf", "0.4"],
@@ -331,6 +345,9 @@ const full = [
   "",
   "## UI/UX case studies",
   ...uiux.projects.map((p) => `- ${p.title} (${site}/uiux/${p.slug}): ${p.brief}`),
+  "",
+  "## Video editing & motion graphics",
+  ...motion.map((m) => `- ${m.title} (${m.tag}): tools used — ${m.tools.join(", ")}. See ${site}/motion`),
   "",
   "## Frequently asked questions",
   ...faq.flatMap((i) => [`Q: ${i.q}`, `A: ${i.a}`, ""]),

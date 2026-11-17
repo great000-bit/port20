@@ -21,6 +21,13 @@
       "description": "UI/UX and product design case studies by Great Emman-Wori: e-commerce stores, marketplaces, SaaS and real estate websites, designed in Figma. Based in Port Harcourt, Nigeria.",
       "ogType": "website"
     },
+    "motion": {
+      "path": "/motion",
+      "crumb": "Motion",
+      "title": "Video Editing & Motion Graphics Portfolio | Great Emman-Wori",
+      "description": "Short-form video editing and motion graphics by Great Emman-Wori: podcast clips, kinetic typography and social edits built for retention. Based in Port Harcourt, Nigeria.",
+      "ogType": "website"
+    },
     "notFound": {
       "path": "/",
       "title": "Page not found | Great Emman-Wori",

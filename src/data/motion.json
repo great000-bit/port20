@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Podcast Clip Edit 1",
+    "tag": "Short-form edit",
+    "tools": ["Adobe Premiere Pro", "Adobe After Effects"],
+    "video": "/motion/edit-01.mp4",
+    "poster": "/motion/edit-01-poster.jpg"
+  },
+  {
+    "title": "Podcast Clip Edit 2",
+    "tag": "Short-form edit",
+    "tools": ["CapCut", "Adobe After Effects"],
+    "video": "/motion/edit-02.mp4",
+    "poster": "/motion/edit-02-poster.jpg"
+  }
+]
