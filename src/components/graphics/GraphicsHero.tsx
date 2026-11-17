@@ -103,7 +103,7 @@ export default function GraphicsHero() {
           <div className="gx-hero-img-wrap" data-aos="fade-up" data-aos-delay="120">
             <img
               className="gx-hero-img"
-              src="/great-emman-profile-2026.png"
+              src="/great-emman-wori-2026.webp"
               alt="Great Emman-Wori, Graphic Designer"
               width={600}
               height={600}
