@@ -20,7 +20,7 @@ export default function MotionHero() {
           max-width: 1180px; margin: 0 auto;
           position: relative; z-index: 1;
         }
-        .mo-hero-meta { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 14px; margin-bottom: 8px; }
+        .mo-hero-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; margin-bottom: 36px; }
         .mo-back {
           display: inline-flex; align-items: center; gap: 6px;
           font-family: Arial, sans-serif; font-size: 13px; font-weight: 500;
@@ -39,47 +39,38 @@ export default function MotionHero() {
           animation: badgePulse 2.5s ease-in-out infinite;
         }
 
-        /* Oversized stacked wordmark with portrait overlap */
+        /* Oversized stacked wordmark, left; portrait card, right — no overlap */
         .mo-hero-stage {
-          position: relative;
-          display: flex; align-items: flex-end; justify-content: center;
-          min-height: clamp(320px, 46vw, 520px);
-          margin: 18px 0 0;
+          display: grid; grid-template-columns: 1.3fr 0.7fr;
+          gap: 40px; align-items: center;
         }
         .mo-hero-bigtext {
           font-family: Geist, Arial, sans-serif;
           font-weight: 800;
-          font-size: clamp(64px, 13vw, 168px);
-          line-height: 0.86;
-          letter-spacing: -0.03em;
-          text-align: center;
+          font-size: clamp(48px, 7.2vw, 108px);
+          line-height: 0.92;
+          letter-spacing: -0.02em;
           text-transform: uppercase;
           margin: 0;
-          background: linear-gradient(180deg, var(--fg) 0%, var(--fg) 48%, var(--accent-text) 82%, transparent 100%);
+          background: linear-gradient(180deg, var(--fg) 0%, var(--fg) 55%, var(--accent-text) 100%);
           -webkit-background-clip: text;
           background-clip: text;
           color: transparent;
-          user-select: none;
-          pointer-events: none;
         }
         .mo-hero-portrait {
-          position: absolute; left: 50%; bottom: 0;
-          transform: translateX(-50%);
-          width: clamp(160px, 24vw, 300px);
+          border-radius: 16px; overflow: hidden;
           aspect-ratio: 3 / 4;
-          z-index: 2;
-          -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 78%, transparent 100%);
-          mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 78%, transparent 100%);
+          border: 1px solid var(--border-strong);
         }
         .mo-hero-portrait img {
           width: 100%; height: 100%; object-fit: cover; object-position: top center;
           display: block; filter: grayscale(1) contrast(1.08);
         }
         .mo-hero-footer {
-          position: relative; z-index: 1;
           display: flex; justify-content: space-between; align-items: flex-end;
           flex-wrap: wrap; gap: 20px;
           border-top: 1px solid var(--border);
+          margin-top: 32px;
           padding: 20px 0 32px;
         }
         .mo-hero-role {
@@ -114,7 +105,9 @@ export default function MotionHero() {
         .mo-btn-primary:hover { background: var(--accent-hover); }
         .mo-btn-secondary { background: transparent; color: var(--fg); border: 1px solid var(--border-strong); }
         .mo-btn-secondary:hover { border-color: var(--accent); color: var(--accent-text); }
-        @media (max-width: 640px) {
+        @media (max-width: 760px) {
+          .mo-hero-stage { grid-template-columns: 1fr; gap: 24px; }
+          .mo-hero-portrait { max-width: 220px; }
           .mo-hero-footer { flex-direction: column; align-items: flex-start; }
           .mo-hero-blurb { text-align: left; }
         }
@@ -132,7 +125,7 @@ export default function MotionHero() {
               </div>
             </div>
 
-            <div className="mo-hero-stage" aria-hidden="false">
+            <div className="mo-hero-stage">
               <h1 className="mo-hero-bigtext">
                 Edit<br />Animate
               </h1>
