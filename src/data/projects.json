@@ -154,22 +154,22 @@
     "slug": "bourdillon-omijeh-foundation",
     "name": "Bourdillon Omijeh Foundation",
     "title": "Bourdillon Omijeh Foundation",
-    "cat": "uiux",
+    "cat": "fullstack",
     "url": "https://www.bourdillonomijehfoundation.com/",
     "img": "/bof.webp",
-    "alt": "Nonprofit website designed and built by Great Emman-Wori",
-    "desc": "Nonprofit site designed for credibility and accessibility — WCAG-compliant, brand-aligned, 55% visitor engagement increase.",
+    "alt": "Nonprofit website built by Great Emman-Wori",
+    "desc": "Nonprofit site built for credibility and accessibility — WCAG-compliant, brand-aligned, 55% visitor engagement increase.",
     "tags": [
       "WordPress",
-      "Figma",
-      "UI/UX",
+      "Full-Stack",
+      "Accessibility",
       "Nonprofit"
     ],
-    "badge": "UI/UX",
+    "badge": "Full-Stack",
     "highlights": [
-      "Designed and deployed a responsive website that increased visitor engagement by 55% within 3 months",
-      "Conducted usability testing with 20+ users, reducing bounce rate by 35%",
-      "Improved the accessibility score from 68 to 92 using WCAG-compliant design practices",
+      "Built and deployed a responsive website that increased visitor engagement by 55% within 3 months",
+      "Ran usability testing with 20+ users, reducing bounce rate by 35%",
+      "Improved the accessibility score from 68 to 92 using WCAG-compliant development practices",
       "Boosted organic traffic by 40% through SEO-aligned structure and metadata optimisation"
     ]
   },
