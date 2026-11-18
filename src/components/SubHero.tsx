@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { ArrowRight, Download } from "lucide-react";
 
 /* Letter-by-letter reveal, same as the main development hero. */
@@ -12,18 +12,30 @@ function TextReveal({ text, delay = 0, bold = false }: { text: string; delay?: n
   }, [delay]);
 
   const Tag = bold ? "strong" : "span";
+  // Group letters into words so lines can only break at spaces — the letter
+  // spans are inline-block, which would otherwise allow a break anywhere.
+  let n = 0;
   return (
     <Tag aria-label={text}>
-      {text.split("").map((char, i) => (
-        <span key={i} aria-hidden="true" style={{
-          display: "inline-block",
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0)" : "translateY(10px)",
-          transition: visible
-            ? `opacity 0.35s ease ${i * 25 + delay}ms, transform 0.35s ease ${i * 25 + delay}ms`
-            : "none",
-          whiteSpace: char === " " ? "pre" : "normal",
-        }}>{char}</span>
+      {text.split(" ").map((word, w, words) => (
+        <Fragment key={w}>
+          <span aria-hidden="true" style={{ display: "inline-block", whiteSpace: "nowrap" }}>
+            {word.split("").map((char) => {
+              const i = n++;
+              return (
+                <span key={i} style={{
+                  display: "inline-block",
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "translateY(0)" : "translateY(10px)",
+                  transition: visible
+                    ? `opacity 0.35s ease ${i * 25 + delay}ms, transform 0.35s ease ${i * 25 + delay}ms`
+                    : "none",
+                }}>{char}</span>
+              );
+            })}
+          </span>
+          {w < words.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </Tag>
   );
@@ -71,7 +83,8 @@ export default function SubHero(p: SubHeroProps) {
         .sh-title {
           font-family: Geist, Arial, sans-serif; font-weight: 400; font-size: 36px;
           line-height: 1.06; letter-spacing: -1.5px; color: var(--fg);
-          margin: 0 0 24px 0; max-width: 821px; word-break: keep-all; hyphens: none;
+          margin: 0 0 24px 0; max-width: 821px;
+          overflow-wrap: normal; word-break: keep-all; hyphens: none;
         }
         .sh-title strong { font-weight: 700; }
         .sh-sub {
