@@ -81,7 +81,7 @@
   {
     "slug": "alexander-oburoh-website-and-email",
     "name": "Dr. Alexander Oburoh Website and Email Setup",
-    "title": "Dr. Alexander Oburoh — Professional Website Development, Email & DNS Setup",
+    "title": "Dr. Alexander Oburoh: Website, Email and DNS Setup",
     "cat": "fullstack",
     "url": "https://alexanderoburoh.com",
     "img": "/alexanderoburoh.webp",
@@ -115,8 +115,8 @@
     "cat": "fullstack",
     "url": "https://www.thelightmission.com/",
     "img": "/thelightmission.webp",
-    "alt": "Fullstack NGO website — Laravel + React by Great Emman-Wori",
-    "desc": "Full-stack Laravel 12 + React registration system — admin dashboard, enrollment form, CSV export, and Facebook Pixel tracking.",
+    "alt": "Fullstack NGO website built with Laravel and React by Great Emman-Wori",
+    "desc": "Full-stack Laravel 12 and React registration system with an admin dashboard, enrollment form, CSV export and Facebook Pixel tracking.",
     "tags": [
       "Laravel",
       "React",
@@ -133,12 +133,12 @@
   {
     "slug": "wizor-progress-real-estate",
     "name": "Wizor Progress Real Estate Website",
-    "title": "Wizor Progress — Real Estate",
+    "title": "Wizor Progress Real Estate",
     "cat": "fullstack",
     "url": "https://wizor-progress-hub.vercel.app/",
     "img": "/wizor.webp",
     "alt": "Real estate website built with React by Great Emman-Wori",
-    "desc": "Professional business website for a real estate manager — responsive, conversion-focused React build.",
+    "desc": "Responsive, conversion-focused React build for a real estate manager.",
     "tags": [
       "React",
       "Frontend",
@@ -158,7 +158,7 @@
     "url": "https://www.bourdillonomijehfoundation.com/",
     "img": "/bof.webp",
     "alt": "Nonprofit website built by Great Emman-Wori",
-    "desc": "Nonprofit site built for credibility and accessibility — WCAG-compliant, brand-aligned, 55% visitor engagement increase.",
+    "desc": "Nonprofit site built for credibility and accessibility. WCAG-compliant, brand-aligned, with a 55% rise in visitor engagement.",
     "tags": [
       "WordPress",
       "Full-Stack",
@@ -176,12 +176,12 @@
   {
     "slug": "adsfirr-meta-ads-platform-ui",
     "name": "AdsFirr Meta Ads Platform UI",
-    "title": "AdsFirr — Meta Ads Platform UI",
+    "title": "AdsFirr Meta Ads Platform UI",
     "cat": "uiux",
     "url": "https://adsfirr.vercel.app/",
     "img": "/adsfirr.webp",
     "alt": "Meta Ads management dashboard UI designed by Great Emman-Wori",
-    "desc": "Dashboard UI for a Meta and Instagram ad management platform — analytics layout, campaign management, user satisfaction from 3.2 to 4.6.",
+    "desc": "Dashboard UI for a Meta and Instagram ad management platform, covering analytics layout and campaign management. User satisfaction rose from 3.2 to 4.6.",
     "tags": [
       "UI/UX",
       "Dashboard",
@@ -198,7 +198,7 @@
   {
     "slug": "wacontacts-whatsapp-directory",
     "name": "WaContacts WhatsApp Directory",
-    "title": "WaContacts — WhatsApp Directory",
+    "title": "WaContacts WhatsApp Directory",
     "cat": "uiux",
     "url": "https://wacontacts.com/",
     "img": "/wacontacts.webp",
@@ -219,12 +219,12 @@
   {
     "slug": "youthup-global-empowerafrika",
     "name": "YouthUp Global EmpowerAfrika",
-    "title": "YouthUp Global — EmpowerAfrika",
+    "title": "YouthUp Global EmpowerAfrika",
     "cat": "landing",
     "url": "https://youthupglobal.com/empowerafrika/",
     "img": "/youthup.webp",
     "alt": "International youth initiative website built with WordPress by Great Emman-Wori",
-    "desc": "Responsive international youth initiative — multilingual WordPress build serving 5 countries, 3,000+ active monthly users.",
+    "desc": "Multilingual WordPress build for an international youth initiative, serving 5 countries and 3,000+ active monthly users.",
     "tags": [
       "WordPress",
       "Elementor",
@@ -241,12 +241,12 @@
   {
     "slug": "bellostylez-blog-canada",
     "name": "Bellostylez Blog Canada",
-    "title": "Bellostylez Blog — Canada",
+    "title": "Bellostylez Blog, Canada",
     "cat": "landing",
     "url": "https://bellostylez.ca/blog/",
     "img": "/bellow-stylus.webp",
     "alt": "Canadian beauty blog built with WordPress by Great Emman-Wori",
-    "desc": "Beauty and lifestyle blog for a Canadian brand — WordPress/Divi, 1,500+ monthly visitors in first quarter, 60% Google impressions boost.",
+    "desc": "Beauty and lifestyle blog for a Canadian brand on WordPress and Divi. 1,500+ monthly visitors in the first quarter and a 60% rise in Google impressions.",
     "tags": [
       "WordPress",
       "Divi",

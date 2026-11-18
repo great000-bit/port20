@@ -1,7 +1,7 @@
 export default function CTABanner() {
   return (
     <>
-      {/* Pull quote — strong branded statement */}
+      {/* Pull quote - strong branded statement */}
       <section aria-label="Brand statement" style={{
         background:"var(--bg)",
         padding:"clamp(80px,12vh,120px) clamp(24px,5vw,64px)",
@@ -19,7 +19,7 @@ export default function CTABanner() {
             margin:0,
             maxWidth:900,
           }}>
-            "Every pixel, every line of code, every interaction — built to make your brand
+            "Every pixel, every line of code, every interaction, built to make your brand
             impossible to <em style={{ fontStyle:"italic", color:"var(--accent-text)" }}>ignore</em>."
           </blockquote>
           <p style={{
@@ -27,7 +27,7 @@ export default function CTABanner() {
             color:"var(--fg-ultra)", marginTop:28,
             letterSpacing:"0.06em", textTransform:"uppercase",
           }}>
-            — Great Emman-Wori, Founder · Creative Emman Limited
+            Great Emman-Wori, Founder · Creative Emman Limited
           </p>
         </div>
       </section>

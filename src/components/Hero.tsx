@@ -157,7 +157,7 @@ export default function Hero() {
           .hero-desktop-img-wrap { order:-1; }
         }
 
-        /* ══ MOBILE ≤ 640px — Omijeh structure ══ */
+        /* ══ MOBILE ≤ 640px - Omijeh structure ══ */
         @media (max-width: 640px) {
           .hero-section {
             min-height: 100svh;
@@ -174,7 +174,7 @@ export default function Hero() {
             padding: 80px 24px 40px;
             gap: 0;
           }
-          /* Badge — pill like reference */
+          /* Badge - pill like reference */
           .hero-badge {
             display: inline-flex !important;
             align-items: center;
@@ -199,7 +199,7 @@ export default function Hero() {
           .hero-badge-dot {
             width: 7px !important; height: 7px !important;
           }
-          /* H1 — dominant name line, Omijeh scale */
+          /* H1 - dominant name line, Omijeh scale */
           .hero-mobile-name {
             font-family: Geist, Arial, sans-serif;
             font-size: clamp(42px, 12vw, 58px);
@@ -211,7 +211,7 @@ export default function Hero() {
             word-break: keep-all;
             hyphens: none;
           }
-          /* Supporting tagline — smaller, below name */
+          /* Supporting tagline - smaller, below name */
           .hero-mobile-tagline {
             font-family: Geist, Arial, sans-serif;
             font-size: clamp(19px, 5.5vw, 27px);
@@ -262,7 +262,7 @@ export default function Hero() {
             font-size: 14px !important;
             border-radius: 12px !important;
           }
-          /* Image — full rounded square card below buttons */
+          /* Image - full rounded square card below buttons */
           .hero-mobile-img-wrap {
             width: min(100%, 320px);
             margin: 0 auto;
@@ -291,7 +291,7 @@ export default function Hero() {
       `}</style>
 
       <section id="hero" className="hero-section">
-        {/* Subtle glow — desktop */}
+        {/* Subtle glow - desktop */}
         <div aria-hidden="true" style={{
           position:"absolute", top:"10%", right:"-4%",
           width:"38vw", height:"60vh",
@@ -334,7 +334,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* ══ MOBILE layout — Omijeh structure ══ */}
+        {/* ══ MOBILE layout - Omijeh structure ══ */}
         <div className="hero-mobile-layout">
           {/* Text first */}
           <div className="hero-mobile-text">
@@ -366,7 +366,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Image card — full, rounded, below buttons like Omijeh */}
+          {/* Image card - full, rounded, below buttons like Omijeh */}
           <div className="hero-mobile-img-wrap">
             <img
               className="hero-mobile-img"

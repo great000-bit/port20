@@ -79,7 +79,7 @@ export default function Navbar() {
           color: var(--fg);
         }
         .nav-logo-text-accent { color: var(--accent-text); }
-        /* Pill nav — Omijeh style */
+        /* Pill nav - Omijeh style */
         .nav-pill {
           display: flex; align-items: center; gap: 2px;
           padding: 5px; border-radius: 999px;
@@ -138,7 +138,7 @@ export default function Navbar() {
           background: var(--nav-pill); border: 1px solid var(--nav-pill-border);
           cursor: pointer; color: var(--fg);
         }
-        /* Mobile menu — Omijeh style: slide from top, pill-shaped */
+        /* Mobile menu - Omijeh style: slide from top, pill-shaped */
         .nav-mobile {
           position: absolute; top: 80px; left: 50%; transform: translateX(-50%);
           width: calc(100% - 40px); max-width: 420px;
@@ -189,7 +189,7 @@ export default function Navbar() {
             padding: 14px 20px;
             justify-content: center;
           }
-          /* Single centered pill — iOS liquid glass */
+          /* Single centered pill - iOS liquid glass */
           .nav-mobile-pill {
             display: flex;
             align-items: center;
@@ -259,7 +259,7 @@ export default function Navbar() {
                  borderBottom: scrolled ? "1px solid var(--border-soft)" : "none" }}
       >
         <div className="nav-inner">
-          {/* Logo — desktop only */}
+          {/* Logo - desktop only */}
           <a href="#hero" onClick={close} className="nav-logo">
             <img src="/great-emman-wori-2026.webp" alt="Great Emman-Wori"
               className="nav-logo-img" loading="eager"/>

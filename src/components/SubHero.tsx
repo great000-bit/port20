@@ -12,7 +12,7 @@ function TextReveal({ text, delay = 0, bold = false }: { text: string; delay?: n
   }, [delay]);
 
   const Tag = bold ? "strong" : "span";
-  // Group letters into words so lines can only break at spaces — the letter
+  // Group letters into words so lines can only break at spaces - the letter
   // spans are inline-block, which would otherwise allow a break anywhere.
   let n = 0;
   return (
@@ -54,7 +54,7 @@ interface SubHeroProps {
   imgAlt: string;
 }
 
-/* Hero for the Graphics / Motion pages — mirrors the main development hero. */
+/* Hero for the Graphics / Motion pages - mirrors the main development hero. */
 export default function SubHero(p: SubHeroProps) {
   return (
     <>

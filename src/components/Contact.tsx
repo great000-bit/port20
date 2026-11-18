@@ -53,9 +53,9 @@ type Role = typeof ROLES[number];
 type ContactProps = { eyebrow?: string; heading?: string; sub?: string };
 
 export default function Contact({
-  eyebrow = "07 — Contact",
+  eyebrow = "07 / Contact",
   heading = "Let's Build.",
-  sub = "Clients, collaborators, and creative partners — reach out.",
+  sub = "Clients, collaborators and creative partners, reach out.",
 }: ContactProps = {}) {
   const [state, handleSubmit, resetSubmission] = useForm<ContactFormFields>(PORTFOLIO_FORM_KEY);
   const [role, setRole] = useState<Role | null>(null);
@@ -176,7 +176,7 @@ export default function Contact({
           line-height:1.65; color: var(--fg-muted);
           margin:0 0 40px 0;
         }
-        /* Role selector — Omijeh style */
+        /* Role selector - Omijeh style */
         .role-label {
           font-family: Arial,sans-serif; font-size:13px;
           color: var(--fg-faint); margin-bottom:12px;
@@ -295,7 +295,7 @@ export default function Contact({
         </div>
 
         <div className="contact-grid">
-          {/* LEFT — socials */}
+          {/* LEFT - socials */}
           <div data-aos="fade-up" data-aos-delay="80">
             <div style={{ borderTop:"1px solid var(--border)", paddingTop:0 }}>
               {SOCIALS.map(s => (
@@ -315,7 +315,7 @@ export default function Contact({
             </div>
           </div>
 
-          {/* RIGHT — role selector + form */}
+          {/* RIGHT - role selector + form */}
           <div data-aos="fade-up" data-aos-delay="140">
             <form
               ref={formRef}

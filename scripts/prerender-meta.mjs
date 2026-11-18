@@ -347,7 +347,7 @@ const full = [
   ...uiux.projects.map((p) => `- ${p.title} (${site}/uiux/${p.slug}): ${p.brief}`),
   "",
   "## Video editing & motion graphics",
-  ...motion.map((m) => `- ${m.title} (${m.tag}): tools used — ${m.tools.join(", ")}. See ${site}/motion`),
+  ...motion.map((m) => `- ${m.title} (${m.tag}): tools used: ${m.tools.join(", ")}. See ${site}/motion`),
   "",
   "## Frequently asked questions",
   ...faq.flatMap((i) => [`Q: ${i.q}`, `A: ${i.a}`, ""]),

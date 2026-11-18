@@ -26,7 +26,7 @@ export default function GraphicsToggle({
 
   return (
     <>
-      {/* Sentinel sits right after the hero — when it scrolls out of view, the toggle appears */}
+      {/* Sentinel sits right after the hero - when it scrolls out of view, the toggle appears */}
       <div ref={sentinelRef} aria-hidden="true" style={{ height: 1 }} />
 
       <style>{`

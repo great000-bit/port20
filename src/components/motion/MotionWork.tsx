@@ -67,7 +67,7 @@ export default function MotionWork() {
         <div className="mo-grid-head" data-aos="fade-up">
           <p className="mo-grid-kicker">Selected work</p>
           <h2 className="mo-grid-title">Video editing &amp; motion graphics</h2>
-          <p className="mo-grid-sub">Hover a clip to preview. Short-form edits built for retention — pacing, captions, and motion that keep the scroll from happening.</p>
+          <p className="mo-grid-sub">Hover a clip to preview. Short-form edits built for retention: pacing, captions and motion that keep the scroll from happening.</p>
         </div>
         <div className="mo-grid">
           {(motionItems as MotionItem[]).map((item, index) => (

@@ -87,7 +87,7 @@ export default function Experience() {
         }
         .exp-bullet-text { min-width: 0; overflow-wrap: anywhere; }
         .exp-bullet::before {
-          content: "—";
+          content: "\00B7";
           color: var(--accent-text);
           flex-shrink: 0;
           font-size: 12px;
@@ -120,7 +120,7 @@ export default function Experience() {
 
       <div className="exp-wrap">
         <div data-aos="fade-up">
-          <span className="exp-eyebrow">05 — Experience</span>
+          <span className="exp-eyebrow">05 / Experience</span>
           <h2 className="exp-heading">Work Experience</h2>
         </div>
 

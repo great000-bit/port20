@@ -302,7 +302,7 @@ export default function UiUxProject() {
           </section>
         )}
       </main>
-      <Contact eyebrow="Contact" heading="Let's design something." sub="Have a product, app or website in mind? Tell me about it — I reply within 24 hours." />
+      <Contact eyebrow="Contact" heading="Let's design something." sub="Have a product, app or website in mind? Tell me about it. I reply within 24 hours." />
       <footer className="ux-foot">
         <span>© {new Date().getFullYear()} {profile.name}. UI/UX portfolio.</span>
         <span><Link to="/uiux">All projects</Link> · <Link to="/">Main portfolio</Link></span>

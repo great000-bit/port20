@@ -5,7 +5,7 @@ const TESTIMONIALS = [
   {
     id:1,
     name:"YouthUp Global UK",
-    role:"CEO & Founder — YouthUp Global",
+    role:"CEO & Founder, YouthUp Global",
     avatar:"/youth.webp",
     text:"Great brought our vision for YouthUp Global Pathways to life with clarity, creativity, and care. His ability to turn complex ideas into a clean, intuitive web experience made the entire process seamless. We now have a platform that truly reflects our mission.",
     rating:5,
@@ -13,7 +13,7 @@ const TESTIMONIALS = [
   {
     id:2,
     name:"Professor Bourdillion Omijeh",
-    role:"CEO & Founder — Bourdillion Omijeh Foundation",
+    role:"CEO & Founder, Bourdillion Omijeh Foundation",
     avatar:"/bourdillion omijeh.webp",
     text:"Great captured the essence of our foundation and transformed it into a design that is dependable, contemporary, and accessible. His focus on user experience made the website very user-friendly for our wide range of visitors.",
     rating:5,
@@ -21,7 +21,7 @@ const TESTIMONIALS = [
   {
     id:3,
     name:"Trust-God Ewuziem",
-    role:"Founder & CEO — Nexatrux",
+    role:"Founder & CEO, Nexatrux",
     avatar:"/trustgod.webp",
     text:"Great has been instrumental in transforming our digital experiences. His ability to streamline complexities, create aesthetically striking designs, and maintain usability across platforms has enhanced our value delivery. His creative precision is unparalleled.",
     rating:5,
@@ -29,9 +29,9 @@ const TESTIMONIALS = [
   {
     id:4,
     name:"Bello Stylez",
-    role:"CEO — Bellostylez Unisex Saloon",
+    role:"CEO, Bellostylez Unisex Saloon",
     avatar:"/bellostylez.webp",
-    text:"Working with Great was the best decision for my brand. He captured my vision perfectly, delivered ahead of schedule, and made everything feel effortless. My site now feels like me — stylish, fast, and functional.",
+    text:"Working with Great was the best decision for my brand. He captured my vision perfectly, delivered ahead of schedule, and made everything feel effortless. My site now feels like me: stylish, fast and functional.",
     rating:5,
   },
 ];
@@ -145,7 +145,7 @@ export default function Testimonials() {
       <div style={{maxWidth:1280, margin:"0 auto", padding:"0 clamp(24px,5vw,64px)"}}>
 
         <div style={{marginBottom:48}} data-aos="fade-up">
-          <span className="testi-eyebrow">06 — Testimonials</span>
+          <span className="testi-eyebrow">06 / Testimonials</span>
           <h2 className="testi-heading">Client Testimonials</h2>
           <p className="testi-sub">Real feedback from people and brands I've worked with.</p>
         </div>

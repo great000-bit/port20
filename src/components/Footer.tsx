@@ -27,7 +27,7 @@ export default function Footer() {
         alignItems:"center", justifyContent:"space-between",
         gap:20,
       }}>
-        {/* Left — copyright */}
+        {/* Left - copyright */}
         <p style={{
           fontFamily:"Arial,sans-serif", fontSize:12,
           color:"var(--fg-ultra)", margin:0,
@@ -36,7 +36,7 @@ export default function Footer() {
           © MMXXVI · Great Emman-Wori · All rights reserved
         </p>
 
-        {/* Centre — nav links */}
+        {/* Centre - nav links */}
         <nav style={{ display:"flex", gap:24, flexWrap:"wrap" }} aria-label="Footer navigation">
           {NAV.map(l => (
             <a key={l.label} href={l.href} style={{
@@ -51,7 +51,7 @@ export default function Footer() {
           ))}
         </nav>
 
-        {/* Right — social icons */}
+        {/* Right - social icons */}
         <div style={{ display:"flex", gap:16, alignItems:"center" }}>
           {SOCIALS.map(s => (
             <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"

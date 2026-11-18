@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-/* Skill bar — animates width 0 → target% on scroll enter */
+/* Skill bar - animates width 0 → target% on scroll enter */
 function SkillBar({ name, pct, delay = 0 }: { name: string; pct: number; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [go, setGo] = useState(false);
@@ -86,7 +86,7 @@ export default function TechStack() {
             letterSpacing:"0.18em", textTransform:"uppercase",
             color:"var(--fg-ultra)", display:"block", marginBottom:16,
           }}>
-            02 — Skills
+            02 / Skills
           </span>
           <h2 style={{
             fontFamily:"Geist,Arial,sans-serif", fontSize:"clamp(28px,3.5vw,42px)",
@@ -98,7 +98,7 @@ export default function TechStack() {
             fontFamily:"Arial,sans-serif", fontSize:15, color:"var(--fg-faint)",
             marginTop:12, maxWidth:540,
           }}>
-            A fullstack skillset built across 3+ years — from responsive UIs to backend systems and product design.
+            A fullstack skillset built across 3+ years, from responsive UIs to backend systems and product design.
           </p>
         </div>
 

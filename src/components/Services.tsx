@@ -5,7 +5,7 @@ const SERVICES = [
     icon:<PiTerminalWindowDuotone size={32}/>,
     title:"Fullstack Website Development",
     sub:"Frontend · Backend · Full-Stack",
-    desc:"I build responsive, scalable websites and web applications using modern frontend and backend technologies. From React and TypeScript frontends to Laravel and Node.js backends — clean code, strong architecture, production-ready.",
+    desc:"I build responsive, scalable websites and web applications using modern frontend and backend technologies. From React and TypeScript frontends to Laravel and Node.js backends. Clean code, strong architecture, production-ready.",
     tags:["React","TypeScript","Laravel","Node.js","Fullstack","Responsive"],
   },
   {
@@ -51,7 +51,7 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-5">
         <div className="mb-14" data-aos="fade-up">
           <span style={{fontFamily:"Arial,sans-serif",fontSize:11,fontWeight:600,letterSpacing:"0.18em",textTransform:"uppercase",color:"var(--fg-ultra)",display:"block",marginBottom:16}}>
-            03 — Services
+            03 / Services
           </span>
           <h2 style={{fontFamily:"Geist,Arial,sans-serif",fontSize:"clamp(28px,3.5vw,42px)",fontWeight:400,color:"var(--fg)",letterSpacing:"-0.04em",margin:"0 0 12px 0"}}>
             What I Build

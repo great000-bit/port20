@@ -169,7 +169,7 @@ export default function About() {
           letter-spacing: 0.04em;
         }
 
-        /* Stats — horizontal strip below text */
+        /* Stats - horizontal strip below text */
         .about-stats {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -217,16 +217,16 @@ export default function About() {
       <div className="about-wrap">
         {/* Eyebrow + heading */}
         <div data-aos="fade-up">
-          <span className="about-eyebrow">01 — About</span>
+          <span className="about-eyebrow">01 / About</span>
           <h2 className="about-heading">Founder Story</h2>
         </div>
 
         <div className="about-grid">
-          {/* LEFT — story */}
+          {/* LEFT - story */}
           <div data-aos="fade-up" data-aos-delay="80">
             <div className="about-body">
               <p style={{ color: "var(--fg-muted)" }}>
-                I'm <strong style={{ color:"var(--fg)", fontWeight:600 }}>Great Emman-Wori</strong> — a Fullstack Website
+                I'm <strong style={{ color:"var(--fg)", fontWeight:600 }}>Great Emman-Wori</strong>, a Fullstack Website
                 Developer, Product Designer, and UI/UX Designer based in{" "}
                 <strong style={{ color:"var(--fg)", fontWeight:600 }}>Port Harcourt, Nigeria</strong>.
                 Founder of{" "}
@@ -234,12 +234,12 @@ export default function About() {
                   style={{ color:"var(--accent-text)", fontWeight:600, textDecoration:"none" }}>
                   Creative Emman Limited
                 </a>
-                {" "}— a digital design, development &amp; branding company.
+                {", "}a digital design, development &amp; branding company.
               </p>
               <p style={{ color: "var(--fg-muted)" }}>
                 I bridge the gap between clean code, visual design, usability, and real business outcomes.
                 I build websites, web applications, and digital product experiences that are responsive,
-                conversion-ready, and built to rank — from frontend interfaces to fullstack systems to
+                conversion-ready and built to rank, from frontend interfaces to fullstack systems to
                 Figma design systems.
               </p>
               <p style={{ color: "var(--fg-muted)" }}>
@@ -251,7 +251,7 @@ export default function About() {
 
             {/* Company attribution line */}
             <div className="about-studio-line">
-              <span>Founder &amp; Creative Director —</span>
+              <span>Founder &amp; Creative Director,</span>
               <a
                 href="https://www.creativeemmanlimited.com/"
                 target="_blank"
@@ -269,7 +269,7 @@ export default function About() {
               ))}
             </div>
 
-            {/* Stats — horizontal strip below tags */}
+            {/* Stats - horizontal strip below tags */}
             <div className="about-stats">
               <CountStat end={16}  suffix="+" label="Projects Completed" />
               <CountStat end={3}   suffix="+" label="Years Experience" />
@@ -278,7 +278,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* RIGHT — photo only */}
+          {/* RIGHT - photo only */}
           <div className="about-right" data-aos="fade-up" data-aos-delay="160">
             <div className="about-photo-wrap">
               <img

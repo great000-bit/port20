@@ -27,7 +27,7 @@ const BADGE_COLOR: Record<string,string> = {
   "WordPress":  "rgba(59,130,246,0.85)",
 };
 
-/* Iframe card — URL bar + live preview + loading skeleton */
+/* Iframe card - URL bar + live preview + loading skeleton */
 function ProjectCard({ p, index }: { p: Project; index: number }) {
   const [loaded, setLoaded] = useState(false);
   const [inView, setInView] = useState(false);
@@ -59,7 +59,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
       onMouseEnter={e => { e.currentTarget.style.borderColor="rgba(95,107,31,0.45)"; e.currentTarget.style.transform="translateY(-4px)"; }}
       onMouseLeave={e => { e.currentTarget.style.borderColor="var(--border)"; e.currentTarget.style.transform="translateY(0)"; }}
     >
-      {/* ── URL bar — Omijeh style ── */}
+      {/* ── URL bar - Omijeh style ── */}
       <div style={{
         display:"flex", alignItems:"center", gap:8,
         padding:"9px 14px",
@@ -97,7 +97,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
           {p.badge}
         </span>
 
-        {/* Loading skeleton — shows until iframe or image loads */}
+        {/* Loading skeleton - shows until iframe or image loads */}
         {!loaded && (
           <div style={{
             position:"absolute", inset:0, zIndex:2,
@@ -229,7 +229,7 @@ export default function Portfolio() {
             letterSpacing:"0.2em", textTransform:"uppercase",
             color:"var(--fg-ultra)", display:"block", marginBottom:16,
           }}>
-            04 — Projects
+            04 / Projects
           </span>
           <h2 style={{
             fontFamily:"Geist,Arial,sans-serif", fontSize:"clamp(28px,3.5vw,42px)",

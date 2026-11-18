@@ -108,7 +108,7 @@ export default function UiUx() {
           </section>
         </div>
       </main>
-      <Contact eyebrow="Contact" heading="Let's design something." sub="Have a product, app or website in mind? Tell me about it — I reply within 24 hours." />
+      <Contact eyebrow="Contact" heading="Let's design something." sub="Have a product, app or website in mind? Tell me about it. I reply within 24 hours." />
       <footer className="ux-foot">
         <span>© {new Date().getFullYear()} {profile.name}. UI/UX portfolio.</span>
         <span><Link to="/">Main portfolio</Link> · <Link to="/graphics">Graphics</Link> · <a href={config.siteUrl}>{config.siteUrl.replace("https://", "")}</a></span>
