@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Seo from "../components/Seo";
-import GraphicsNav from "../components/graphics/GraphicsNav";
+import SubNav from "../components/SubNav";
 import GraphicsHero from "../components/graphics/GraphicsHero";
 import GraphicsToggle from "../components/graphics/GraphicsToggle";
 import GraphicsWork from "../components/graphics/GraphicsWork";
@@ -17,7 +17,7 @@ export default function Graphics() {
   return (
     <>
       <Seo page="graphics" />
-      <GraphicsNav />
+      <SubNav current="graphics" badge="Graphics" />
       <main id="gx-content">
         <GraphicsHero />
         <GraphicsToggle view={view} setView={setView} />

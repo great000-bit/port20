@@ -1,5 +1,5 @@
 import Seo from "../components/Seo";
-import MotionNav from "../components/motion/MotionNav";
+import SubNav from "../components/SubNav";
 import MotionHero from "../components/motion/MotionHero";
 import MotionWork from "../components/motion/MotionWork";
 import Contact from "../components/Contact";
@@ -9,7 +9,7 @@ export default function Motion() {
   return (
     <>
       <Seo page="motion" />
-      <MotionNav />
+      <SubNav current="motion" badge="Motion" />
       <main id="mo-main">
         <MotionHero />
         <MotionWork />

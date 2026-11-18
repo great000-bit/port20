@@ -2,7 +2,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Mail, MapPin, Briefcase, ArrowUpRight } from "lucide-react";
 import Seo from "../components/Seo";
 import Contact from "../components/Contact";
-import UiUxNav from "../components/uiux/UiUxNav";
+import SubNav from "../components/SubNav";
 import ProjectCard from "../components/uiux/ProjectCard";
 import { profile, projects, testimonials } from "@/data/uiux";
 import config from "@/seo.config.json";
@@ -18,7 +18,7 @@ export default function UiUx() {
   return (
     <div className="ux">
       <Seo page="uiux" />
-      <UiUxNav />
+      <SubNav current="uiux" badge="UI/UX" />
       <main id="main">
         <div className="ux-cover" role="img" aria-label="UI/UX portfolio banner">
           <div className="ux-cover-inner">

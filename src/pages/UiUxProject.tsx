@@ -4,7 +4,7 @@ import { ThumbsUp, Mail, Wrench, Share2, Link2, Linkedin, MessageCircle, ArrowUp
 import { toast } from "sonner";
 import Seo from "../components/Seo";
 import Contact from "../components/Contact";
-import UiUxNav from "../components/uiux/UiUxNav";
+import SubNav from "../components/SubNav";
 import ProjectCard from "../components/uiux/ProjectCard";
 import NotFound from "./NotFound";
 import { profile, projects, mockupsFor, canvasTone, testimonials } from "@/data/uiux";
@@ -107,7 +107,7 @@ export default function UiUxProject() {
           imageAlt: project.alt,
         }}
       />
-      <UiUxNav />
+      <SubNav current="uiux" badge="UI/UX" />
       <main id="main" className="ux-project">
         <div className="ux-pbar">
           <img className="ux-pbar-avatar" src={profile.avatar} alt="" width={40} height={40} />

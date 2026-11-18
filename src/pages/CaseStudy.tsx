@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowUpRight, Check } from "lucide-react";
 import projects from "@/data/projects.json";
 import config from "@/seo.config.json";
 import Seo from "../components/Seo";
-import WorkNav from "../components/WorkNav";
+import SubNav from "../components/SubNav";
 import NotFound from "./NotFound";
 
 const WHATSAPP = "https://wa.me/2348103887554";
@@ -72,7 +72,7 @@ export default function CaseStudy() {
         @media (max-width: 760px) { .cs-grid { grid-template-columns: 1fr; } .cs { padding-top: 104px; } }
       `}</style>
 
-      <WorkNav />
+      <SubNav current="fullstack" badge="Case study" />
       <main className="cs" id="main">
         <article className="cs-wrap">
           <ol className="cs-crumbs" aria-label="Breadcrumb">
