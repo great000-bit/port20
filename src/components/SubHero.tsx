@@ -47,7 +47,7 @@ export default function SubHero(p: SubHeroProps) {
   return (
     <>
       <style>{`
-        .sh-section { background: var(--bg); position: relative; overflow: hidden; padding: 170px 0 110px; }
+        .sh-section { background: var(--bg); position: relative; overflow: hidden; padding: 220px 0 120px; }
         .sh-glow {
           position: absolute; top: 10%; right: -4%; width: 38vw; height: 60vh;
           background: radial-gradient(ellipse, var(--accent-soft) 0%, transparent 65%);
@@ -55,9 +55,10 @@ export default function SubHero(p: SubHeroProps) {
         }
         .sh-wrap {
           width: min(calc(100% - 48px), 1280px); margin-inline: auto;
-          display: grid; grid-template-columns: minmax(0, 1fr) 441px;
+          display: grid; grid-template-columns: 821px 1fr;
           align-items: center; gap: 48px; position: relative; z-index: 1;
         }
+        .sh-content { width: 821px; max-width: 821px; }
         .sh-badge {
           display: inline-flex; align-items: center; gap: 8px;
           font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 500;
@@ -68,9 +69,9 @@ export default function SubHero(p: SubHeroProps) {
           flex-shrink: 0; animation: badgePulse 2.5s ease-in-out infinite;
         }
         .sh-title {
-          font-family: Geist, Arial, sans-serif; font-weight: 400; font-size: 60px;
+          font-family: Geist, Arial, sans-serif; font-weight: 400; font-size: 36px;
           line-height: 1.06; letter-spacing: -1.5px; color: var(--fg);
-          margin: 0 0 24px 0; word-break: keep-all; hyphens: none;
+          margin: 0 0 24px 0; max-width: 821px; word-break: keep-all; hyphens: none;
         }
         .sh-title strong { font-weight: 700; }
         .sh-sub {
@@ -95,20 +96,20 @@ export default function SubHero(p: SubHeroProps) {
         @keyframes shImgIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
         @media (max-width: 1200px) {
           .sh-wrap { grid-template-columns: minmax(0, 1fr) 360px; gap: 40px; }
-          .sh-title { font-size: 46px; }
+          .sh-content { width: 100%; max-width: 680px; }
           .sh-img { width: 340px; height: 340px; }
         }
         @media (max-width: 980px) {
-          .sh-section { padding: 130px 0 80px; }
+          .sh-section { padding: 140px 0 80px; }
           .sh-wrap { grid-template-columns: 1fr; gap: 40px; }
-          .sh-title { font-size: 40px; }
+          .sh-content { width: 100%; max-width: 100%; }
           .sh-img-wrap { order: -1; }
           .sh-img { width: min(55vw, 300px); height: min(55vw, 300px); }
         }
         @media (max-width: 640px) {
           .sh-section { padding: 96px 0 56px; }
           .sh-wrap { width: calc(100% - 48px); }
-          .sh-title { font-size: clamp(32px, 9vw, 40px); letter-spacing: -1px; }
+          .sh-title { font-size: clamp(27px, 7.5vw, 36px); letter-spacing: -1px; }
           .sh-sub { font-size: 15px; line-height: 1.65; }
           .sh-actions { flex-direction: column; align-items: stretch; margin-top: 28px; }
           .sh-btn { justify-content: center; }
@@ -120,7 +121,7 @@ export default function SubHero(p: SubHeroProps) {
       <section id={p.id} className="sh-section">
         <div className="sh-glow" aria-hidden="true" />
         <div className="sh-wrap">
-          <div>
+          <div className="sh-content">
             <div className="sh-badge">
               <span className="sh-badge-dot" />
               {p.badge}
