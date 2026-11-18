@@ -1,7 +1,5 @@
 import SubHero from "../SubHero";
 
-/* No motion CV exists yet, so cvHref is left off and the hero hides the
-   download button rather than offering a CV for a different discipline. */
 export default function MotionHero() {
   return (
     <SubHero
@@ -15,6 +13,8 @@ export default function MotionHero() {
       workHref="#mo-content"
       workLabel="View Work"
       imgAlt="Great Emman-Wori, Video Editor and Motion Designer"
+      cvHref="/documents/great-emman-wori-video-editor-motion-designer-cv.pdf"
+      cvName="Great-Emman-Wori-Video-Editor-Motion-Designer-CV.pdf"
     />
   );
 }

@@ -312,6 +312,7 @@ const urls = [
   ["/documents/great-emman-wori-cv.pdf", "0.4"],
   ["/documents/great-emman-wori-graphic-designer-cv.pdf", "0.4"],
   ["/documents/great-emman-wori-ui-ux-designer-cv.pdf", "0.4"],
+  ["/documents/great-emman-wori-video-editor-motion-designer-cv.pdf", "0.4"],
 ];
 writeFileSync(
   join(dist, "sitemap.xml"),
