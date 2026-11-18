@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Play, X } from "lucide-react";
 import motionItems from "@/data/motion.json";
 
@@ -93,7 +94,7 @@ export default function MotionWork() {
 
         /* Player */
         .mo-player {
-          position: fixed; inset: 0; z-index: 120; display: flex; align-items: center; justify-content: center;
+          position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center;
           padding: max(20px, env(safe-area-inset-top)) 20px max(20px, env(safe-area-inset-bottom));
           background: rgba(0,0,0,.72);
           backdrop-filter: blur(18px) saturate(140%);
@@ -110,7 +111,7 @@ export default function MotionWork() {
         .mo-player-meta { color: rgba(255,255,255,.82); font-family: Arial, sans-serif; font-size: 13px; text-align: center; }
         .mo-player-meta strong { display: block; color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
         .mo-player-close {
-          position: absolute; top: -48px; right: 0;
+          position: fixed; top: 18px; right: 18px; z-index: 1;
           width: 38px; height: 38px; border-radius: 50%; cursor: pointer;
           display: grid; place-items: center; color: #fff;
           background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.3);
@@ -159,7 +160,7 @@ export default function MotionWork() {
         </div>
       </section>
 
-      {active && (
+      {active && createPortal(
         <div className="mo-player" role="dialog" aria-modal="true" aria-label={active.title}
           onClick={(e) => { if (e.target === e.currentTarget) close(); }}>
           <div className="mo-player-inner">
@@ -180,7 +181,8 @@ export default function MotionWork() {
               {active.tools.join(", ")}
             </p>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
