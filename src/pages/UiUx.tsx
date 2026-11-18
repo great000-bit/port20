@@ -40,6 +40,9 @@ export default function UiUx() {
             <div className="ux-side-actions">
               <a className="ux-btn ux-btn-primary ux-btn-block" href={profile.whatsapp} target="_blank" rel="noopener noreferrer">Hire me</a>
               <a className="ux-btn ux-btn-soft ux-btn-block" href={`mailto:${profile.email}`}>Message</a>
+              <a className="ux-btn ux-btn-soft ux-btn-block"
+                href="/documents/great-emman-wori-ui-ux-designer-cv.pdf"
+                download="Great-Emman-Wori-UI-UX-Designer-CV.pdf">Download CV</a>
             </div>
             <section className="ux-side-block" aria-labelledby="ux-stats">
               <h2 className="ux-side-title" id="ux-stats">Stats</h2>

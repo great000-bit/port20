@@ -13,6 +13,8 @@ export default function GraphicsHero() {
       workHref="#gx-content"
       workLabel="View Work"
       imgAlt="Great Emman-Wori, Graphic Designer"
+      cvHref="/documents/great-emman-wori-graphic-designer-cv.pdf"
+      cvName="Great-Emman-Wori-Graphic-Designer-CV.pdf"
     />
   );
 }

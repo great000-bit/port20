@@ -310,6 +310,8 @@ const urls = [
   ...uiux.projects.map((p) => [`/uiux/${p.slug}`, "0.7"]),
   ...projects.map((p) => [`/work/${p.slug}`, "0.7"]),
   ["/documents/great-emman-wori-cv.pdf", "0.4"],
+  ["/documents/great-emman-wori-graphic-designer-cv.pdf", "0.4"],
+  ["/documents/great-emman-wori-ui-ux-designer-cv.pdf", "0.4"],
 ];
 writeFileSync(
   join(dist, "sitemap.xml"),

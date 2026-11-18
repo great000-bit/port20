@@ -1,5 +1,7 @@
 import SubHero from "../SubHero";
 
+/* No motion CV exists yet, so cvHref is left off and the hero hides the
+   download button rather than offering a CV for a different discipline. */
 export default function MotionHero() {
   return (
     <SubHero

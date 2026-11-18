@@ -321,7 +321,7 @@ export default function Hero() {
             <div className="hero-desktop-actions">
               <a href="#portfolio" className="hero-btn hero-btn-primary">View Projects <ArrowRight size={14}/></a>
               <a href="#contact"   className="hero-btn hero-btn-secondary">Contact Me</a>
-              <a href="/documents/great-emman-wori-cv.pdf" download="Great-Emman-Wori-CV.pdf" className="hero-btn hero-btn-secondary">
+              <a href="/documents/great-emman-wori-cv.pdf" download="Great-Emman-Wori-Full-Stack-Developer-CV.pdf" className="hero-btn hero-btn-secondary">
                 <Download size={13}/> Download CV
               </a>
             </div>
@@ -359,7 +359,7 @@ export default function Hero() {
               </a>
               <div className="hero-mobile-row">
                 <a href="#contact" className="hero-btn hero-btn-secondary">Contact Me</a>
-                <a href="/documents/great-emman-wori-cv.pdf" download="Great-Emman-Wori-CV.pdf" className="hero-btn hero-btn-secondary">
+                <a href="/documents/great-emman-wori-cv.pdf" download="Great-Emman-Wori-Full-Stack-Developer-CV.pdf" className="hero-btn hero-btn-secondary">
                   <Download size={13}/> CV
                 </a>
               </div>

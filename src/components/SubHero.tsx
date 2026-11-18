@@ -52,6 +52,9 @@ interface SubHeroProps {
   workHref: string;
   workLabel: string;
   imgAlt: string;
+  /* Role-specific CV. Omitted when no CV exists for that discipline yet. */
+  cvHref?: string;
+  cvName?: string;
 }
 
 /* Hero for the Graphics / Motion pages - mirrors the main development hero. */
@@ -151,9 +154,11 @@ export default function SubHero(p: SubHeroProps) {
             <div className="sh-actions">
               <a href={p.workHref} className="sh-btn sh-btn-primary">{p.workLabel} <ArrowRight size={14} /></a>
               <a href="#contact" className="sh-btn sh-btn-secondary">Contact Me</a>
-              <a href="/documents/great-emman-wori-cv.pdf" download="Great-Emman-Wori-CV.pdf" className="sh-btn sh-btn-secondary">
-                <Download size={13} /> Download CV
-              </a>
+              {p.cvHref && (
+                <a href={p.cvHref} download={p.cvName} className="sh-btn sh-btn-secondary">
+                  <Download size={13} /> Download CV
+                </a>
+              )}
             </div>
           </div>
           <div className="sh-img-wrap">
