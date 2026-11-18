@@ -87,7 +87,7 @@ export default function Experience() {
         }
         .exp-bullet-text { min-width: 0; overflow-wrap: anywhere; }
         .exp-bullet::before {
-          content: "\00B7";
+          content: "·";
           color: var(--accent-text);
           flex-shrink: 0;
           font-size: 12px;
