@@ -9,6 +9,7 @@ type MotionItem = {
   tools: string[];
   video: string;
   poster: string;
+  aspect?: string;
 };
 
 export default function MotionWork() {
@@ -51,11 +52,13 @@ export default function MotionWork() {
         .mo-grid-kicker { color: var(--accent-text); font: 600 12px/1 Arial, sans-serif; letter-spacing: .11em; text-transform: uppercase; margin: 0 0 10px; }
         .mo-grid-title { font-family: Geist, Arial, sans-serif; font-weight: 700; font-size: clamp(26px,3vw,36px); letter-spacing: -.04em; color: var(--fg); margin: 0 0 10px; }
         .mo-grid-sub { font-family: Arial, sans-serif; font-size: 14px; color: var(--fg-muted); margin: 0 auto; max-width: 52ch; }
-        .mo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; max-width: 760px; margin: 0 auto; }
+        .mo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto; }
 
         .mo-card { border-radius: 18px; overflow: hidden; background: var(--card-bg); border: 1px solid var(--card-border); transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease; position: relative; }
         .mo-card:hover { transform: translateY(-6px); border-color: var(--accent-border); box-shadow: 0 18px 42px rgba(0,0,0,.18); }
         .mo-card-media { aspect-ratio: 9 / 16; overflow: hidden; background: var(--bg-3); position: relative; }
+        .mo-card.is-wide { grid-column: 1 / -1; }
+        .mo-card.is-wide .mo-card-media { aspect-ratio: 16 / 9; }
         .mo-card-poster { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         /* Glass sheet over the still, with the Watch button sitting on it */
@@ -110,6 +113,7 @@ export default function MotionWork() {
         }
         .mo-player-meta { color: rgba(255,255,255,.82); font-family: Arial, sans-serif; font-size: 13px; text-align: center; }
         .mo-player-meta strong { display: block; color: #fff; font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+        .mo-player-video.is-wide { max-width: min(94vw, 1100px); }
         .mo-player-close {
           position: fixed; top: 18px; right: 18px; z-index: 1;
           width: 38px; height: 38px; border-radius: 50%; cursor: pointer;
@@ -120,7 +124,8 @@ export default function MotionWork() {
         }
         .mo-player-close:hover { background: rgba(255,255,255,.26); }
 
-        @media (max-width: 520px) { .mo-grid { grid-template-columns: 1fr; gap: 20px; max-width: 320px; } }
+        @media (max-width: 860px) { .mo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 620px; } }
+        @media (max-width: 560px) { .mo-grid { grid-template-columns: 1fr; gap: 20px; max-width: 330px; } }
         @media (prefers-reduced-motion: reduce) {
           .mo-card, .mo-card-glass, .mo-watch, .mo-player { transition: none; animation: none; }
         }
@@ -135,7 +140,7 @@ export default function MotionWork() {
 
         <div className="mo-grid">
           {items.map((item, index) => (
-            <article key={item.video} className="mo-card" data-aos="fade-up" data-aos-delay={(index % 3) * 80}>
+            <article key={item.video} className={`mo-card${item.aspect === "16/9" ? " is-wide" : ""}`} data-aos="fade-up" data-aos-delay={(index % 3) * 80}>
               <div className="mo-card-media">
                 <img className="mo-card-poster" src={item.poster} alt="" loading={index < 2 ? "eager" : "lazy"} />
                 <button type="button" className="mo-card-glass" onClick={() => open(index)}
@@ -169,7 +174,7 @@ export default function MotionWork() {
             </button>
             <video
               key={active.video}
-              className="mo-player-video"
+              className={`mo-player-video${active.aspect === "16/9" ? " is-wide" : ""}`}
               src={active.video}
               poster={active.poster}
               controls

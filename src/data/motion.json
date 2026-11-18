@@ -1,16 +1,50 @@
 [
   {
+    "title": "Memocraft Product Launch Film",
+    "tag": "Product film",
+    "tools": ["Adobe After Effects", "Adobe Premiere Pro"],
+    "video": "/motion/memocraft-launch.mp4",
+    "poster": "/motion/memocraft-launch-poster.jpg",
+    "aspect": "16/9"
+  },
+  {
     "title": "Podcast Clip Edit 1",
     "tag": "Short-form edit",
     "tools": ["Adobe Premiere Pro", "Adobe After Effects"],
     "video": "/motion/edit-01.mp4",
-    "poster": "/motion/edit-01-poster.jpg"
+    "poster": "/motion/edit-01-poster.jpg",
+    "aspect": "9/16"
   },
   {
     "title": "Podcast Clip Edit 2",
     "tag": "Short-form edit",
     "tools": ["CapCut", "Adobe After Effects"],
     "video": "/motion/edit-02.mp4",
-    "poster": "/motion/edit-02-poster.jpg"
+    "poster": "/motion/edit-02-poster.jpg",
+    "aspect": "9/16"
+  },
+  {
+    "title": "Podcast Clip Edit 3",
+    "tag": "Captions and pacing",
+    "tools": ["Adobe Premiere Pro", "CapCut"],
+    "video": "/motion/edit-03.mp4",
+    "poster": "/motion/edit-03-poster.jpg",
+    "aspect": "9/16"
+  },
+  {
+    "title": "Low-Ticket Offer Promo",
+    "tag": "Motion graphics",
+    "tools": ["Adobe After Effects"],
+    "video": "/motion/edit-04.mp4",
+    "poster": "/motion/edit-04-poster.jpg",
+    "aspect": "9/16"
+  },
+  {
+    "title": "Ad Spend Explainer",
+    "tag": "Animated explainer",
+    "tools": ["Adobe After Effects", "Adobe Premiere Pro"],
+    "video": "/motion/edit-05.mp4",
+    "poster": "/motion/edit-05-poster.jpg",
+    "aspect": "9/16"
   }
 ]
